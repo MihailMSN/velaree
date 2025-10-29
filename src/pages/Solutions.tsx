@@ -4,6 +4,9 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Plane, DollarSign, Zap, CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
+import ClickToBookMockup from "@/components/mockups/ClickToBookMockup";
+import PrivateFareMockup from "@/components/mockups/PrivateFareMockup";
+import AutomationMockup from "@/components/mockups/AutomationMockup";
 
 const solutions = [
   {
@@ -75,6 +78,8 @@ const Solutions = () => {
           <div className="space-y-24">
             {solutions.map((solution, index) => {
               const Icon = solution.icon;
+              const MockupComponent = index === 0 ? ClickToBookMockup : index === 1 ? PrivateFareMockup : AutomationMockup;
+              
               return (
                 <div 
                   key={index}
@@ -92,24 +97,28 @@ const Solutions = () => {
                     <p className="text-xl text-muted-foreground mb-6">
                       {solution.description}
                     </p>
-                    <Card className="p-6 bg-accent/10 border-accent/20">
+                    <Card className="p-6 bg-accent/10 border-accent/20 mb-6">
                       <p className="text-foreground font-semibold">
                         {solution.benefits}
                       </p>
                     </Card>
+                    
+                    <Card className="p-6 bg-card border-border">
+                      <h3 className="text-xl font-bold text-foreground mb-4">Key Features</h3>
+                      <ul className="space-y-3">
+                        {solution.features.map((feature, idx) => (
+                          <li key={idx} className="flex items-start gap-3">
+                            <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                            <span className="text-foreground text-sm">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </Card>
                   </div>
 
-                  <Card className={`p-8 bg-card border-border animate-fade-in ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                    <h3 className="text-2xl font-bold text-foreground mb-6">Key Features</h3>
-                    <ul className="space-y-4">
-                      {solution.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-start gap-3">
-                          <CheckCircle2 className="w-6 h-6 text-accent flex-shrink-0 mt-0.5" />
-                          <span className="text-foreground">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </Card>
+                  <div className={`animate-fade-in ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
+                    <MockupComponent />
+                  </div>
                 </div>
               );
             })}

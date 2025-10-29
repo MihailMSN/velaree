@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Code2, Shield, Cpu, Rocket } from "lucide-react";
 import ApiFlowDiagram from "./ApiFlowDiagram";
+import AutomationMockup from "./mockups/AutomationMockup";
 
 const techFeatures = [
   {
@@ -41,6 +42,10 @@ const Technology = () => {
         </div>
 
         <ApiFlowDiagram />
+        
+        <div className="mt-16 max-w-6xl mx-auto">
+          <AutomationMockup />
+        </div>
         
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mt-16">
           {techFeatures.map((feature, index) => (
