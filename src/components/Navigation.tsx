@@ -17,7 +17,12 @@ const Navigation = () => {
   }, []);
 
   const navItems = [
-    { name: "Solutions", path: "/solutions" },
+    { name: "Products", path: "/solutions", submenu: [
+      { name: "Flights", path: "/solutions" },
+      { name: "Hotels", path: "/hotels" },
+      { name: "Cars", path: "/cars" },
+      { name: "Bundles", path: "/bundles" }
+    ]},
     { name: "Integrations", path: "/integrations" },
     { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" }

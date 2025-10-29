@@ -4,20 +4,31 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Check, Copy } from "lucide-react";
 
 const codeExamples = {
-  search: `// Search for flights
-const response = await velaree.flights.search({
-  origin: "LHR",
-  destination: "JFK",
-  date: "2025-12-01",
-  cabin: "business",
-  adults: 1
+  search: `// Multi-product search
+const response = await velaree.search({
+  flights: {
+    origin: "LAX",
+    destination: "JFK",
+    date: "2025-12-15"
+  },
+  hotels: {
+    city: "New York",
+    checkIn: "2025-12-15",
+    checkOut: "2025-12-18",
+    suppliers: ["tbo", "ratehawk", "hotelbeds"]
+  },
+  cars: {
+    location: "JFK Airport",
+    pickUp: "2025-12-15"
+  }
 });
 
-// Returns in < 500ms
+// Returns in < 800ms
 console.log(response.flights.length); // 247 options
-console.log(response.privateFares); // 89 exclusive fares`,
+console.log(response.hotels.length); // 2,147 properties
+console.log(response.cars.length); // 47 vehicles`,
   
-  book: `// Instant booking
+  book: `// Multi-product booking
 const booking = await velaree.bookings.create({
   flightId: "VL_8472KD",
   passenger: {
