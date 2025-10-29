@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+import velareeLogoImg from "@/assets/velaree-logo.png";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -33,8 +34,12 @@ const Navigation = () => {
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <Link to="/" className="text-2xl font-bold text-foreground hover:opacity-80 transition-opacity">
-            Velaree
+          <Link to="/" className="flex items-center hover:opacity-80 transition-opacity">
+            <img 
+              src={velareeLogoImg} 
+              alt="Velaree - Travel Technology Platform" 
+              className="h-8 md:h-10 w-auto"
+            />
           </Link>
           
           <div className="hidden md:flex items-center gap-8">
