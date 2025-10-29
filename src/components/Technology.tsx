@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Code2, Shield, Cpu, Rocket } from "lucide-react";
+import ApiFlowDiagram from "./ApiFlowDiagram";
 
 const techFeatures = [
   {
@@ -38,8 +39,10 @@ const Technology = () => {
             Enterprise-grade technology stack powering next-generation travel infrastructure
           </p>
         </div>
+
+        <ApiFlowDiagram />
         
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mt-16">
           {techFeatures.map((feature, index) => (
             <Card 
               key={index} 

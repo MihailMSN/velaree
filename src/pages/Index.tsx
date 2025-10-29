@@ -4,6 +4,7 @@ import Mission from "@/components/Mission";
 import Solutions from "@/components/Solutions";
 import Integrations from "@/components/Integrations";
 import Technology from "@/components/Technology";
+import TestimonialCarousel from "@/components/TestimonialCarousel";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 
@@ -16,6 +17,7 @@ const Index = () => {
       <Solutions />
       <Integrations />
       <Technology />
+      <TestimonialCarousel />
       <CTA />
       <Footer />
     </div>

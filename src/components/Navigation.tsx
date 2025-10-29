@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,7 +16,12 @@ const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navItems = ["Solutions", "Technology", "Integrations", "About"];
+  const navItems = [
+    { name: "Solutions", path: "/solutions" },
+    { name: "Integrations", path: "/integrations" },
+    { name: "About", path: "/about" },
+    { name: "Contact", path: "/contact" }
+  ];
 
   return (
     <nav 
@@ -26,28 +33,34 @@ const Navigation = () => {
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <div className="text-2xl font-bold text-foreground">
+          <Link to="/" className="text-2xl font-bold text-foreground hover:opacity-80 transition-opacity">
             Velaree
-          </div>
+          </Link>
           
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
-              <a 
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="text-foreground/70 hover:text-foreground transition-colors duration-200"
+              <Link 
+                key={item.name}
+                to={item.path}
+                className={`transition-colors duration-200 ${
+                  location.pathname === item.path
+                    ? "text-foreground font-semibold"
+                    : "text-foreground/70 hover:text-foreground"
+                }`}
               >
-                {item}
-              </a>
+                {item.name}
+              </Link>
             ))}
           </div>
           
           <div className="hidden md:block">
-            <Button 
-              className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-6"
-            >
-              Book Demo
-            </Button>
+            <Link to="/contact">
+              <Button 
+                className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-6"
+              >
+                Book Demo
+              </Button>
+            </Link>
           </div>
 
           <button 
@@ -62,18 +75,24 @@ const Navigation = () => {
           <div className="md:hidden mt-4 pb-4 animate-fade-in">
             <div className="flex flex-col gap-4">
               {navItems.map((item) => (
-                <a 
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
-                  className="text-foreground/70 hover:text-foreground transition-colors duration-200 py-2"
+                <Link 
+                  key={item.name}
+                  to={item.path}
+                  className={`transition-colors duration-200 py-2 ${
+                    location.pathname === item.path
+                      ? "text-foreground font-semibold"
+                      : "text-foreground/70 hover:text-foreground"
+                  }`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  {item}
-                </a>
+                  {item.name}
+                </Link>
               ))}
-              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full w-full mt-2">
-                Book Demo
-              </Button>
+              <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+                <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full w-full mt-2">
+                  Book Demo
+                </Button>
+              </Link>
             </div>
           </div>
         )}

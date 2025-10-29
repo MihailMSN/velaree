@@ -1,23 +1,23 @@
 import { Card } from "@/components/ui/card";
-import { MousePointer, Zap, Bot } from "lucide-react";
+import { Plane, DollarSign, Zap } from "lucide-react";
 
 const solutions = [
   {
-    icon: MousePointer,
+    icon: Plane,
     title: "Click-to-Book Platform",
-    description: "Instant booking solutions for OTAs and travel agencies. Streamline reservations with our intuitive interface and real-time availability.",
+    description: "Instant booking for OTAs and TMCs with real-time availability and pricing",
     features: ["Real-time inventory", "Multi-GDS support", "Seamless checkout"]
   },
   {
-    icon: Zap,
+    icon: DollarSign,
     title: "Private Fare API",
-    description: "Direct integration with airlines and consolidators. Access exclusive fares and negotiate contracts programmatically.",
+    description: "Connect with global consolidators and airlines for exclusive rates",
     features: ["Direct airline connect", "Dynamic pricing", "Global coverage"]
   },
   {
-    icon: Bot,
-    title: "Automation Layer",
-    description: "Smart pricing, ticketing, and management tools powered by AI. Reduce manual work and increase operational efficiency.",
+    icon: Zap,
+    title: "Automation Suite",
+    description: "Manage ticketing, pricing, and servicing effortlessly with AI automation",
     features: ["AI-powered pricing", "Auto-ticketing", "Smart routing"]
   }
 ];
@@ -36,15 +36,17 @@ const Solutions = () => {
         </div>
         
         <div className="grid md:grid-cols-3 gap-8">
-          {solutions.map((solution, index) => (
-            <Card 
-              key={index} 
-              className="p-8 bg-card border-border hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer group animate-fade-in-up"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <div className="mb-6 w-16 h-16 rounded-2xl bg-accent flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <solution.icon className="w-8 h-8 text-accent-foreground" />
-              </div>
+          {solutions.map((solution, index) => {
+            const Icon = solution.icon;
+            return (
+              <Card 
+                key={index} 
+                className="p-8 bg-card border-border hover:shadow-2xl hover:shadow-accent/10 transition-all duration-300 hover:-translate-y-2 cursor-pointer group animate-fade-in-up"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="mb-6 w-16 h-16 rounded-2xl bg-gradient-to-br from-accent to-accent/50 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Icon className="w-8 h-8 text-primary" strokeWidth={1.5} />
+                </div>
               
               <h3 className="text-2xl font-bold text-foreground mb-4">
                 {solution.title}
@@ -62,8 +64,9 @@ const Solutions = () => {
                   </li>
                 ))}
               </ul>
-            </Card>
-          ))}
+              </Card>
+            );
+          })}
         </div>
       </div>
     </section>
