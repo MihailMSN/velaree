@@ -3,14 +3,16 @@ import { ArrowRight, MessageCircle } from "lucide-react";
 import NetworkBackground from "./NetworkBackground";
 import ScrollIndicator from "./ScrollIndicator";
 import TrustBar from "./TrustBar";
+import VeilOpening from "./VeilOpening";
 
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-primary">
+      <VeilOpening />
       <NetworkBackground />
       
       <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-4xl mx-auto text-center animate-fade-in-up">
+        <div className="max-w-4xl mx-auto text-center animate-content-reveal opacity-0">
           <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-primary-foreground mb-6 leading-tight">
             The Travel API That Delivers
           </h1>
