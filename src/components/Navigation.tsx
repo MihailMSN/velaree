@@ -30,11 +30,8 @@ const Navigation = () => {
   return <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-background/95 backdrop-blur-md shadow-md" : "bg-background/80 backdrop-blur-sm"}`}>
       <div className="container mx-auto px-[24px] py-px">
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-            <img src={velareeLogoImg} alt="Velaree Logo" className="h-14 md:h-20 w-auto" />
-            <span className="text-2xl md:text-3xl font-bold text-foreground">
-              Velaree
-            </span>
+          <Link to="/" className="flex items-center hover:opacity-80 transition-opacity">
+            <img src={velareeLogoImg} alt="Velaree Logo" className="h-12 md:h-16 w-auto" />
           </Link>
           
           <div className="hidden md:flex items-center gap-8">
