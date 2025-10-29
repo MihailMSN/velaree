@@ -39,7 +39,7 @@ const ApiFlowDiagram = () => {
         <ArrowRight className="w-8 h-8 text-accent/50 rotate-180 hidden md:block" />
 
         {/* Response */}
-        <div className="flex flex-col items-center animate-fade-in md:hidden" style={{ animationDelay: "0.6s" }}>
+        <div className="flex flex-col items-center animate-fade-in" style={{ animationDelay: "0.6s" }}>
           <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center border-2 border-dashed border-accent">
             <span className="text-foreground font-bold text-sm text-center px-2">Real-time Data</span>
           </div>
