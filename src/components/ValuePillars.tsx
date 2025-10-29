@@ -3,18 +3,21 @@ import { Bot, TrendingUp, Network } from "lucide-react";
 const pillars = [
   {
     icon: Bot,
-    title: "Automation",
-    description: "Reduce manual work by 70%"
+    title: "Automate 70% of Tasks",
+    description: "Intelligent automation handles ticketing, schedule changes, cancellations, and customer notifications automatically",
+    metric: "20hrs saved/week"
   },
   {
     icon: TrendingUp,
-    title: "Scalability",
-    description: "Built to handle millions of bookings"
+    title: "Process 1M+ Bookings/Month",
+    description: "Enterprise-grade infrastructure that scales from day one with zero downtime and multi-region redundancy",
+    metric: "99.9% uptime SLA"
   },
   {
     icon: Network,
-    title: "Connectivity",
-    description: "50+ global integrations"
+    title: "Search 10x More Inventory",
+    description: "Unified API connecting 200+ airlines, all major GDS systems, and exclusive private fare sources in one call",
+    metric: "<500ms response"
   }
 ];
 
@@ -32,8 +35,11 @@ const ValuePillars = () => {
             <div className="w-16 h-16 rounded-full bg-gradient-to-br from-accent to-accent/50 flex items-center justify-center">
               <Icon className="w-8 h-8 text-primary" strokeWidth={1.5} />
             </div>
-            <h3 className="text-xl font-bold text-foreground">{pillar.title}</h3>
-            <p className="text-muted-foreground">{pillar.description}</p>
+            <h3 className="text-xl font-bold text-foreground mb-2">{pillar.title}</h3>
+            <p className="text-muted-foreground mb-4 leading-relaxed">{pillar.description}</p>
+            <div className="inline-flex items-center px-3 py-1.5 rounded-full bg-accent/30 border border-accent/50">
+              <span className="text-sm font-semibold text-foreground">{pillar.metric}</span>
+            </div>
           </div>
         );
       })}

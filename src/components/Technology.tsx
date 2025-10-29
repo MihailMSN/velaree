@@ -6,23 +6,27 @@ import AutomationMockup from "./mockups/AutomationMockup";
 const techFeatures = [
   {
     icon: Code2,
-    title: "API-First Architecture",
-    description: "RESTful and GraphQL APIs designed for modern integration. Built for developers, by developers."
+    title: "RESTful JSON API",
+    description: "Clean, intuitive API that developers love. Get started in 10 minutes with SDKs for Node, Python, and PHP.",
+    metric: "10-min integration"
   },
   {
     icon: Cpu,
-    title: "AI-Powered Optimization",
-    description: "Machine learning algorithms for dynamic pricing, demand forecasting, and intelligent routing."
+    title: "Sub-500ms Response Time",
+    description: "Lightning-fast search across 200+ airlines with intelligent caching and optimized routing algorithms.",
+    metric: "<500ms avg"
   },
   {
     icon: Shield,
-    title: "Enterprise Security",
-    description: "SOC 2 Type II compliant with end-to-end encryption, PCI DSS certified for payment processing."
+    title: "SOC 2 & PCI DSS Certified",
+    description: "Enterprise-grade security with end-to-end encryption, OAuth 2.0 authentication, and TLS 1.3.",
+    metric: "Bank-level security"
   },
   {
     icon: Rocket,
-    title: "Scalable Infrastructure",
-    description: "Cloud-native microservices architecture handling millions of transactions per day with 99.99% uptime."
+    title: "99.9% Uptime SLA",
+    description: "Multi-region redundancy with automatic failover. Built to handle 10,000 requests per second.",
+    metric: "24/7 monitoring"
   }
 ];
 
@@ -59,10 +63,15 @@ const Technology = () => {
                   <feature.icon className="w-7 h-7 text-primary-foreground" />
                 </div>
                 
-                <div>
-                  <h3 className="text-2xl font-bold text-foreground mb-3">
-                    {feature.title}
-                  </h3>
+                <div className="flex-1">
+                  <div className="flex items-start justify-between mb-3">
+                    <h3 className="text-2xl font-bold text-foreground">
+                      {feature.title}
+                    </h3>
+                    <div className="inline-flex items-center px-3 py-1 rounded-full bg-accent/20 border border-accent/40 text-xs font-semibold text-foreground whitespace-nowrap ml-4">
+                      {feature.metric}
+                    </div>
+                  </div>
                   <p className="text-muted-foreground leading-relaxed">
                     {feature.description}
                   </p>

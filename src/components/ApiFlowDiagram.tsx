@@ -48,10 +48,22 @@ const ApiFlowDiagram = () => {
       </div>
 
       <div className="text-center mt-8 animate-fade-in" style={{ animationDelay: "0.8s" }}>
-        <p className="text-muted-foreground text-sm max-w-2xl mx-auto">
-          Our modular API architecture connects your platform to 50+ global sources in milliseconds, 
-          delivering real-time availability, pricing, and booking confirmation.
+        <p className="text-muted-foreground text-sm max-w-2xl mx-auto mb-6">
+          Our modular API architecture connects your platform to 200+ airlines across all major GDS in milliseconds, 
+          delivering real-time availability, pricing, and instant booking confirmation.
         </p>
+        
+        <div className="flex flex-wrap justify-center gap-4 text-sm">
+          <div className="px-4 py-2 rounded-full bg-accent/20 border border-accent/40 text-foreground font-medium">
+            Sub-500ms Response
+          </div>
+          <div className="px-4 py-2 rounded-full bg-accent/20 border border-accent/40 text-foreground font-medium">
+            RESTful JSON API
+          </div>
+          <div className="px-4 py-2 rounded-full bg-accent/20 border border-accent/40 text-foreground font-medium">
+            Real-time Webhooks
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -5,25 +5,28 @@ import { Button } from "@/components/ui/button";
 
 const testimonials = [
   {
-    quote: "Velaree transformed our booking operations. The automation suite reduced our processing time dramatically while improving accuracy.",
-    metric: "Reduced booking time by 60%",
+    quote: "Velaree transformed our booking operations. The automation suite reduced our processing time dramatically while improving accuracy. We process 15,000 bookings monthly with 84% fewer errors.",
+    metric: "84% Reduction in Booking Errors",
     name: "Sarah Chen",
-    role: "CTO",
-    company: "GlobalTours Ltd"
+    role: "Head of Technology",
+    company: "Leading European OTA",
+    companyType: "Online Travel Agency"
   },
   {
-    quote: "The private fare API gave us access to consolidator rates we never had before. Our margins improved significantly within the first quarter.",
-    metric: "Increased conversions by 45%",
+    quote: "Access to private consolidator fares through Velaree gave us a competitive advantage we never had. Our premium cabin bookings tripled and margins improved by $2.4M annually.",
+    metric: "3x Growth in Premium Bookings",
     name: "Michael Rodriguez",
-    role: "Head of Operations",
-    company: "TravelWise Group"
+    role: "Managing Director",
+    company: "Corporate TMC Network",
+    companyType: "Travel Management Company"
   },
   {
-    quote: "Scaling from 10K to over 100K bookings per month was seamless with Velaree. Their infrastructure handled our growth effortlessly.",
-    metric: "Processing 100K+ bookings/month",
+    quote: "Scaling from 10K to over 100K bookings per month was seamless. The sub-500ms API response time and 99.9% uptime means we never lose a customer to slow searches.",
+    metric: "100K+ Bookings Per Month",
     name: "Priya Patel",
-    role: "CEO",
-    company: "JetSet Travels"
+    role: "CEO & Founder",
+    company: "Asia-Pacific Consolidator",
+    companyType: "Flight Consolidation"
   }
 ];
 
@@ -66,7 +69,13 @@ const TestimonialCarousel = () => {
                   {testimonials[currentIndex].name}
                 </div>
                 <div className="text-muted-foreground">
-                  {testimonials[currentIndex].role} at {testimonials[currentIndex].company}
+                  {testimonials[currentIndex].role}
+                </div>
+                <div className="text-sm text-muted-foreground/80">
+                  {testimonials[currentIndex].company}
+                </div>
+                <div className="inline-flex items-center px-3 py-1 rounded-full bg-accent/20 border border-accent/40 text-xs font-medium text-foreground mt-2">
+                  {testimonials[currentIndex].companyType}
                 </div>
               </div>
             </div>
