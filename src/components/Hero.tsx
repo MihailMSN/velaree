@@ -1,25 +1,23 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, MessageCircle } from "lucide-react";
-import NetworkBackground from "./NetworkBackground";
 import ScrollIndicator from "./ScrollIndicator";
 import TrustBar from "./TrustBar";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-primary">
-      <NetworkBackground />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center animate-fade-in-up">
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-primary-foreground mb-6 leading-tight">
+          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-primary mb-6 leading-tight">
             The Travel API That Delivers
           </h1>
           
-          <p className="text-xl md:text-2xl text-primary-foreground/80 mb-8 max-w-3xl mx-auto font-light">
+          <p className="text-xl md:text-2xl text-primary/80 mb-8 max-w-3xl mx-auto font-light">
             200+ airlines. Sub-500ms response. 99.9% uptime. Process millions of bookings with private fares, intelligent automation, and enterprise-grade infrastructure.
           </p>
 
-          <p className="text-lg md:text-xl text-primary-foreground/70 mb-12 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-primary/70 mb-12 max-w-2xl mx-auto">
             Trusted by leading OTAs, TMCs, and travel platforms worldwide
           </p>
           
@@ -35,14 +33,14 @@ const Hero = () => {
             <Button 
               size="lg" 
               variant="outline" 
-              className="bg-transparent border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary text-lg px-8 py-6 rounded-full transition-all duration-300 group"
+              className="bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground text-lg px-8 py-6 rounded-full transition-all duration-300 group"
             >
               <MessageCircle className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
               Schedule Demo
             </Button>
           </div>
 
-          <div className="mt-8 flex flex-wrap justify-center gap-4 text-sm text-primary-foreground/60">
+          <div className="mt-8 flex flex-wrap justify-center gap-4 text-sm text-primary/60">
             <span>✓ No credit card required</span>
             <span>✓ 10-minute setup</span>
             <span>✓ Full API access</span>
@@ -51,7 +49,7 @@ const Hero = () => {
       </div>
 
       <ScrollIndicator />
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent"></div>
       
       <TrustBar />
     </section>
