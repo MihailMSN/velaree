@@ -38,7 +38,7 @@ const Navigation = () => {
             <img 
               src={velareeLogoImg} 
               alt="Velaree - Travel Technology Platform" 
-              className="h-8 md:h-10 w-auto"
+              className="h-14 md:h-20 w-auto"
             />
           </Link>
           
