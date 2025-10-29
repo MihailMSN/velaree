@@ -3,16 +3,16 @@ const TrustBar = () => {
     value: "$250M+",
     label: "Annual Bookings Processed"
   }, {
-    value: "200+",
-    label: "Airlines Connected"
+    value: "150+",
+    label: "Travel Companies Powered"
   }, {
-    value: "2.9M+",
-    label: "Hotels Worldwide"
+    value: "99.9%",
+    label: "API Uptime SLA"
   }, {
-    value: "10K+",
-    label: "Car Rental Locations"
+    value: "<500ms",
+    label: "Average Response Time"
   }];
-  const partners = ["Amadeus", "TBO", "RateHawk", "HotelBeds", "Hertz"];
+  const partners = ["Amadeus", "Sabre", "Travelport", "IATA", "Google Flights"];
   return <div className="border-t border-border/50 bg-secondary/30 backdrop-blur-sm">
       
     </div>;

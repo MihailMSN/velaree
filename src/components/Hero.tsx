@@ -12,15 +12,15 @@ const Hero = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center animate-fade-in-up">
           <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-primary-foreground mb-6 leading-tight">
-            The Complete Travel API Platform
+            The Travel API That Delivers
           </h1>
           
           <p className="text-xl md:text-2xl text-primary-foreground/80 mb-8 max-w-3xl mx-auto font-light">
-            Flights, Hotels & Cars. One API. Instant Booking.
+            200+ airlines. Sub-500ms response. 99.9% uptime. Process millions of bookings with private fares, intelligent automation, and enterprise-grade infrastructure.
           </p>
 
           <p className="text-lg md:text-xl text-primary-foreground/70 mb-12 max-w-2xl mx-auto">
-            200+ airlines | 2.9M+ hotels | 10K+ car locations — All integrated in 10 minutes
+            Trusted by leading OTAs, TMCs, and travel platforms worldwide
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

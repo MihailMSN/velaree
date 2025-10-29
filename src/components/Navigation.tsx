@@ -17,12 +17,7 @@ const Navigation = () => {
   }, []);
 
   const navItems = [
-    { name: "Products", path: "/solutions", submenu: [
-      { name: "Flights", path: "/solutions" },
-      { name: "Hotels", path: "/hotels" },
-      { name: "Cars", path: "/cars" },
-      { name: "Bundles", path: "/bundles" }
-    ]},
+    { name: "Solutions", path: "/solutions" },
     { name: "Integrations", path: "/integrations" },
     { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" }

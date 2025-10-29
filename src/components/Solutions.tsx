@@ -1,77 +1,41 @@
 import { Card } from "@/components/ui/card";
-import { Plane, DollarSign, Zap, Hotel, Car, Package } from "lucide-react";
+import { Plane, DollarSign, Zap } from "lucide-react";
 
 const solutions = [
   {
     icon: Plane,
-    title: "Flight Aggregation",
-    subtitle: "200+ Airlines",
-    description: "GDS + Direct Connect + Private Consolidator Fares",
-    features: [
-      "Real-time availability across 200+ airlines in one search",
-      "Private consolidator fares (20-30% savings)",
-      "Sub-500ms response times globally",
-      "Automatic ticketing & PNR management"
-    ]
-  },
-  {
-    icon: Zap,
-    title: "Smart Flight Booking",
-    subtitle: "60-sec booking",
+    title: "Book in 60 Seconds",
+    subtitle: "vs. 15-min industry average",
     description: "Complete end-to-end booking flow from search to confirmation",
     features: [
-      "One-click booking with instant confirmation",
-      "Dynamic pricing with full fare rules",
-      "Mobile-optimized checkout experience",
-      "Multi-payment gateway integration"
-    ]
-  },
-  {
-    icon: Hotel,
-    title: "Global Hotel Inventory",
-    subtitle: "2.9M+ Properties",
-    description: "TBO, RateHawk, HotelBeds & 330+ suppliers aggregated",
-    features: [
-      "Best rate guarantee across all suppliers",
-      "98% instant booking confirmation",
-      "Multi-currency & global coverage",
-      "Rich content with images & reviews"
+      "Real-time availability across 200+ airlines in one search",
+      "One-click booking with automatic instant ticketing",
+      "Dynamic pricing with full fare rules transparency",
+      "Mobile-optimized checkout with saved payment methods"
     ]
   },
   {
     icon: DollarSign,
-    title: "Best Rate Guarantee",
-    subtitle: "Save 20-35%",
-    description: "Automatic comparison across 330+ hotel suppliers",
+    title: "Save 20-30% on Fares",
+    subtitle: "With exclusive private contracts",
+    description: "Access consolidator inventory not available on public channels",
     features: [
-      "Real-time rate comparison engine",
-      "Private consolidator hotel rates",
-      "Dynamic markup configuration",
-      "Bundle discounts & promotions"
+      "89+ private airline consolidator contracts globally",
+      "Corporate negotiated rates with major carriers",
+      "Bulk fare inventory with real-time availability",
+      "Transparent commission tracking and reporting"
     ]
   },
   {
-    icon: Car,
-    title: "Car Rental Network",
-    subtitle: "10K+ Locations",
-    description: "Hertz, Avis, Enterprise, Budget & 20+ brands",
+    icon: Zap,
+    title: "Automate 70% of Operations",
+    subtitle: "Save 20+ hours per week",
+    description: "Intelligent automation eliminates repetitive manual tasks",
     features: [
-      "Direct connect + aggregator access",
-      "Real-time availability & pricing",
-      "Flexible cancellation policies",
-      "Airport & city center locations"
-    ]
-  },
-  {
-    icon: Package,
-    title: "Unified Automation",
-    subtitle: "70% Less Work",
-    description: "Intelligent automation for all travel products",
-    features: [
-      "Cross-product booking management",
-      "Automated schedule change handling",
-      "Multi-product cancellation processing",
-      "Unified customer notification system"
+      "Automatic ticketing within 2 minutes of booking",
+      "AI-powered schedule change detection and rebooking",
+      "One-click cancellation processing with refund automation",
+      "Multi-channel customer notifications (email, SMS, push)"
     ]
   }
 ];
@@ -82,14 +46,14 @@ const Solutions = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
-            Complete Travel Product Suite
+            Enterprise Solutions
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Flights, hotels, cars — all through one unified API platform
+            Comprehensive tools designed for scale, reliability, and innovation
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8">
           {solutions.map((solution, index) => {
             const Icon = solution.icon;
             return (

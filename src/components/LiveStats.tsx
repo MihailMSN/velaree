@@ -2,12 +2,9 @@ import { useEffect, useState } from "react";
 import { Activity, Globe, Zap } from "lucide-react";
 
 const LiveStats = () => {
-  const [bookings, setBookings] = useState(47239);
-  const [searches, setSearches] = useState(284156);
-  const [responseTime, setResponseTime] = useState(612);
-  const [flightBookings, setFlightBookings] = useState(28234);
-  const [hotelBookings, setHotelBookings] = useState(16089);
-  const [carBookings, setCarBookings] = useState(2916);
+  const [bookings, setBookings] = useState(8547);
+  const [searches, setSearches] = useState(142305);
+  const [responseTime, setResponseTime] = useState(342);
 
   useEffect(() => {
     // Simulate real-time updates
@@ -37,9 +34,9 @@ const LiveStats = () => {
   const stats = [
     {
       icon: Activity,
-      label: "Total Bookings Today",
+      label: "Bookings Today",
       value: bookings.toLocaleString(),
-      suffix: `(Flights: ${(flightBookings / 1000).toFixed(0)}K | Hotels: ${(hotelBookings / 1000).toFixed(0)}K | Cars: ${(carBookings / 1000).toFixed(1)}K)`,
+      suffix: "",
       color: "from-accent to-accent/70"
     },
     {

@@ -3,7 +3,6 @@ import Hero from "@/components/Hero";
 import HowItWorks from "@/components/HowItWorks";
 import Mission from "@/components/Mission";
 import Solutions from "@/components/Solutions";
-import ProductSelector from "@/components/ProductSelector";
 import Integrations from "@/components/Integrations";
 import ApiPreview from "@/components/ApiPreview";
 import Technology from "@/components/Technology";
@@ -22,7 +21,6 @@ const Index = () => {
       <HowItWorks />
       <Mission />
       <Solutions />
-      <ProductSelector />
       <Integrations />
       <ApiPreview />
       <Technology />
