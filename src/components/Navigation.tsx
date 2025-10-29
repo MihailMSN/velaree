@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import velareeLogoImg from "@/assets/velaree-logo.png";
+import { ThemeToggle } from "@/components/ThemeToggle";
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -40,7 +41,8 @@ const Navigation = () => {
               </Link>)}
           </div>
           
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center gap-3">
+            <ThemeToggle />
             <Link to="/contact">
               <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-6">
                 Book Demo
@@ -63,6 +65,10 @@ const Navigation = () => {
                   Book Demo
                 </Button>
               </Link>
+              <div className="flex items-center justify-between pt-4 mt-2 border-t border-border">
+                <span className="text-sm text-foreground/70">Theme</span>
+                <ThemeToggle />
+              </div>
             </div>
           </div>}
       </div>
