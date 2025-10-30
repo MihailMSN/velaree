@@ -2,10 +2,48 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import ScrollIndicator from "./ScrollIndicator";
 import TrustBar from "./TrustBar";
+import MockupPhone from "./mockups/MockupPhone";
+import FlightSearchScreen from "./mockups/screens/FlightSearchScreen";
+import FlightResultsScreen from "./mockups/screens/FlightResultsScreen";
+import BookingConfirmScreen from "./mockups/screens/BookingConfirmScreen";
+import DashboardScreen from "./mockups/screens/DashboardScreen";
 
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
+      
+      {/* Background Phone Mockups */}
+      <div className="hidden lg:block absolute left-[-5%] top-[15%] opacity-20 blur-[2px] animate-float" aria-hidden="true">
+        <div className="transform rotate-[-15deg]">
+          <MockupPhone>
+            <FlightSearchScreen />
+          </MockupPhone>
+        </div>
+      </div>
+      
+      <div className="hidden lg:block absolute right-[-5%] top-[25%] opacity-20 blur-[2px] animate-float" style={{ animationDelay: '2s' }} aria-hidden="true">
+        <div className="transform rotate-[15deg]">
+          <MockupPhone>
+            <FlightResultsScreen />
+          </MockupPhone>
+        </div>
+      </div>
+      
+      <div className="hidden xl:block absolute left-[5%] bottom-[10%] opacity-15 blur-sm animate-float" style={{ animationDelay: '4s' }} aria-hidden="true">
+        <div className="transform rotate-[-8deg] scale-90">
+          <MockupPhone>
+            <BookingConfirmScreen />
+          </MockupPhone>
+        </div>
+      </div>
+      
+      <div className="hidden xl:block absolute right-[8%] bottom-[15%] opacity-10 blur-sm animate-float" style={{ animationDelay: '1s' }} aria-hidden="true">
+        <div className="transform rotate-[12deg] scale-75">
+          <MockupPhone>
+            <DashboardScreen />
+          </MockupPhone>
+        </div>
+      </div>
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center animate-fade-in-up">
