@@ -7,7 +7,7 @@ interface MockupPhoneProps {
 
 const MockupPhone = ({ children, className = "" }: MockupPhoneProps) => {
   return (
-    <div className={`relative ${className}`} style={{ width: '280px', height: '560px' }}>
+    <div className={`relative ${className}`} style={{ width: '320px', height: '640px' }}>
       {/* Phone Frame */}
       <div className="absolute inset-0 bg-gradient-to-b from-gray-800 to-gray-900 rounded-[3rem] shadow-2xl">
         {/* Screen */}
