@@ -2,11 +2,12 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Plane, DollarSign, Zap, CheckCircle2 } from "lucide-react";
+import { Plane, DollarSign, Zap, RefreshCw, CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import ClickToBookMockup from "@/components/mockups/ClickToBookMockup";
 import PrivateFareMockup from "@/components/mockups/PrivateFareMockup";
 import AutomationMockup from "@/components/mockups/AutomationMockup";
+import ReShoppingMockup from "@/components/mockups/ReShoppingMockup";
 
 const solutions = [
   {
@@ -50,6 +51,20 @@ const solutions = [
       "Customer notification system"
     ],
     benefits: "Reduce manual operations by 70% and eliminate human errors in routine tasks"
+  },
+  {
+    icon: RefreshCw,
+    title: "Re-Shopping Engine",
+    description: "Maximize post-sale revenue with continuous fare monitoring and automated re-booking",
+    features: [
+      "Real-time PNR monitoring across all bookings",
+      "Automated price drop detection every 60 seconds",
+      "Cross-content availability comparison",
+      "Private fare re-shopping with live consolidator rates",
+      "One-click re-booking with automatic ticketing",
+      "Revenue recovery alerts and reporting"
+    ],
+    benefits: "Capture 15-20% additional revenue post-sale by identifying and acting on price drops and availability changes"
   }
 ];
 
@@ -78,7 +93,7 @@ const Solutions = () => {
           <div className="space-y-24">
             {solutions.map((solution, index) => {
               const Icon = solution.icon;
-              const MockupComponent = index === 0 ? ClickToBookMockup : index === 1 ? PrivateFareMockup : AutomationMockup;
+              const MockupComponent = index === 0 ? ClickToBookMockup : index === 1 ? PrivateFareMockup : index === 2 ? AutomationMockup : ReShoppingMockup;
               
               return (
                 <div 
