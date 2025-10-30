@@ -14,63 +14,63 @@ const AutomationMockup = () => {
       <div className="p-8 space-y-6">
         {/* Metrics Dashboard */}
         <div className="grid grid-cols-4 gap-4">
-          <div className="bg-card rounded-lg shadow p-4 border border-border">
+          <div className="bg-white rounded-lg shadow p-4 border border-gray-200">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-xs font-semibold text-muted-foreground uppercase">Tasks Today</span>
+              <span className="text-xs font-semibold text-gray-600 uppercase">Tasks Today</span>
               <Zap className="w-5 h-5 text-primary" />
             </div>
-            <div className="text-2xl font-bold text-foreground">1,247</div>
+            <div className="text-2xl font-bold text-gray-900">1,247</div>
             <div className="text-xs text-green-600 mt-1">↑ 23% automated</div>
           </div>
 
-          <div className="bg-card rounded-lg shadow p-4 border border-border">
+          <div className="bg-white rounded-lg shadow p-4 border border-gray-200">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-xs font-semibold text-muted-foreground uppercase">Completed</span>
+              <span className="text-xs font-semibold text-gray-600 uppercase">Completed</span>
               <CheckCircle2 className="w-5 h-5 text-green-600" />
             </div>
-            <div className="text-2xl font-bold text-foreground">1,089</div>
-            <div className="text-xs text-muted-foreground mt-1">87.3% success rate</div>
+            <div className="text-2xl font-bold text-gray-900">1,089</div>
+            <div className="text-xs text-gray-500 mt-1">87.3% success rate</div>
           </div>
 
-          <div className="bg-card rounded-lg shadow p-4 border border-border">
+          <div className="bg-white rounded-lg shadow p-4 border border-gray-200">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-xs font-semibold text-muted-foreground uppercase">Processing</span>
+              <span className="text-xs font-semibold text-gray-600 uppercase">Processing</span>
               <Clock className="w-5 h-5 text-blue-600" />
             </div>
-            <div className="text-2xl font-bold text-foreground">142</div>
+            <div className="text-2xl font-bold text-gray-900">142</div>
             <div className="text-xs text-blue-600 mt-1 flex items-center gap-1">
               <span className="animate-pulse">●</span> Live
             </div>
           </div>
 
-          <div className="bg-card rounded-lg shadow p-4 border border-border">
+          <div className="bg-white rounded-lg shadow p-4 border border-gray-200">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-xs font-semibold text-muted-foreground uppercase">Avg Time</span>
+              <span className="text-xs font-semibold text-gray-600 uppercase">Avg Time</span>
               <Clock className="w-5 h-5 text-primary" />
             </div>
-            <div className="text-2xl font-bold text-foreground">2.3s</div>
+            <div className="text-2xl font-bold text-gray-900">2.3s</div>
             <div className="text-xs text-green-600 mt-1">↓ 70% faster</div>
           </div>
         </div>
 
         {/* Task Queue */}
-        <div className="bg-card rounded-lg shadow border border-border overflow-hidden">
-          <div className="px-6 py-4 border-b border-border bg-muted flex items-center justify-between">
+        <div className="bg-white rounded-lg shadow border border-gray-200 overflow-hidden">
+          <div className="px-6 py-4 border-b border-gray-200 bg-gray-50 flex items-center justify-between">
             <div>
-              <h3 className="font-bold text-foreground">Automation Queue</h3>
-              <p className="text-xs text-muted-foreground mt-1">Real-time task processing</p>
+              <h3 className="font-bold text-gray-900">Automation Queue</h3>
+              <p className="text-xs text-gray-500 mt-1">Real-time task processing</p>
             </div>
             <div className="flex items-center gap-2 text-xs">
-              <span className="text-muted-foreground">Auto-refresh:</span>
+              <span className="text-gray-500">Auto-refresh:</span>
               <span className="text-green-600 font-semibold flex items-center gap-1">
                 <span className="animate-pulse">●</span> ON
               </span>
             </div>
           </div>
 
-          <div className="divide-y divide-border">
+          <div className="divide-y divide-gray-200">
             {tasks.map((task, idx) => (
-              <div key={idx} className="px-6 py-4 hover:bg-muted/50 transition-colors animate-fade-in" style={{ animationDelay: `${idx * 0.05}s` }}>
+              <div key={idx} className="px-6 py-4 hover:bg-gray-50 transition-colors animate-fade-in" style={{ animationDelay: `${idx * 0.05}s` }}>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-4">
                     <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${
@@ -84,11 +84,11 @@ const AutomationMockup = () => {
                     </div>
                     <div>
                       <div className="flex items-center gap-2">
-                        <span className="font-semibold text-foreground">{task.id}</span>
-                        <span className="text-xs text-muted-foreground">•</span>
-                        <span className="text-sm text-muted-foreground">{task.type}</span>
+                        <span className="font-semibold text-gray-900">{task.id}</span>
+                        <span className="text-xs text-gray-400">•</span>
+                        <span className="text-sm text-gray-600">{task.type}</span>
                       </div>
-                      <div className="text-xs text-muted-foreground mt-1">PNR: {task.pnr}</div>
+                      <div className="text-xs text-gray-500 mt-1">PNR: {task.pnr}</div>
                     </div>
                   </div>
                   
@@ -100,7 +100,7 @@ const AutomationMockup = () => {
                     }`}>
                       {task.status}
                     </div>
-                    <div className="text-xs text-muted-foreground mt-1">{task.time}</div>
+                    <div className="text-xs text-gray-400 mt-1">{task.time}</div>
                   </div>
                 </div>
               </div>
@@ -109,15 +109,15 @@ const AutomationMockup = () => {
         </div>
 
         {/* Performance Chart Preview */}
-        <div className="bg-card rounded-lg shadow p-6 border border-border">
-          <h4 className="font-bold text-foreground mb-4">Today's Performance</h4>
+        <div className="bg-white rounded-lg shadow p-6 border border-gray-200">
+          <h4 className="font-bold text-gray-900 mb-4">Today's Performance</h4>
           <div className="flex items-end justify-between h-32 gap-2">
             {[65, 78, 85, 92, 88, 95, 87, 90, 94, 89, 91, 88].map((height, idx) => (
               <div key={idx} className="flex-1 bg-primary/20 rounded-t hover:bg-primary/30 transition-colors animate-slide-up" style={{ height: `${height}%`, animationDelay: `${idx * 0.05}s` }}>
               </div>
             ))}
           </div>
-          <div className="flex items-center justify-between text-xs text-muted-foreground mt-2">
+          <div className="flex items-center justify-between text-xs text-gray-500 mt-2">
             <span>12 AM</span>
             <span>6 AM</span>
             <span>12 PM</span>
