@@ -2,45 +2,23 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import ScrollIndicator from "./ScrollIndicator";
 import TrustBar from "./TrustBar";
-import MockupPhone from "./mockups/MockupPhone";
-import FlightSearchScreen from "./mockups/screens/FlightSearchScreen";
-import FlightResultsScreen from "./mockups/screens/FlightResultsScreen";
-import BookingConfirmScreen from "./mockups/screens/BookingConfirmScreen";
-import DashboardScreen from "./mockups/screens/DashboardScreen";
 
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
       
-      {/* Background Phone Mockups */}
-      <div className="hidden lg:block absolute left-[2%] top-[20%] opacity-40 blur-[1px] animate-float" aria-hidden="true">
-        <div className="transform rotate-[-8deg]">
-          <MockupPhone>
-            <FlightSearchScreen />
-          </MockupPhone>
-        </div>
-      </div>
-      
-      <div className="hidden lg:block absolute right-[2%] top-[25%] opacity-40 blur-[1px] animate-float" style={{ animationDelay: '2s' }} aria-hidden="true">
-        <div className="transform rotate-[8deg]">
-          <MockupPhone>
-            <FlightResultsScreen />
-          </MockupPhone>
-        </div>
-      </div>
-      
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center animate-fade-in-up">
-          <h1 className="text-6xl md:text-7xl font-bold text-primary mb-6 leading-tight">
-            The Travel API That <span className="italic">Delivers</span>
+          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-primary mb-6 leading-tight">
+            The Travel API That Delivers
           </h1>
           
           <p className="text-xl md:text-2xl text-primary/80 mb-8 max-w-3xl mx-auto font-light">
-            Book flights from 200+ airlines with sub-500ms response times. Private fares, intelligent automation, and enterprise-grade reliability.
+            200+ airlines. Sub-500ms response. 99.9% uptime. Process millions of bookings with private fares, intelligent automation, and enterprise-grade infrastructure.
           </p>
 
           <p className="text-lg md:text-xl text-primary/70 mb-12 max-w-2xl mx-auto">
-            Trusted by leading travel platforms worldwide
+            Trusted by leading OTAs, TMCs, and travel platforms worldwide
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -71,6 +49,8 @@ const Hero = () => {
       </div>
 
       <ScrollIndicator />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent"></div>
+      
       <TrustBar />
     </section>
   );
