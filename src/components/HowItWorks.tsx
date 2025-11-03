@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Search, GitCompare, Zap, Bell } from "lucide-react";
-import ClickToBookMockup from "./mockups/ClickToBookMockup";
-import PrivateFareMockup from "./mockups/PrivateFareMockup";
+import SearchAvailabilityMockup from "./mockups/SearchAvailabilityMockup";
+import ReShoppingMockup from "./mockups/ReShoppingMockup";
+import CheckoutMockup from "./mockups/CheckoutMockup";
 import AutomationMockup from "./mockups/AutomationMockup";
 
 const steps = [
@@ -12,28 +13,28 @@ const steps = [
     shortTitle: "Search",
     description: "Real-time availability across all major GDS, LCCs, and direct airline connections in one API call",
     metric: "Sub-500ms response",
-    mockup: ClickToBookMockup,
-    demoDescription: "Watch how our unified API searches across 200+ airlines and returns results in under 500ms. One simple API call replaces dozens of individual connections."
+    mockup: SearchAvailabilityMockup,
+    demoDescription: "Interactive live search with real-time availability across 200+ airlines. Select airports, dates, and passengers to see instant results from GDS, LCC, and direct connections - all in under 500ms."
   },
   {
     icon: GitCompare,
     number: "02",
-    title: "Compare Private vs Public Fares",
-    shortTitle: "Compare",
-    description: "Access exclusive consolidator fares and private contracts not available on public channels",
-    metric: "Save 20-30% avg",
-    mockup: PrivateFareMockup,
-    demoDescription: "See real-time comparison between public GDS fares and exclusive private consolidator rates. Our platform automatically finds the best available price across all sources."
+    title: "Re-Shopping Intelligence",
+    shortTitle: "Re-Shop",
+    description: "Automated price monitoring checks for fare drops every minute, comparing consolidators, suppliers, commission rates, and private fares",
+    metric: "24/7 monitoring",
+    mockup: ReShoppingMockup,
+    demoDescription: "Real-time re-shopping dashboard monitors existing bookings for price drops. Instantly compare consolidator rates, supplier options, commission percentages, and private fares to maximize savings and margins."
   },
   {
     icon: Zap,
     number: "03",
     title: "Book Instantly",
-    shortTitle: "Book",
-    description: "Complete end-to-end booking with automatic ticketing, payment processing, and confirmation",
+    shortTitle: "Checkout",
+    description: "Complete end-to-end booking with passenger details, ancillaries, payment processing, and instant confirmation",
     metric: "60-second booking",
-    mockup: ClickToBookMockup,
-    demoDescription: "Experience seamless booking flow from search to confirmation. Automated ticketing, payment processing, and instant confirmation - all in under 60 seconds."
+    mockup: CheckoutMockup,
+    demoDescription: "Streamlined checkout experience with passenger management, ancillary selection, and secure payment processing. Add baggage, meals, seats, and more - complete your booking in under 60 seconds."
   },
   {
     icon: Bell,

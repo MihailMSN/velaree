@@ -18,8 +18,12 @@ const reShoppingData = [
     newFare: "$687", 
     savings: "$155", 
     savingsPercent: "18%",
+    supplier: "Consolidator X",
+    commission: "12%",
+    source: "Private Fare",
     status: "price-drop", 
-    time: "2m ago" 
+    time: "2m ago",
+    badge: "Best Price" 
   },
   { 
     pnr: "DEF456", 
@@ -28,8 +32,12 @@ const reShoppingData = [
     newFare: "$1,098", 
     savings: "$147", 
     savingsPercent: "12%",
+    supplier: "GDS Amadeus",
+    commission: "8%",
+    source: "Public GDS",
     status: "processing", 
-    time: "Just now" 
+    time: "Just now",
+    badge: null
   },
   { 
     pnr: "GHI789", 
@@ -38,8 +46,12 @@ const reShoppingData = [
     newFare: "$745", 
     savings: "$147", 
     savingsPercent: "16%",
+    supplier: "Consolidator Y",
+    commission: "15%",
+    source: "Private Fare",
     status: "completed", 
-    time: "5m ago" 
+    time: "5m ago",
+    badge: "Best Commission"
   },
   { 
     pnr: "JKL012", 
@@ -48,8 +60,12 @@ const reShoppingData = [
     newFare: "$1,389", 
     savings: "$178", 
     savingsPercent: "11%",
+    supplier: "Airline Direct",
+    commission: "10%",
+    source: "NDC Direct",
     status: "price-drop", 
-    time: "8m ago" 
+    time: "8m ago",
+    badge: null
   }
 ];
 
@@ -111,6 +127,8 @@ const ReShoppingMockup = () => {
                   <th className="px-6 py-3 text-left text-xs font-semibold text-muted-foreground">Route</th>
                   <th className="px-6 py-3 text-left text-xs font-semibold text-muted-foreground">Original</th>
                   <th className="px-6 py-3 text-left text-xs font-semibold text-muted-foreground">New Fare</th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-muted-foreground">Supplier</th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-muted-foreground">Commission</th>
                   <th className="px-6 py-3 text-left text-xs font-semibold text-muted-foreground">Savings</th>
                   <th className="px-6 py-3 text-left text-xs font-semibold text-muted-foreground">Status</th>
                   <th className="px-6 py-3 text-left text-xs font-semibold text-muted-foreground">Action</th>
@@ -127,9 +145,27 @@ const ReShoppingMockup = () => {
                       <div className="text-sm font-medium text-foreground">{row.pnr}</div>
                       <div className="text-xs text-muted-foreground">{row.time}</div>
                     </td>
-                    <td className="px-6 py-4 text-sm text-foreground">{row.route}</td>
+                    <td className="px-6 py-4">
+                      <div className="text-sm text-foreground">{row.route}</div>
+                      {row.badge && (
+                        <div className="inline-flex items-center gap-1 px-2 py-0.5 mt-1 rounded-full bg-amber-50 border border-amber-200">
+                          <span className="text-xs font-semibold text-amber-700">{row.badge}</span>
+                        </div>
+                      )}
+                    </td>
                     <td className="px-6 py-4 text-sm text-muted-foreground line-through">{row.originalFare}</td>
-                    <td className="px-6 py-4 text-sm font-semibold text-foreground">{row.newFare}</td>
+                    <td className="px-6 py-4">
+                      <div className="text-sm font-semibold text-foreground">{row.newFare}</div>
+                      <div className="text-xs text-muted-foreground">{row.source}</div>
+                    </td>
+                    <td className="px-6 py-4">
+                      <div className="text-sm font-semibold text-foreground">{row.supplier}</div>
+                    </td>
+                    <td className="px-6 py-4">
+                      <div className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-green-50 border border-green-200">
+                        <span className="text-xs font-semibold text-green-700">{row.commission}</span>
+                      </div>
+                    </td>
                     <td className="px-6 py-4">
                       <div className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-green-50 border border-green-200">
                         <TrendingDown className="w-3 h-3 text-green-600" />
