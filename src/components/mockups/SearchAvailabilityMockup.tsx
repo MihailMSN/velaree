@@ -249,7 +249,7 @@ const SearchAvailabilityMockup = () => {
                       <TrendingDown className="w-3 h-3 text-green-600" />
                       <span className="text-xs font-semibold text-green-700">Best Price</span>
                     </div>}
-                  <Button size="sm" className="bg-accent text-accent-foreground hover:bg-accent/90">
+                  <Button size="sm" className="bg-stone-950 hover:bg-stone-800 text-white">
                     Select Flight
                   </Button>
                 </div>
