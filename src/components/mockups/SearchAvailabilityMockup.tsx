@@ -22,6 +22,7 @@ const mockResults = [
   {
     airline: "British Airways",
     logo: "BA",
+    color: "#075AAA",
     departure: "08:30",
     arrival: "20:45",
     duration: "7h 15m",
@@ -34,6 +35,7 @@ const mockResults = [
   {
     airline: "United Airlines",
     logo: "UA",
+    color: "#0b76ba",
     departure: "10:15",
     arrival: "22:30",
     duration: "7h 15m",
@@ -46,6 +48,7 @@ const mockResults = [
   {
     airline: "Virgin Atlantic",
     logo: "VS",
+    color: "#E10A0A",
     departure: "14:20",
     arrival: "02:35+1",
     duration: "7h 15m",
@@ -58,6 +61,7 @@ const mockResults = [
   {
     airline: "Air France",
     logo: "AF",
+    color: "#002157",
     departure: "19:45",
     arrival: "08:15+1",
     duration: "8h 30m",
@@ -214,8 +218,10 @@ const SearchAvailabilityMockup = () => {
                 <div className="flex-1 grid grid-cols-5 gap-6 items-center">
                   {/* Airline */}
                   <div>
-                    <div className="w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center text-sm font-bold text-accent-foreground mb-2">
-                      {result.logo}
+                    <div className="w-16 h-16 rounded-lg border-2 border-border bg-white flex items-center justify-center mb-2">
+                      <div className="text-lg font-bold" style={{ color: result.color }}>
+                        {result.logo}
+                      </div>
                     </div>
                     <div className="text-sm font-semibold text-foreground">{result.airline}</div>
                     <div className="text-xs text-muted-foreground">{result.class}</div>
