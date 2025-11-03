@@ -1,37 +1,56 @@
+import { useState } from "react";
 import { Search, GitCompare, Zap, Bell } from "lucide-react";
+import ClickToBookMockup from "./mockups/ClickToBookMockup";
+import PrivateFareMockup from "./mockups/PrivateFareMockup";
+import AutomationMockup from "./mockups/AutomationMockup";
 
 const steps = [
   {
     icon: Search,
     number: "01",
     title: "Search 200+ Airlines",
+    shortTitle: "Search",
     description: "Real-time availability across all major GDS, LCCs, and direct airline connections in one API call",
-    metric: "Sub-500ms response"
+    metric: "Sub-500ms response",
+    mockup: ClickToBookMockup,
+    demoDescription: "Watch how our unified API searches across 200+ airlines and returns results in under 500ms. One simple API call replaces dozens of individual connections."
   },
   {
     icon: GitCompare,
     number: "02",
     title: "Compare Private vs Public Fares",
+    shortTitle: "Compare",
     description: "Access exclusive consolidator fares and private contracts not available on public channels",
-    metric: "Save 20-30% avg"
+    metric: "Save 20-30% avg",
+    mockup: PrivateFareMockup,
+    demoDescription: "See real-time comparison between public GDS fares and exclusive private consolidator rates. Our platform automatically finds the best available price across all sources."
   },
   {
     icon: Zap,
     number: "03",
-    title: "Book Instantly Online",
+    title: "Book Instantly",
+    shortTitle: "Book",
     description: "Complete end-to-end booking with automatic ticketing, payment processing, and confirmation",
-    metric: "60-second booking"
+    metric: "60-second booking",
+    mockup: ClickToBookMockup,
+    demoDescription: "Experience seamless booking flow from search to confirmation. Automated ticketing, payment processing, and instant confirmation - all in under 60 seconds."
   },
   {
     icon: Bell,
     number: "04",
     title: "Automated Management",
+    shortTitle: "Manage",
     description: "Intelligent automation handles ticketing, schedule changes, cancellations, and customer notifications",
-    metric: "70% less manual work"
+    metric: "70% less manual work",
+    mockup: AutomationMockup,
+    demoDescription: "See how our automation suite handles routine tasks like ticketing, schedule changes, and notifications - reducing manual work by 70% while eliminating errors."
   }
 ];
 
 const HowItWorks = () => {
+  const [activeStep, setActiveStep] = useState(0);
+  const ActiveMockup = steps[activeStep].mockup;
+
   return (
     <section className="py-24 bg-background relative overflow-hidden">
       <div className="absolute inset-0 opacity-20">
@@ -40,62 +59,120 @@ const HowItWorks = () => {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-16 animate-fade-in">
+        {/* Header */}
+        <div className="text-center mb-12 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
             How It Works
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            From search to boarding in four seamless steps
+            See it in action - Click each step below
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+        {/* Step Selector Buttons */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-7xl mx-auto mb-12">
           {steps.map((step, index) => {
             const Icon = step.icon;
+            const isActive = activeStep === index;
+            
             return (
-              <div
+              <button
                 key={index}
-                className="relative group animate-fade-in"
-                style={{ animationDelay: `${index * 0.15}s` }}
+                onClick={() => setActiveStep(index)}
+                role="tab"
+                aria-selected={isActive}
+                aria-controls={`demo-panel-${index}`}
+                id={`step-tab-${index}`}
+                className={`
+                  relative p-6 rounded-xl border-2 transition-all duration-300 text-left
+                  ${isActive 
+                    ? 'bg-accent border-accent shadow-lg scale-105' 
+                    : 'bg-card border-border hover:border-accent/50 hover:shadow-md'
+                  }
+                `}
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {/* Connector Line */}
                 {index < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-16 -right-4 w-8 h-0.5 bg-accent/30 group-hover:bg-accent/60 transition-colors"></div>
+                  <div className="hidden lg:block absolute top-1/2 -right-2 w-4 h-0.5 bg-border">
+                    {activeStep >= index && (
+                      <div className="h-full bg-accent transition-all duration-500" />
+                    )}
+                  </div>
                 )}
 
-                <div className="relative p-6 rounded-2xl bg-card border border-border hover:border-accent/50 hover:shadow-lg transition-all duration-300 h-full">
-                  {/* Step Number */}
-                  <div className="absolute -top-4 -left-4 w-12 h-12 rounded-full bg-accent flex items-center justify-center text-foreground font-bold text-lg shadow-md">
-                    {step.number}
-                  </div>
-
-                  {/* Icon */}
-                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center mb-4 mt-4">
-                    <Icon className="w-7 h-7 text-primary-foreground" />
-                  </div>
-
-                  {/* Content */}
-                  <h3 className="text-xl font-bold text-foreground mb-3">
-                    {step.title}
-                  </h3>
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
-                    {step.description}
-                  </p>
-
-                  {/* Metric Badge */}
-                  <div className="inline-flex items-center px-3 py-1.5 rounded-full bg-accent/20 border border-accent/40">
-                    <span className="text-xs font-semibold text-foreground">
-                      {step.metric}
-                    </span>
-                  </div>
+                {/* Step Number */}
+                <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm mb-3 transition-colors ${
+                  isActive ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground'
+                }`}>
+                  {step.number}
                 </div>
-              </div>
+
+                {/* Icon */}
+                <div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-3 transition-colors ${
+                  isActive ? 'bg-primary/10' : 'bg-muted'
+                }`}>
+                  <Icon className={`w-6 h-6 ${isActive ? 'text-primary' : 'text-muted-foreground'}`} />
+                </div>
+
+                {/* Title */}
+                <h3 className={`font-bold mb-2 transition-colors ${
+                  isActive ? 'text-foreground' : 'text-foreground'
+                }`}>
+                  {step.shortTitle}
+                </h3>
+
+                {/* Metric */}
+                <div className={`text-xs font-semibold transition-colors ${
+                  isActive ? 'text-foreground/80' : 'text-muted-foreground'
+                }`}>
+                  {step.metric}
+                </div>
+              </button>
             );
           })}
         </div>
 
+        {/* Progress Indicator */}
+        <div className="flex items-center justify-center gap-2 mb-8">
+          {steps.map((_, idx) => (
+            <div
+              key={idx}
+              className={`h-1.5 rounded-full transition-all duration-300 ${
+                idx === activeStep 
+                  ? 'w-8 bg-accent' 
+                  : 'w-1.5 bg-accent/30'
+              }`}
+            />
+          ))}
+        </div>
+
+        {/* Demo Display Area */}
+        <div 
+          className="max-w-6xl mx-auto"
+          role="tabpanel"
+          id={`demo-panel-${activeStep}`}
+          aria-labelledby={`step-tab-${activeStep}`}
+        >
+          <div key={activeStep} className="animate-fade-in mb-8">
+            <ActiveMockup />
+          </div>
+
+          {/* Description */}
+          <div className="text-center animate-fade-in" style={{ animationDelay: "0.1s" }}>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-4">
+              {steps[activeStep].demoDescription}
+            </p>
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-accent/20 border border-accent/40">
+              <span className="text-sm font-semibold text-foreground">
+                {steps[activeStep].metric}
+              </span>
+            </div>
+          </div>
+        </div>
+
         {/* Bottom CTA */}
-        <div className="text-center mt-16 animate-fade-in" style={{ animationDelay: "0.6s" }}>
+        <div className="text-center mt-16 animate-fade-in">
           <p className="text-muted-foreground text-lg mb-4">
             Ready to see it in action?
           </p>
