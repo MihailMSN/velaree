@@ -67,7 +67,7 @@ const HowItWorks = () => {
           const Icon = step.icon;
           const isActive = activeStep === index;
           return <button key={index} onClick={() => setActiveStep(index)} role="tab" aria-selected={isActive} aria-controls={`demo-panel-${index}`} id={`step-tab-${index}`} className={`
-                  relative p-6 rounded-xl border-2 transition-all duration-300 text-left
+                  relative p-4 rounded-lg border-2 transition-all duration-300 text-left
                   ${isActive ? 'bg-accent border-accent shadow-lg scale-105' : 'bg-card border-border hover:border-accent/50 hover:shadow-md'}
                 `} style={{
             animationDelay: `${index * 0.1}s`
@@ -78,7 +78,7 @@ const HowItWorks = () => {
                   </div>}
 
                 {/* Step Number */}
-                <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm mb-3 transition-colors ${isActive ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground'}`}>
+                <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs mb-2 transition-colors ${isActive ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground'}`}>
                   {step.number}
                 </div>
 
@@ -86,7 +86,7 @@ const HowItWorks = () => {
                 
 
                 {/* Title */}
-                <h3 className={`font-bold mb-2 transition-colors ${isActive ? 'text-foreground' : 'text-foreground'}`}>
+                <h3 className={`text-sm font-bold mb-1.5 transition-colors ${isActive ? 'text-foreground' : 'text-foreground'}`}>
                   {step.shortTitle}
                 </h3>
 
