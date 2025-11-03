@@ -19,10 +19,11 @@ const reShoppingData = [
     savings: "$155", 
     savingsPercent: "18%",
     supplier: "Consolidator X",
-    supplierType: "NDC",
     commission: "12%",
+    source: "Private Fare",
     status: "price-drop", 
-    time: "2m ago"
+    time: "2m ago",
+    badge: "Best Price" 
   },
   { 
     pnr: "DEF456", 
@@ -32,10 +33,11 @@ const reShoppingData = [
     savings: "$147", 
     savingsPercent: "12%",
     supplier: "GDS Amadeus",
-    supplierType: "PCC Amadeus",
     commission: "8%",
+    source: "Public GDS",
     status: "processing", 
-    time: "Just now"
+    time: "Just now",
+    badge: null
   },
   { 
     pnr: "GHI789", 
@@ -45,10 +47,11 @@ const reShoppingData = [
     savings: "$147", 
     savingsPercent: "16%",
     supplier: "Consolidator Y",
-    supplierType: "PCC Sabre",
     commission: "15%",
+    source: "Private Fare",
     status: "completed", 
-    time: "5m ago"
+    time: "5m ago",
+    badge: "Best Commission"
   },
   { 
     pnr: "JKL012", 
@@ -58,10 +61,11 @@ const reShoppingData = [
     savings: "$178", 
     savingsPercent: "11%",
     supplier: "Airline Direct",
-    supplierType: "NDC",
     commission: "10%",
+    source: "NDC Direct",
     status: "price-drop", 
-    time: "8m ago"
+    time: "8m ago",
+    badge: null
   }
 ];
 
@@ -143,14 +147,19 @@ const ReShoppingMockup = () => {
                     </td>
                     <td className="px-6 py-4">
                       <div className="text-sm text-foreground">{row.route}</div>
+                      {row.badge && (
+                        <div className="inline-flex items-center gap-1 px-2 py-0.5 mt-1 rounded-full bg-amber-50 border border-amber-200">
+                          <span className="text-xs font-semibold text-amber-700">{row.badge}</span>
+                        </div>
+                      )}
                     </td>
                     <td className="px-6 py-4 text-sm text-muted-foreground line-through">{row.originalFare}</td>
                     <td className="px-6 py-4">
                       <div className="text-sm font-semibold text-foreground">{row.newFare}</div>
+                      <div className="text-xs text-muted-foreground">{row.source}</div>
                     </td>
                     <td className="px-6 py-4">
                       <div className="text-sm font-semibold text-foreground">{row.supplier}</div>
-                      <div className="text-xs text-muted-foreground">{row.supplierType}</div>
                     </td>
                     <td className="px-6 py-4">
                       <div className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-green-50 border border-green-200">

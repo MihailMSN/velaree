@@ -17,24 +17,24 @@ const steps = [
     demoDescription: "Interactive live search with real-time availability across 200+ airlines. Select airports, dates, and passengers to see instant results from GDS, LCC, and direct connections - all in under 500ms."
   },
   {
-    icon: Zap,
-    number: "02",
-    title: "Book Instantly",
-    shortTitle: "Checkout",
-    description: "Complete end-to-end booking with passenger details, ancillaries, payment processing, and instant confirmation",
-    metric: "60-second booking",
-    mockup: CheckoutMockup,
-    demoDescription: "Streamlined checkout experience with passenger management, ancillary selection, and secure payment processing. Add baggage, meals, seats, and more - complete your booking in under 60 seconds."
-  },
-  {
     icon: GitCompare,
-    number: "03",
+    number: "02",
     title: "Re-Shopping Intelligence",
     shortTitle: "Re-Shop",
     description: "Automated price monitoring checks for fare drops every minute, comparing consolidators, suppliers, commission rates, and private fares",
     metric: "24/7 monitoring",
     mockup: ReShoppingMockup,
     demoDescription: "Real-time re-shopping dashboard monitors existing bookings for price drops. Instantly compare consolidator rates, supplier options, commission percentages, and private fares to maximize savings and margins."
+  },
+  {
+    icon: Zap,
+    number: "03",
+    title: "Book Instantly",
+    shortTitle: "Checkout",
+    description: "Complete end-to-end booking with passenger details, ancillaries, payment processing, and instant confirmation",
+    metric: "60-second booking",
+    mockup: CheckoutMockup,
+    demoDescription: "Streamlined checkout experience with passenger management, ancillary selection, and secure payment processing. Add baggage, meals, seats, and more - complete your booking in under 60 seconds."
   },
   {
     icon: Bell,
@@ -71,7 +71,7 @@ const HowItWorks = () => {
         </div>
 
         {/* Step Selector Buttons */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-7xl mx-auto mb-12">
           {steps.map((step, index) => {
             const Icon = step.icon;
             const isActive = activeStep === index;
@@ -85,74 +85,50 @@ const HowItWorks = () => {
                 aria-controls={`demo-panel-${index}`}
                 id={`step-tab-${index}`}
                 className={`
-                  relative p-8 rounded-2xl border-2 transition-all duration-300 text-left
+                  relative p-6 rounded-xl border-2 transition-all duration-300 text-left
                   ${isActive 
-                    ? 'bg-gradient-to-br from-accent to-accent/80 border-accent shadow-2xl scale-105 transform' 
-                    : 'bg-card border-border hover:border-accent/50 hover:shadow-lg hover:scale-[1.02]'
+                    ? 'bg-accent border-accent shadow-lg scale-105' 
+                    : 'bg-card border-border hover:border-accent/50 hover:shadow-md'
                   }
                 `}
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {/* Connector Line */}
                 {index < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-0.5 bg-border">
+                  <div className="hidden lg:block absolute top-1/2 -right-2 w-4 h-0.5 bg-border">
                     {activeStep >= index && (
                       <div className="h-full bg-accent transition-all duration-500" />
                     )}
                   </div>
                 )}
 
-                {/* Top section: Number and Icon */}
-                <div className="flex items-center gap-4 mb-4">
-                  {/* Step Number */}
-                  <div className={`
-                    w-12 h-12 rounded-xl flex items-center justify-center font-bold text-lg
-                    transition-all duration-300
-                    ${isActive 
-                      ? 'bg-white text-accent shadow-lg' 
-                      : 'bg-muted text-muted-foreground'
-                    }
-                  `}>
-                    {step.number}
-                  </div>
+                {/* Step Number */}
+                <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm mb-3 transition-colors ${
+                  isActive ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground'
+                }`}>
+                  {step.number}
+                </div>
 
-                  {/* Icon */}
-                  <div className={`
-                    w-14 h-14 rounded-xl flex items-center justify-center
-                    transition-all duration-300
-                    ${isActive 
-                      ? 'bg-white/20 backdrop-blur-sm' 
-                      : 'bg-muted'
-                    }
-                  `}>
-                    <Icon className={`w-7 h-7 ${isActive ? 'text-white' : 'text-muted-foreground'}`} />
-                  </div>
+                {/* Icon */}
+                <div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-3 transition-colors ${
+                  isActive ? 'bg-primary/10' : 'bg-muted'
+                }`}>
+                  <Icon className={`w-6 h-6 ${isActive ? 'text-primary' : 'text-muted-foreground'}`} />
                 </div>
 
                 {/* Title */}
-                <h3 className={`
-                  text-lg font-bold mb-2 transition-colors
-                  ${isActive ? 'text-white' : 'text-foreground'}
-                `}>
+                <h3 className={`font-bold mb-2 transition-colors ${
+                  isActive ? 'text-foreground' : 'text-foreground'
+                }`}>
                   {step.shortTitle}
                 </h3>
 
-                {/* Metric Badge */}
-                <div className={`
-                  inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold
-                  transition-all duration-300
-                  ${isActive 
-                    ? 'bg-white/20 text-white backdrop-blur-sm' 
-                    : 'bg-muted text-muted-foreground'
-                  }
-                `}>
+                {/* Metric */}
+                <div className={`text-xs font-semibold transition-colors ${
+                  isActive ? 'text-foreground/80' : 'text-muted-foreground'
+                }`}>
                   {step.metric}
                 </div>
-
-                {/* Active indicator dot */}
-                {isActive && (
-                  <div className="absolute top-4 right-4 w-3 h-3 rounded-full bg-white shadow-lg animate-pulse" />
-                )}
               </button>
             );
           })}
