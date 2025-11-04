@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import velareeLogoImg from "@/assets/velaree-logo.png";
+
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -31,7 +31,16 @@ const Navigation = () => {
       <div className="container mx-auto px-[24px] py-px">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center hover:opacity-80 transition-opacity">
-            <img src={velareeLogoImg} alt="Velaree Logo" className="h-16 md:h-24 w-auto" />
+            <video 
+              src="/velaree-logo-animated.mp4"
+              autoPlay 
+              loop 
+              muted 
+              playsInline
+              aria-label="Velaree animated logo"
+              className="h-16 md:h-24 w-auto"
+              style={{ objectFit: 'contain' }}
+            />
           </Link>
           
           <div className="hidden md:flex items-center gap-8">
