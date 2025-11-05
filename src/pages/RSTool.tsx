@@ -8,10 +8,8 @@ import RStoolSocialProof from "@/components/rstool/RStoolSocialProof";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
-
 const RSTool = () => {
-  return (
-    <div className="min-h-screen bg-background">
+  return <div className="min-h-screen bg-background">
       <Navigation />
       
       {/* Hero Section */}
@@ -44,11 +42,7 @@ const RSTool = () => {
       </section>
 
       {/* Social Proof */}
-      <section className="py-16 px-6 bg-muted/20">
-        <div className="container mx-auto max-w-7xl">
-          <RStoolSocialProof />
-        </div>
-      </section>
+      
 
       {/* Demo Dashboard */}
       <section className="py-16 px-6 bg-muted/30">
@@ -120,8 +114,6 @@ const RSTool = () => {
       </section>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default RSTool;
