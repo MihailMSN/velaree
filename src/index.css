@@ -51,6 +51,37 @@ All colors MUST be HSL.
     --beige-base: 32 28% 88%;
     --beige-dark: 32 28% 76%;
 
+    /* Feature color system - Consistent palette for all sections */
+    /* Blue - Booking, Primary Actions */
+    --feature-blue: 217 91% 60%;
+    --feature-blue-foreground: 217 91% 60%;
+    --feature-blue-muted: 217 91% 60% / 0.1;
+    
+    /* Purple - Automation, AI */
+    --feature-purple: 271 81% 56%;
+    --feature-purple-foreground: 271 81% 56%;
+    --feature-purple-muted: 271 81% 56% / 0.1;
+    
+    /* Green - Monitoring, Active Processes */
+    --feature-green: 142 71% 45%;
+    --feature-green-foreground: 142 71% 45%;
+    --feature-green-muted: 142 71% 45% / 0.1;
+    
+    /* Amber - Alerts, Notifications */
+    --feature-amber: 38 92% 50%;
+    --feature-amber-foreground: 38 92% 50%;
+    --feature-amber-muted: 38 92% 50% / 0.1;
+    
+    /* Indigo - Review, Analysis */
+    --feature-indigo: 239 84% 67%;
+    --feature-indigo-foreground: 239 84% 67%;
+    --feature-indigo-muted: 239 84% 67% / 0.1;
+    
+    /* Emerald - Savings, Success */
+    --feature-emerald: 160 84% 39%;
+    --feature-emerald-foreground: 160 84% 39%;
+    --feature-emerald-muted: 160 84% 39% / 0.1;
+
     /* Gradient definitions */
     --gradient-hero: linear-gradient(135deg, hsl(210 11% 15%) 0%, hsl(210 11% 25%) 100%);
     --gradient-section: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(210 8% 98%) 100%);
@@ -95,6 +126,14 @@ All colors MUST be HSL.
     --border: 210 11% 25%;
     --input: 210 11% 25%;
     --ring: 0 0% 98%;
+
+    /* Feature colors - Dark mode adjustments */
+    --feature-blue-foreground: 217 91% 70%;
+    --feature-purple-foreground: 271 81% 70%;
+    --feature-green-foreground: 142 71% 55%;
+    --feature-amber-foreground: 38 92% 60%;
+    --feature-indigo-foreground: 239 84% 75%;
+    --feature-emerald-foreground: 160 84% 49%;
   }
 }
 

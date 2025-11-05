@@ -60,6 +60,38 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        feature: {
+          blue: {
+            DEFAULT: "hsl(var(--feature-blue))",
+            foreground: "hsl(var(--feature-blue-foreground))",
+            muted: "hsl(var(--feature-blue-muted))",
+          },
+          purple: {
+            DEFAULT: "hsl(var(--feature-purple))",
+            foreground: "hsl(var(--feature-purple-foreground))",
+            muted: "hsl(var(--feature-purple-muted))",
+          },
+          green: {
+            DEFAULT: "hsl(var(--feature-green))",
+            foreground: "hsl(var(--feature-green-foreground))",
+            muted: "hsl(var(--feature-green-muted))",
+          },
+          amber: {
+            DEFAULT: "hsl(var(--feature-amber))",
+            foreground: "hsl(var(--feature-amber-foreground))",
+            muted: "hsl(var(--feature-amber-muted))",
+          },
+          indigo: {
+            DEFAULT: "hsl(var(--feature-indigo))",
+            foreground: "hsl(var(--feature-indigo-foreground))",
+            muted: "hsl(var(--feature-indigo-muted))",
+          },
+          emerald: {
+            DEFAULT: "hsl(var(--feature-emerald))",
+            foreground: "hsl(var(--feature-emerald-foreground))",
+            muted: "hsl(var(--feature-emerald-muted))",
+          },
+        },
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -7,8 +7,8 @@ const solutions = [
     title: "Book in 60 Seconds",
     subtitle: "vs. 15-min industry average",
     description: "Complete end-to-end booking flow from search to confirmation",
-    color: "text-blue-600 dark:text-blue-400",
-    bgColor: "bg-blue-500/10",
+    color: "text-feature-blue-foreground",
+    bgColor: "bg-feature-blue-muted",
     features: [
       "Real-time availability across 200+ airlines in one search",
       "One-click booking with automatic instant ticketing",
@@ -21,8 +21,8 @@ const solutions = [
     title: "Save 20-30% on Fares",
     subtitle: "With exclusive private contracts",
     description: "Access consolidator inventory not available on public channels",
-    color: "text-emerald-600 dark:text-emerald-400",
-    bgColor: "bg-emerald-500/10",
+    color: "text-feature-emerald-foreground",
+    bgColor: "bg-feature-emerald-muted",
     features: [
       "89+ private airline consolidator contracts globally",
       "Corporate negotiated rates with major carriers",
@@ -35,8 +35,8 @@ const solutions = [
     title: "Automate 70% of Operations",
     subtitle: "Save 20+ hours per week",
     description: "Intelligent automation eliminates repetitive manual tasks",
-    color: "text-purple-600 dark:text-purple-400",
-    bgColor: "bg-purple-500/10",
+    color: "text-feature-purple-foreground",
+    bgColor: "bg-feature-purple-muted",
     features: [
       "Automatic ticketing within 2 minutes of booking",
       "AI-powered schedule change detection and rebooking",

@@ -7,48 +7,48 @@ const steps = [
     icon: ShoppingCart,
     title: "Book as Normal",
     description: "Your clients book flights or hotels through your platform as usual. No changes to your booking workflow.",
-    color: "text-blue-600 dark:text-blue-400",
-    bgColor: "bg-blue-500/10"
+    color: "text-feature-blue-foreground",
+    bgColor: "bg-feature-blue-muted"
   },
   {
     number: "02",
     icon: Eye,
     title: "Automatic Monitoring",
     description: "Our AI continuously monitors 50+ data sources 24/7 for price drops and better rates on existing bookings.",
-    color: "text-purple-600 dark:text-purple-400",
-    bgColor: "bg-purple-500/10"
+    color: "text-feature-purple-foreground",
+    bgColor: "bg-feature-purple-muted"
   },
   {
     number: "03",
     icon: Sparkles,
     title: "AI Price Analysis",
     description: "Advanced algorithms analyze fare rules, cancellation policies, and fees to calculate real net savings opportunities.",
-    color: "text-green-600 dark:text-green-400",
-    bgColor: "bg-green-500/10"
+    color: "text-feature-green-foreground",
+    bgColor: "bg-feature-green-muted"
   },
   {
     number: "04",
     icon: Bell,
     title: "Instant Alerts",
     description: "When a better price is found, you receive immediate notification with detailed comparison and savings breakdown.",
-    color: "text-amber-600 dark:text-amber-400",
-    bgColor: "bg-amber-500/10"
+    color: "text-feature-amber-foreground",
+    bgColor: "bg-feature-amber-muted"
   },
   {
     number: "05",
     icon: TrendingDown,
     title: "Review Opportunities",
     description: "Dashboard shows all re-shopping opportunities ranked by savings amount, commission impact, and confidence level.",
-    color: "text-indigo-600 dark:text-indigo-400",
-    bgColor: "bg-indigo-500/10"
+    color: "text-feature-indigo-foreground",
+    bgColor: "bg-feature-indigo-muted"
   },
   {
     number: "06",
     icon: CheckCircle2,
     title: "Re-book & Profit",
     description: "Cancel original booking, re-book at lower price, and keep the difference. Client saves money, you earn more commission.",
-    color: "text-emerald-600 dark:text-emerald-400",
-    bgColor: "bg-emerald-500/10"
+    color: "text-feature-emerald-foreground",
+    bgColor: "bg-feature-emerald-muted"
   }
 ];
 const HowItWorks = () => {
