@@ -1,6 +1,6 @@
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Check, ArrowRight, Sparkles } from "lucide-react";
+import { Check, ArrowRight, Sparkles, Gift } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const pricingTiers = [
@@ -66,7 +66,22 @@ const pricingTiers = [
 
 const RStoolPricing = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+    <div className="max-w-6xl mx-auto">
+      {/* Promotional Banner */}
+      <div className="mb-8 text-center">
+        <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border border-primary/20 rounded-full px-6 py-3">
+          <Gift className="w-5 h-5 text-primary" />
+          <span className="font-semibold text-lg">
+            First 500 PNRs Free
+          </span>
+          <span className="text-muted-foreground">•</span>
+          <span className="text-sm text-muted-foreground">
+            No credit card required
+          </span>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
       {pricingTiers.map((tier, index) => (
         <Card 
           key={index}
@@ -128,6 +143,7 @@ const RStoolPricing = () => {
           </CardFooter>
         </Card>
       ))}
+      </div>
     </div>
   );
 };
