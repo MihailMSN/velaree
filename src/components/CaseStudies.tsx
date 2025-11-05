@@ -4,39 +4,39 @@ import { TrendingUp, Clock, Users } from "lucide-react";
 const caseStudies = [
   {
     icon: Users,
-    customerType: "Leading European OTA",
-    challenge: "Processing 15,000+ monthly bookings with high error rates and customer complaints",
-    solution: "Integrated Velaree's unified API to consolidate 8 different GDS connections into one",
+    customerType: "European OTA",
+    challenge: "Missing out on fare drops after booking, unable to manually monitor 1,000+ monthly bookings",
+    solution: "Deployed aRStool for automated re-shopping across 50+ sources with instant alerts",
     results: [
-      { metric: "84%", label: "Reduction in booking errors" },
-      { metric: "5,000+", label: "Monthly automated bookings" },
-      { metric: "20hrs", label: "Saved per week" }
+      { metric: "€340K", label: "Annual savings captured" },
+      { metric: "1,200+", label: "Re-bookings per month" },
+      { metric: "23%", label: "Average fare reduction" }
     ],
     industry: "Online Travel Agency"
   },
   {
     icon: TrendingUp,
-    customerType: "Corporate TMC (500+ Clients)",
-    challenge: "Unable to offer competitive business class fares, losing corporate accounts",
-    solution: "Deployed private fare access and automated corporate booking portal via Velaree",
+    customerType: "Corporate TMC (300+ Clients)",
+    challenge: "Corporate clients demanding price drop protection but manual checks were impossible at scale",
+    solution: "Implemented aRStool with automated monitoring and one-click re-booking for all corporate bookings",
     results: [
-      { metric: "28%", label: "Average fare savings" },
-      { metric: "3x", label: "Growth in premium bookings" },
-      { metric: "$2.4M", label: "Additional annual revenue" }
+      { metric: "€2.1M", label: "Saved for corporate clients" },
+      { metric: "€420K", label: "Additional commission earned" },
+      { metric: "95%", label: "Client retention rate" }
     ],
     industry: "Travel Management"
   },
   {
     icon: Clock,
-    customerType: "Asia-Pacific Consolidator",
-    challenge: "Manual ticketing processes causing 48-hour fulfillment delays and high costs",
-    solution: "Implemented Velaree automation suite for instant ticketing and schedule management",
+    customerType: "Asia-Pacific Travel Agency",
+    challenge: "Spending 30+ hours weekly manually checking for better fares with limited success",
+    solution: "Switched to aRStool's AI-powered monitoring with automatic PNR updates and notifications",
     results: [
-      { metric: "<2min", label: "Average ticket issuance" },
-      { metric: "92%", label: "Reduction in support tickets" },
-      { metric: "60%", label: "Lower operational costs" }
+      { metric: "0hrs", label: "Manual re-shopping time" },
+      { metric: "18%", label: "Profit margin increase" },
+      { metric: "4x", label: "More re-bookings found" }
     ],
-    industry: "Flight Consolidation"
+    industry: "Travel Agency"
   }
 ];
 
@@ -46,10 +46,10 @@ const CaseStudies = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Real Results from Real Customers
+            Real Savings from Real Agencies
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            See how travel companies are transforming their operations with Velaree
+            See how travel agencies are increasing profits with aRStool re-shopping
           </p>
         </div>
 

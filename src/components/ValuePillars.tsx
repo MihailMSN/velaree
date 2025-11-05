@@ -3,21 +3,21 @@ import { Bot, TrendingUp, Network } from "lucide-react";
 const pillars = [
   {
     icon: Bot,
-    title: "Automate 70% of Tasks",
-    description: "Intelligent automation handles ticketing, schedule changes, cancellations, and customer notifications automatically",
-    metric: "20hrs saved/week"
+    title: "100% Automated Monitoring",
+    description: "AI continuously monitors all your bookings 24/7 across 50+ sources. No manual work required - just automatic alerts when savings are found",
+    metric: "24/7 monitoring"
   },
   {
     icon: TrendingUp,
-    title: "Process 1M+ Bookings/Month",
-    description: "Enterprise-grade infrastructure that scales from day one with zero downtime and multi-region redundancy",
-    metric: "99.9% uptime SLA"
+    title: "Increase Your Commissions",
+    description: "Keep the price difference as additional profit when you rebook at lower fares. Turn price drops into revenue opportunities",
+    metric: "15-40% savings"
   },
   {
     icon: Network,
-    title: "Search 10x More Inventory",
-    description: "Unified API connecting 200+ airlines, all major GDS systems, and exclusive private fare sources in one call",
-    metric: "<500ms response"
+    title: "50+ Data Sources",
+    description: "Monitor GDS, airlines, consolidators, metasearch, and OTAs simultaneously. More sources mean more savings opportunities discovered",
+    metric: "50+ sources"
   }
 ];
 

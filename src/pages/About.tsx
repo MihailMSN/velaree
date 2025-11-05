@@ -6,33 +6,33 @@ import { Globe2, Target, Users, Rocket } from "lucide-react";
 const values = [
   {
     icon: Target,
-    title: "Our Mission",
-    description: "To revolutionize the travel industry through cutting-edge technology that empowers businesses to scale, automate, and deliver exceptional experiences to millions of travelers worldwide."
+    title: "Price Optimization",
+    description: "We believe travelers deserve the best price, even after they book. Our AI continuously monitors bookings to find better rates and fares, turning price drops into profit opportunities for agencies."
   },
   {
     icon: Globe2,
-    title: "Global Impact",
-    description: "We connect the global travel ecosystem — from airlines and hotels to agencies and consolidators — creating seamless workflows that drive growth and efficiency across continents."
+    title: "Automation First",
+    description: "Manual re-shopping is time-consuming and error-prone. Our automated monitoring across 50+ sources eliminates manual work while capturing savings that would otherwise be missed."
   },
   {
     icon: Users,
-    title: "Customer First",
-    description: "Every feature we build, every integration we deploy, and every optimization we make is driven by the real needs of travel professionals managing complex operations at scale."
+    title: "Travel Agency Focus",
+    description: "Built specifically for travel agencies, TMCs, and OTAs. Every feature is designed to help you increase commissions, reduce costs, and provide exceptional value to your clients."
   },
   {
     icon: Rocket,
-    title: "Innovation",
-    description: "We leverage the latest in cloud architecture, API design, and automation to stay ahead of industry trends and provide our partners with competitive advantages."
+    title: "Continuous Innovation",
+    description: "We're constantly expanding our data sources, improving our AI algorithms, and adding new tools. Started with aRStool for flights, launching hRStool for hotels in Q2 2025."
   }
 ];
 
 const milestones = [
-  { year: "2018", event: "Velaree founded with vision to modernize travel tech" },
-  { year: "2019", event: "First GDS integration launched for enterprise clients" },
-  { year: "2020", event: "Expanded to 25+ airline direct connections" },
-  { year: "2021", event: "Private Fare API released, reaching 100K+ bookings/month" },
-  { year: "2022", event: "Automation Suite launched, processing 1M+ transactions" },
-  { year: "2023", event: "50+ global integrations, serving customers in 40+ countries" }
+  { year: "2018", event: "Velaree founded with mission to optimize travel pricing" },
+  { year: "2020", event: "First re-shopping algorithm developed and tested" },
+  { year: "2022", event: "aRStool beta launched with 10 pilot agencies" },
+  { year: "2024", event: "aRStool goes live - 50+ data sources, AI-powered monitoring" },
+  { year: "2025", event: "hRStool launching Q2 - Hotel re-shopping platform" },
+  { year: "Future", event: "Expanding to car rentals, packages, and more travel categories" }
 ];
 
 const About = () => {
@@ -48,7 +48,7 @@ const About = () => {
               About Velaree
             </h1>
             <p className="text-xl md:text-2xl text-primary-foreground/80">
-              Building the infrastructure that powers modern travel businesses
+              AI-powered re-shopping tools that help travel agencies increase profits
             </p>
           </div>
         </div>
@@ -59,16 +59,15 @@ const About = () => {
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center animate-fade-in">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-8">
-              Our Vision
+              Our Mission
             </h2>
             <p className="text-2xl text-muted-foreground leading-relaxed mb-6">
-              We believe the travel industry deserves technology as sophisticated as the journeys it enables. 
-              Velaree exists to bridge the gap between legacy systems and modern expectations.
+              We built Velaree to solve one problem: travelers deserve the best price, even after they book.
             </p>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              Through intelligent automation, robust APIs, and seamless integrations, we're building the 
-              infrastructure that allows travel businesses to focus on what they do best: creating 
-              unforgettable experiences for travelers around the world.
+              Our AI-powered re-shopping tools help travel agencies save their clients money while increasing their own profits. 
+              Through continuous monitoring, intelligent automation, and seamless integrations with 50+ data sources, 
+              we're transforming how the industry approaches price optimization.
             </p>
           </div>
         </div>
@@ -112,10 +111,10 @@ const About = () => {
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Our Journey
+              Product Timeline
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              From startup to global platform, powering millions of travel bookings
+              Building the future of travel re-shopping, one tool at a time
             </p>
           </div>
           <div className="max-w-4xl mx-auto">
@@ -145,19 +144,19 @@ const About = () => {
           <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
             <div className="text-center animate-fade-in">
               <div className="text-5xl font-bold text-accent mb-2">50+</div>
-              <div className="text-muted-foreground">Global Integrations</div>
+              <div className="text-muted-foreground">Data Sources</div>
             </div>
             <div className="text-center animate-fade-in" style={{ animationDelay: "0.1s" }}>
-              <div className="text-5xl font-bold text-accent mb-2">40+</div>
-              <div className="text-muted-foreground">Countries Served</div>
+              <div className="text-5xl font-bold text-accent mb-2">€2.4M</div>
+              <div className="text-muted-foreground">Saved for Clients</div>
             </div>
             <div className="text-center animate-fade-in" style={{ animationDelay: "0.2s" }}>
-              <div className="text-5xl font-bold text-accent mb-2">1M+</div>
-              <div className="text-muted-foreground">Monthly Transactions</div>
+              <div className="text-5xl font-bold text-accent mb-2">24/7</div>
+              <div className="text-muted-foreground">AI Monitoring</div>
             </div>
             <div className="text-center animate-fade-in" style={{ animationDelay: "0.3s" }}>
-              <div className="text-5xl font-bold text-accent mb-2">99.9%</div>
-              <div className="text-muted-foreground">Uptime SLA</div>
+              <div className="text-5xl font-bold text-accent mb-2">15-40%</div>
+              <div className="text-muted-foreground">Average Savings</div>
             </div>
           </div>
         </div>

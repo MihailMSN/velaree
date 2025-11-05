@@ -8,11 +8,11 @@ const CTA = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center animate-fade-in">
           <h2 className="text-5xl md:text-6xl font-bold text-primary-foreground mb-6">
-            Ready to Transform Your Travel Business?
+            Start Saving Money with AI-Powered Re-Shopping
           </h2>
           
           <p className="text-xl text-primary-foreground/80 mb-12 max-w-2xl mx-auto">
-            Join leading OTAs, TMCs, and airlines using Velaree to power their digital infrastructure
+            Join leading travel agencies using Velaree's re-shopping tools to increase profits and delight customers with better prices
           </p>
           
           <ContactForm />

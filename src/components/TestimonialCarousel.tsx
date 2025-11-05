@@ -5,28 +5,28 @@ import { Button } from "@/components/ui/button";
 
 const testimonials = [
   {
-    quote: "Velaree transformed our booking operations. The automation suite reduced our processing time dramatically while improving accuracy. We process 15,000 bookings monthly with 84% fewer errors.",
-    metric: "84% Reduction in Booking Errors",
+    quote: "aRStool completely changed our business model. We now offer price drop protection to all clients and capture €340K in annual savings that we would have completely missed. The AI finds opportunities we never would have spotted manually.",
+    metric: "€340K Captured Annually",
     name: "Sarah Chen",
-    role: "Head of Technology",
-    company: "Leading European OTA",
+    role: "Operations Director",
+    company: "European OTA",
     companyType: "Online Travel Agency"
   },
   {
-    quote: "Access to private consolidator fares through Velaree gave us a competitive advantage we never had. Our premium cabin bookings tripled and margins improved by $2.4M annually.",
-    metric: "3x Growth in Premium Bookings",
+    quote: "Our corporate clients love the price drop protection. We've saved them over €2.1M while earning an additional €420K in commission. aRStool paid for itself in the first month and client retention improved to 95%.",
+    metric: "€2.1M Saved for Clients",
     name: "Michael Rodriguez",
     role: "Managing Director",
-    company: "Corporate TMC Network",
+    company: "Corporate TMC",
     companyType: "Travel Management Company"
   },
   {
-    quote: "Scaling from 10K to over 100K bookings per month was seamless. The sub-500ms API response time and 99.9% uptime means we never lose a customer to slow searches.",
-    metric: "100K+ Bookings Per Month",
+    quote: "Before aRStool, we spent 30+ hours weekly manually checking fares with limited success. Now it's completely automated, we find 4x more re-booking opportunities, and our profit margins increased by 18%. It's a game changer.",
+    metric: "18% Margin Increase",
     name: "Priya Patel",
     role: "CEO & Founder",
-    company: "Asia-Pacific Consolidator",
-    companyType: "Flight Consolidation"
+    company: "Asia-Pacific Travel Agency",
+    companyType: "Travel Agency"
   }
 ];
 
@@ -46,10 +46,10 @@ const TestimonialCarousel = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
-            Trusted by Industry Leaders
+            Loved by Travel Agencies
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            See how travel companies scaled their operations with Velaree
+            See how agencies are increasing profits with re-shopping
           </p>
         </div>
 

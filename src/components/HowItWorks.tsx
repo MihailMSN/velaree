@@ -7,39 +7,39 @@ import AutomationMockup from "./mockups/AutomationMockup";
 const steps = [{
   icon: Search,
   number: "01",
-  title: "Search 200+ Airlines",
-  shortTitle: "Search",
-  description: "Real-time availability across all major GDS, LCCs, and direct airline connections in one API call",
-  metric: "Sub-500ms response",
+  title: "Book as Usual",
+  shortTitle: "Book",
+  description: "Your clients book tickets or hotels through your platform as they normally do",
+  metric: "Seamless integration",
   mockup: SearchAvailabilityMockup,
-  demoDescription: "Interactive live search with real-time availability across 200+ airlines. Select airports, dates, and passengers to see instant results from GDS, LCC, and direct connections - all in under 500ms."
+  demoDescription: "Your existing booking process remains unchanged. Clients search and book flights or hotels through your platform exactly as they always have."
 }, {
   icon: GitCompare,
   number: "02",
-  title: "Re-Shopping Intelligence",
-  shortTitle: "Re-Shop",
-  description: "Automated price monitoring checks for fare drops every minute, comparing consolidators, suppliers, commission rates, and private fares",
+  title: "Automatic Monitoring",
+  shortTitle: "Monitor",
+  description: "Our AI monitors 50+ sources continuously for better prices - GDS, airlines, consolidators, and OTAs",
   metric: "24/7 monitoring",
   mockup: RStoolDemoDashboard,
-  demoDescription: "Advanced re-shopping dashboard with AI-powered analysis monitors existing bookings for price drops. View detailed scenarios (Void/Reissue, Refund/Reissue, Exchange), confidence scores, and one-click re-booking opportunities across multiple GDS and consolidators."
+  demoDescription: "Advanced AI-powered monitoring checks every booking against 50+ data sources continuously. Our system compares fares, rates, and availability across GDS, direct connections, consolidators, and metasearch platforms."
 }, {
   icon: Zap,
   number: "03",
-  title: "Book Instantly",
-  shortTitle: "Checkout",
-  description: "Complete end-to-end booking with passenger details, ancillaries, payment processing, and instant confirmation",
-  metric: "60-second booking",
+  title: "Find Savings",
+  shortTitle: "Savings",
+  description: "When a better price is found, you get instant notification with detailed re-booking options",
+  metric: "Instant alerts",
   mockup: CheckoutMockup,
-  demoDescription: "Streamlined checkout experience with passenger management, ancillary selection, and secure payment processing. Add baggage, meals, seats, and more - complete your booking in under 60 seconds."
+  demoDescription: "Receive real-time alerts when better prices are discovered. See exactly how much you can save, view different re-booking scenarios (void/reissue, refund/rebook), and get confidence scores for each option."
 }, {
   icon: Bell,
   number: "04",
-  title: "Automated Management",
-  shortTitle: "Manage",
-  description: "Intelligent automation handles ticketing, schedule changes, cancellations, and customer notifications",
-  metric: "70% less manual work",
+  title: "Re-book & Profit",
+  shortTitle: "Profit",
+  description: "Cancel the original booking, rebook at the lower price, and keep the difference as additional commission",
+  metric: "15-40% savings",
   mockup: AutomationMockup,
-  demoDescription: "See how our automation suite handles routine tasks like ticketing, schedule changes, and notifications - reducing manual work by 70% while eliminating errors."
+  demoDescription: "One-click re-booking makes it effortless to capture savings. The price difference becomes your additional profit while your client benefits from price drop protection."
 }];
 const HowItWorks = () => {
   const [activeStep, setActiveStep] = useState(0);
@@ -54,10 +54,10 @@ const HowItWorks = () => {
         {/* Header */}
         <div className="text-center mb-12 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            How It Works
+            How Re-Shopping Works
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            See it in action - Click each step below
+            Turn every booking into a potential profit opportunity
           </p>
         </div>
 
