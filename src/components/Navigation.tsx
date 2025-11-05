@@ -48,7 +48,7 @@ const Navigation = () => {
           
           <div className="hidden md:block">
             <Link to="/contact">
-              <Button className="rounded-full px-6">
+              <Button className="rounded-full px-6 text-black">
                 Book Demo
               </Button>
             </Link>

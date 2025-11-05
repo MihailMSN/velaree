@@ -85,7 +85,7 @@ const RSTool = () => {
       {/* Pricing */}
       <section className="py-24 px-6 bg-gradient-to-b from-background to-muted/20">
         <div className="container mx-auto max-w-7xl">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 py-[2px]">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Simple, Transparent Pricing
             </h2>
@@ -122,7 +122,7 @@ const RSTool = () => {
             Join leading travel agencies already saving millions with aRStool's AI-powered re-shopping platform
           </p>
           <Link to="/contact">
-            <Button size="lg" className="rounded-full">
+            <Button size="lg" className="rounded-full text-black">
               Schedule a Demo <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
           </Link>
