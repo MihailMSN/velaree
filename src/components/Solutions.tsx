@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { Plane, DollarSign, Zap } from "lucide-react";
+import { Plane, DollarSign, Zap, Check } from "lucide-react";
 
 const solutions = [
   {
@@ -7,6 +7,8 @@ const solutions = [
     title: "Book in 60 Seconds",
     subtitle: "vs. 15-min industry average",
     description: "Complete end-to-end booking flow from search to confirmation",
+    color: "text-blue-600 dark:text-blue-400",
+    bgColor: "bg-blue-500/10",
     features: [
       "Real-time availability across 200+ airlines in one search",
       "One-click booking with automatic instant ticketing",
@@ -19,6 +21,8 @@ const solutions = [
     title: "Save 20-30% on Fares",
     subtitle: "With exclusive private contracts",
     description: "Access consolidator inventory not available on public channels",
+    color: "text-emerald-600 dark:text-emerald-400",
+    bgColor: "bg-emerald-500/10",
     features: [
       "89+ private airline consolidator contracts globally",
       "Corporate negotiated rates with major carriers",
@@ -31,6 +35,8 @@ const solutions = [
     title: "Automate 70% of Operations",
     subtitle: "Save 20+ hours per week",
     description: "Intelligent automation eliminates repetitive manual tasks",
+    color: "text-purple-600 dark:text-purple-400",
+    bgColor: "bg-purple-500/10",
     features: [
       "Automatic ticketing within 2 minutes of booking",
       "AI-powered schedule change detection and rebooking",
@@ -45,7 +51,7 @@ const Solutions = () => {
     <section className="py-24 bg-background">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
             Enterprise Solutions
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -59,34 +65,37 @@ const Solutions = () => {
             return (
               <Card 
                 key={index} 
-                className="p-8 bg-card border-border hover:shadow-2xl hover:shadow-accent/10 transition-all duration-300 hover:-translate-y-2 cursor-pointer group animate-fade-in-up"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="p-6 h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               >
+                {/* Icon and Badge Row */}
                 <div className="flex items-start justify-between mb-6">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 via-accent/20 to-primary/10 border border-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <Icon className="w-8 h-8 text-primary" strokeWidth={1.5} />
+                  <div className={`w-14 h-14 rounded-lg ${solution.bgColor} flex items-center justify-center flex-shrink-0`}>
+                    <Icon className={`w-7 h-7 ${solution.color}`} />
                   </div>
-                  <div className="inline-flex items-center px-3 py-1.5 rounded-full bg-accent/30 border border-accent/50">
-                    <span className="text-sm font-semibold text-foreground">{solution.subtitle}</span>
+                  <div className="inline-flex items-center px-3 py-1.5 rounded-full bg-accent/20 border border-accent/40">
+                    <span className="text-xs font-semibold text-foreground">{solution.subtitle}</span>
                   </div>
                 </div>
               
-              <h3 className="text-2xl font-bold text-foreground mb-3">
-                {solution.title}
-              </h3>
-              
-              <p className="text-muted-foreground mb-6 leading-relaxed">
-                {solution.description}
-              </p>
-              
-              <ul className="space-y-3">
-                {solution.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-start text-sm text-muted-foreground">
-                    <div className="w-1.5 h-1.5 rounded-full bg-accent mr-3 mt-2 flex-shrink-0"></div>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
+                {/* Title */}
+                <h3 className="text-2xl font-bold text-foreground mb-3">
+                  {solution.title}
+                </h3>
+                
+                {/* Description */}
+                <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
+                  {solution.description}
+                </p>
+                
+                {/* Features List */}
+                <ul className="space-y-3">
+                  {solution.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-start text-sm text-muted-foreground">
+                      <Check className={`w-4 h-4 ${solution.color} mr-2 mt-0.5 flex-shrink-0`} />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
               </Card>
             );
           })}
