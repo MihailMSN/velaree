@@ -5,48 +5,35 @@ import ApiFlowDiagram from "@/components/ApiFlowDiagram";
 
 const integrations = [
   {
-    category: "GDS & Traditional Sources",
-    description: "Core distribution systems for comprehensive fare monitoring",
+    category: "Global Distribution Systems (GDS)",
     partners: [
-      { name: "Amadeus", description: "Real-time fare monitoring and re-booking" },
-      { name: "Sabre", description: "Advanced price tracking and inventory" },
-      { name: "Travelport", description: "Multi-GDS fare comparison" }
+      { name: "Amadeus", description: "Real-time booking and inventory management" },
+      { name: "Sabre", description: "Advanced fare shopping and ticketing" },
+      { name: "Travelport", description: "Multi-source content aggregation" }
     ]
   },
   {
-    category: "Airlines Direct (aRStool)",
-    description: "200+ airline connections for direct fare monitoring",
+    category: "Metasearch Platforms",
     partners: [
-      { name: "Low-Cost Carriers", description: "50+ LCC APIs for best price tracking" },
-      { name: "Full-Service Airlines", description: "NDC connections for private fares" },
-      { name: "Consolidator Fares", description: "Exclusive wholesale pricing access" }
+      { name: "Google Flights", description: "Direct API integration for price comparison" },
+      { name: "Skyscanner", description: "Live pricing feed and deep linking" },
+      { name: "Kayak", description: "Inventory distribution and analytics" }
     ]
   },
   {
-    category: "Metasearch Engines (aRStool)",
-    description: "Public fare comparison for comprehensive monitoring",
+    category: "Direct Airline Connections",
     partners: [
-      { name: "Google Flights", description: "Real-time public fare comparison" },
-      { name: "Skyscanner", description: "Multi-source price monitoring" },
-      { name: "Kayak", description: "Fare trend analysis and alerts" }
+      { name: "Low-Cost Carriers", description: "50+ LCC direct connect APIs" },
+      { name: "Full-Service Airlines", description: "NDC and traditional EDIFACT" },
+      { name: "Regional Carriers", description: "Custom integration frameworks" }
     ]
   },
   {
-    category: "OTA Partners (hRStool)",
-    description: "Leading online travel agencies for hotel rate monitoring",
+    category: "Payment & Processing",
     partners: [
-      { name: "Booking.com", description: "Global hotel inventory monitoring" },
-      { name: "Expedia", description: "Comprehensive rate tracking" },
-      { name: "Hotels.com", description: "Loyalty program integration" }
-    ]
-  },
-  {
-    category: "Hotel Direct (hRStool)",
-    description: "Direct connections to major hotel chains",
-    partners: [
-      { name: "Major Chains", description: "Marriott, Hilton, IHG direct rates" },
-      { name: "Boutique Hotels", description: "Independent property monitoring" },
-      { name: "Wholesalers", description: "Exclusive contract rate access" }
+      { name: "Stripe", description: "Global payment processing" },
+      { name: "BSP/ARC", description: "Industry settlement systems" },
+      { name: "Multi-currency", description: "150+ currencies supported" }
     ]
   }
 ];
@@ -61,10 +48,10 @@ const IntegrationsPage = () => {
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center animate-fade-in">
             <h1 className="text-5xl md:text-7xl font-bold text-primary-foreground mb-6">
-              50+ Data Sources for Re-Shopping
+              Global Connectivity
             </h1>
             <p className="text-xl md:text-2xl text-primary-foreground/80 mb-8">
-              Our AI monitors fares and rates across the world's leading GDSs, airlines, OTAs, and consolidators
+              Seamless integrations through our modular API architecture
             </p>
           </div>
         </div>
@@ -75,10 +62,10 @@ const IntegrationsPage = () => {
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-              How We Monitor All Sources
+              Our API Architecture
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Our AI continuously checks these data sources to find the best savings opportunities
+              A single integration point to access the entire travel ecosystem
             </p>
           </div>
           <ApiFlowDiagram />
@@ -91,13 +78,10 @@ const IntegrationsPage = () => {
           <div className="space-y-16">
             {integrations.map((category, index) => (
               <div key={index} className="animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
-                <div className="mb-4">
-                  <h2 className="text-3xl font-bold text-foreground mb-2">
-                    {category.category}
-                  </h2>
-                  <p className="text-muted-foreground text-lg">{category.description}</p>
-                </div>
-                <div className="grid md:grid-cols-3 gap-6 mb-8 pb-8 border-b border-border">
+                <h2 className="text-3xl font-bold text-foreground mb-8 border-b border-border pb-4">
+                  {category.category}
+                </h2>
+                <div className="grid md:grid-cols-3 gap-6">
                   {category.partners.map((partner, idx) => (
                     <Card 
                       key={idx}
@@ -116,16 +100,13 @@ const IntegrationsPage = () => {
             ))}
           </div>
 
-          <div className="text-center">
+          <div className="mt-16 text-center">
             <Card className="p-8 bg-gradient-to-br from-primary/10 via-accent/10 to-primary/5 border border-primary/20 inline-block">
-              <h3 className="text-foreground text-2xl font-bold mb-2">
-                How We Use These Integrations
-              </h3>
-              <p className="text-muted-foreground mt-2 max-w-3xl">
-                <strong className="text-foreground">For aRStool:</strong> We monitor all these sources simultaneously to find cheaper alternatives to your clients' booked flights
+              <p className="text-foreground text-2xl font-bold">
+                + 50 more airline and consolidator direct connections
               </p>
-              <p className="text-muted-foreground mt-2 max-w-3xl">
-                <strong className="text-foreground">For hRStool:</strong> We continuously check rates across all platforms to identify savings opportunities for hotel bookings
+              <p className="text-muted-foreground mt-2">
+                Custom integration capabilities for enterprise partners
               </p>
             </Card>
           </div>

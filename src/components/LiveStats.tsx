@@ -2,51 +2,55 @@ import { useEffect, useState } from "react";
 import { Activity, Globe, Zap } from "lucide-react";
 
 const LiveStats = () => {
-  const [savingsToday, setSavingsToday] = useState(24730);
-  const [rebookings, setRebookings] = useState(347);
-  const [monitored, setMonitored] = useState(8547);
+  const [bookings, setBookings] = useState(8547);
+  const [searches, setSearches] = useState(142305);
+  const [responseTime, setResponseTime] = useState(342);
 
   useEffect(() => {
     // Simulate real-time updates
-    const savingsInterval = setInterval(() => {
-      setSavingsToday(prev => prev + Math.floor(Math.random() * 500) + 100);
+    const bookingInterval = setInterval(() => {
+      setBookings(prev => prev + Math.floor(Math.random() * 3));
     }, 5000);
 
-    const rebookingsInterval = setInterval(() => {
-      setRebookings(prev => prev + Math.floor(Math.random() * 2));
-    }, 8000);
+    const searchInterval = setInterval(() => {
+      setSearches(prev => prev + Math.floor(Math.random() * 15) + 5);
+    }, 3000);
 
-    const monitoredInterval = setInterval(() => {
-      setMonitored(prev => prev + Math.floor(Math.random() * 5) + 2);
-    }, 6000);
+    const responseInterval = setInterval(() => {
+      setResponseTime(prev => {
+        const change = Math.floor(Math.random() * 40) - 20;
+        const newValue = prev + change;
+        return Math.max(250, Math.min(450, newValue));
+      });
+    }, 4000);
 
     return () => {
-      clearInterval(savingsInterval);
-      clearInterval(rebookingsInterval);
-      clearInterval(monitoredInterval);
+      clearInterval(bookingInterval);
+      clearInterval(searchInterval);
+      clearInterval(responseInterval);
     };
   }, []);
 
   const stats = [
     {
       icon: Activity,
-      label: "Saved for Clients Today",
-      value: "€" + savingsToday.toLocaleString(),
+      label: "Bookings Today",
+      value: bookings.toLocaleString(),
       suffix: "",
       color: "from-accent to-accent/70"
     },
     {
       icon: Globe,
-      label: "Bookings Monitored",
-      value: monitored.toLocaleString(),
+      label: "Searches This Hour",
+      value: searches.toLocaleString(),
       suffix: "",
       color: "from-primary to-primary/80"
     },
     {
       icon: Zap,
-      label: "Re-bookings Today",
-      value: rebookings.toString(),
-      suffix: "",
+      label: "Avg Response Time",
+      value: responseTime.toString(),
+      suffix: "ms",
       color: "from-accent to-accent/60"
     }
   ];
@@ -58,10 +62,10 @@ const LiveStats = () => {
           {/* Title */}
           <div className="text-center md:text-left">
             <h3 className="text-2xl md:text-3xl font-bold text-primary-foreground mb-2">
-              Live Re-Shopping Activity
+              Live Platform Activity
             </h3>
             <p className="text-primary-foreground/70 text-sm">
-              Real-time savings being captured right now
+              Real-time metrics from our global network
             </p>
           </div>
 
@@ -97,7 +101,7 @@ const LiveStats = () => {
         <div className="flex items-center justify-center gap-2 mt-6">
           <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
           <span className="text-xs text-primary-foreground/80">
-            AI monitoring active • 50+ sources checked continuously
+            All systems operational • 99.9% uptime
           </span>
         </div>
       </div>

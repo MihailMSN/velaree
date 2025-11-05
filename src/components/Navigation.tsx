@@ -15,17 +15,17 @@ const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   const navItems = [{
-    name: "Home",
-    path: "/"
+    name: "Solutions",
+    path: "/solutions"
+  }, {
+    name: "Integrations",
+    path: "/integrations"
   }, {
     name: "aRStool",
     path: "/rstool"
   }, {
     name: "hRStool",
     path: "/hrstool"
-  }, {
-    name: "Integrations",
-    path: "/integrations"
   }, {
     name: "About",
     path: "/about"
