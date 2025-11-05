@@ -14,16 +14,145 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      business_accounts: {
+        Row: {
+          company_name: string
+          contact_email: string
+          contact_phone: string | null
+          created_at: string
+          id: string
+          updated_at: string
+        }
+        Insert: {
+          company_name: string
+          contact_email: string
+          contact_phone?: string | null
+          created_at?: string
+          id?: string
+          updated_at?: string
+        }
+        Update: {
+          company_name?: string
+          contact_email?: string
+          contact_phone?: string | null
+          created_at?: string
+          id?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      pnrs: {
+        Row: {
+          best_price: number | null
+          business_account_id: string
+          created_at: string
+          gds_source: string | null
+          id: string
+          original_price: number | null
+          passenger_count: number | null
+          pnr_code: string
+          potential_savings: number | null
+          reshop_results: Json | null
+          route_info: Json | null
+          status: Database["public"]["Enums"]["pnr_status"]
+          submitted_by: string | null
+          updated_at: string
+        }
+        Insert: {
+          best_price?: number | null
+          business_account_id: string
+          created_at?: string
+          gds_source?: string | null
+          id?: string
+          original_price?: number | null
+          passenger_count?: number | null
+          pnr_code: string
+          potential_savings?: number | null
+          reshop_results?: Json | null
+          route_info?: Json | null
+          status?: Database["public"]["Enums"]["pnr_status"]
+          submitted_by?: string | null
+          updated_at?: string
+        }
+        Update: {
+          best_price?: number | null
+          business_account_id?: string
+          created_at?: string
+          gds_source?: string | null
+          id?: string
+          original_price?: number | null
+          passenger_count?: number | null
+          pnr_code?: string
+          potential_savings?: number | null
+          reshop_results?: Json | null
+          route_info?: Json | null
+          status?: Database["public"]["Enums"]["pnr_status"]
+          submitted_by?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "pnrs_business_account_id_fkey"
+            columns: ["business_account_id"]
+            isOneToOne: false
+            referencedRelation: "business_accounts"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      user_roles: {
+        Row: {
+          business_account_id: string
+          created_at: string
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          business_account_id: string
+          created_at?: string
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          business_account_id?: string
+          created_at?: string
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "user_roles_business_account_id_fkey"
+            columns: ["business_account_id"]
+            isOneToOne: false
+            referencedRelation: "business_accounts"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      get_user_business_accounts: {
+        Args: { _user_id: string }
+        Returns: string[]
+      }
+      has_role: {
+        Args: {
+          _business_account_id: string
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "business_admin" | "business_user"
+      pnr_status: "pending" | "processing" | "completed" | "failed"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +279,9 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["business_admin", "business_user"],
+      pnr_status: ["pending", "processing", "completed", "failed"],
+    },
   },
 } as const
