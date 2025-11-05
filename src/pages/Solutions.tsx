@@ -153,7 +153,8 @@ const Solutions = () => {
           <Link to="/contact">
             <Button 
               size="lg"
-              className="bg-accent text-accent-foreground hover:bg-accent/90 text-lg px-8 py-6 rounded-full transition-all duration-300 hover:scale-105"
+              variant="secondary"
+              className="text-lg px-8 py-6 rounded-full transition-all duration-300 hover:scale-105"
             >
               Book a Demo
             </Button>

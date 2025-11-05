@@ -48,7 +48,7 @@ const Navigation = () => {
           
           <div className="hidden md:block">
             <Link to="/contact">
-              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-6">
+              <Button className="rounded-full px-6">
                 Book Demo
               </Button>
             </Link>
@@ -65,9 +65,9 @@ const Navigation = () => {
                   {item.name}
                 </Link>)}
               <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-                <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full w-full mt-2">
-                  Book Demo
-                </Button>
+            <Button className="w-full rounded-full mt-2">
+              Book Demo
+            </Button>
               </Link>
             </div>
           </div>}
