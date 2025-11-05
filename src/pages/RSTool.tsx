@@ -5,6 +5,7 @@ import RStoolFeatures from "@/components/rstool/RStoolFeatures";
 import RStoolHowItWorks from "@/components/rstool/RStoolHowItWorks";
 import RStoolPricing from "@/components/rstool/RStoolPricing";
 import RStoolSocialProof from "@/components/rstool/RStoolSocialProof";
+import RStoolFAQ from "@/components/rstool/RStoolFAQ";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -93,6 +94,21 @@ const RSTool = () => {
             </p>
           </div>
           <RStoolPricing />
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-24 px-6">
+        <div className="container mx-auto max-w-7xl">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Everything you need to know about RSTool implementation and pricing
+            </p>
+          </div>
+          <RStoolFAQ />
         </div>
       </section>
 
