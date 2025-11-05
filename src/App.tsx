@@ -10,6 +10,7 @@ import RSTool from "./pages/RSTool";
 import HRSTool from "./pages/HRSTool";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Pricing from "./pages/Pricing";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/integrations" element={<IntegrationsPage />} />
           <Route path="/rstool" element={<RSTool />} />
           <Route path="/hrstool" element={<HRSTool />} />
+          <Route path="/pricing" element={<Pricing />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

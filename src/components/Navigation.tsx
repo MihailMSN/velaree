@@ -27,6 +27,9 @@ const Navigation = () => {
     name: "hRStool",
     path: "/hrstool"
   }, {
+    name: "Pricing",
+    path: "/pricing"
+  }, {
     name: "About",
     path: "/about"
   }, {
