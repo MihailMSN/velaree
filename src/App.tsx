@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import Solutions from "./pages/Solutions";
 import IntegrationsPage from "./pages/IntegrationsPage";
 import RSTool from "./pages/RSTool";
+import HRSTool from "./pages/HRSTool";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/solutions" element={<Solutions />} />
           <Route path="/integrations" element={<IntegrationsPage />} />
           <Route path="/rstool" element={<RSTool />} />
+          <Route path="/hrstool" element={<HRSTool />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

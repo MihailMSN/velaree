@@ -22,10 +22,10 @@ const RSTool = () => {
               AI-Powered B2B Re-Shopping Portal
             </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6 text-primary">
-              RSTool Demo
+              aRStool Demo
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-              Experience the future of airline ticket re-shopping. Our AI-powered platform monitors PNRs 24/7, 
+              Experience the future of air ticket re-shopping. Our AI-powered platform monitors PNRs 24/7, 
               checks pricing across all major GDSs, and automatically finds better fares through multiple re-booking scenarios.
             </p>
             <div className="flex gap-4 justify-center">
@@ -53,7 +53,7 @@ const RSTool = () => {
               Interactive Demo Dashboard
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              See how RSTool analyzes PNRs and finds savings opportunities across multiple GDS platforms
+              See how aRStool analyzes PNRs and finds savings opportunities across multiple GDS platforms
             </p>
           </div>
           <RStoolDemoDashboard />
@@ -105,7 +105,7 @@ const RSTool = () => {
               Frequently Asked Questions
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Everything you need to know about RSTool implementation and pricing
+              Everything you need to know about aRStool implementation and pricing
             </p>
           </div>
           <RStoolFAQ />
@@ -119,7 +119,7 @@ const RSTool = () => {
             Ready to Transform Your B2B Travel Business?
           </h2>
           <p className="text-xl text-muted-foreground mb-8">
-            Join leading travel agencies already saving millions with RSTool's AI-powered re-shopping platform
+            Join leading travel agencies already saving millions with aRStool's AI-powered re-shopping platform
           </p>
           <Link to="/contact">
             <Button size="lg" className="rounded-full">

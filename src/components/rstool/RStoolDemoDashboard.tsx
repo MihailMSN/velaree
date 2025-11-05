@@ -129,7 +129,7 @@ const RStoolDemoDashboard = () => {
   };
 
   return (
-    <MockupBrowser url="rstool.velaree.com/dashboard" className="w-full">
+    <MockupBrowser url="arstool.velaree.com/dashboard" className="w-full">
       <div className="p-6 min-h-[600px]">
         {/* Header */}
         <div className="flex items-center justify-between mb-6">

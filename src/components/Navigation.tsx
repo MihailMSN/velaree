@@ -21,8 +21,11 @@ const Navigation = () => {
     name: "Integrations",
     path: "/integrations"
   }, {
-    name: "RSTool",
+    name: "aRStool",
     path: "/rstool"
+  }, {
+    name: "hRStool",
+    path: "/hrstool"
   }, {
     name: "About",
     path: "/about"
