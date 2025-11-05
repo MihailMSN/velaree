@@ -2,7 +2,7 @@ import { useState } from "react";
 import MockupBrowser from "@/components/mockups/MockupBrowser";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { 
   TrendingDown, 
@@ -221,9 +221,9 @@ const RStoolDemoDashboard = () => {
                           <div className="text-xs font-medium text-green-600">{item.savingsPercent}%</div>
                         </td>
                         <td className="px-4 py-3">
-                          <Badge className={getScenarioColor(item.scenario)}>
+                          <span className={cn("inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold", getScenarioColor(item.scenario))}>
                             {item.scenario}
-                          </Badge>
+                          </span>
                         </td>
                         <td className="px-4 py-3 text-xs text-gray-600">
                           {item.supplier} → {item.newSupplier}
@@ -234,9 +234,9 @@ const RStoolDemoDashboard = () => {
                           </span>
                         </td>
                         <td className="px-4 py-3">
-                          <Badge className={getStatusColor(item.status)}>
+                          <span className={cn("inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold", getStatusColor(item.status))}>
                             {item.status}
-                          </Badge>
+                          </span>
                         </td>
                         <td className="px-4 py-3">
                           <Button size="sm" variant="ghost" className="text-primary">

@@ -20,7 +20,7 @@ const RSTool = () => {
               <Sparkles className="w-4 h-4" />
               AI-Powered B2B Re-Shopping Portal
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-primary">
               RSTool Demo
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
@@ -79,7 +79,7 @@ const RSTool = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-20 px-6">
+      <section className="py-32 px-6">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-4xl font-bold mb-6">
             Ready to Transform Your B2B Travel Business?

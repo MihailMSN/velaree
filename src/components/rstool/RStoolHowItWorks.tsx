@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { Upload, Cpu, Search, Sparkles, TrendingDown, CheckCircle2, ArrowRight } from "lucide-react";
+import { Upload, Cpu, Search, Sparkles, TrendingDown, CheckCircle2 } from "lucide-react";
 
 const steps = [
   {
@@ -64,31 +64,22 @@ const RStoolHowItWorks = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {steps.map((step, index) => (
-          <div key={index} className="relative">
-            <Card className="p-6 h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-border">
-              <div className="flex items-start gap-4 mb-4">
-                <div className={`w-14 h-14 rounded-lg ${step.bgColor} flex items-center justify-center flex-shrink-0`}>
-                  <step.icon className={`w-7 h-7 ${step.color}`} />
-                </div>
-                <div className="flex-1">
-                  <div className="text-sm font-bold text-muted-foreground mb-1">{step.number}</div>
-                  <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
-                </div>
+          <Card key={index} className="p-6 h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-border">
+            <div className="flex items-start gap-4 mb-4">
+              <div className={`w-14 h-14 rounded-lg ${step.bgColor} flex items-center justify-center flex-shrink-0`}>
+                <step.icon className={`w-7 h-7 ${step.color}`} />
               </div>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                {step.description}
-              </p>
-            </Card>
-            
-            {/* Arrow connector - hidden on last item and on mobile */}
-            {index < steps.length - 1 && (
-              <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-10">
-                <ArrowRight className="w-8 h-8 text-primary/30" />
+              <div className="flex-1">
+                <div className="text-sm font-bold text-muted-foreground mb-1">{step.number}</div>
+                <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
               </div>
-            )}
-          </div>
+            </div>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              {step.description}
+            </p>
+          </Card>
         ))}
       </div>
 
