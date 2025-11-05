@@ -55,7 +55,7 @@ const About = () => {
       </section>
 
       {/* Vision Statement */}
-      <section className="py-24 bg-gradient-to-b from-background to-secondary/30">
+      <section className="py-24 bg-gradient-to-b from-primary/5 via-accent/5 to-background">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center animate-fade-in">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-8">
@@ -92,7 +92,7 @@ const About = () => {
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <div className="flex items-start gap-6">
-                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent to-accent/50 flex items-center justify-center flex-shrink-0">
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 via-accent/20 to-primary/10 border border-primary/10 flex items-center justify-center flex-shrink-0">
                       <Icon className="w-8 h-8 text-primary" strokeWidth={1.5} />
                     </div>
                     <div>
@@ -108,7 +108,7 @@ const About = () => {
       </section>
 
       {/* Timeline */}
-      <section className="py-24 bg-gradient-to-b from-secondary/30 to-background">
+      <section className="py-24 bg-gradient-to-b from-primary/5 via-accent/5 to-background">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">

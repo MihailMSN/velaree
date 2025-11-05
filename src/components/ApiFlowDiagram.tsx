@@ -17,7 +17,7 @@ const ApiFlowDiagram = () => {
 
         {/* Velaree */}
         <div className="flex flex-col items-center animate-fade-in" style={{ animationDelay: "0.2s" }}>
-          <div className="w-32 h-32 rounded-2xl bg-gradient-to-br from-accent to-accent/70 flex items-center justify-center shadow-2xl relative overflow-hidden">
+          <div className="w-32 h-32 rounded-2xl bg-gradient-to-br from-primary/20 via-accent/30 to-primary/20 border-2 border-accent/30 flex items-center justify-center shadow-2xl relative overflow-hidden">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/20 via-transparent to-transparent animate-network-pulse"></div>
             <span className="text-primary font-bold text-lg relative z-10">Velaree</span>
           </div>

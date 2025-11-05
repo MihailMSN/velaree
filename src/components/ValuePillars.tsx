@@ -32,7 +32,7 @@ const ValuePillars = () => {
             className="flex flex-col items-center text-center space-y-4 p-6 rounded-2xl bg-card/50 border border-border/50 hover:border-accent/50 transition-all duration-300 hover:scale-105 animate-fade-in"
             style={{ animationDelay: `${index * 0.1}s` }}
           >
-            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-accent to-accent/50 flex items-center justify-center">
+            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 via-accent/20 to-primary/10 border border-primary/10 flex items-center justify-center">
               <Icon className="w-8 h-8 text-primary" strokeWidth={1.5} />
             </div>
             <h3 className="text-xl font-bold text-foreground mb-2">{pillar.title}</h3>

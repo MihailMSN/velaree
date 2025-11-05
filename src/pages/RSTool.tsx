@@ -17,7 +17,7 @@ const RSTool = () => {
       <section className="pt-32 pb-16 px-6">
         <div className="container mx-auto max-w-7xl">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border border-primary/20 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
               <Sparkles className="w-4 h-4" />
               AI-Powered B2B Re-Shopping Portal
             </div>

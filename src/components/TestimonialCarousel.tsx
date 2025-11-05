@@ -42,7 +42,7 @@ const TestimonialCarousel = () => {
   };
 
   return (
-    <section className="py-24 bg-gradient-to-b from-background to-secondary/30">
+    <section className="py-24 bg-gradient-to-b from-primary/5 via-accent/5 to-background">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-6">

@@ -63,7 +63,7 @@ const Solutions = () => {
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="flex items-start justify-between mb-6">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent to-accent/50 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 via-accent/20 to-primary/10 border border-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                     <Icon className="w-8 h-8 text-primary" strokeWidth={1.5} />
                   </div>
                   <div className="inline-flex items-center px-3 py-1.5 rounded-full bg-accent/30 border border-accent/50">

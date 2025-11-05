@@ -103,7 +103,7 @@ const Solutions = () => {
                   }`}
                 >
                   <div className={`animate-fade-in ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
-                    <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-accent to-accent/50 flex items-center justify-center mb-6">
+                    <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary/20 via-accent/20 to-primary/10 border border-primary/10 flex items-center justify-center mb-6">
                       <Icon className="w-10 h-10 text-primary" strokeWidth={1.5} />
                     </div>
                     <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">

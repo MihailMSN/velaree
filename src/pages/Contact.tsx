@@ -46,7 +46,7 @@ const Contact = () => {
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <div className="text-center animate-fade-in">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-accent to-accent/50 flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 via-accent/20 to-primary/10 border border-primary/10 flex items-center justify-center mx-auto mb-4">
                 <Mail className="w-8 h-8 text-primary" />
               </div>
               <h3 className="text-xl font-bold text-foreground mb-2">Email Us</h3>
@@ -55,7 +55,7 @@ const Contact = () => {
             </div>
 
             <div className="text-center animate-fade-in" style={{ animationDelay: "0.1s" }}>
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-accent to-accent/50 flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 via-accent/20 to-primary/10 border border-primary/10 flex items-center justify-center mx-auto mb-4">
                 <Phone className="w-8 h-8 text-primary" />
               </div>
               <h3 className="text-xl font-bold text-foreground mb-2">Call Us</h3>
@@ -64,7 +64,7 @@ const Contact = () => {
             </div>
 
             <div className="text-center animate-fade-in" style={{ animationDelay: "0.2s" }}>
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-accent to-accent/50 flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 via-accent/20 to-primary/10 border border-primary/10 flex items-center justify-center mx-auto mb-4">
                 <MapPin className="w-8 h-8 text-primary" />
               </div>
               <h3 className="text-xl font-bold text-foreground mb-2">Visit Us</h3>

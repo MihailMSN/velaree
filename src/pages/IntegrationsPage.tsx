@@ -58,7 +58,7 @@ const IntegrationsPage = () => {
       </section>
 
       {/* API Architecture */}
-      <section className="py-24 bg-gradient-to-b from-background to-secondary/30">
+      <section className="py-24 bg-gradient-to-b from-primary/5 via-accent/5 to-background">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
@@ -101,7 +101,7 @@ const IntegrationsPage = () => {
           </div>
 
           <div className="mt-16 text-center">
-            <Card className="p-8 bg-gradient-to-br from-accent/10 to-accent/5 border-accent/20 inline-block">
+            <Card className="p-8 bg-gradient-to-br from-primary/10 via-accent/10 to-primary/5 border border-primary/20 inline-block">
               <p className="text-foreground text-2xl font-bold">
                 + 50 more airline and consolidator direct connections
               </p>
@@ -114,7 +114,7 @@ const IntegrationsPage = () => {
       </section>
 
       {/* Technical Specifications */}
-      <section className="py-24 bg-gradient-to-b from-secondary/30 to-background">
+      <section className="py-24 bg-gradient-to-b from-primary/5 via-accent/5 to-background">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-12 text-center">

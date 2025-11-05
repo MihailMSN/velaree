@@ -42,7 +42,7 @@ const caseStudies = [
 
 const CaseStudies = () => {
   return (
-    <section className="py-24 bg-gradient-to-b from-secondary/50 to-background">
+    <section className="py-24 bg-gradient-to-b from-primary/5 via-accent/5 to-background">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
