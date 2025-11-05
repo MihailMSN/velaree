@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Search, GitCompare, Zap, Bell } from "lucide-react";
 import SearchAvailabilityMockup from "./mockups/SearchAvailabilityMockup";
-import ReShoppingMockup from "./mockups/ReShoppingMockup";
+import RStoolDemoDashboard from "./rstool/RStoolDemoDashboard";
 import CheckoutMockup from "./mockups/CheckoutMockup";
 import AutomationMockup from "./mockups/AutomationMockup";
 const steps = [{
@@ -20,8 +20,8 @@ const steps = [{
   shortTitle: "Re-Shop",
   description: "Automated price monitoring checks for fare drops every minute, comparing consolidators, suppliers, commission rates, and private fares",
   metric: "24/7 monitoring",
-  mockup: ReShoppingMockup,
-  demoDescription: "Real-time re-shopping dashboard monitors existing bookings for price drops. Instantly compare consolidator rates, supplier options, commission percentages, and private fares to maximize savings and margins."
+  mockup: RStoolDemoDashboard,
+  demoDescription: "Advanced re-shopping dashboard with AI-powered analysis monitors existing bookings for price drops. View detailed scenarios (Void/Reissue, Refund/Reissue, Exchange), confidence scores, and one-click re-booking opportunities across multiple GDS and consolidators."
 }, {
   icon: Zap,
   number: "03",

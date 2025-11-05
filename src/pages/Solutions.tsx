@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import ClickToBookMockup from "@/components/mockups/ClickToBookMockup";
 import PrivateFareMockup from "@/components/mockups/PrivateFareMockup";
 import AutomationMockup from "@/components/mockups/AutomationMockup";
-import ReShoppingMockup from "@/components/mockups/ReShoppingMockup";
+import RStoolDemoDashboard from "@/components/rstool/RStoolDemoDashboard";
 
 const solutions = [
   {
@@ -93,7 +93,7 @@ const Solutions = () => {
           <div className="space-y-24">
             {solutions.map((solution, index) => {
               const Icon = solution.icon;
-              const MockupComponent = index === 0 ? ClickToBookMockup : index === 1 ? PrivateFareMockup : index === 2 ? AutomationMockup : ReShoppingMockup;
+              const MockupComponent = index === 0 ? ClickToBookMockup : index === 1 ? PrivateFareMockup : index === 2 ? AutomationMockup : RStoolDemoDashboard;
               
               return (
                 <div 
