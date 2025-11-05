@@ -1,5 +1,6 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import ROICalculator from "@/components/ROICalculator";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Check, ArrowRight, Sparkles, Gift, Plane, Building2 } from "lucide-react";
@@ -338,6 +339,9 @@ const Pricing = () => {
           </Tabs>
         </div>
       </section>
+
+      {/* ROI Calculator */}
+      <ROICalculator />
 
       {/* FAQ Section */}
       <section className="py-16 px-6 bg-primary/5">
