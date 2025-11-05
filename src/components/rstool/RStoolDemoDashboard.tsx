@@ -17,12 +17,12 @@ import {
 } from "lucide-react";
 
 const stats = [
+  { label: "Total Savings YTD", value: "$2.4M", icon: TrendingDown, change: "+32%" },
   { label: "PNRs Monitored", value: "1,247", icon: Users, change: "+12%" },
   { label: "Active Opportunities", value: "89", icon: AlertCircle, change: "+23%" },
   { label: "Total Savings Today", value: "$43,892", icon: DollarSign, change: "+18%" },
   { label: "Avg. Savings/PNR", value: "$493", icon: TrendingDown, change: "+8%" },
   { label: "Successful Re-bookings", value: "156", icon: CheckCircle2, change: "+15%" },
-  { label: "Processing Time", value: "2.3s", icon: Clock, change: "-12%" },
 ];
 
 const reShoppingData = [
@@ -167,6 +167,33 @@ const RStoolDemoDashboard = () => {
             </Card>
           ))}
         </div>
+
+        {/* Top Routes Chart */}
+        <Card className="p-4 bg-white border-gray-200 mb-6">
+          <h3 className="text-sm font-semibold text-gray-700 mb-4">Top Routes by Savings Opportunity</h3>
+          <div className="space-y-3">
+            {[
+              { route: "JFK-LHR", savings: "$8,200", percentage: 100 },
+              { route: "LAX-NRT", savings: "$6,500", percentage: 79 },
+              { route: "SFO-CDG", savings: "$5,800", percentage: 71 },
+              { route: "MIA-GRU", savings: "$4,200", percentage: 51 },
+              { route: "ORD-FRA", savings: "$3,900", percentage: 48 }
+            ].map((item, index) => (
+              <div key={index} className="flex items-center gap-3">
+                <div className="w-24 text-sm font-medium text-gray-900">{item.route}</div>
+                <div className="flex-1">
+                  <div className="h-6 bg-gray-100 rounded-full overflow-hidden">
+                    <div 
+                      className="h-full bg-gradient-to-r from-primary to-primary/60 rounded-full transition-all duration-500"
+                      style={{ width: `${item.percentage}%` }}
+                    />
+                  </div>
+                </div>
+                <div className="w-20 text-sm font-bold text-green-600 text-right">{item.savings}</div>
+              </div>
+            ))}
+          </div>
+        </Card>
 
         {/* Tabs for Different Views */}
         <Tabs defaultValue="opportunities" className="w-full">
