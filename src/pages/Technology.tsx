@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
@@ -71,6 +72,29 @@ const solutions = [
 const Technology = () => {
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Travel Technology Solutions | Velaree Tech Stack</title>
+        <meta 
+          name="description" 
+          content="Explore Velaree's powerful travel technology: Click-to-Book Platform, Private Fare API, Automation Suite, and Re-Shopping Engine for OTAs, TMCs, and airlines." 
+        />
+        <meta 
+          name="keywords" 
+          content="travel technology, OTA platform, TMC software, airline booking system, private fare API, travel automation, re-shopping engine" 
+        />
+        <link rel="canonical" href="https://velaree.com/technology" />
+        
+        {/* Open Graph tags */}
+        <meta property="og:title" content="Travel Technology Solutions | Velaree Tech Stack" />
+        <meta property="og:description" content="Powerful travel technology tools for OTAs, TMCs, and airlines - instant booking, private fares, automation, and re-shopping." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://velaree.com/technology" />
+        
+        {/* Twitter Card tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Travel Technology Solutions | Velaree Tech Stack" />
+        <meta name="twitter:description" content="Powerful travel technology tools for OTAs, TMCs, and airlines - instant booking, private fares, automation, and re-shopping." />
+      </Helmet>
       <Navigation />
       
       {/* Hero Section */}
