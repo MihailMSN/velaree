@@ -6,88 +6,66 @@ import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { ArrowRight, Sparkles, Hotel, DollarSign, Bell, Shield, Clock, Network, Gift } from "lucide-react";
 import { Link } from "react-router-dom";
-
 const HRSTool = () => {
-  const features = [
-    {
-      icon: DollarSign,
-      title: "Multi-OTA Rate Shopping",
-      description: "Simultaneously compare rates across Booking.com, Expedia, Hotels.com, and direct hotel websites to find the best available price.",
-      color: "text-blue-600 dark:text-blue-400",
-      bgColor: "bg-blue-500/10"
-    },
-    {
-      icon: Bell,
-      title: "Dynamic Pricing Alerts",
-      description: "Real-time notifications when hotel rates drop below your booked price. Never miss a savings opportunity.",
-      color: "text-purple-600 dark:text-purple-400",
-      bgColor: "bg-purple-500/10"
-    },
-    {
-      icon: Shield,
-      title: "Cancellation Monitoring",
-      description: "Track cancellation policies and automatically rebook when better rates become available within free cancellation windows.",
-      color: "text-green-600 dark:text-green-400",
-      bgColor: "bg-green-500/10"
-    },
-    {
-      icon: Clock,
-      title: "24/7 Rate Monitoring",
-      description: "Continuous automated monitoring of all hotel bookings. AI analyzes rate fluctuations and identifies optimal rebooking times.",
-      color: "text-amber-600 dark:text-amber-400",
-      bgColor: "bg-amber-500/10"
-    },
-    {
-      icon: Network,
-      title: "Corporate Rate Verification",
-      description: "Validate corporate rates against public rates to ensure you're getting the best available deal for business travel.",
-      color: "text-indigo-600 dark:text-indigo-400",
-      bgColor: "bg-indigo-500/10"
-    },
-    {
-      icon: Gift,
-      title: "Loyalty Points Optimization",
-      description: "Smart recommendations on when to use points vs. cash, maximizing both savings and loyalty program benefits.",
-      color: "text-rose-600 dark:text-rose-400",
-      bgColor: "bg-rose-500/10"
-    }
-  ];
-
-  const howItWorksSteps = [
-    {
-      number: "01",
-      title: "Connect Your Bookings",
-      description: "Integrate with your PMS or manually upload hotel reservations. System accepts bookings from all major platforms."
-    },
-    {
-      number: "02",
-      title: "AI Monitoring Begins",
-      description: "Advanced algorithms track rates across 50+ sources including OTAs, direct bookings, and corporate channels."
-    },
-    {
-      number: "03",
-      title: "Identify Savings",
-      description: "When rates drop, AI analyzes cancellation policies, rebooking fees, and calculates net savings potential."
-    },
-    {
-      number: "04",
-      title: "Automated Re-booking",
-      description: "System cancels and rebooks automatically, or alerts you for manual approval based on your preferences."
-    }
-  ];
-
-  return (
-    <div className="min-h-screen bg-background">
+  const features = [{
+    icon: DollarSign,
+    title: "Multi-OTA Rate Shopping",
+    description: "Simultaneously compare rates across Booking.com, Expedia, Hotels.com, and direct hotel websites to find the best available price.",
+    color: "text-blue-600 dark:text-blue-400",
+    bgColor: "bg-blue-500/10"
+  }, {
+    icon: Bell,
+    title: "Dynamic Pricing Alerts",
+    description: "Real-time notifications when hotel rates drop below your booked price. Never miss a savings opportunity.",
+    color: "text-purple-600 dark:text-purple-400",
+    bgColor: "bg-purple-500/10"
+  }, {
+    icon: Shield,
+    title: "Cancellation Monitoring",
+    description: "Track cancellation policies and automatically rebook when better rates become available within free cancellation windows.",
+    color: "text-green-600 dark:text-green-400",
+    bgColor: "bg-green-500/10"
+  }, {
+    icon: Clock,
+    title: "24/7 Rate Monitoring",
+    description: "Continuous automated monitoring of all hotel bookings. AI analyzes rate fluctuations and identifies optimal rebooking times.",
+    color: "text-amber-600 dark:text-amber-400",
+    bgColor: "bg-amber-500/10"
+  }, {
+    icon: Network,
+    title: "Corporate Rate Verification",
+    description: "Validate corporate rates against public rates to ensure you're getting the best available deal for business travel.",
+    color: "text-indigo-600 dark:text-indigo-400",
+    bgColor: "bg-indigo-500/10"
+  }, {
+    icon: Gift,
+    title: "Loyalty Points Optimization",
+    description: "Smart recommendations on when to use points vs. cash, maximizing both savings and loyalty program benefits.",
+    color: "text-rose-600 dark:text-rose-400",
+    bgColor: "bg-rose-500/10"
+  }];
+  const howItWorksSteps = [{
+    number: "01",
+    title: "Connect Your Bookings",
+    description: "Integrate with your PMS or manually upload hotel reservations. System accepts bookings from all major platforms."
+  }, {
+    number: "02",
+    title: "AI Monitoring Begins",
+    description: "Advanced algorithms track rates across 50+ sources including OTAs, direct bookings, and corporate channels."
+  }, {
+    number: "03",
+    title: "Identify Savings",
+    description: "When rates drop, AI analyzes cancellation policies, rebooking fees, and calculates net savings potential."
+  }, {
+    number: "04",
+    title: "Automated Re-booking",
+    description: "System cancels and rebooks automatically, or alerts you for manual approval based on your preferences."
+  }];
+  return <div className="min-h-screen bg-background">
       <Helmet>
         <title>hRStool - Hotel Re-Shopping Platform | Velaree</title>
-        <meta 
-          name="description" 
-          content="AI-powered hotel re-shopping platform for B2B travel agencies. Monitor rates 24/7 across all major OTAs and find better deals automatically. Coming Q1 2026." 
-        />
-        <meta 
-          name="keywords" 
-          content="hotel re-shopping, hotel rate monitoring, OTA comparison, hotel booking savings, B2B travel tools, hotel price alerts" 
-        />
+        <meta name="description" content="AI-powered hotel re-shopping platform for B2B travel agencies. Monitor rates 24/7 across all major OTAs and find better deals automatically. Coming Q1 2026." />
+        <meta name="keywords" content="hotel re-shopping, hotel rate monitoring, OTA comparison, hotel booking savings, B2B travel tools, hotel price alerts" />
         <link rel="canonical" href="https://velaree.com/hrstool" />
         
         <meta property="og:title" content="hRStool - Hotel Re-Shopping Platform | Velaree" />
@@ -138,7 +116,7 @@ const HRSTool = () => {
             </p>
             <div className="flex gap-4 justify-center">
               <Link to="/contact">
-                <Button size="lg" className="rounded-full">
+                <Button size="lg" className="rounded-full bg-stone-950 hover:bg-stone-800">
                   Get Early Access <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </Link>
@@ -162,11 +140,7 @@ const HRSTool = () => {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {features.map((feature, index) => (
-              <Card 
-                key={index} 
-                className="p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-border"
-              >
+            {features.map((feature, index) => <Card key={index} className="p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-border">
                   <div className={`w-12 h-12 rounded-lg bg-gradient-to-br from-primary/20 via-accent/20 to-primary/10 border border-primary/10 flex items-center justify-center mb-4`}>
                   <feature.icon className={`w-6 h-6 text-primary`} />
                 </div>
@@ -174,8 +148,7 @@ const HRSTool = () => {
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   {feature.description}
                 </p>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -192,15 +165,13 @@ const HRSTool = () => {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {howItWorksSteps.map((step, index) => (
-              <Card key={index} className="p-6 text-center">
+            {howItWorksSteps.map((step, index) => <Card key={index} className="p-6 text-center">
                 <div className="text-4xl font-bold text-primary/20 mb-4">{step.number}</div>
                 <h3 className="text-xl font-semibold mb-3">{step.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   {step.description}
                 </p>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -249,7 +220,7 @@ const HRSTool = () => {
           </p>
           <div className="flex gap-4 justify-center">
             <Link to="/contact">
-              <Button size="lg" className="rounded-full">
+              <Button size="lg" className="rounded-full bg-stone-950 hover:bg-stone-800">
                 Join Waitlist <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </Link>
@@ -263,8 +234,6 @@ const HRSTool = () => {
       </section>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default HRSTool;
