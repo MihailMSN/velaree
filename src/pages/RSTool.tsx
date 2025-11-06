@@ -125,9 +125,7 @@ const RSTool = () => {
               <Sparkles className="w-4 h-4" />
               AI-Powered B2B Re-Shopping Portal
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-primary">
-              aRStool Demo
-            </h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-primary">aRStool</h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
               Experience the future of air ticket re-shopping. Our AI-powered platform monitors PNRs 24/7, 
               checks pricing across all major GDSs, and automatically finds better fares through multiple re-booking scenarios.
@@ -153,9 +151,7 @@ const RSTool = () => {
       <section className="py-16 px-6 bg-muted/30">
         <div className="container mx-auto max-w-7xl">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Interactive Demo Dashboard
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Interactive Dashboard</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               See how aRStool analyzes PNRs and finds savings opportunities across multiple GDS platforms
             </p>
