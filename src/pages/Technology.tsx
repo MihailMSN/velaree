@@ -94,6 +94,89 @@ const Technology = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Travel Technology Solutions | Velaree Tech Stack" />
         <meta name="twitter:description" content="Powerful travel technology tools for OTAs, TMCs, and airlines - instant booking, private fares, automation, and re-shopping." />
+        
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "name": "Velaree Travel Technology Solutions",
+            "description": "Comprehensive suite of travel technology solutions for modern travel businesses",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "item": {
+                  "@type": "SoftwareApplication",
+                  "name": "Click-to-Book Platform",
+                  "applicationCategory": "BusinessApplication",
+                  "description": "Instant booking for OTAs and TMCs with real-time availability and pricing from 50+ suppliers",
+                  "featureList": [
+                    "Multi-source aggregation from 50+ suppliers",
+                    "Sub-second search response times",
+                    "Automated ticketing and confirmation",
+                    "Mobile-optimized booking flow",
+                    "Payment gateway integration",
+                    "24/7 uptime guarantee"
+                  ]
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "item": {
+                  "@type": "SoftwareApplication",
+                  "name": "Private Fare API",
+                  "applicationCategory": "BusinessApplication",
+                  "description": "Connect with global consolidators and airlines for exclusive rates",
+                  "featureList": [
+                    "Access to 100+ consolidator networks",
+                    "Negotiated private fares and net rates",
+                    "Real-time fare comparison engine",
+                    "Automated markup configuration",
+                    "Multi-currency support",
+                    "Fare rules and restrictions API"
+                  ]
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "item": {
+                  "@type": "SoftwareApplication",
+                  "name": "Automation Suite",
+                  "applicationCategory": "BusinessApplication",
+                  "description": "Manage ticketing, pricing, and servicing effortlessly with intelligent automation",
+                  "featureList": [
+                    "Auto-ticketing with PNR management",
+                    "Dynamic pricing engine",
+                    "Queue monitoring and alerts",
+                    "Schedule change automation",
+                    "Refund and exchange processing",
+                    "Customer notification system"
+                  ]
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 4,
+                "item": {
+                  "@type": "SoftwareApplication",
+                  "name": "Re-Shopping Engine",
+                  "applicationCategory": "BusinessApplication",
+                  "description": "Maximize post-sale revenue with continuous fare monitoring and automated re-booking",
+                  "featureList": [
+                    "Real-time PNR monitoring across all bookings",
+                    "Automated price drop detection every 60 seconds",
+                    "Cross-content availability comparison",
+                    "Private fare re-shopping with live consolidator rates",
+                    "One-click re-booking with automatic ticketing",
+                    "Revenue recovery alerts and reporting"
+                  ]
+                }
+              }
+            ]
+          })}
+        </script>
       </Helmet>
       <Navigation />
       

@@ -37,6 +37,46 @@ const Index = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Velaree - Next-Generation Travel Technology Solutions" />
         <meta name="twitter:description" content="Enterprise travel software for OTAs, TMCs, and airlines. Transform your operations with instant booking, automation, and AI-powered tools." />
+        
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Velaree",
+            "url": "https://velaree.com",
+            "logo": "https://velaree.com/logo.png",
+            "description": "Enterprise travel technology solutions for OTAs, TMCs, and airlines",
+            "foundingDate": "2020",
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "contactType": "Sales",
+              "url": "https://velaree.com/contact"
+            },
+            "sameAs": [
+              "https://www.linkedin.com/company/velaree"
+            ],
+            "offers": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "SoftwareApplication",
+                  "name": "aRStool",
+                  "applicationCategory": "BusinessApplication",
+                  "description": "AI-powered air ticket re-shopping platform"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "SoftwareApplication",
+                  "name": "hRStool",
+                  "applicationCategory": "BusinessApplication",
+                  "description": "AI-powered hotel re-shopping platform"
+                }
+              }
+            ]
+          })}
+        </script>
       </Helmet>
       <Navigation />
       <Hero />

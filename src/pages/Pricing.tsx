@@ -156,6 +156,63 @@ const Pricing = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Pricing Plans - aRStool & hRStool | Velaree" />
         <meta name="twitter:description" content="Transparent pricing for travel re-shopping tools. Start with a free pilot. Plans for agencies of all sizes." />
+        
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": "aRStool",
+            "description": "AI-powered air ticket re-shopping platform for travel agencies",
+            "brand": {
+              "@type": "Organization",
+              "name": "Velaree"
+            },
+            "offers": [
+              {
+                "@type": "Offer",
+                "name": "Starter Plan",
+                "price": "499",
+                "priceCurrency": "USD",
+                "priceSpecification": {
+                  "@type": "UnitPriceSpecification",
+                  "price": "499",
+                  "priceCurrency": "USD",
+                  "unitText": "MONTH"
+                },
+                "description": "Perfect for small agencies getting started - Up to 1,000 PNRs monitored monthly",
+                "availability": "https://schema.org/InStock"
+              },
+              {
+                "@type": "Offer",
+                "name": "Growth Plan",
+                "price": "1999",
+                "priceCurrency": "USD",
+                "priceSpecification": {
+                  "@type": "UnitPriceSpecification",
+                  "price": "1999",
+                  "priceCurrency": "USD",
+                  "unitText": "MONTH"
+                },
+                "description": "Ideal for growing TMCs and OTAs - Up to 5,000 PNRs monitored monthly",
+                "availability": "https://schema.org/InStock"
+              },
+              {
+                "@type": "Offer",
+                "name": "Enterprise Plan",
+                "price": "4999",
+                "priceCurrency": "USD",
+                "priceSpecification": {
+                  "@type": "UnitPriceSpecification",
+                  "price": "4999",
+                  "priceCurrency": "USD",
+                  "unitText": "MONTH"
+                },
+                "description": "For large agencies and TMCs - Unlimited PNRs with custom solutions",
+                "availability": "https://schema.org/InStock"
+              }
+            ]
+          })}
+        </script>
       </Helmet>
       <Navigation />
       
