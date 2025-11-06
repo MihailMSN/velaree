@@ -1,12 +1,19 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import velareeLogoImg from "@/assets/velaree-logo.png";
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleNavigation = (path: string) => {
+    navigate(path);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setIsMobileMenuOpen(false);
+  };
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -44,9 +51,9 @@ const Navigation = () => {
           </Link>
           
           <div className="hidden md:flex items-center gap-8">
-            {navItems.map(item => <Link key={item.name} to={item.path} className={`transition-colors duration-200 ${location.pathname === item.path ? "text-foreground font-semibold" : "text-foreground/70 hover:text-foreground"}`}>
+            {navItems.map(item => <button key={item.name} onClick={() => handleNavigation(item.path)} className={`transition-colors duration-200 ${location.pathname === item.path ? "text-foreground font-semibold" : "text-foreground/70 hover:text-foreground"}`}>
                 {item.name}
-              </Link>)}
+              </button>)}
           </div>
           
           <div className="hidden md:block">
@@ -64,14 +71,12 @@ const Navigation = () => {
 
         {isMobileMenuOpen && <div className="md:hidden mt-4 pb-4 animate-fade-in">
             <div className="flex flex-col gap-4">
-              {navItems.map(item => <Link key={item.name} to={item.path} className={`transition-colors duration-200 py-2 ${location.pathname === item.path ? "text-foreground font-semibold" : "text-foreground/70 hover:text-foreground"}`} onClick={() => setIsMobileMenuOpen(false)}>
+              {navItems.map(item => <button key={item.name} onClick={() => handleNavigation(item.path)} className={`transition-colors duration-200 py-2 text-left ${location.pathname === item.path ? "text-foreground font-semibold" : "text-foreground/70 hover:text-foreground"}`}>
                   {item.name}
-                </Link>)}
-              <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-            <Button className="w-full rounded-full mt-2">
-              Book Demo
-            </Button>
-              </Link>
+                </button>)}
+              <Button onClick={() => handleNavigation('/contact')} className="w-full rounded-full mt-2">
+                Book Demo
+              </Button>
             </div>
           </div>}
       </div>

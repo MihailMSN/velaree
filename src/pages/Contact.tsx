@@ -31,30 +31,33 @@ const Contact = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-gradient-to-b from-primary to-primary/90">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center animate-fade-in">
-            <h1 className="text-5xl md:text-7xl font-bold text-primary-foreground mb-6">
-              Get in Touch
-            </h1>
-            <p className="text-xl md:text-2xl text-primary-foreground/80">
-              See how Velaree can automate your travel operations
-            </p>
+      <section className="min-h-[60vh] flex items-center justify-center bg-gradient-to-b from-background via-background to-muted/20 relative overflow-hidden pt-32 pb-20 px-6">
+        <div className="absolute inset-0 bg-grid-white/5 bg-[size:50px_50px]" />
+        <div className="container mx-auto text-center relative z-10">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border border-primary/20 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <Mail className="w-4 h-4" />
+            Let's Talk
           </div>
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-primary">
+            Get in Touch
+          </h1>
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
+            See how Velaree can automate your travel operations
+          </p>
         </div>
       </section>
 
       {/* Contact Form Section */}
-      <section className="py-24 bg-primary relative overflow-hidden">
+      <section className="py-24 bg-muted/30 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-accent/10 via-transparent to-transparent"></div>
         
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-bold text-primary-foreground mb-4">
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
                 Book a Demo
               </h2>
-              <p className="text-xl text-primary-foreground/80">
+              <p className="text-xl text-muted-foreground">
                 Schedule a personalized demo with our enterprise solutions team
               </p>
             </div>

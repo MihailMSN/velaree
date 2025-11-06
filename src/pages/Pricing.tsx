@@ -146,7 +146,7 @@ const Pricing = () => {
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-6 bg-gradient-to-b from-primary/5 to-background">
         <div className="container mx-auto text-center max-w-4xl">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-primary">
             Simple, Transparent Pricing
           </h1>
           <p className="text-xl text-muted-foreground mb-8">
