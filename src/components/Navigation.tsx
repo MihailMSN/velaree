@@ -15,8 +15,8 @@ const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   const navItems = [{
-    name: "TechStack",
-    path: "/techstack"
+    name: "Technology",
+    path: "/technology"
   }, {
     name: "aRStool",
     path: "/rstool"

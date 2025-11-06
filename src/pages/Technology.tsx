@@ -68,7 +68,7 @@ const solutions = [
   }
 ];
 
-const TechStack = () => {
+const Technology = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -78,7 +78,7 @@ const TechStack = () => {
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center animate-fade-in">
             <h1 className="text-5xl md:text-7xl font-bold text-primary-foreground mb-6">
-              Tech Stack
+              Technology
             </h1>
             <p className="text-xl md:text-2xl text-primary-foreground/80 mb-8">
               Powerful tools built for modern travel businesses
@@ -167,4 +167,4 @@ const TechStack = () => {
   );
 };
 
-export default TechStack;
+export default Technology;
