@@ -5,7 +5,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import TechStack from "./pages/TechStack";
-import IntegrationsPage from "./pages/IntegrationsPage";
 import RSTool from "./pages/RSTool";
 import HRSTool from "./pages/HRSTool";
 import Contact from "./pages/Contact";
@@ -23,7 +22,6 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/techstack" element={<TechStack />} />
-          <Route path="/integrations" element={<IntegrationsPage />} />
           <Route path="/rstool" element={<RSTool />} />
           <Route path="/hrstool" element={<HRSTool />} />
           <Route path="/pricing" element={<Pricing />} />
