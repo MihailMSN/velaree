@@ -4,7 +4,6 @@ import SectionDivider from "@/components/SectionDivider";
 import HowItWorks from "@/components/HowItWorks";
 import Mission from "@/components/Mission";
 import Solutions from "@/components/Solutions";
-import Integrations from "@/components/Integrations";
 import ApiPreview from "@/components/ApiPreview";
 import Technology from "@/components/Technology";
 import TechnicalSpecs from "@/components/TechnicalSpecs";
@@ -23,7 +22,6 @@ const Index = () => {
       <HowItWorks />
       <Mission />
       <Solutions />
-      <Integrations />
       <ApiPreview />
       <Technology />
       <TechnicalSpecs />
