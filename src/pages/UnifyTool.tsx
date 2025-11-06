@@ -269,9 +269,10 @@ const UnifyTool = () => {
       <section className="min-h-[90vh] flex items-center justify-center bg-gradient-to-b from-background via-background to-muted/20 relative overflow-hidden pt-32 pb-20 px-6">
         <div className="absolute inset-0 bg-grid-white/5 bg-[size:50px_50px]" />
         <div className="container mx-auto text-center relative z-10">
-          <Badge className="mb-6 px-4 py-2 text-sm">
-            🚀 Complete Integrated Platform
-          </Badge>
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border border-primary/20 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <Zap className="w-4 h-4" />
+            Complete Integrated Platform
+          </div>
           <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
             UnifyTool
           </h1>
