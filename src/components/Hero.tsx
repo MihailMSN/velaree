@@ -2,10 +2,8 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import ScrollIndicator from "./ScrollIndicator";
 import TrustBar from "./TrustBar";
-
 const Hero = () => {
-  return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
+  return <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center animate-fade-in-up">
@@ -22,19 +20,12 @@ const Hero = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button 
-              size="lg" 
-              className="bg-accent text-accent-foreground hover:bg-accent/90 text-lg px-8 py-6 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg group"
-            >
+            <Button size="lg" className="text-lg px-8 py-6 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg group text-white bg-stone-950 hover:bg-stone-800">
               Start Free Trial
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
             
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground text-lg px-8 py-6 rounded-full transition-all duration-300 group"
-            >
+            <Button size="lg" variant="outline" className="bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground text-lg px-8 py-6 rounded-full transition-all duration-300 group">
               <MessageCircle className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
               Schedule Demo
             </Button>
@@ -52,8 +43,6 @@ const Hero = () => {
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent"></div>
       
       <TrustBar />
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
