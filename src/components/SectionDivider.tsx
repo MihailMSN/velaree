@@ -21,11 +21,13 @@ const SectionDivider = ({
         style={{
           background: `linear-gradient(
             90deg,
-            hsl(var(--feature-amber)) 0%,
-            hsl(var(--feature-indigo)) 25%,
-            hsl(var(--feature-purple)) 50%,
-            hsl(var(--feature-blue)) 75%,
-            hsl(var(--feature-emerald)) 100%
+            #1a1a1a 0%,
+            #4a4a4a 15%,
+            #8a8a8a 30%,
+            #c0c0c0 50%,
+            #8a8a8a 70%,
+            #4a4a4a 85%,
+            #1a1a1a 100%
           )`
         }}
       />
