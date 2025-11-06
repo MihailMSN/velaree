@@ -25,6 +25,9 @@ const Navigation = () => {
     name: "Technology",
     path: "/technology"
   }, {
+    name: "aSuite",
+    path: "/asuite"
+  }, {
     name: "UnifyTool",
     path: "/unifytool"
   }, {

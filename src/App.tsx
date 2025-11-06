@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 import Index from "./pages/Index";
 import Technology from "./pages/Technology";
+import ASuite from "./pages/ASuite";
 import RSTool from "./pages/RSTool";
 import HRSTool from "./pages/HRSTool";
 import UnifyTool from "./pages/UnifyTool";
@@ -26,6 +27,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/technology" element={<Technology />} />
+          <Route path="/asuite" element={<ASuite />} />
           <Route path="/unifytool" element={<UnifyTool />} />
           <Route path="/rstool" element={<RSTool />} />
           <Route path="/hrstool" element={<HRSTool />} />
