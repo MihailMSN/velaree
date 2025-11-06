@@ -269,11 +269,10 @@ const UnifyTool = () => {
       <section className="min-h-[90vh] flex items-center justify-center bg-gradient-to-b from-background via-background to-muted/20 relative overflow-hidden pt-32 pb-20 px-6">
         <div className="absolute inset-0 bg-grid-white/5 bg-[size:50px_50px]" />
         <div className="container mx-auto text-center relative z-10">
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border border-primary/20 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
-            <Zap className="w-4 h-4" />
-            Complete Integrated Platform
-          </div>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-primary">
+          <Badge className="mb-6 px-4 py-2 text-sm">
+            🚀 Complete Integrated Platform
+          </Badge>
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
             UnifyTool
           </h1>
           <p className="text-2xl md:text-3xl text-muted-foreground mb-4 max-w-4xl mx-auto">
@@ -284,12 +283,12 @@ const UnifyTool = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact">
-              <Button size="lg" className="rounded-full px-8 py-6 h-auto text-lg whitespace-nowrap">
+              <Button size="lg" className="rounded-full px-8 text-lg">
                 Book Demo <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
             <Link to="/pricing">
-              <Button size="lg" variant="outline" className="rounded-full px-8 py-6 h-auto text-lg whitespace-nowrap">
+              <Button size="lg" variant="outline" className="rounded-full px-8 text-lg">
                 View Pricing
               </Button>
             </Link>
