@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import ASuiteDashboardMockup from "@/components/asuite/ASuiteDashboardMockup";
 import { 
   Settings, 
   Users, 
@@ -338,6 +339,22 @@ const ASuite = () => {
                   </p>
                 </CardContent>
               </Card>
+            </div>
+
+            {/* Interactive Dashboard Preview */}
+            <div className="mt-16">
+              <div className="text-center mb-8">
+                <Badge variant="secondary" className="mb-4">
+                  Live Demo
+                </Badge>
+                <h3 className="text-2xl md:text-3xl font-bold text-primary mb-4">
+                  Experience aSuite in Action
+                </h3>
+                <p className="text-muted-foreground max-w-2xl mx-auto">
+                  Explore the interactive dashboard below. Switch between CRM, CMS, Analytics, and Settings views to see how aSuite streamlines your operations.
+                </p>
+              </div>
+              <ASuiteDashboardMockup />
             </div>
           </div>
         </section>
