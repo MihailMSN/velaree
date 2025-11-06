@@ -130,7 +130,7 @@ const RStoolDemoDashboard = () => {
 
   return (
     <MockupBrowser url="arstool.velaree.com/dashboard" className="w-full">
-      <div className="p-6 min-h-[600px]">
+      <div className="p-4 sm:p-6 min-h-[600px]">
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
           <div>
@@ -155,15 +155,15 @@ const RStoolDemoDashboard = () => {
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
           {stats.map((stat, index) => (
-            <Card key={index} className="p-4 bg-white border-gray-200">
-              <div className="flex items-center justify-between mb-2">
-                <stat.icon className="w-5 h-5 text-primary" />
+            <Card key={index} className="p-5 bg-white border-gray-200 min-w-0">
+              <div className="flex items-center justify-between mb-3">
+                <stat.icon className="w-5 h-5 text-primary flex-shrink-0" />
                 <span className="text-xs font-medium text-green-600">{stat.change}</span>
               </div>
-              <div className="text-2xl font-bold text-gray-900">{stat.value}</div>
-              <div className="text-xs text-gray-600 mt-1">{stat.label}</div>
+              <div className="text-xl font-bold text-gray-900 leading-tight mb-1">{stat.value}</div>
+              <div className="text-xs text-gray-600 line-clamp-2">{stat.label}</div>
             </Card>
           ))}
         </div>
@@ -180,8 +180,8 @@ const RStoolDemoDashboard = () => {
               { route: "ORD-FRA", savings: "$3,900", percentage: 48 }
             ].map((item, index) => (
               <div key={index} className="flex items-center gap-3">
-                <div className="w-24 text-sm font-medium text-gray-900">{item.route}</div>
-                <div className="flex-1">
+                <div className="w-20 sm:w-24 text-sm font-medium text-gray-900 truncate">{item.route}</div>
+                <div className="flex-1 min-w-0">
                   <div className="h-6 bg-gray-100 rounded-full overflow-hidden">
                     <div 
                       className="h-full bg-gradient-to-r from-primary to-primary/60 rounded-full transition-all duration-500"
@@ -189,7 +189,7 @@ const RStoolDemoDashboard = () => {
                     />
                   </div>
                 </div>
-                <div className="w-20 text-sm font-bold text-green-600 text-right">{item.savings}</div>
+                <div className="w-16 sm:w-20 text-sm font-bold text-green-600 text-right flex-shrink-0">{item.savings}</div>
               </div>
             ))}
           </div>
@@ -210,63 +210,67 @@ const RStoolDemoDashboard = () => {
                 <table className="w-full">
                   <thead className="bg-gray-50 border-b border-gray-200">
                     <tr>
-                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700">PNR</th>
-                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700">Passenger</th>
-                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700">Route</th>
-                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700">Original</th>
-                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700">New Price</th>
-                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700">Savings</th>
-                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700">Scenario</th>
-                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700">Supplier</th>
-                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700">Confidence</th>
-                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700">Status</th>
-                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700">Action</th>
+                      <th className="px-3 py-2.5 text-left text-xs font-semibold text-gray-700 min-w-[100px]">PNR</th>
+                      <th className="px-3 py-2.5 text-left text-xs font-semibold text-gray-700 min-w-[140px]">Passenger</th>
+                      <th className="px-3 py-2.5 text-left text-xs font-semibold text-gray-700 min-w-[120px]">Route</th>
+                      <th className="px-3 py-2.5 text-left text-xs font-semibold text-gray-700 min-w-[100px]">Original</th>
+                      <th className="px-3 py-2.5 text-left text-xs font-semibold text-gray-700 min-w-[100px]">New Price</th>
+                      <th className="px-3 py-2.5 text-left text-xs font-semibold text-gray-700 min-w-[90px]">Savings</th>
+                      <th className="px-3 py-2.5 text-left text-xs font-semibold text-gray-700 min-w-[120px]">Scenario</th>
+                      <th className="px-3 py-2.5 text-left text-xs font-semibold text-gray-700 min-w-[180px]">Supplier</th>
+                      <th className="px-3 py-2.5 text-left text-xs font-semibold text-gray-700 min-w-[90px]">Confidence</th>
+                      <th className="px-3 py-2.5 text-left text-xs font-semibold text-gray-700 min-w-[110px]">Status</th>
+                      <th className="px-3 py-2.5 text-left text-xs font-semibold text-gray-700 min-w-[100px]">Action</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-200">
                     {reShoppingData.map((item, index) => (
                       <tr key={index} className="hover:bg-gray-50 transition-colors">
-                        <td className="px-4 py-3">
+                        <td className="px-3 py-2.5 min-w-[100px]">
                           <div className="font-mono text-sm font-semibold text-gray-900">{item.pnr}</div>
                           <div className="text-xs text-gray-500">{item.gds}</div>
                         </td>
-                        <td className="px-4 py-3 text-sm text-gray-900">{item.passenger}</td>
-                        <td className="px-4 py-3">
+                        <td className="px-3 py-2.5 min-w-[140px]">
+                          <div className="text-sm text-gray-900 truncate max-w-[140px]">{item.passenger}</div>
+                        </td>
+                        <td className="px-3 py-2.5 min-w-[120px]">
                           <div className="text-sm font-medium text-gray-900">{item.route}</div>
-                          <div className="text-xs text-gray-500">{item.bookingClass}</div>
+                          <div className="text-xs text-gray-500 truncate">{item.bookingClass}</div>
                         </td>
-                        <td className="px-4 py-3">
+                        <td className="px-3 py-2.5 min-w-[100px]">
                           <div className="text-sm font-medium text-gray-900">${item.originalFare}</div>
-                          <div className="text-xs text-gray-500">{item.supplier}</div>
+                          <div className="text-xs text-gray-500 truncate max-w-[100px]">{item.supplier}</div>
                         </td>
-                        <td className="px-4 py-3">
+                        <td className="px-3 py-2.5 min-w-[100px]">
                           <div className="text-sm font-bold text-green-600">${item.newFare}</div>
-                          <div className="text-xs text-gray-500">{item.newSupplier}</div>
+                          <div className="text-xs text-gray-500 truncate max-w-[100px]">{item.newSupplier}</div>
                         </td>
-                        <td className="px-4 py-3">
+                        <td className="px-3 py-2.5 min-w-[90px]">
                           <div className="text-sm font-bold text-green-600">${item.savings}</div>
                           <div className="text-xs font-medium text-green-600">{item.savingsPercent}%</div>
                         </td>
-                        <td className="px-4 py-3">
+                        <td className="px-3 py-2.5 min-w-[120px]">
                           <span className={cn("inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold", getScenarioColor(item.scenario))}>
                             {item.scenario}
                           </span>
                         </td>
-                        <td className="px-4 py-3 text-xs text-gray-600">
-                          {item.supplier} → {item.newSupplier}
+                        <td className="px-3 py-2.5 min-w-[180px]">
+                          <div className="text-xs text-gray-600 truncate max-w-[180px]">
+                            {item.supplier} → {item.newSupplier}
+                          </div>
                         </td>
-                        <td className="px-4 py-3">
+                        <td className="px-3 py-2.5 min-w-[90px]">
                           <span className={`text-sm font-medium ${getConfidenceColor(item.confidence)}`}>
                             {item.confidence}
                           </span>
                         </td>
-                        <td className="px-4 py-3">
+                        <td className="px-3 py-2.5 min-w-[110px]">
                           <span className={cn("inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold", getStatusColor(item.status))}>
                             {item.status}
                           </span>
                         </td>
-                        <td className="px-4 py-3">
-                          <Button size="sm" variant="ghost" className="text-primary">
+                        <td className="px-3 py-2.5 min-w-[100px]">
+                          <Button size="sm" variant="ghost" className="text-primary whitespace-nowrap">
                             Review <ArrowRight className="w-3 h-3 ml-1" />
                           </Button>
                         </td>
