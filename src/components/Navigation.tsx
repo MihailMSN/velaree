@@ -51,7 +51,7 @@ const Navigation = () => {
           
           <div className="hidden md:block">
             <Link to="/contact">
-              <Button className="rounded-full px-6 text-black">
+              <Button className="rounded-full px-6 text-white bg-stone-950 hover:bg-stone-800">
                 Book Demo
               </Button>
             </Link>

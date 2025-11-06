@@ -83,7 +83,7 @@ const RStoolPricing = () => {
 
           <CardFooter>
             <Link to={tier.ctaLink} className="w-full">
-              <Button size="lg" variant={tier.popular ? "default" : "outline"} className="w-full rounded-full text-black">
+              <Button size="lg" variant={tier.popular ? "default" : "outline"} className="w-full rounded-full text-black bg-transparent">
                 {tier.cta}
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Button>

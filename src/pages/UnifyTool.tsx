@@ -6,209 +6,163 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Link } from "react-router-dom";
-import { 
-  ArrowRight, 
-  Zap, 
-  BarChart3, 
-  Lock, 
-  Globe, 
-  RefreshCw, 
-  Bell,
-  Layers,
-  Shield,
-  TrendingUp,
-  Users,
-  Database,
-  Cloud,
-  CheckCircle2,
-  MessageSquare
-} from "lucide-react";
+import { ArrowRight, Zap, BarChart3, Lock, Globe, RefreshCw, Bell, Layers, Shield, TrendingUp, Users, Database, Cloud, CheckCircle2, MessageSquare } from "lucide-react";
 import ClickToBookMockup from "@/components/mockups/ClickToBookMockup";
 import PrivateFareMockup from "@/components/mockups/PrivateFareMockup";
 import RStoolDemoDashboard from "@/components/rstool/RStoolDemoDashboard";
-
 const UnifyTool = () => {
-  const integrationFeatures = [
-    {
-      icon: Layers,
-      title: "Unified Dashboard",
-      description: "Single interface for booking, monitoring, and re-shopping across all your travel operations."
-    },
-    {
-      icon: BarChart3,
-      title: "Cross-Platform Analytics",
-      description: "Consolidated reporting and insights across all tools with real-time performance metrics."
-    },
-    {
-      icon: RefreshCw,
-      title: "Automated Workflows",
-      description: "Seamless handoffs between booking, processing, and re-shopping with zero manual intervention."
-    },
-    {
-      icon: Lock,
-      title: "Single Sign-On",
-      description: "One secure login for the entire platform with role-based access control."
-    },
-    {
-      icon: Database,
-      title: "Centralized PNR Management",
-      description: "All bookings tracked and managed in one unified system across air and hotel."
-    },
-    {
-      icon: Bell,
-      title: "Smart Notifications",
-      description: "Unified alert system for price drops, booking changes, and opportunities across all channels."
-    },
-    {
-      icon: Globe,
-      title: "API-First Architecture",
-      description: "All components accessible via unified RESTful API with consistent data formats."
-    },
-    {
-      icon: Shield,
-      title: "White-Label Ready",
-      description: "Entire platform brandable to your business with custom domains and styling."
-    }
-  ];
-
-  const benefits = [
-    {
-      icon: TrendingUp,
-      title: "Maximize ROI",
-      description: "Combined savings from private fares, re-shopping, and automation deliver unprecedented returns."
-    },
-    {
-      icon: Zap,
-      title: "Reduced Complexity",
-      description: "One vendor, one contract, one integration instead of managing multiple disparate systems."
-    },
-    {
-      icon: Users,
-      title: "Better User Experience",
-      description: "Consistent interface across all operations reduces training time and increases efficiency."
-    },
-    {
-      icon: BarChart3,
-      title: "Complete Visibility",
-      description: "Unified reporting provides complete picture of your travel operations and profitability."
-    }
-  ];
-
-  const workflowSteps = [
-    {
-      number: "01",
-      title: "Search & Book",
-      description: "Use Click-to-Book platform or Private Fare API to search and instantly book flights and hotels with access to exclusive rates.",
-      color: "from-primary to-primary/80"
-    },
-    {
-      number: "02",
-      title: "Auto-Process",
-      description: "Automation Suite handles ticketing, confirmations, notifications, and all post-booking operations automatically.",
-      color: "from-blue-600 to-blue-500"
-    },
-    {
-      number: "03",
-      title: "Monitor & Track",
-      description: "aRStool and hRStool continuously monitor all bookings for better rates and re-shopping opportunities.",
-      color: "from-purple-600 to-purple-500"
-    },
-    {
-      number: "04",
-      title: "Optimize & Save",
-      description: "Automatic re-shopping and re-booking when savings opportunities are identified, with full tracking and reporting.",
-      color: "from-green-600 to-green-500"
-    },
-    {
-      number: "05",
-      title: "Report & Analyze",
-      description: "Unified analytics dashboard provides complete ROI visibility across all operations in real-time.",
-      color: "from-orange-600 to-orange-500"
-    }
-  ];
-
-  const techSpecs = [
-    { label: "API Architecture", value: "RESTful JSON" },
-    { label: "Response Time", value: "Sub-500ms" },
-    { label: "Uptime SLA", value: "99.9%" },
-    { label: "GDS Support", value: "Amadeus, Sabre, Travelport" },
-    { label: "OTA Integrations", value: "Booking.com, Expedia, Hotels.com" },
-    { label: "Security", value: "SOC 2, GDPR Compliant" },
-    { label: "Infrastructure", value: "Cloud-Native, Auto-Scaling" },
-    { label: "Capacity", value: "Millions of bookings/month" }
-  ];
-
-  const successStories = [
-    {
-      company: "Large European OTA",
-      result: "30% reduction in operational costs",
-      description: "Unified platform replaced 5 separate systems, streamlined operations, and reduced support staff by 40%."
-    },
-    {
-      company: "Corporate TMC Network",
-      result: "45% increase in conversion rate",
-      description: "Seamless booking-to-re-shopping workflow improved customer satisfaction and repeat business."
-    },
-    {
-      company: "Enterprise Travel Program",
-      result: "€2.1M annual savings",
-      description: "Managed 150K+ bookings annually with single dashboard, automated re-shopping saved average €14 per ticket."
-    }
-  ];
-
-  const faqs = [
-    {
-      question: "How long does it take to implement the complete UnifyTool platform?",
-      answer: "Typical implementation takes 4-8 weeks depending on your existing systems and integration requirements. We provide a dedicated onboarding team, comprehensive training, and white-glove support throughout the process."
-    },
-    {
-      question: "Can we start with some tools and add others later?",
-      answer: "Absolutely! Our platform is modular - you can start with Click-to-Book and Private Fare API, then add aRStool, hRStool, and Automation Suite as your needs grow. All components integrate seamlessly when added."
-    },
-    {
-      question: "How does data flow between different components?",
-      answer: "All components share a unified data model and communicate through our API layer. Bookings made through Click-to-Book automatically appear in aRStool for monitoring, automation workflows trigger across all systems, and analytics aggregate from all sources in real-time."
-    },
-    {
-      question: "What's required for integration with our existing systems?",
-      answer: "We provide RESTful APIs, webhooks, and can integrate with most existing booking systems, CRMs, and accounting software. Our technical team will assess your environment and provide a detailed integration plan during onboarding."
-    },
-    {
-      question: "Is training and support included with the platform?",
-      answer: "Yes! We provide comprehensive training for all platform components, ongoing 24/7 technical support, dedicated account management, regular platform updates, and access to our knowledge base and developer documentation."
-    },
-    {
-      question: "What's the pricing difference between complete platform vs. individual tools?",
-      answer: "The unified platform offers significant savings vs. purchasing tools separately - typically 25-35% lower total cost. We offer flexible packages based on booking volume, with custom enterprise pricing available for high-volume clients."
-    },
-    {
-      question: "How do we migrate from our existing systems?",
-      answer: "We provide full migration support including data transfer, parallel testing periods, and phased rollout options. Most clients complete migration within 6-12 weeks with zero downtime to their operations."
-    },
-    {
-      question: "Can we customize and white-label the entire platform?",
-      answer: "Yes! The entire platform is white-label ready. You can customize branding, domains, styling, and workflows to match your business needs. We also support custom feature development for enterprise clients."
-    },
-    {
-      question: "What GDS and content sources are supported?",
-      answer: "We support all major GDS providers (Amadeus, Sabre, Travelport) plus direct connections to airlines and OTA platforms (Booking.com, Expedia, Hotels.com). We can also add custom content sources based on your requirements."
-    },
-    {
-      question: "How does the platform handle multi-currency and international operations?",
-      answer: "UnifyTool supports 150+ currencies, automatic exchange rate updates, multi-language interfaces, and localized content. Perfect for OTAs and TMCs operating across multiple markets."
-    },
-    {
-      question: "What kind of ROI can we expect from the unified platform?",
-      answer: "Our clients typically see 15-30% savings on operational costs, 20-50% increase in booking conversion, and average €8-15 savings per ticket through re-shopping. Most achieve full ROI within 6-9 months."
-    },
-    {
-      question: "Is there a minimum booking volume requirement?",
-      answer: "We work with travel businesses of all sizes. Our pricing scales with volume - starting from 1,000 bookings/month up to millions. We offer special packages for startups and growth-stage companies."
-    }
-  ];
-
-  return (
-    <>
+  const integrationFeatures = [{
+    icon: Layers,
+    title: "Unified Dashboard",
+    description: "Single interface for booking, monitoring, and re-shopping across all your travel operations."
+  }, {
+    icon: BarChart3,
+    title: "Cross-Platform Analytics",
+    description: "Consolidated reporting and insights across all tools with real-time performance metrics."
+  }, {
+    icon: RefreshCw,
+    title: "Automated Workflows",
+    description: "Seamless handoffs between booking, processing, and re-shopping with zero manual intervention."
+  }, {
+    icon: Lock,
+    title: "Single Sign-On",
+    description: "One secure login for the entire platform with role-based access control."
+  }, {
+    icon: Database,
+    title: "Centralized PNR Management",
+    description: "All bookings tracked and managed in one unified system across air and hotel."
+  }, {
+    icon: Bell,
+    title: "Smart Notifications",
+    description: "Unified alert system for price drops, booking changes, and opportunities across all channels."
+  }, {
+    icon: Globe,
+    title: "API-First Architecture",
+    description: "All components accessible via unified RESTful API with consistent data formats."
+  }, {
+    icon: Shield,
+    title: "White-Label Ready",
+    description: "Entire platform brandable to your business with custom domains and styling."
+  }];
+  const benefits = [{
+    icon: TrendingUp,
+    title: "Maximize ROI",
+    description: "Combined savings from private fares, re-shopping, and automation deliver unprecedented returns."
+  }, {
+    icon: Zap,
+    title: "Reduced Complexity",
+    description: "One vendor, one contract, one integration instead of managing multiple disparate systems."
+  }, {
+    icon: Users,
+    title: "Better User Experience",
+    description: "Consistent interface across all operations reduces training time and increases efficiency."
+  }, {
+    icon: BarChart3,
+    title: "Complete Visibility",
+    description: "Unified reporting provides complete picture of your travel operations and profitability."
+  }];
+  const workflowSteps = [{
+    number: "01",
+    title: "Search & Book",
+    description: "Use Click-to-Book platform or Private Fare API to search and instantly book flights and hotels with access to exclusive rates.",
+    color: "from-primary to-primary/80"
+  }, {
+    number: "02",
+    title: "Auto-Process",
+    description: "Automation Suite handles ticketing, confirmations, notifications, and all post-booking operations automatically.",
+    color: "from-blue-600 to-blue-500"
+  }, {
+    number: "03",
+    title: "Monitor & Track",
+    description: "aRStool and hRStool continuously monitor all bookings for better rates and re-shopping opportunities.",
+    color: "from-purple-600 to-purple-500"
+  }, {
+    number: "04",
+    title: "Optimize & Save",
+    description: "Automatic re-shopping and re-booking when savings opportunities are identified, with full tracking and reporting.",
+    color: "from-green-600 to-green-500"
+  }, {
+    number: "05",
+    title: "Report & Analyze",
+    description: "Unified analytics dashboard provides complete ROI visibility across all operations in real-time.",
+    color: "from-orange-600 to-orange-500"
+  }];
+  const techSpecs = [{
+    label: "API Architecture",
+    value: "RESTful JSON"
+  }, {
+    label: "Response Time",
+    value: "Sub-500ms"
+  }, {
+    label: "Uptime SLA",
+    value: "99.9%"
+  }, {
+    label: "GDS Support",
+    value: "Amadeus, Sabre, Travelport"
+  }, {
+    label: "OTA Integrations",
+    value: "Booking.com, Expedia, Hotels.com"
+  }, {
+    label: "Security",
+    value: "SOC 2, GDPR Compliant"
+  }, {
+    label: "Infrastructure",
+    value: "Cloud-Native, Auto-Scaling"
+  }, {
+    label: "Capacity",
+    value: "Millions of bookings/month"
+  }];
+  const successStories = [{
+    company: "Large European OTA",
+    result: "30% reduction in operational costs",
+    description: "Unified platform replaced 5 separate systems, streamlined operations, and reduced support staff by 40%."
+  }, {
+    company: "Corporate TMC Network",
+    result: "45% increase in conversion rate",
+    description: "Seamless booking-to-re-shopping workflow improved customer satisfaction and repeat business."
+  }, {
+    company: "Enterprise Travel Program",
+    result: "€2.1M annual savings",
+    description: "Managed 150K+ bookings annually with single dashboard, automated re-shopping saved average €14 per ticket."
+  }];
+  const faqs = [{
+    question: "How long does it take to implement the complete UnifyTool platform?",
+    answer: "Typical implementation takes 4-8 weeks depending on your existing systems and integration requirements. We provide a dedicated onboarding team, comprehensive training, and white-glove support throughout the process."
+  }, {
+    question: "Can we start with some tools and add others later?",
+    answer: "Absolutely! Our platform is modular - you can start with Click-to-Book and Private Fare API, then add aRStool, hRStool, and Automation Suite as your needs grow. All components integrate seamlessly when added."
+  }, {
+    question: "How does data flow between different components?",
+    answer: "All components share a unified data model and communicate through our API layer. Bookings made through Click-to-Book automatically appear in aRStool for monitoring, automation workflows trigger across all systems, and analytics aggregate from all sources in real-time."
+  }, {
+    question: "What's required for integration with our existing systems?",
+    answer: "We provide RESTful APIs, webhooks, and can integrate with most existing booking systems, CRMs, and accounting software. Our technical team will assess your environment and provide a detailed integration plan during onboarding."
+  }, {
+    question: "Is training and support included with the platform?",
+    answer: "Yes! We provide comprehensive training for all platform components, ongoing 24/7 technical support, dedicated account management, regular platform updates, and access to our knowledge base and developer documentation."
+  }, {
+    question: "What's the pricing difference between complete platform vs. individual tools?",
+    answer: "The unified platform offers significant savings vs. purchasing tools separately - typically 25-35% lower total cost. We offer flexible packages based on booking volume, with custom enterprise pricing available for high-volume clients."
+  }, {
+    question: "How do we migrate from our existing systems?",
+    answer: "We provide full migration support including data transfer, parallel testing periods, and phased rollout options. Most clients complete migration within 6-12 weeks with zero downtime to their operations."
+  }, {
+    question: "Can we customize and white-label the entire platform?",
+    answer: "Yes! The entire platform is white-label ready. You can customize branding, domains, styling, and workflows to match your business needs. We also support custom feature development for enterprise clients."
+  }, {
+    question: "What GDS and content sources are supported?",
+    answer: "We support all major GDS providers (Amadeus, Sabre, Travelport) plus direct connections to airlines and OTA platforms (Booking.com, Expedia, Hotels.com). We can also add custom content sources based on your requirements."
+  }, {
+    question: "How does the platform handle multi-currency and international operations?",
+    answer: "UnifyTool supports 150+ currencies, automatic exchange rate updates, multi-language interfaces, and localized content. Perfect for OTAs and TMCs operating across multiple markets."
+  }, {
+    question: "What kind of ROI can we expect from the unified platform?",
+    answer: "Our clients typically see 15-30% savings on operational costs, 20-50% increase in booking conversion, and average €8-15 savings per ticket through re-shopping. Most achieve full ROI within 6-9 months."
+  }, {
+    question: "Is there a minimum booking volume requirement?",
+    answer: "We work with travel businesses of all sizes. Our pricing scales with volume - starting from 1,000 bookings/month up to millions. We offer special packages for startups and growth-stage companies."
+  }];
+  return <>
       <Helmet>
         <title>UnifyTool - Complete Travel Technology Platform | Velaree</title>
         <meta name="description" content="All-in-one travel technology platform combining click-to-book, private fares, air/hotel re-shopping, and automation. One unified solution for OTAs, TMCs, and travel agencies." />
@@ -229,37 +183,28 @@ const UnifyTool = () => {
         {/* JSON-LD Structured Data */}
         <script type="application/ld+json">
           {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "SoftwareApplication",
-            "name": "UnifyTool",
-            "applicationCategory": "BusinessApplication",
-            "operatingSystem": "Web",
-            "offers": {
-              "@type": "AggregateOffer",
-              "priceCurrency": "USD",
-              "availability": "https://schema.org/InStock"
-            },
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.8",
-              "ratingCount": "127"
-            },
-            "description": "Complete unified travel technology platform combining booking, private fares, re-shopping, and automation for OTAs, TMCs, and travel agencies.",
-            "provider": {
-              "@type": "Organization",
-              "name": "Velaree"
-            },
-            "featureList": [
-              "Click-to-Book Platform",
-              "Private Fare API",
-              "Air Re-Shopping (aRStool)",
-              "Hotel Re-Shopping (hRStool)",
-              "Automation Suite",
-              "Unified Dashboard",
-              "Cross-Platform Analytics",
-              "API-First Architecture"
-            ]
-          })}
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          "name": "UnifyTool",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web",
+          "offers": {
+            "@type": "AggregateOffer",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "127"
+          },
+          "description": "Complete unified travel technology platform combining booking, private fares, re-shopping, and automation for OTAs, TMCs, and travel agencies.",
+          "provider": {
+            "@type": "Organization",
+            "name": "Velaree"
+          },
+          "featureList": ["Click-to-Book Platform", "Private Fare API", "Air Re-Shopping (aRStool)", "Hotel Re-Shopping (hRStool)", "Automation Suite", "Unified Dashboard", "Cross-Platform Analytics", "API-First Architecture"]
+        })}
         </script>
       </Helmet>
 
@@ -284,7 +229,7 @@ const UnifyTool = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact">
-              <Button size="lg" className="rounded-full px-8 text-lg">
+              <Button size="lg" className="rounded-full px-8 text-lg bg-stone-950 hover:bg-stone-800">
                 Book Demo <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
@@ -387,13 +332,11 @@ const UnifyTool = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {benefits.map((benefit, index) => (
-              <Card key={index} className="p-8 hover:shadow-xl transition-all">
+            {benefits.map((benefit, index) => <Card key={index} className="p-8 hover:shadow-xl transition-all">
                 <benefit.icon className="w-12 h-12 text-primary mb-4" />
                 <h3 className="text-2xl font-semibold mb-3">{benefit.title}</h3>
                 <p className="text-muted-foreground text-lg">{benefit.description}</p>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -411,13 +354,11 @@ const UnifyTool = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {integrationFeatures.map((feature, index) => (
-              <Card key={index} className="p-6 hover:shadow-lg transition-shadow">
+            {integrationFeatures.map((feature, index) => <Card key={index} className="p-6 hover:shadow-lg transition-shadow">
                 <feature.icon className="w-10 h-10 text-primary mb-4" />
                 <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
                 <p className="text-muted-foreground text-sm">{feature.description}</p>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -435,8 +376,7 @@ const UnifyTool = () => {
           </div>
 
           <div className="max-w-4xl mx-auto space-y-6">
-            {workflowSteps.map((step, index) => (
-              <Card key={index} className="p-8 hover:shadow-xl transition-all relative overflow-hidden">
+            {workflowSteps.map((step, index) => <Card key={index} className="p-8 hover:shadow-xl transition-all relative overflow-hidden">
                 <div className={`absolute top-0 left-0 w-2 h-full bg-gradient-to-b ${step.color}`} />
                 <div className="flex items-start gap-6">
                   <div className={`text-4xl font-bold bg-gradient-to-br ${step.color} bg-clip-text text-transparent flex-shrink-0`}>
@@ -447,8 +387,7 @@ const UnifyTool = () => {
                     <p className="text-muted-foreground text-lg">{step.description}</p>
                   </div>
                 </div>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -497,12 +436,10 @@ const UnifyTool = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            {techSpecs.map((spec, index) => (
-              <Card key={index} className="p-6 text-center hover:shadow-lg transition-shadow">
+            {techSpecs.map((spec, index) => <Card key={index} className="p-6 text-center hover:shadow-lg transition-shadow">
                 <p className="text-sm text-muted-foreground mb-2">{spec.label}</p>
                 <p className="text-xl font-semibold">{spec.value}</p>
-              </Card>
-            ))}
+              </Card>)}
           </div>
 
           <div className="mt-12 flex flex-wrap justify-center gap-6 max-w-4xl mx-auto">
@@ -539,14 +476,12 @@ const UnifyTool = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {successStories.map((story, index) => (
-              <Card key={index} className="p-8 hover:shadow-xl transition-all">
+            {successStories.map((story, index) => <Card key={index} className="p-8 hover:shadow-xl transition-all">
                 <MessageSquare className="w-10 h-10 text-primary mb-4" />
                 <h3 className="text-xl font-semibold mb-3">{story.company}</h3>
                 <div className="text-3xl font-bold text-primary mb-4">{story.result}</div>
                 <p className="text-muted-foreground">{story.description}</p>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -562,7 +497,7 @@ const UnifyTool = () => {
               Save 25-35% with our complete platform packages vs. purchasing individual tools separately.
             </p>
             <Link to="/pricing">
-              <Button size="lg" className="rounded-full px-8">
+              <Button size="lg" className="rounded-full px-8 bg-stone-950 hover:bg-stone-800">
                 View Detailed Pricing <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
@@ -651,16 +586,14 @@ const UnifyTool = () => {
           </div>
 
           <Accordion type="single" collapsible className="space-y-4">
-            {faqs.map((faq, index) => (
-              <AccordionItem key={index} value={`item-${index}`} className="bg-card px-6 rounded-lg border">
+            {faqs.map((faq, index) => <AccordionItem key={index} value={`item-${index}`} className="bg-card px-6 rounded-lg border">
                 <AccordionTrigger className="text-left hover:no-underline py-6">
                   <span className="font-semibold">{faq.question}</span>
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground pb-6">
                   {faq.answer}
                 </AccordionContent>
-              </AccordionItem>
-            ))}
+              </AccordionItem>)}
           </Accordion>
         </div>
       </section>
@@ -677,7 +610,7 @@ const UnifyTool = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/contact">
-                <Button size="lg" className="rounded-full px-8 text-lg">
+                <Button size="lg" className="rounded-full px-8 text-lg bg-stone-950 hover:bg-stone-800">
                   Schedule a Demo <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
@@ -695,8 +628,6 @@ const UnifyTool = () => {
       </section>
 
       <Footer />
-    </>
-  );
+    </>;
 };
-
 export default UnifyTool;

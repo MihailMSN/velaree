@@ -14,14 +14,8 @@ const RSTool = () => {
   return <div className="min-h-screen bg-background">
       <Helmet>
         <title>aRStool - AI-Powered Air Ticket Re-Shopping | Velaree</title>
-        <meta 
-          name="description" 
-          content="AI-powered B2B air ticket re-shopping platform. Monitor PNRs 24/7, check pricing across all GDSs, and automatically find better fares. Save 15-20% post-sale." 
-        />
-        <meta 
-          name="keywords" 
-          content="air ticket re-shopping, PNR monitoring, GDS integration, airline fare comparison, automated re-booking, travel savings, B2B travel tools" 
-        />
+        <meta name="description" content="AI-powered B2B air ticket re-shopping platform. Monitor PNRs 24/7, check pricing across all GDSs, and automatically find better fares. Save 15-20% post-sale." />
+        <meta name="keywords" content="air ticket re-shopping, PNR monitoring, GDS integration, airline fare comparison, automated re-booking, travel savings, B2B travel tools" />
         <link rel="canonical" href="https://velaree.com/rstool" />
         
         <meta property="og:title" content="aRStool - AI-Powered Air Ticket Re-Shopping | Velaree" />
@@ -35,106 +29,90 @@ const RSTool = () => {
         
         <script type="application/ld+json">
           {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "SoftwareApplication",
-            "name": "aRStool",
-            "applicationCategory": "BusinessApplication",
-            "operatingSystem": "Web",
-            "offers": {
-              "@type": "AggregateOffer",
-              "priceCurrency": "USD",
-              "lowPrice": "499",
-              "highPrice": "4999",
-              "offerCount": "3"
-            },
-            "description": "AI-powered B2B air ticket re-shopping platform that monitors PNRs 24/7 and automatically finds better fares across all GDSs",
-            "featureList": [
-              "24/7 automated PNR monitoring",
-              "Multi-GDS fare comparison",
-              "AI-powered price drop detection",
-              "Automated re-booking capability",
-              "Real-time savings alerts",
-              "Comprehensive analytics dashboard"
-            ],
-            "provider": {
-              "@type": "Organization",
-              "name": "Velaree",
-              "url": "https://velaree.com"
-            }
-          })}
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          "name": "aRStool",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web",
+          "offers": {
+            "@type": "AggregateOffer",
+            "priceCurrency": "USD",
+            "lowPrice": "499",
+            "highPrice": "4999",
+            "offerCount": "3"
+          },
+          "description": "AI-powered B2B air ticket re-shopping platform that monitors PNRs 24/7 and automatically finds better fares across all GDSs",
+          "featureList": ["24/7 automated PNR monitoring", "Multi-GDS fare comparison", "AI-powered price drop detection", "Automated re-booking capability", "Real-time savings alerts", "Comprehensive analytics dashboard"],
+          "provider": {
+            "@type": "Organization",
+            "name": "Velaree",
+            "url": "https://velaree.com"
+          }
+        })}
         </script>
         
         <script type="application/ld+json">
           {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "How long does implementation take?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Implementation typically takes 2-4 weeks depending on your existing systems. Our team handles the technical setup including GDS integration, PNR monitoring configuration, and user training. The Starter plan can be live in as little as 7 days."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Which GDS systems do you integrate with?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "aRStool integrates with all major GDS platforms including Amadeus, Sabre, Travelport (Galileo, Apollo, Worldspan), and NDC connections. We also support direct airline APIs for enhanced fare checking and rebooking capabilities."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "What's included in the pricing?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "All plans include 24/7 PNR monitoring, multi-GDS fare comparison, automated savings alerts, and comprehensive analytics. Growth and Enterprise plans add API access, priority support, custom reporting, and white-label options. There are no hidden fees or per-transaction charges."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "How do you calculate savings?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Savings are calculated by comparing the original booking fare against the best available fare found through our AI-powered re-shopping engine. We factor in change fees, fare rules, and taxes to show true net savings. Our dashboard tracks both realized savings (completed rebookings) and potential savings opportunities."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Is our booking data secure?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Yes. aRStool is SOC 2 Type II certified and fully GDPR compliant. All data is encrypted in transit (TLS 1.3) and at rest (AES-256). We maintain separate data environments per agency, and you retain full ownership of your booking data. We never share client data with third parties."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "What happens during the free pilot?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "The free pilot includes 30 days of full platform access with up to 500 PNR monitoring. Our team will configure your GDS connections, train your staff, and help you identify initial savings opportunities. There's no credit card required and no commitment to continue after the trial."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Can we automate the rebooking process?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Yes, with Enterprise plans. Auto-rebook functionality allows you to set rules-based triggers (e.g., 'automatically rebook if savings exceed $100 and no fare rule violations'). Starter and Growth plans provide savings alerts with one-click manual rebooking through your existing GDS workflow."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "What kind of support do you provide?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Starter plans include email support with 24-hour response time. Growth plans add live chat and phone support during business hours. Enterprise clients get a dedicated account manager, priority support with 1-hour response SLA, and quarterly business reviews to optimize your savings strategy."
-                }
-              }
-            ]
-          })}
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [{
+            "@type": "Question",
+            "name": "How long does implementation take?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Implementation typically takes 2-4 weeks depending on your existing systems. Our team handles the technical setup including GDS integration, PNR monitoring configuration, and user training. The Starter plan can be live in as little as 7 days."
+            }
+          }, {
+            "@type": "Question",
+            "name": "Which GDS systems do you integrate with?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "aRStool integrates with all major GDS platforms including Amadeus, Sabre, Travelport (Galileo, Apollo, Worldspan), and NDC connections. We also support direct airline APIs for enhanced fare checking and rebooking capabilities."
+            }
+          }, {
+            "@type": "Question",
+            "name": "What's included in the pricing?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "All plans include 24/7 PNR monitoring, multi-GDS fare comparison, automated savings alerts, and comprehensive analytics. Growth and Enterprise plans add API access, priority support, custom reporting, and white-label options. There are no hidden fees or per-transaction charges."
+            }
+          }, {
+            "@type": "Question",
+            "name": "How do you calculate savings?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Savings are calculated by comparing the original booking fare against the best available fare found through our AI-powered re-shopping engine. We factor in change fees, fare rules, and taxes to show true net savings. Our dashboard tracks both realized savings (completed rebookings) and potential savings opportunities."
+            }
+          }, {
+            "@type": "Question",
+            "name": "Is our booking data secure?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. aRStool is SOC 2 Type II certified and fully GDPR compliant. All data is encrypted in transit (TLS 1.3) and at rest (AES-256). We maintain separate data environments per agency, and you retain full ownership of your booking data. We never share client data with third parties."
+            }
+          }, {
+            "@type": "Question",
+            "name": "What happens during the free pilot?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The free pilot includes 30 days of full platform access with up to 500 PNR monitoring. Our team will configure your GDS connections, train your staff, and help you identify initial savings opportunities. There's no credit card required and no commitment to continue after the trial."
+            }
+          }, {
+            "@type": "Question",
+            "name": "Can we automate the rebooking process?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, with Enterprise plans. Auto-rebook functionality allows you to set rules-based triggers (e.g., 'automatically rebook if savings exceed $100 and no fare rule violations'). Starter and Growth plans provide savings alerts with one-click manual rebooking through your existing GDS workflow."
+            }
+          }, {
+            "@type": "Question",
+            "name": "What kind of support do you provide?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Starter plans include email support with 24-hour response time. Growth plans add live chat and phone support during business hours. Enterprise clients get a dedicated account manager, priority support with 1-hour response SLA, and quarterly business reviews to optimize your savings strategy."
+            }
+          }]
+        })}
         </script>
       </Helmet>
       <Navigation />
@@ -156,7 +134,7 @@ const RSTool = () => {
             </p>
             <div className="flex gap-4 justify-center">
               <Link to="/contact">
-                <Button size="lg" className="rounded-full">
+                <Button size="lg" className="rounded-full bg-stone-950 hover:bg-stone-800">
                   Start Free Pilot <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </Link>
@@ -248,7 +226,7 @@ const RSTool = () => {
             Join leading travel agencies already saving millions with aRStool's AI-powered re-shopping platform
           </p>
           <Link to="/contact">
-            <Button size="lg" className="rounded-full text-black">
+            <Button size="lg" className="rounded-full bg-stone-950 hover:bg-stone-800 text-white">
               Schedule a Demo <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
           </Link>
