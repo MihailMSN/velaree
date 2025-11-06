@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import SectionDivider from "@/components/SectionDivider";
+import ApiFlowDiagram from "@/components/ApiFlowDiagram";
 import HowItWorks from "@/components/HowItWorks";
 import Mission from "@/components/Mission";
 import Solutions from "@/components/Solutions";
@@ -81,6 +82,7 @@ const Index = () => {
       <Navigation />
       <Hero />
       <SectionDivider />
+      <ApiFlowDiagram />
       <HowItWorks />
       <Mission />
       <Solutions />
