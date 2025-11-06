@@ -317,7 +317,7 @@ const ASuiteDashboardMockup = () => {
                   <h2 className="text-2xl font-bold text-foreground">Content Management System</h2>
                   <p className="text-sm text-muted-foreground">Manage your website content and media</p>
                 </div>
-                <Button className="gap-2">
+                <Button className="gap-2 bg-stone-950 hover:bg-stone-800">
                   <Plus className="w-4 h-4" />
                   Create Page
                 </Button>
