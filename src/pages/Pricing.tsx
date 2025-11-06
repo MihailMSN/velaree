@@ -6,146 +6,77 @@ import { Button } from "@/components/ui/button";
 import { Check, ArrowRight, Sparkles, Gift, Plane, Building2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-
-const aRStoolPlans = [
-  {
-    name: "Starter",
-    price: "$499",
-    period: "/mo",
-    description: "Perfect for small agencies getting started",
-    volume: "<1K PNRs/month",
-    features: [
-      "Up to 1,000 PNRs monitored monthly",
-      "24/7 automated price monitoring",
-      "Basic multi-GDS integration",
-      "Email & dashboard alerts",
-      "Standard support (48hr response)",
-      "Monthly savings reports"
-    ],
-    cta: "Start Free Pilot",
-    ctaLink: "/contact",
-    popular: false
-  },
-  {
-    name: "Growth",
-    price: "$1,999",
-    period: "/mo",
-    description: "For growing agencies scaling operations",
-    volume: "<5K PNRs/month",
-    features: [
-      "Up to 5,000 PNRs monitored monthly",
-      "Everything in Starter, plus:",
-      "Full API access & webhooks",
-      "Advanced GDS & NDC integrations",
-      "Custom automation rules",
-      "Priority support (24hr response)",
-      "Dedicated account manager",
-      "Custom reporting & analytics"
-    ],
-    cta: "Start Free Pilot",
-    ctaLink: "/contact",
-    popular: true
-  },
-  {
-    name: "Enterprise",
-    price: "Custom",
-    period: "",
-    description: "For high-volume agencies with specific needs",
-    volume: "5K+ PNRs/month",
-    features: [
-      "Unlimited PNR monitoring",
-      "Everything in Growth, plus:",
-      "White-label dashboard & branding",
-      "AI-powered auto-rebook (hands-free)",
-      "Custom GDS/consolidator integrations",
-      "Dedicated infrastructure",
-      "Premium support (4hr SLA)",
-      "Custom contract & pricing"
-    ],
-    cta: "Contact Sales",
-    ctaLink: "/contact",
-    popular: false
-  }
-];
-
-const hRStoolPlans = [
-  {
-    name: "Starter",
-    price: "$399",
-    period: "/mo",
-    description: "Perfect for agencies starting with hotel re-shopping",
-    volume: "<500 bookings/month",
-    features: [
-      "Up to 500 bookings monitored monthly",
-      "24/7 automated rate monitoring",
-      "Basic OTA integrations",
-      "Email & dashboard alerts",
-      "Free cancellation focus",
-      "Standard support (48hr response)",
-      "Monthly savings reports"
-    ],
-    cta: "Join Waitlist",
-    ctaLink: "/hrstool",
-    popular: false,
-    comingSoon: true
-  },
-  {
-    name: "Growth",
-    price: "$1,499",
-    period: "/mo",
-    description: "For agencies with growing hotel portfolios",
-    volume: "<2.5K bookings/month",
-    features: [
-      "Up to 2,500 bookings monitored monthly",
-      "Everything in Starter, plus:",
-      "Full API access & webhooks",
-      "Advanced OTA & direct hotel connections",
-      "Custom automation rules",
-      "Priority support (24hr response)",
-      "Dedicated account manager",
-      "Custom reporting & analytics"
-    ],
-    cta: "Join Waitlist",
-    ctaLink: "/hrstool",
-    popular: true,
-    comingSoon: true
-  },
-  {
-    name: "Enterprise",
-    price: "Custom",
-    period: "",
-    description: "For high-volume agencies with specific needs",
-    volume: "2.5K+ bookings/month",
-    features: [
-      "Unlimited booking monitoring",
-      "Everything in Growth, plus:",
-      "White-label dashboard & branding",
-      "AI-powered auto-rebook (hands-free)",
-      "Custom hotel chain integrations",
-      "Dedicated infrastructure",
-      "Premium support (4hr SLA)",
-      "Custom contract & pricing"
-    ],
-    cta: "Join Waitlist",
-    ctaLink: "/hrstool",
-    popular: false,
-    comingSoon: true
-  }
-];
-
+const aRStoolPlans = [{
+  name: "Starter",
+  price: "$499",
+  period: "/mo",
+  description: "Perfect for small agencies getting started",
+  volume: "<1K PNRs/month",
+  features: ["Up to 1,000 PNRs monitored monthly", "24/7 automated price monitoring", "Basic multi-GDS integration", "Email & dashboard alerts", "Standard support (48hr response)", "Monthly savings reports"],
+  cta: "Start Free Pilot",
+  ctaLink: "/contact",
+  popular: false
+}, {
+  name: "Growth",
+  price: "$1,999",
+  period: "/mo",
+  description: "For growing agencies scaling operations",
+  volume: "<5K PNRs/month",
+  features: ["Up to 5,000 PNRs monitored monthly", "Everything in Starter, plus:", "Full API access & webhooks", "Advanced GDS & NDC integrations", "Custom automation rules", "Priority support (24hr response)", "Dedicated account manager", "Custom reporting & analytics"],
+  cta: "Start Free Pilot",
+  ctaLink: "/contact",
+  popular: true
+}, {
+  name: "Enterprise",
+  price: "Custom",
+  period: "",
+  description: "For high-volume agencies with specific needs",
+  volume: "5K+ PNRs/month",
+  features: ["Unlimited PNR monitoring", "Everything in Growth, plus:", "White-label dashboard & branding", "AI-powered auto-rebook (hands-free)", "Custom GDS/consolidator integrations", "Dedicated infrastructure", "Premium support (4hr SLA)", "Custom contract & pricing"],
+  cta: "Contact Sales",
+  ctaLink: "/contact",
+  popular: false
+}];
+const hRStoolPlans = [{
+  name: "Starter",
+  price: "$399",
+  period: "/mo",
+  description: "Perfect for agencies starting with hotel re-shopping",
+  volume: "<500 bookings/month",
+  features: ["Up to 500 bookings monitored monthly", "24/7 automated rate monitoring", "Basic OTA integrations", "Email & dashboard alerts", "Free cancellation focus", "Standard support (48hr response)", "Monthly savings reports"],
+  cta: "Join Waitlist",
+  ctaLink: "/hrstool",
+  popular: false,
+  comingSoon: true
+}, {
+  name: "Growth",
+  price: "$1,499",
+  period: "/mo",
+  description: "For agencies with growing hotel portfolios",
+  volume: "<2.5K bookings/month",
+  features: ["Up to 2,500 bookings monitored monthly", "Everything in Starter, plus:", "Full API access & webhooks", "Advanced OTA & direct hotel connections", "Custom automation rules", "Priority support (24hr response)", "Dedicated account manager", "Custom reporting & analytics"],
+  cta: "Join Waitlist",
+  ctaLink: "/hrstool",
+  popular: true,
+  comingSoon: true
+}, {
+  name: "Enterprise",
+  price: "Custom",
+  period: "",
+  description: "For high-volume agencies with specific needs",
+  volume: "2.5K+ bookings/month",
+  features: ["Unlimited booking monitoring", "Everything in Growth, plus:", "White-label dashboard & branding", "AI-powered auto-rebook (hands-free)", "Custom hotel chain integrations", "Dedicated infrastructure", "Premium support (4hr SLA)", "Custom contract & pricing"],
+  cta: "Join Waitlist",
+  ctaLink: "/hrstool",
+  popular: false,
+  comingSoon: true
+}];
 const Pricing = () => {
-  return (
-    <div className="min-h-screen flex flex-col">
+  return <div className="min-h-screen flex flex-col">
       <Helmet>
         <title>Pricing Plans - aRStool & hRStool | Velaree</title>
-        <meta 
-          name="description" 
-          content="Transparent pricing for Velaree's travel technology solutions. Start with a free pilot for aRStool and hRStool. Plans for agencies of all sizes - from startups to enterprises." 
-        />
-        <meta 
-          name="keywords" 
-          content="travel technology pricing, aRStool pricing, hRStool pricing, B2B travel software cost, re-shopping tool pricing, travel agency software plans" 
-        />
+        <meta name="description" content="Transparent pricing for Velaree's travel technology solutions. Start with a free pilot for aRStool and hRStool. Plans for agencies of all sizes - from startups to enterprises." />
+        <meta name="keywords" content="travel technology pricing, aRStool pricing, hRStool pricing, B2B travel software cost, re-shopping tool pricing, travel agency software plans" />
         <link rel="canonical" href="https://velaree.com/pricing" />
         
         <meta property="og:title" content="Pricing Plans - aRStool & hRStool | Velaree" />
@@ -159,59 +90,55 @@ const Pricing = () => {
         
         <script type="application/ld+json">
           {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Product",
-            "name": "aRStool",
-            "description": "AI-powered air ticket re-shopping platform for travel agencies",
-            "brand": {
-              "@type": "Organization",
-              "name": "Velaree"
+          "@context": "https://schema.org",
+          "@type": "Product",
+          "name": "aRStool",
+          "description": "AI-powered air ticket re-shopping platform for travel agencies",
+          "brand": {
+            "@type": "Organization",
+            "name": "Velaree"
+          },
+          "offers": [{
+            "@type": "Offer",
+            "name": "Starter Plan",
+            "price": "499",
+            "priceCurrency": "USD",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "499",
+              "priceCurrency": "USD",
+              "unitText": "MONTH"
             },
-            "offers": [
-              {
-                "@type": "Offer",
-                "name": "Starter Plan",
-                "price": "499",
-                "priceCurrency": "USD",
-                "priceSpecification": {
-                  "@type": "UnitPriceSpecification",
-                  "price": "499",
-                  "priceCurrency": "USD",
-                  "unitText": "MONTH"
-                },
-                "description": "Perfect for small agencies getting started - Up to 1,000 PNRs monitored monthly",
-                "availability": "https://schema.org/InStock"
-              },
-              {
-                "@type": "Offer",
-                "name": "Growth Plan",
-                "price": "1999",
-                "priceCurrency": "USD",
-                "priceSpecification": {
-                  "@type": "UnitPriceSpecification",
-                  "price": "1999",
-                  "priceCurrency": "USD",
-                  "unitText": "MONTH"
-                },
-                "description": "Ideal for growing TMCs and OTAs - Up to 5,000 PNRs monitored monthly",
-                "availability": "https://schema.org/InStock"
-              },
-              {
-                "@type": "Offer",
-                "name": "Enterprise Plan",
-                "price": "4999",
-                "priceCurrency": "USD",
-                "priceSpecification": {
-                  "@type": "UnitPriceSpecification",
-                  "price": "4999",
-                  "priceCurrency": "USD",
-                  "unitText": "MONTH"
-                },
-                "description": "For large agencies and TMCs - Unlimited PNRs with custom solutions",
-                "availability": "https://schema.org/InStock"
-              }
-            ]
-          })}
+            "description": "Perfect for small agencies getting started - Up to 1,000 PNRs monitored monthly",
+            "availability": "https://schema.org/InStock"
+          }, {
+            "@type": "Offer",
+            "name": "Growth Plan",
+            "price": "1999",
+            "priceCurrency": "USD",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "1999",
+              "priceCurrency": "USD",
+              "unitText": "MONTH"
+            },
+            "description": "Ideal for growing TMCs and OTAs - Up to 5,000 PNRs monitored monthly",
+            "availability": "https://schema.org/InStock"
+          }, {
+            "@type": "Offer",
+            "name": "Enterprise Plan",
+            "price": "4999",
+            "priceCurrency": "USD",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "4999",
+              "priceCurrency": "USD",
+              "unitText": "MONTH"
+            },
+            "description": "For large agencies and TMCs - Unlimited PNRs with custom solutions",
+            "availability": "https://schema.org/InStock"
+          }]
+        })}
         </script>
       </Helmet>
       <Navigation />
@@ -269,23 +196,13 @@ const Pricing = () => {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {aRStoolPlans.map((tier, index) => (
-                  <Card
-                    key={index}
-                    className={`relative flex flex-col ${
-                      tier.popular
-                        ? "border-primary shadow-lg scale-105"
-                        : "border-border"
-                    }`}
-                  >
-                    {tier.popular && (
-                      <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                {aRStoolPlans.map((tier, index) => <Card key={index} className={`relative flex flex-col ${tier.popular ? "border-primary shadow-lg scale-105" : "border-border"}`}>
+                    {tier.popular && <div className="absolute -top-4 left-1/2 -translate-x-1/2">
                         <span className="inline-flex items-center gap-1 bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-semibold">
                           <Sparkles className="w-3 h-3" />
                           Most Popular
                         </span>
-                      </div>
-                    )}
+                      </div>}
 
                     <CardHeader>
                       <CardTitle className="text-2xl">{tier.name}</CardTitle>
@@ -301,37 +218,24 @@ const Pricing = () => {
 
                     <CardContent className="flex-1">
                       <ul className="space-y-3">
-                        {tier.features.map((feature, featureIndex) => (
-                          <li key={featureIndex} className="flex items-start gap-3">
+                        {tier.features.map((feature, featureIndex) => <li key={featureIndex} className="flex items-start gap-3">
                             <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                            <span
-                              className={`text-sm ${
-                                feature.includes("Everything in") || feature.includes("plus:")
-                                  ? "font-semibold"
-                                  : ""
-                              }`}
-                            >
+                            <span className={`text-sm ${feature.includes("Everything in") || feature.includes("plus:") ? "font-semibold" : ""}`}>
                               {feature}
                             </span>
-                          </li>
-                        ))}
+                          </li>)}
                       </ul>
                     </CardContent>
 
                     <CardFooter>
                       <Link to={tier.ctaLink} className="w-full">
-                        <Button
-                          size="lg"
-                          variant={tier.popular ? "default" : "outline"}
-                          className="w-full rounded-full"
-                        >
+                        <Button size="lg" variant={tier.popular ? "default" : "outline"} className="w-full rounded-full bg-inherit">
                           {tier.cta}
                           <ArrowRight className="ml-2 w-4 h-4" />
                         </Button>
                       </Link>
                     </CardFooter>
-                  </Card>
-                ))}
+                  </Card>)}
               </div>
             </TabsContent>
 
@@ -349,23 +253,13 @@ const Pricing = () => {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {hRStoolPlans.map((tier, index) => (
-                  <Card
-                    key={index}
-                    className={`relative flex flex-col ${
-                      tier.popular
-                        ? "border-primary shadow-lg scale-105"
-                        : "border-border"
-                    } ${tier.comingSoon ? "opacity-90" : ""}`}
-                  >
-                    {tier.popular && (
-                      <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                {hRStoolPlans.map((tier, index) => <Card key={index} className={`relative flex flex-col ${tier.popular ? "border-primary shadow-lg scale-105" : "border-border"} ${tier.comingSoon ? "opacity-90" : ""}`}>
+                    {tier.popular && <div className="absolute -top-4 left-1/2 -translate-x-1/2">
                         <span className="inline-flex items-center gap-1 bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-semibold">
                           <Sparkles className="w-3 h-3" />
                           Most Popular
                         </span>
-                      </div>
-                    )}
+                      </div>}
 
                     <CardHeader>
                       <CardTitle className="text-2xl">{tier.name}</CardTitle>
@@ -381,37 +275,24 @@ const Pricing = () => {
 
                     <CardContent className="flex-1">
                       <ul className="space-y-3">
-                        {tier.features.map((feature, featureIndex) => (
-                          <li key={featureIndex} className="flex items-start gap-3">
+                        {tier.features.map((feature, featureIndex) => <li key={featureIndex} className="flex items-start gap-3">
                             <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                            <span
-                              className={`text-sm ${
-                                feature.includes("Everything in") || feature.includes("plus:")
-                                  ? "font-semibold"
-                                  : ""
-                              }`}
-                            >
+                            <span className={`text-sm ${feature.includes("Everything in") || feature.includes("plus:") ? "font-semibold" : ""}`}>
                               {feature}
                             </span>
-                          </li>
-                        ))}
+                          </li>)}
                       </ul>
                     </CardContent>
 
                     <CardFooter>
                       <Link to={tier.ctaLink} className="w-full">
-                        <Button
-                          size="lg"
-                          variant={tier.popular ? "default" : "outline"}
-                          className="w-full rounded-full"
-                        >
+                        <Button size="lg" variant={tier.popular ? "default" : "outline"} className="w-full rounded-full">
                           {tier.cta}
                           <ArrowRight className="ml-2 w-4 h-4" />
                         </Button>
                       </Link>
                     </CardFooter>
-                  </Card>
-                ))}
+                  </Card>)}
               </div>
             </TabsContent>
           </Tabs>
@@ -473,7 +354,7 @@ const Pricing = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact">
-              <Button size="lg" className="rounded-full px-8">
+              <Button size="lg" className="rounded-full px-8 bg-stone-950 hover:bg-stone-800">
                 Start Free Pilot
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
@@ -488,8 +369,6 @@ const Pricing = () => {
       </section>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Pricing;
