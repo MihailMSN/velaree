@@ -36,22 +36,22 @@ const Navigation = () => {
     name: "aSuite",
     path: "/asuite",
     icon: Layers,
-    badgeColor: "bg-blue-500/20 text-blue-600 border-blue-300"
+    badgeColor: "bg-feature-blue-muted text-feature-blue-foreground border-feature-blue"
   }, {
     name: "UnifyTool",
     path: "/unifytool",
     icon: LinkIcon,
-    badgeColor: "bg-orange-500/20 text-orange-600 border-orange-300"
+    badgeColor: "bg-feature-amber-muted text-feature-amber-foreground border-feature-amber"
   }, {
     name: "aRStool",
     path: "/rstool",
     icon: Plane,
-    badgeColor: "bg-pink-500/20 text-pink-600 border-pink-300"
+    badgeColor: "bg-feature-purple-muted text-feature-purple-foreground border-feature-purple"
   }, {
     name: "hRStool",
     path: "/hrstool",
     icon: Building2,
-    badgeColor: "bg-green-500/20 text-green-600 border-green-300"
+    badgeColor: "bg-feature-emerald-muted text-feature-emerald-foreground border-feature-emerald"
   }, {
     name: "Pricing",
     path: "/pricing"
