@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import RStoolDemoDashboard from "@/components/rstool/RStoolDemoDashboard";
@@ -11,6 +12,27 @@ import { ArrowRight, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 const RSTool = () => {
   return <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>aRStool - AI-Powered Air Ticket Re-Shopping | Velaree</title>
+        <meta 
+          name="description" 
+          content="AI-powered B2B air ticket re-shopping platform. Monitor PNRs 24/7, check pricing across all GDSs, and automatically find better fares. Save 15-20% post-sale." 
+        />
+        <meta 
+          name="keywords" 
+          content="air ticket re-shopping, PNR monitoring, GDS integration, airline fare comparison, automated re-booking, travel savings, B2B travel tools" 
+        />
+        <link rel="canonical" href="https://velaree.com/rstool" />
+        
+        <meta property="og:title" content="aRStool - AI-Powered Air Ticket Re-Shopping | Velaree" />
+        <meta property="og:description" content="Monitor PNRs 24/7 and automatically find better fares across all GDSs. Save 15-20% on air tickets post-sale." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://velaree.com/rstool" />
+        
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="aRStool - AI-Powered Air Ticket Re-Shopping | Velaree" />
+        <meta name="twitter:description" content="Monitor PNRs 24/7 and automatically find better fares across all GDSs. Save 15-20% on air tickets post-sale." />
+      </Helmet>
       <Navigation />
       
       {/* Hero Section */}

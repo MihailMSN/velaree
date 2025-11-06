@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import SectionDivider from "@/components/SectionDivider";
@@ -16,6 +17,27 @@ import Footer from "@/components/Footer";
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Velaree - Next-Generation Travel Technology Solutions</title>
+        <meta 
+          name="description" 
+          content="Enterprise travel software for OTAs, TMCs, and airlines. Instant booking, private fares, automation, and re-shopping tools. Transform your travel operations today." 
+        />
+        <meta 
+          name="keywords" 
+          content="travel technology, OTA software, TMC platform, airline booking system, travel automation, GDS integration, private fares, NDC content" 
+        />
+        <link rel="canonical" href="https://velaree.com/" />
+        
+        <meta property="og:title" content="Velaree - Next-Generation Travel Technology Solutions" />
+        <meta property="og:description" content="Enterprise travel software for OTAs, TMCs, and airlines. Transform your operations with instant booking, automation, and AI-powered tools." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://velaree.com/" />
+        
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Velaree - Next-Generation Travel Technology Solutions" />
+        <meta name="twitter:description" content="Enterprise travel software for OTAs, TMCs, and airlines. Transform your operations with instant booking, automation, and AI-powered tools." />
+      </Helmet>
       <Navigation />
       <Hero />
       <SectionDivider />

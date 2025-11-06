@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
@@ -6,6 +7,27 @@ import { Mail, MapPin, Phone } from "lucide-react";
 const Contact = () => {
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Contact Us - Book a Demo | Velaree</title>
+        <meta 
+          name="description" 
+          content="Contact Velaree to schedule a personalized demo. See how our travel technology solutions can transform your OTA, TMC, or airline operations." 
+        />
+        <meta 
+          name="keywords" 
+          content="contact Velaree, book demo, travel technology demo, OTA consultation, TMC software demo, airline technology" 
+        />
+        <link rel="canonical" href="https://velaree.com/contact" />
+        
+        <meta property="og:title" content="Contact Us - Book a Demo | Velaree" />
+        <meta property="og:description" content="Schedule a personalized demo to see how Velaree can transform your travel operations." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://velaree.com/contact" />
+        
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Contact Us - Book a Demo | Velaree" />
+        <meta name="twitter:description" content="Schedule a personalized demo to see how Velaree can transform your travel operations." />
+      </Helmet>
       <Navigation />
       
       {/* Hero Section */}

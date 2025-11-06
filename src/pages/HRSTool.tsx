@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -77,6 +78,27 @@ const HRSTool = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>hRStool - Hotel Re-Shopping Platform | Velaree</title>
+        <meta 
+          name="description" 
+          content="AI-powered hotel re-shopping platform for B2B travel agencies. Monitor rates 24/7 across all major OTAs and find better deals automatically. Coming Q1 2026." 
+        />
+        <meta 
+          name="keywords" 
+          content="hotel re-shopping, hotel rate monitoring, OTA comparison, hotel booking savings, B2B travel tools, hotel price alerts" 
+        />
+        <link rel="canonical" href="https://velaree.com/hrstool" />
+        
+        <meta property="og:title" content="hRStool - Hotel Re-Shopping Platform | Velaree" />
+        <meta property="og:description" content="Monitor hotel rates 24/7 across all major OTAs and find better deals automatically for your clients." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://velaree.com/hrstool" />
+        
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="hRStool - Hotel Re-Shopping Platform | Velaree" />
+        <meta name="twitter:description" content="Monitor hotel rates 24/7 across all major OTAs and find better deals automatically for your clients." />
+      </Helmet>
       <Navigation />
       
       {/* Coming Soon Banner */}

@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -135,6 +136,27 @@ const hRStoolPlans = [
 const Pricing = () => {
   return (
     <div className="min-h-screen flex flex-col">
+      <Helmet>
+        <title>Pricing Plans - aRStool & hRStool | Velaree</title>
+        <meta 
+          name="description" 
+          content="Transparent pricing for Velaree's travel technology solutions. Start with a free pilot for aRStool and hRStool. Plans for agencies of all sizes - from startups to enterprises." 
+        />
+        <meta 
+          name="keywords" 
+          content="travel technology pricing, aRStool pricing, hRStool pricing, B2B travel software cost, re-shopping tool pricing, travel agency software plans" 
+        />
+        <link rel="canonical" href="https://velaree.com/pricing" />
+        
+        <meta property="og:title" content="Pricing Plans - aRStool & hRStool | Velaree" />
+        <meta property="og:description" content="Transparent pricing for travel re-shopping tools. Start with a free pilot. Plans for agencies of all sizes." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://velaree.com/pricing" />
+        
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Pricing Plans - aRStool & hRStool | Velaree" />
+        <meta name="twitter:description" content="Transparent pricing for travel re-shopping tools. Start with a free pilot. Plans for agencies of all sizes." />
+      </Helmet>
       <Navigation />
       
       {/* Hero Section */}
