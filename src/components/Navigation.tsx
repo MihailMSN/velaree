@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Plane, Building2, LucideIcon } from "lucide-react";
+import { Menu, X, Plane, Building2, Layers, Link as LinkIcon, LucideIcon } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import velareeLogoImg from "@/assets/velaree-logo.png";
 
@@ -34,10 +34,14 @@ const Navigation = () => {
     path: "/technology"
   }, {
     name: "aSuite",
-    path: "/asuite"
+    path: "/asuite",
+    icon: Layers,
+    badgeColor: "bg-blue-500/20 text-blue-600 border-blue-300"
   }, {
     name: "UnifyTool",
-    path: "/unifytool"
+    path: "/unifytool",
+    icon: LinkIcon,
+    badgeColor: "bg-orange-500/20 text-orange-600 border-orange-300"
   }, {
     name: "aRStool",
     path: "/rstool",
