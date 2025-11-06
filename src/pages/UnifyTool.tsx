@@ -273,7 +273,7 @@ const UnifyTool = () => {
             <Zap className="w-4 h-4" />
             Complete Integrated Platform
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-primary">
             UnifyTool
           </h1>
           <p className="text-2xl md:text-3xl text-muted-foreground mb-4 max-w-4xl mx-auto">
