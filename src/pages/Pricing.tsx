@@ -229,7 +229,7 @@ const Pricing = () => {
 
                     <CardFooter>
                       <Link to={tier.ctaLink} className="w-full">
-                        <Button size="lg" variant={tier.popular ? "default" : "outline"} className="w-full rounded-full bg-inherit">
+                        <Button size="lg" className="w-full rounded-full bg-stone-950 hover:bg-stone-800 text-white">
                           {tier.cta}
                           <ArrowRight className="ml-2 w-4 h-4" />
                         </Button>
@@ -286,7 +286,7 @@ const Pricing = () => {
 
                     <CardFooter>
                       <Link to={tier.ctaLink} className="w-full">
-                        <Button size="lg" variant={tier.popular ? "default" : "outline"} className="w-full rounded-full">
+                        <Button size="lg" className="w-full rounded-full bg-stone-950 hover:bg-stone-800 text-white">
                           {tier.cta}
                           <ArrowRight className="ml-2 w-4 h-4" />
                         </Button>
