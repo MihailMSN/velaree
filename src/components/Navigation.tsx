@@ -70,10 +70,10 @@ const Navigation = () => {
           </Link>
           
           <div className="hidden md:flex items-center gap-8">
-            {navItems.map(item => <button key={item.name} onClick={() => handleNavigation(item.path)} className={`relative transition-colors duration-200 ${location.pathname === item.path ? "text-foreground font-semibold" : "text-foreground/70 hover:text-foreground"}`}>
+            {navItems.map(item => <button key={item.name} onClick={() => handleNavigation(item.path)} className={`relative inline-block pr-3 transition-colors duration-200 ${location.pathname === item.path ? "text-foreground font-semibold" : "text-foreground/70 hover:text-foreground"}`}>
                 {item.name}
                 {item.icon && (
-                  <span className={`absolute -top-1 -right-1 inline-flex items-center justify-center w-4 h-4 rounded-full border ${item.badgeColor}`}>
+                  <span className={`absolute -top-2 -right-0.5 inline-flex items-center justify-center w-4 h-4 rounded-full border ${item.badgeColor}`}>
                     <item.icon className="w-2.5 h-2.5" />
                   </span>
                 )}
@@ -95,10 +95,10 @@ const Navigation = () => {
 
         {isMobileMenuOpen && <div className="md:hidden mt-4 pb-4 animate-fade-in">
             <div className="flex flex-col gap-4">
-              {navItems.map(item => <button key={item.name} onClick={() => handleNavigation(item.path)} className={`relative transition-colors duration-200 py-2 text-left ${location.pathname === item.path ? "text-foreground font-semibold" : "text-foreground/70 hover:text-foreground"}`}>
+              {navItems.map(item => <button key={item.name} onClick={() => handleNavigation(item.path)} className={`relative inline-block w-full pr-6 transition-colors duration-200 py-2 text-left ${location.pathname === item.path ? "text-foreground font-semibold" : "text-foreground/70 hover:text-foreground"}`}>
                   {item.name}
                   {item.icon && (
-                    <span className={`absolute -top-1 -right-1 inline-flex items-center justify-center w-4 h-4 rounded-full border ${item.badgeColor}`}>
+                    <span className={`absolute top-1.5 right-0 inline-flex items-center justify-center w-4 h-4 rounded-full border ${item.badgeColor}`}>
                       <item.icon className="w-2.5 h-2.5" />
                     </span>
                   )}
