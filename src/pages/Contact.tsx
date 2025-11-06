@@ -3,20 +3,12 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
 import { Mail, MapPin, Phone } from "lucide-react";
-
 const Contact = () => {
-  return (
-    <div className="min-h-screen bg-background">
+  return <div className="min-h-screen bg-background">
       <Helmet>
         <title>Contact Us - Book a Demo | Velaree</title>
-        <meta 
-          name="description" 
-          content="Contact Velaree to schedule a personalized demo. See how our travel technology solutions can transform your OTA, TMC, or airline operations." 
-        />
-        <meta 
-          name="keywords" 
-          content="contact Velaree, book demo, travel technology demo, OTA consultation, TMC software demo, airline technology" 
-        />
+        <meta name="description" content="Contact Velaree to schedule a personalized demo. See how our travel technology solutions can transform your OTA, TMC, or airline operations." />
+        <meta name="keywords" content="contact Velaree, book demo, travel technology demo, OTA consultation, TMC software demo, airline technology" />
         <link rel="canonical" href="https://velaree.com/contact" />
         
         <meta property="og:title" content="Contact Us - Book a Demo | Velaree" />
@@ -49,9 +41,9 @@ const Contact = () => {
 
       {/* Contact Form Section */}
       <section className="py-24 bg-primary relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-accent/10 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-accent/10 to-transparent bg-stone-950"></div>
         
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="container mx-auto px-6 relative z-10 bg-transparent">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-4xl md:text-5xl font-bold text-primary-foreground mb-4">
@@ -79,7 +71,9 @@ const Contact = () => {
               <p className="text-muted-foreground text-sm mt-1">Response within 24 hours</p>
             </div>
 
-            <div className="text-center animate-fade-in" style={{ animationDelay: "0.1s" }}>
+            <div className="text-center animate-fade-in" style={{
+            animationDelay: "0.1s"
+          }}>
               <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 via-accent/20 to-primary/10 border border-primary/10 flex items-center justify-center mx-auto mb-4">
                 <Phone className="w-8 h-8 text-primary" />
               </div>
@@ -88,7 +82,9 @@ const Contact = () => {
               <p className="text-muted-foreground text-sm mt-1">Mon-Fri, 9AM-6PM EST</p>
             </div>
 
-            <div className="text-center animate-fade-in" style={{ animationDelay: "0.2s" }}>
+            <div className="text-center animate-fade-in" style={{
+            animationDelay: "0.2s"
+          }}>
               <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 via-accent/20 to-primary/10 border border-primary/10 flex items-center justify-center mx-auto mb-4">
                 <MapPin className="w-8 h-8 text-primary" />
               </div>
@@ -101,8 +97,6 @@ const Contact = () => {
       </section>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Contact;

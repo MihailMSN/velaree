@@ -4,7 +4,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 import { toast } from "sonner";
 import { z } from "zod";
-
 const contactFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters").max(100),
   company: z.string().min(2, "Company name required").max(100),
@@ -12,9 +11,7 @@ const contactFormSchema = z.object({
   email: z.string().email("Invalid email address").max(255),
   message: z.string().max(1000).optional()
 });
-
 type ContactFormData = z.infer<typeof contactFormSchema>;
-
 const ContactForm = () => {
   const [formData, setFormData] = useState<ContactFormData>({
     name: "",
@@ -23,100 +20,60 @@ const ContactForm = () => {
     email: "",
     message: ""
   });
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
     try {
       contactFormSchema.parse(formData);
       toast.success("Thank you! Our team will contact you within 24 hours.");
-      setFormData({ name: "", company: "", role: "", email: "", message: "" });
+      setFormData({
+        name: "",
+        company: "",
+        role: "",
+        email: "",
+        message: ""
+      });
     } catch (error) {
       if (error instanceof z.ZodError) {
         toast.error(error.errors[0].message);
       }
     }
   };
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData(prev => ({
       ...prev,
       [e.target.name]: e.target.value
     }));
   };
-
-  return (
-    <form onSubmit={handleSubmit} className="space-y-6 max-w-2xl mx-auto">
+  return <form onSubmit={handleSubmit} className="space-y-6 max-w-2xl mx-auto">
       <div className="grid md:grid-cols-2 gap-6">
         <div>
-          <Input
-            name="name"
-            placeholder="Full Name *"
-            value={formData.name}
-            onChange={handleChange}
-            className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50 text-lg px-6 py-6 rounded-full"
-            required
-          />
+          <Input name="name" placeholder="Full Name *" value={formData.name} onChange={handleChange} className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50 text-lg px-6 py-6 rounded-full" required />
         </div>
         <div>
-          <Input
-            name="company"
-            placeholder="Company *"
-            value={formData.company}
-            onChange={handleChange}
-            className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50 text-lg px-6 py-6 rounded-full"
-            required
-          />
+          <Input name="company" placeholder="Company *" value={formData.company} onChange={handleChange} className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50 text-lg px-6 py-6 rounded-full" required />
         </div>
       </div>
 
       <div className="grid md:grid-cols-2 gap-6">
         <div>
-          <Input
-            name="role"
-            placeholder="Your Role *"
-            value={formData.role}
-            onChange={handleChange}
-            className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50 text-lg px-6 py-6 rounded-full"
-            required
-          />
+          <Input name="role" placeholder="Your Role *" value={formData.role} onChange={handleChange} className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50 text-lg px-6 py-6 rounded-full" required />
         </div>
         <div>
-          <Input
-            type="email"
-            name="email"
-            placeholder="Work Email *"
-            value={formData.email}
-            onChange={handleChange}
-            className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50 text-lg px-6 py-6 rounded-full"
-            required
-          />
+          <Input type="email" name="email" placeholder="Work Email *" value={formData.email} onChange={handleChange} className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50 text-lg px-6 py-6 rounded-full" required />
         </div>
       </div>
 
       <div>
-        <Textarea
-          name="message"
-          placeholder="Tell us about your needs (optional)"
-          value={formData.message}
-          onChange={handleChange}
-          className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50 text-lg px-6 py-4 rounded-2xl min-h-32 resize-none"
-        />
+        <Textarea name="message" placeholder="Tell us about your needs (optional)" value={formData.message} onChange={handleChange} className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50 text-lg px-6 py-4 rounded-2xl min-h-32 resize-none" />
       </div>
 
-      <Button
-        type="submit"
-        size="lg"
-        className="w-full bg-accent text-accent-foreground hover:bg-accent/90 text-lg px-8 py-6 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg"
-      >
+      <Button type="submit" size="lg" className="w-full text-lg px-8 py-6 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg text-white bg-black">
         Book a Demo
       </Button>
 
       <p className="text-primary-foreground/60 text-sm text-center">
         See how Velaree can automate your travel operations
       </p>
-    </form>
-  );
+    </form>;
 };
-
 export default ContactForm;
