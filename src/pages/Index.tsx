@@ -13,20 +13,12 @@ import LiveStats from "@/components/LiveStats";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
-
 const Index = () => {
-  return (
-    <div className="min-h-screen bg-background">
+  return <div className="min-h-screen bg-background">
       <Helmet>
         <title>Velaree - Next-Generation Travel Technology Solutions</title>
-        <meta 
-          name="description" 
-          content="Enterprise travel software for OTAs, TMCs, and airlines. Instant booking, private fares, automation, and re-shopping tools. Transform your travel operations today." 
-        />
-        <meta 
-          name="keywords" 
-          content="travel technology, OTA software, TMC platform, airline booking system, travel automation, GDS integration, private fares, NDC content" 
-        />
+        <meta name="description" content="Enterprise travel software for OTAs, TMCs, and airlines. Instant booking, private fares, automation, and re-shopping tools. Transform your travel operations today." />
+        <meta name="keywords" content="travel technology, OTA software, TMC platform, airline booking system, travel automation, GDS integration, private fares, NDC content" />
         <link rel="canonical" href="https://velaree.com/" />
         
         <meta property="og:title" content="Velaree - Next-Generation Travel Technology Solutions" />
@@ -40,42 +32,37 @@ const Index = () => {
         
         <script type="application/ld+json">
           {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "Velaree",
-            "url": "https://velaree.com",
-            "logo": "https://velaree.com/logo.png",
-            "description": "Enterprise travel technology solutions for OTAs, TMCs, and airlines",
-            "foundingDate": "2020",
-            "contactPoint": {
-              "@type": "ContactPoint",
-              "contactType": "Sales",
-              "url": "https://velaree.com/contact"
-            },
-            "sameAs": [
-              "https://www.linkedin.com/company/velaree"
-            ],
-            "offers": [
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "SoftwareApplication",
-                  "name": "aRStool",
-                  "applicationCategory": "BusinessApplication",
-                  "description": "AI-powered air ticket re-shopping platform"
-                }
-              },
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "SoftwareApplication",
-                  "name": "hRStool",
-                  "applicationCategory": "BusinessApplication",
-                  "description": "AI-powered hotel re-shopping platform"
-                }
-              }
-            ]
-          })}
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Velaree",
+          "url": "https://velaree.com",
+          "logo": "https://velaree.com/logo.png",
+          "description": "Enterprise travel technology solutions for OTAs, TMCs, and airlines",
+          "foundingDate": "2020",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "Sales",
+            "url": "https://velaree.com/contact"
+          },
+          "sameAs": ["https://www.linkedin.com/company/velaree"],
+          "offers": [{
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "SoftwareApplication",
+              "name": "aRStool",
+              "applicationCategory": "BusinessApplication",
+              "description": "AI-powered air ticket re-shopping platform"
+            }
+          }, {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "SoftwareApplication",
+              "name": "hRStool",
+              "applicationCategory": "BusinessApplication",
+              "description": "AI-powered hotel re-shopping platform"
+            }
+          }]
+        })}
         </script>
       </Helmet>
       <Navigation />
@@ -88,12 +75,10 @@ const Index = () => {
       <Technology />
       <TechnicalSpecs />
       <CaseStudies />
-      <LiveStats />
-      <TestimonialCarousel />
+      
+      
       <CTA />
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
