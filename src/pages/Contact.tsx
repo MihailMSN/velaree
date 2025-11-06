@@ -48,16 +48,16 @@ const Contact = () => {
       </section>
 
       {/* Contact Form Section */}
-      <section className="py-24 bg-muted/30 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-accent/10 via-transparent to-transparent"></div>
+      <section className="py-24 bg-primary relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-accent/10 to-transparent"></div>
         
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+              <h2 className="text-4xl md:text-5xl font-bold text-primary-foreground mb-4">
                 Book a Demo
               </h2>
-              <p className="text-xl text-muted-foreground">
+              <p className="text-xl text-primary-foreground/80">
                 Schedule a personalized demo with our enterprise solutions team
               </p>
             </div>
