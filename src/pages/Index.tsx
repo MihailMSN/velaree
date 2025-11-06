@@ -1,5 +1,6 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
+import SectionDivider from "@/components/SectionDivider";
 import HowItWorks from "@/components/HowItWorks";
 import Mission from "@/components/Mission";
 import Solutions from "@/components/Solutions";
@@ -18,6 +19,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       <Hero />
+      <SectionDivider />
       <HowItWorks />
       <Mission />
       <Solutions />
