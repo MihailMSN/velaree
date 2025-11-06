@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import Technology from "./pages/Technology";
 import RSTool from "./pages/RSTool";
 import HRSTool from "./pages/HRSTool";
+import UnifyTool from "./pages/UnifyTool";
 import Contact from "./pages/Contact";
 import Pricing from "./pages/Pricing";
 import FAQ from "./pages/FAQ";
@@ -23,6 +24,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/technology" element={<Technology />} />
+          <Route path="/unifytool" element={<UnifyTool />} />
           <Route path="/rstool" element={<RSTool />} />
           <Route path="/hrstool" element={<HRSTool />} />
           <Route path="/pricing" element={<Pricing />} />
