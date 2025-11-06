@@ -3,68 +3,109 @@ import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import {
-  Users,
-  FileText,
-  BarChart3,
-  Settings,
-  Search,
-  Bell,
-  Mail,
-  Phone,
-  MapPin,
-  Calendar,
-  DollarSign,
-  TrendingUp,
-  UserPlus,
-  Eye,
-  Edit,
-  Trash2,
-  Download,
-  Filter,
-  Plus,
-  Globe,
-  Image as ImageIcon,
-  Layout,
-  Palette,
-} from "lucide-react";
+import { Users, FileText, BarChart3, Settings, Search, Bell, Mail, Phone, MapPin, Calendar, DollarSign, TrendingUp, UserPlus, Eye, Edit, Trash2, Download, Filter, Plus, Globe, Image as ImageIcon, Layout, Palette } from "lucide-react";
 import { AreaChart, Area, BarChart, Bar, LineChart, Line, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from "recharts";
-
 const ASuiteDashboardMockup = () => {
   const [activeView, setActiveView] = useState("crm");
 
   // Mock data
-  const revenueData = [
-    { month: "Jan", revenue: 45000, bookings: 120 },
-    { month: "Feb", revenue: 52000, bookings: 145 },
-    { month: "Mar", revenue: 48000, bookings: 132 },
-    { month: "Apr", revenue: 61000, bookings: 168 },
-    { month: "May", revenue: 55000, bookings: 151 },
-    { month: "Jun", revenue: 67000, bookings: 186 },
-  ];
-
-  const customerSegments = [
-    { name: "Corporate", value: 35, color: "#8B5CF6" },
-    { name: "Leisure", value: 45, color: "#3B82F6" },
-    { name: "Group", value: 20, color: "#10B981" },
-  ];
-
-  const recentCustomers = [
-    { id: 1, name: "Sarah Johnson", email: "sarah.j@company.com", bookings: 12, value: "$24,500", status: "active", joined: "2024-01-15" },
-    { id: 2, name: "Michael Chen", email: "m.chen@business.com", bookings: 8, value: "$18,200", status: "active", joined: "2024-02-03" },
-    { id: 3, name: "Emma Williams", email: "emma.w@corp.com", bookings: 15, value: "$32,100", status: "vip", joined: "2023-11-20" },
-    { id: 4, name: "James Brown", email: "james.b@enterprise.com", bookings: 5, value: "$12,800", status: "active", joined: "2024-03-10" },
-  ];
-
-  const contentPages = [
-    { id: 1, title: "Homepage", status: "published", lastEdited: "2 hours ago", views: 15234 },
-    { id: 2, title: "Destinations", status: "published", lastEdited: "1 day ago", views: 8921 },
-    { id: 3, title: "Special Offers", status: "draft", lastEdited: "3 hours ago", views: 0 },
-    { id: 4, title: "About Us", status: "published", lastEdited: "5 days ago", views: 3456 },
-  ];
-
-  return (
-    <div className="w-full bg-gradient-to-br from-muted/30 to-muted/10 rounded-xl border border-border overflow-hidden shadow-2xl">
+  const revenueData = [{
+    month: "Jan",
+    revenue: 45000,
+    bookings: 120
+  }, {
+    month: "Feb",
+    revenue: 52000,
+    bookings: 145
+  }, {
+    month: "Mar",
+    revenue: 48000,
+    bookings: 132
+  }, {
+    month: "Apr",
+    revenue: 61000,
+    bookings: 168
+  }, {
+    month: "May",
+    revenue: 55000,
+    bookings: 151
+  }, {
+    month: "Jun",
+    revenue: 67000,
+    bookings: 186
+  }];
+  const customerSegments = [{
+    name: "Corporate",
+    value: 35,
+    color: "#8B5CF6"
+  }, {
+    name: "Leisure",
+    value: 45,
+    color: "#3B82F6"
+  }, {
+    name: "Group",
+    value: 20,
+    color: "#10B981"
+  }];
+  const recentCustomers = [{
+    id: 1,
+    name: "Sarah Johnson",
+    email: "sarah.j@company.com",
+    bookings: 12,
+    value: "$24,500",
+    status: "active",
+    joined: "2024-01-15"
+  }, {
+    id: 2,
+    name: "Michael Chen",
+    email: "m.chen@business.com",
+    bookings: 8,
+    value: "$18,200",
+    status: "active",
+    joined: "2024-02-03"
+  }, {
+    id: 3,
+    name: "Emma Williams",
+    email: "emma.w@corp.com",
+    bookings: 15,
+    value: "$32,100",
+    status: "vip",
+    joined: "2023-11-20"
+  }, {
+    id: 4,
+    name: "James Brown",
+    email: "james.b@enterprise.com",
+    bookings: 5,
+    value: "$12,800",
+    status: "active",
+    joined: "2024-03-10"
+  }];
+  const contentPages = [{
+    id: 1,
+    title: "Homepage",
+    status: "published",
+    lastEdited: "2 hours ago",
+    views: 15234
+  }, {
+    id: 2,
+    title: "Destinations",
+    status: "published",
+    lastEdited: "1 day ago",
+    views: 8921
+  }, {
+    id: 3,
+    title: "Special Offers",
+    status: "draft",
+    lastEdited: "3 hours ago",
+    views: 0
+  }, {
+    id: 4,
+    title: "About Us",
+    status: "published",
+    lastEdited: "5 days ago",
+    views: 3456
+  }];
+  return <div className="w-full bg-gradient-to-br from-muted/30 to-muted/10 rounded-xl border border-border overflow-hidden shadow-2xl">
       {/* Dashboard Header */}
       <div className="bg-background/95 backdrop-blur-sm border-b border-border px-6 py-4">
         <div className="flex items-center justify-between">
@@ -82,11 +123,7 @@ const ASuiteDashboardMockup = () => {
           <div className="flex items-center gap-3">
             <div className="relative hidden md:block">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-              <input
-                type="text"
-                placeholder="Search..."
-                className="pl-10 pr-4 py-2 bg-muted/50 border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 w-64"
-              />
+              <input type="text" placeholder="Search..." className="pl-10 pr-4 py-2 bg-muted/50 border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 w-64" />
             </div>
             <Button size="sm" variant="ghost" className="relative">
               <Bell className="w-4 h-4" />
@@ -106,47 +143,19 @@ const ASuiteDashboardMockup = () => {
         {/* Sidebar */}
         <div className="w-64 bg-background/50 backdrop-blur-sm border-r border-border p-4 hidden md:block">
           <nav className="space-y-2">
-            <button
-              onClick={() => setActiveView("crm")}
-              className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
-                activeView === "crm"
-                  ? "bg-primary text-primary-foreground"
-                  : "text-muted-foreground hover:bg-muted/50"
-              }`}
-            >
+            <button onClick={() => setActiveView("crm")} className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${activeView === "crm" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:bg-muted/50"}`}>
               <Users className="w-4 h-4" />
               <span className="text-sm font-medium">CRM</span>
             </button>
-            <button
-              onClick={() => setActiveView("cms")}
-              className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
-                activeView === "cms"
-                  ? "bg-primary text-primary-foreground"
-                  : "text-muted-foreground hover:bg-muted/50"
-              }`}
-            >
+            <button onClick={() => setActiveView("cms")} className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${activeView === "cms" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:bg-muted/50"}`}>
               <FileText className="w-4 h-4" />
               <span className="text-sm font-medium">CMS</span>
             </button>
-            <button
-              onClick={() => setActiveView("analytics")}
-              className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
-                activeView === "analytics"
-                  ? "bg-primary text-primary-foreground"
-                  : "text-muted-foreground hover:bg-muted/50"
-              }`}
-            >
+            <button onClick={() => setActiveView("analytics")} className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${activeView === "analytics" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:bg-muted/50"}`}>
               <BarChart3 className="w-4 h-4" />
               <span className="text-sm font-medium">Analytics</span>
             </button>
-            <button
-              onClick={() => setActiveView("settings")}
-              className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
-                activeView === "settings"
-                  ? "bg-primary text-primary-foreground"
-                  : "text-muted-foreground hover:bg-muted/50"
-              }`}
-            >
+            <button onClick={() => setActiveView("settings")} className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${activeView === "settings" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:bg-muted/50"}`}>
               <Settings className="w-4 h-4" />
               <span className="text-sm font-medium">Settings</span>
             </button>
@@ -174,14 +183,13 @@ const ASuiteDashboardMockup = () => {
         {/* Content Area */}
         <div className="flex-1 overflow-auto p-6 bg-muted/20">
           {/* CRM View */}
-          {activeView === "crm" && (
-            <div className="space-y-6 animate-fade-in">
+          {activeView === "crm" && <div className="space-y-6 animate-fade-in">
               <div className="flex items-center justify-between">
                 <div>
                   <h2 className="text-2xl font-bold text-foreground">Customer Relationship Management</h2>
                   <p className="text-sm text-muted-foreground">Manage your customer database and interactions</p>
                 </div>
-                <Button className="gap-2">
+                <Button className="gap-2 bg-stone-950 hover:bg-stone-800">
                   <UserPlus className="w-4 h-4" />
                   Add Customer
                 </Button>
@@ -263,8 +271,7 @@ const ASuiteDashboardMockup = () => {
                       </tr>
                     </thead>
                     <tbody>
-                      {recentCustomers.map((customer) => (
-                        <tr key={customer.id} className="border-b border-border hover:bg-muted/50 transition-colors">
+                      {recentCustomers.map(customer => <tr key={customer.id} className="border-b border-border hover:bg-muted/50 transition-colors">
                           <td className="py-3 px-4">
                             <div className="flex items-center gap-3">
                               <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
@@ -296,18 +303,15 @@ const ASuiteDashboardMockup = () => {
                               </Button>
                             </div>
                           </td>
-                        </tr>
-                      ))}
+                        </tr>)}
                     </tbody>
                   </table>
                 </div>
               </Card>
-            </div>
-          )}
+            </div>}
 
           {/* CMS View */}
-          {activeView === "cms" && (
-            <div className="space-y-6 animate-fade-in">
+          {activeView === "cms" && <div className="space-y-6 animate-fade-in">
               <div className="flex items-center justify-between">
                 <div>
                   <h2 className="text-2xl font-bold text-foreground">Content Management System</h2>
@@ -366,8 +370,7 @@ const ASuiteDashboardMockup = () => {
                   </Button>
                 </div>
                 <div className="space-y-3">
-                  {contentPages.map((page) => (
-                    <div key={page.id} className="flex items-center justify-between p-4 bg-muted/30 rounded-lg hover:bg-muted/50 transition-colors">
+                  {contentPages.map(page => <div key={page.id} className="flex items-center justify-between p-4 bg-muted/30 rounded-lg hover:bg-muted/50 transition-colors">
                       <div className="flex items-center gap-4">
                         <FileText className="w-5 h-5 text-primary" />
                         <div>
@@ -393,16 +396,13 @@ const ASuiteDashboardMockup = () => {
                           </Button>
                         </div>
                       </div>
-                    </div>
-                  ))}
+                    </div>)}
                 </div>
               </Card>
-            </div>
-          )}
+            </div>}
 
           {/* Analytics View */}
-          {activeView === "analytics" && (
-            <div className="space-y-6 animate-fade-in">
+          {activeView === "analytics" && <div className="space-y-6 animate-fade-in">
               <div>
                 <h2 className="text-2xl font-bold text-foreground">Analytics & Reporting</h2>
                 <p className="text-sm text-muted-foreground">Track performance across your entire platform</p>
@@ -415,27 +415,19 @@ const ASuiteDashboardMockup = () => {
                   <AreaChart data={revenueData}>
                     <defs>
                       <linearGradient id="colorRevenue" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="5%" stopColor="hsl(var(--primary))" stopOpacity={0.3}/>
-                        <stop offset="95%" stopColor="hsl(var(--primary))" stopOpacity={0}/>
+                        <stop offset="5%" stopColor="hsl(var(--primary))" stopOpacity={0.3} />
+                        <stop offset="95%" stopColor="hsl(var(--primary))" stopOpacity={0} />
                       </linearGradient>
                     </defs>
                     <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
                     <XAxis dataKey="month" stroke="hsl(var(--muted-foreground))" />
                     <YAxis stroke="hsl(var(--muted-foreground))" />
-                    <Tooltip
-                      contentStyle={{
-                        backgroundColor: "hsl(var(--background))",
-                        border: "1px solid hsl(var(--border))",
-                        borderRadius: "8px",
-                      }}
-                    />
-                    <Area
-                      type="monotone"
-                      dataKey="revenue"
-                      stroke="hsl(var(--primary))"
-                      fillOpacity={1}
-                      fill="url(#colorRevenue)"
-                    />
+                    <Tooltip contentStyle={{
+                  backgroundColor: "hsl(var(--background))",
+                  border: "1px solid hsl(var(--border))",
+                  borderRadius: "8px"
+                }} />
+                    <Area type="monotone" dataKey="revenue" stroke="hsl(var(--primary))" fillOpacity={1} fill="url(#colorRevenue)" />
                   </AreaChart>
                 </ResponsiveContainer>
               </Card>
@@ -446,29 +438,19 @@ const ASuiteDashboardMockup = () => {
                   <h3 className="text-lg font-semibold text-foreground mb-4">Customer Segments</h3>
                   <ResponsiveContainer width="100%" height={200}>
                     <PieChart>
-                      <Pie
-                        data={customerSegments}
-                        cx="50%"
-                        cy="50%"
-                        innerRadius={60}
-                        outerRadius={80}
-                        paddingAngle={5}
-                        dataKey="value"
-                      >
-                        {customerSegments.map((entry, index) => (
-                          <Cell key={`cell-${index}`} fill={entry.color} />
-                        ))}
+                      <Pie data={customerSegments} cx="50%" cy="50%" innerRadius={60} outerRadius={80} paddingAngle={5} dataKey="value">
+                        {customerSegments.map((entry, index) => <Cell key={`cell-${index}`} fill={entry.color} />)}
                       </Pie>
                       <Tooltip />
                     </PieChart>
                   </ResponsiveContainer>
                   <div className="flex justify-center gap-4 mt-4">
-                    {customerSegments.map((segment) => (
-                      <div key={segment.name} className="flex items-center gap-2">
-                        <div className="w-3 h-3 rounded-full" style={{ backgroundColor: segment.color }} />
+                    {customerSegments.map(segment => <div key={segment.name} className="flex items-center gap-2">
+                        <div className="w-3 h-3 rounded-full" style={{
+                    backgroundColor: segment.color
+                  }} />
                         <span className="text-sm text-muted-foreground">{segment.name} ({segment.value}%)</span>
-                      </div>
-                    ))}
+                      </div>)}
                   </div>
                 </Card>
 
@@ -482,7 +464,9 @@ const ASuiteDashboardMockup = () => {
                         <span className="text-sm font-semibold text-foreground">18.5%</span>
                       </div>
                       <div className="w-full bg-muted/30 rounded-full h-2">
-                        <div className="bg-primary h-2 rounded-full" style={{ width: "18.5%" }} />
+                        <div className="bg-primary h-2 rounded-full" style={{
+                      width: "18.5%"
+                    }} />
                       </div>
                     </div>
                     <div>
@@ -491,7 +475,9 @@ const ASuiteDashboardMockup = () => {
                         <span className="text-sm font-semibold text-foreground">87%</span>
                       </div>
                       <div className="w-full bg-muted/30 rounded-full h-2">
-                        <div className="bg-green-500 h-2 rounded-full" style={{ width: "87%" }} />
+                        <div className="bg-green-500 h-2 rounded-full" style={{
+                      width: "87%"
+                    }} />
                       </div>
                     </div>
                     <div>
@@ -500,7 +486,9 @@ const ASuiteDashboardMockup = () => {
                         <span className="text-sm font-semibold text-foreground">2.4 hrs</span>
                       </div>
                       <div className="w-full bg-muted/30 rounded-full h-2">
-                        <div className="bg-blue-500 h-2 rounded-full" style={{ width: "65%" }} />
+                        <div className="bg-blue-500 h-2 rounded-full" style={{
+                      width: "65%"
+                    }} />
                       </div>
                     </div>
                     <div>
@@ -509,18 +497,18 @@ const ASuiteDashboardMockup = () => {
                         <span className="text-sm font-semibold text-foreground">4.8/5</span>
                       </div>
                       <div className="w-full bg-muted/30 rounded-full h-2">
-                        <div className="bg-yellow-500 h-2 rounded-full" style={{ width: "96%" }} />
+                        <div className="bg-yellow-500 h-2 rounded-full" style={{
+                      width: "96%"
+                    }} />
                       </div>
                     </div>
                   </div>
                 </Card>
               </div>
-            </div>
-          )}
+            </div>}
 
           {/* Settings View */}
-          {activeView === "settings" && (
-            <div className="space-y-6 animate-fade-in">
+          {activeView === "settings" && <div className="space-y-6 animate-fade-in">
               <div>
                 <h2 className="text-2xl font-bold text-foreground">Platform Settings</h2>
                 <p className="text-sm text-muted-foreground">Configure your aSuite environment</p>
@@ -543,20 +531,12 @@ const ASuiteDashboardMockup = () => {
                       <label className="text-sm font-medium text-foreground block mb-2">Primary Color</label>
                       <div className="flex gap-2">
                         <input type="color" className="w-12 h-10 rounded border border-border" defaultValue="#8B5CF6" />
-                        <input
-                          type="text"
-                          className="flex-1 px-3 py-2 bg-muted/50 border border-border rounded-lg text-sm"
-                          defaultValue="#8B5CF6"
-                        />
+                        <input type="text" className="flex-1 px-3 py-2 bg-muted/50 border border-border rounded-lg text-sm" defaultValue="#8B5CF6" />
                       </div>
                     </div>
                     <div>
                       <label className="text-sm font-medium text-foreground block mb-2">Custom Domain</label>
-                      <input
-                        type="text"
-                        className="w-full px-3 py-2 bg-muted/50 border border-border rounded-lg text-sm"
-                        placeholder="travel.yourdomain.com"
-                      />
+                      <input type="text" className="w-full px-3 py-2 bg-muted/50 border border-border rounded-lg text-sm" placeholder="travel.yourdomain.com" />
                     </div>
                   </div>
                 </Card>
@@ -567,11 +547,7 @@ const ASuiteDashboardMockup = () => {
                     <div>
                       <label className="text-sm font-medium text-foreground block mb-2">API Key</label>
                       <div className="flex gap-2">
-                        <input
-                          type="password"
-                          className="flex-1 px-3 py-2 bg-muted/50 border border-border rounded-lg text-sm"
-                          defaultValue="sk_live_••••••••••••••••"
-                        />
+                        <input type="password" className="flex-1 px-3 py-2 bg-muted/50 border border-border rounded-lg text-sm" defaultValue="sk_live_••••••••••••••••" />
                         <Button variant="outline" size="sm">Copy</Button>
                       </div>
                     </div>
@@ -663,62 +639,31 @@ const ASuiteDashboardMockup = () => {
                   </div>
                 </Card>
               </div>
-            </div>
-          )}
+            </div>}
         </div>
       </div>
 
       {/* Mobile View Selector */}
       <div className="md:hidden bg-background/95 backdrop-blur-sm border-t border-border p-2">
         <div className="flex gap-1">
-          <button
-            onClick={() => setActiveView("crm")}
-            className={`flex-1 flex flex-col items-center gap-1 py-2 rounded-lg text-xs transition-colors ${
-              activeView === "crm"
-                ? "bg-primary text-primary-foreground"
-                : "text-muted-foreground"
-            }`}
-          >
+          <button onClick={() => setActiveView("crm")} className={`flex-1 flex flex-col items-center gap-1 py-2 rounded-lg text-xs transition-colors ${activeView === "crm" ? "bg-primary text-primary-foreground" : "text-muted-foreground"}`}>
             <Users className="w-4 h-4" />
             <span>CRM</span>
           </button>
-          <button
-            onClick={() => setActiveView("cms")}
-            className={`flex-1 flex flex-col items-center gap-1 py-2 rounded-lg text-xs transition-colors ${
-              activeView === "cms"
-                ? "bg-primary text-primary-foreground"
-                : "text-muted-foreground"
-            }`}
-          >
+          <button onClick={() => setActiveView("cms")} className={`flex-1 flex flex-col items-center gap-1 py-2 rounded-lg text-xs transition-colors ${activeView === "cms" ? "bg-primary text-primary-foreground" : "text-muted-foreground"}`}>
             <FileText className="w-4 h-4" />
             <span>CMS</span>
           </button>
-          <button
-            onClick={() => setActiveView("analytics")}
-            className={`flex-1 flex flex-col items-center gap-1 py-2 rounded-lg text-xs transition-colors ${
-              activeView === "analytics"
-                ? "bg-primary text-primary-foreground"
-                : "text-muted-foreground"
-            }`}
-          >
+          <button onClick={() => setActiveView("analytics")} className={`flex-1 flex flex-col items-center gap-1 py-2 rounded-lg text-xs transition-colors ${activeView === "analytics" ? "bg-primary text-primary-foreground" : "text-muted-foreground"}`}>
             <BarChart3 className="w-4 h-4" />
             <span>Analytics</span>
           </button>
-          <button
-            onClick={() => setActiveView("settings")}
-            className={`flex-1 flex flex-col items-center gap-1 py-2 rounded-lg text-xs transition-colors ${
-              activeView === "settings"
-                ? "bg-primary text-primary-foreground"
-                : "text-muted-foreground"
-            }`}
-          >
+          <button onClick={() => setActiveView("settings")} className={`flex-1 flex flex-col items-center gap-1 py-2 rounded-lg text-xs transition-colors ${activeView === "settings" ? "bg-primary text-primary-foreground" : "text-muted-foreground"}`}>
             <Settings className="w-4 h-4" />
             <span>Settings</span>
           </button>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default ASuiteDashboardMockup;
