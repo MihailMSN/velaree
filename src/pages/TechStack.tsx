@@ -68,7 +68,7 @@ const solutions = [
   }
 ];
 
-const Solutions = () => {
+const TechStack = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -167,4 +167,4 @@ const Solutions = () => {
   );
 };
 
-export default Solutions;
+export default TechStack;
