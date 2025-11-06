@@ -196,7 +196,7 @@ const ASuite = () => {
 
         {/* Platform Overview */}
         <section className="py-24 px-6 bg-muted/30">
-          <div className="container mx-auto max-w-5xl text-center">
+          <div className="container mx-auto max-w-7xl text-center">
             <Badge variant="outline" className="mb-4">
               Platform Overview
             </Badge>
