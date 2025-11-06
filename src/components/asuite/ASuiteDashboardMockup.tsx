@@ -139,7 +139,7 @@ const ASuiteDashboardMockup = () => {
       </div>
 
       {/* Main Content */}
-      <div className="flex h-[600px]">
+      <div className="flex h-[800px]">
         {/* Sidebar */}
         <div className="w-64 bg-background/50 backdrop-blur-sm border-r border-border p-4 hidden md:block">
           <nav className="space-y-2">
@@ -181,7 +181,7 @@ const ASuiteDashboardMockup = () => {
         </div>
 
         {/* Content Area */}
-        <div className="flex-1 overflow-auto p-6 bg-muted/20">
+        <div className="flex-1 overflow-y-auto overflow-x-hidden p-6 bg-muted/20">
           {/* CRM View */}
           {activeView === "crm" && <div className="space-y-6 animate-fade-in">
               <div className="flex items-center justify-between">
@@ -258,8 +258,8 @@ const ASuiteDashboardMockup = () => {
                     </Button>
                   </div>
                 </div>
-                <div className="overflow-x-auto">
-                  <table className="w-full">
+                <div>
+                  <table className="w-full min-w-full">
                     <thead>
                       <tr className="border-b border-border">
                         <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Customer</th>
