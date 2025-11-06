@@ -490,7 +490,7 @@ const ASuite = () => {
                         </li>)}
                     </ul>
                     <Link to="/contact">
-                      <Button variant={tier.popular ? "default" : "outline"} className="w-full rounded-full bg-transparent">
+                      <Button size="lg" className="w-full rounded-full bg-stone-950 hover:bg-stone-800 text-white">
                         {tier.cta}
                       </Button>
                     </Link>
