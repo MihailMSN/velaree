@@ -300,7 +300,7 @@ const UnifyTool = () => {
               <div className="w-12 h-12 rounded-full bg-orange-600/10 flex items-center justify-center mb-4">
                 <Layers className="w-6 h-6 text-orange-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Automation Suite</h3>
+              <h3 className="text-xl font-semibold mb-2">aSuite (Automation Suite)</h3>
               <p className="text-muted-foreground">
                 Complete post-booking automation including ticketing, confirmations, and notifications.
               </p>
