@@ -60,6 +60,11 @@ This project is built with:
 - shadcn-ui
 - Tailwind CSS
 
+## Environment configuration
+
+Set the `VITE_PLATFORM_ADMIN_EMAILS` environment variable (comma-separated list) to designate which authenticated users should
+have platform admin access when Supabase role assignments are unavailable. See `.env` for an example configuration.
+
 ## How can I deploy this project?
 
 Simply open [Lovable](https://lovable.dev/projects/7a82915e-d201-4d08-b5c7-4604442f8071) and click on Share -> Publish.
