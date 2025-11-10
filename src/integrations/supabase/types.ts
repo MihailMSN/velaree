@@ -65,6 +65,63 @@ export type Database = {
         }
         Relationships: []
       }
+      contact_requests: {
+        Row: {
+          company: string
+          created_at: string
+          email: string
+          id: string
+          message: string | null
+          name: string
+          role: string
+          status: string
+        }
+        Insert: {
+          company: string
+          created_at?: string
+          email: string
+          id?: string
+          message?: string | null
+          name: string
+          role: string
+          status?: string
+        }
+        Update: {
+          company?: string
+          created_at?: string
+          email?: string
+          id?: string
+          message?: string | null
+          name?: string
+          role?: string
+          status?: string
+        }
+        Relationships: []
+      }
+      platform_stats: {
+        Row: {
+          created_at: string
+          id: string
+          metric_name: string
+          updated_at: string
+          value: number
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          metric_name: string
+          updated_at?: string
+          value: number
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          metric_name?: string
+          updated_at?: string
+          value?: number
+        }
+        Relationships: []
+      }
       pnrs: {
         Row: {
           best_price: number | null

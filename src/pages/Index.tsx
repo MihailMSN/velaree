@@ -75,8 +75,8 @@ const Index = () => {
       <Technology />
       <TechnicalSpecs />
       <CaseStudies />
-      
-      
+      <LiveStats />
+      <TestimonialCarousel />
       <CTA />
       <Footer />
     </div>;

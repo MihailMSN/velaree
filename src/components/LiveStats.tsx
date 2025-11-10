@@ -1,37 +1,15 @@
-import { useEffect, useState } from "react";
 import { Activity, Globe, Zap } from "lucide-react";
+import { usePlatformStats } from "@/hooks/usePlatformStats";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const LiveStats = () => {
-  const [bookings, setBookings] = useState(8547);
-  const [searches, setSearches] = useState(142305);
-  const [responseTime, setResponseTime] = useState(342);
+  const { data: stats, isLoading } = usePlatformStats();
 
-  useEffect(() => {
-    // Simulate real-time updates
-    const bookingInterval = setInterval(() => {
-      setBookings(prev => prev + Math.floor(Math.random() * 3));
-    }, 5000);
+  const bookings = stats?.bookings_today || 0;
+  const searches = stats?.searches_hour || 0;
+  const responseTime = stats?.response_time || 0;
 
-    const searchInterval = setInterval(() => {
-      setSearches(prev => prev + Math.floor(Math.random() * 15) + 5);
-    }, 3000);
-
-    const responseInterval = setInterval(() => {
-      setResponseTime(prev => {
-        const change = Math.floor(Math.random() * 40) - 20;
-        const newValue = prev + change;
-        return Math.max(250, Math.min(450, newValue));
-      });
-    }, 4000);
-
-    return () => {
-      clearInterval(bookingInterval);
-      clearInterval(searchInterval);
-      clearInterval(responseInterval);
-    };
-  }, []);
-
-  const stats = [
+  const displayStats = [
     {
       icon: Activity,
       label: "Bookings Today",
@@ -71,7 +49,18 @@ const LiveStats = () => {
 
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full md:w-auto">
-            {stats.map((stat, index) => {
+            {isLoading ? (
+              Array.from({ length: 3 }).map((_, index) => (
+                <div key={index} className="flex items-center gap-4 p-4 rounded-xl bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20">
+                  <Skeleton className="w-12 h-12 rounded-lg bg-primary-foreground/20" />
+                  <div className="space-y-2">
+                    <Skeleton className="h-8 w-20 bg-primary-foreground/20" />
+                    <Skeleton className="h-4 w-28 bg-primary-foreground/20" />
+                  </div>
+                </div>
+              ))
+            ) : (
+              displayStats.map((stat, index) => {
               const Icon = stat.icon;
               return (
                 <div
@@ -93,7 +82,8 @@ const LiveStats = () => {
                   </div>
                 </div>
               );
-            })}
+            })
+          )}
           </div>
         </div>
 
