@@ -15,8 +15,12 @@ export const ProtectedRoute = ({
 }: ProtectedRouteProps) => {
   const { user, loading: authLoading } = useAuth();
   const { isPlatformAdmin, isBusinessAdmin, isBusinessUser, isLoading: roleLoading } = useUserRole();
-  const platformAdminEmails = (import.meta.env.VITE_PLATFORM_ADMIN_EMAILS as string | undefined)?.split(',').map(email => email.trim()).filter(Boolean) ?? [];
-  const isPlatformAdminByEmail = user?.email ? platformAdminEmails.includes(user.email) : false;
+  const platformAdminEmails = (import.meta.env.VITE_PLATFORM_ADMIN_EMAILS as string | undefined)
+    ?.split(',')
+    .map(email => email.trim().toLowerCase())
+    .filter(Boolean) ?? [];
+  const normalizedEmail = user?.email?.toLowerCase();
+  const isPlatformAdminByEmail = normalizedEmail ? platformAdminEmails.includes(normalizedEmail) : false;
   const hasPlatformAdminAccess = isPlatformAdmin || isPlatformAdminByEmail;
   const hasBusinessAccess = hasPlatformAdminAccess || isBusinessAdmin || isBusinessUser;
 
