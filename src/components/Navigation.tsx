@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Plane, Building2, Layers, Link as LinkIcon, LucideIcon } from "lucide-react";
+import { Menu, X, Plane, Building2, Layers, Link as LinkIcon, LucideIcon, User, LogOut, LayoutDashboard } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
+import { useUserRole } from "@/hooks/useUserRole";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from "@/components/ui/dropdown-menu";
 import velareeLogoImg from "@/assets/velaree-logo.png";
 
 interface NavItem {
@@ -16,6 +19,8 @@ const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const { user, signOut } = useAuth();
+  const { isPlatformAdmin } = useUserRole();
 
   const handleNavigation = (path: string) => {
     navigate(path);
@@ -80,12 +85,52 @@ const Navigation = () => {
               </button>)}
           </div>
           
-          <div className="hidden md:block">
-            <Link to="/contact">
-              <Button className="rounded-full px-6 text-white bg-stone-950 hover:bg-stone-800">
-                Book Demo
-              </Button>
-            </Link>
+          <div className="hidden md:flex items-center gap-4">
+            {user ? (
+              <>
+                <Link to="/contact">
+                  <Button variant="outline" className="rounded-full px-6">
+                    Book Demo
+                  </Button>
+                </Link>
+                
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="ghost" size="icon" className="rounded-full">
+                      <User className="h-5 w-5" />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end">
+                    <DropdownMenuItem onClick={() => handleNavigation('/dashboard')}>
+                      <LayoutDashboard className="mr-2 h-4 w-4" />
+                      Dashboard
+                    </DropdownMenuItem>
+                    {isPlatformAdmin && (
+                      <DropdownMenuItem onClick={() => handleNavigation('/admin')}>
+                        <LayoutDashboard className="mr-2 h-4 w-4" />
+                        Admin Panel
+                      </DropdownMenuItem>
+                    )}
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem onClick={signOut}>
+                      <LogOut className="mr-2 h-4 w-4" />
+                      Sign Out
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </>
+            ) : (
+              <>
+                <Button variant="ghost" onClick={() => handleNavigation('/auth')} className="rounded-full px-6">
+                  Sign In
+                </Button>
+                <Link to="/contact">
+                  <Button className="rounded-full px-6 text-white bg-stone-950 hover:bg-stone-800">
+                    Book Demo
+                  </Button>
+                </Link>
+              </>
+            )}
           </div>
 
           <button className="md:hidden text-foreground" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
@@ -106,6 +151,25 @@ const Navigation = () => {
               <Button onClick={() => handleNavigation('/contact')} className="w-full rounded-full mt-2">
                 Book Demo
               </Button>
+              {user ? (
+                <>
+                  <Button onClick={() => handleNavigation('/dashboard')} variant="outline" className="w-full rounded-full">
+                    Dashboard
+                  </Button>
+                  {isPlatformAdmin && (
+                    <Button onClick={() => handleNavigation('/admin')} variant="outline" className="w-full rounded-full">
+                      Admin Panel
+                    </Button>
+                  )}
+                  <Button onClick={signOut} variant="ghost" className="w-full rounded-full">
+                    Sign Out
+                  </Button>
+                </>
+              ) : (
+                <Button onClick={() => handleNavigation('/auth')} variant="outline" className="w-full rounded-full">
+                  Sign In
+                </Button>
+              )}
             </div>
           </div>}
       </div>
