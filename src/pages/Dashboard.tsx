@@ -7,24 +7,26 @@ import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-
 const Dashboard = () => {
-  const { user } = useAuth();
-  const { isPlatformAdmin, isBusinessAdmin, isBusinessUser } = useUserRole();
+  const {
+    user
+  } = useAuth();
+  const {
+    isPlatformAdmin,
+    isBusinessAdmin,
+    isBusinessUser
+  } = useUserRole();
   const navigate = useNavigate();
-
-  return (
-    <ProtectedRoute requireBusinessAccess>
+  return <ProtectedRoute requireBusinessAccess>
       <div className="min-h-screen flex flex-col">
         <Navigation />
         
-        <main className="flex-1 container mx-auto px-4 py-12">
+        <main className="flex-1 container mx-auto px-4 py-[233px]">
           <h1 className="text-4xl font-bold mb-2">Welcome Back!</h1>
           <p className="text-muted-foreground mb-8">{user?.email}</p>
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {isPlatformAdmin && (
-              <Card className="cursor-pointer hover:shadow-lg transition-shadow" onClick={() => navigate('/admin')}>
+            {isPlatformAdmin && <Card className="cursor-pointer hover:shadow-lg transition-shadow" onClick={() => navigate('/admin')}>
                 <CardHeader>
                   <CardTitle>Platform Admin</CardTitle>
                   <CardDescription>Manage the entire platform</CardDescription>
@@ -34,8 +36,7 @@ const Dashboard = () => {
                     Go to Admin Panel
                   </Button>
                 </CardContent>
-              </Card>
-            )}
+              </Card>}
 
             <Card>
               <CardHeader>
@@ -52,8 +53,7 @@ const Dashboard = () => {
               </CardContent>
             </Card>
 
-            {(isBusinessAdmin || isPlatformAdmin) && (
-              <Card>
+            {(isBusinessAdmin || isPlatformAdmin) && <Card>
                 <CardHeader>
                   <CardTitle>Team Management</CardTitle>
                   <CardDescription>Manage your team members</CardDescription>
@@ -66,8 +66,7 @@ const Dashboard = () => {
                     Manage Team
                   </Button>
                 </CardContent>
-              </Card>
-            )}
+              </Card>}
 
             <Card>
               <CardHeader>
@@ -88,29 +87,21 @@ const Dashboard = () => {
           <div className="mt-12">
             <h2 className="text-2xl font-bold mb-4">Your Role</h2>
             <div className="flex gap-2">
-              {isPlatformAdmin && (
-                <span className="px-3 py-1 bg-primary text-primary-foreground rounded-full text-sm">
+              {isPlatformAdmin && <span className="px-3 py-1 bg-primary text-primary-foreground rounded-full text-sm">
                   Platform Admin
-                </span>
-              )}
-              {isBusinessAdmin && (
-                <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm">
+                </span>}
+              {isBusinessAdmin && <span className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm">
                   Business Admin
-                </span>
-              )}
-              {isBusinessUser && (
-                <span className="px-3 py-1 bg-accent text-accent-foreground rounded-full text-sm">
+                </span>}
+              {isBusinessUser && <span className="px-3 py-1 bg-accent text-accent-foreground rounded-full text-sm">
                   Business User
-                </span>
-              )}
+                </span>}
             </div>
           </div>
         </main>
 
         <Footer />
       </div>
-    </ProtectedRoute>
-  );
+    </ProtectedRoute>;
 };
-
 export default Dashboard;
