@@ -8,13 +8,21 @@ interface ProtectedRouteProps {
   requireBusinessAccess?: boolean;
 }
 
-export const ProtectedRoute = ({ 
-  children, 
+export const ProtectedRoute = ({
+  children,
   requirePlatformAdmin = false,
   requireBusinessAccess = false,
 }: ProtectedRouteProps) => {
   const { user, loading: authLoading } = useAuth();
   const { isPlatformAdmin, isBusinessAdmin, isBusinessUser, isLoading: roleLoading } = useUserRole();
+  const platformAdminEmails = (import.meta.env.VITE_PLATFORM_ADMIN_EMAILS as string | undefined)
+    ?.split(',')
+    .map(email => email.trim().toLowerCase())
+    .filter(Boolean) ?? [];
+  const normalizedEmail = user?.email?.toLowerCase();
+  const isPlatformAdminByEmail = normalizedEmail ? platformAdminEmails.includes(normalizedEmail) : false;
+  const hasPlatformAdminAccess = isPlatformAdmin || isPlatformAdminByEmail;
+  const hasBusinessAccess = hasPlatformAdminAccess || isBusinessAdmin || isBusinessUser;
 
   if (authLoading || roleLoading) {
     return (
@@ -28,7 +36,7 @@ export const ProtectedRoute = ({
     return <Navigate to="/auth" replace />;
   }
 
-  if (requirePlatformAdmin && !isPlatformAdmin) {
+  if (requirePlatformAdmin && !hasPlatformAdminAccess) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
@@ -39,7 +47,7 @@ export const ProtectedRoute = ({
     );
   }
 
-  if (requireBusinessAccess && !(isPlatformAdmin || isBusinessAdmin || isBusinessUser)) {
+  if (requireBusinessAccess && !hasBusinessAccess) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">

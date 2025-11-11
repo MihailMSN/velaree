@@ -60,6 +60,21 @@ This project is built with:
 - shadcn-ui
 - Tailwind CSS
 
+## Environment configuration
+
+Set the `VITE_PLATFORM_ADMIN_EMAILS` environment variable (comma-separated list) to designate which authenticated users should
+have platform admin access when Supabase role assignments are unavailable. See `.env` for an example configuration.
+
+### Unlocking the admin dashboard locally
+
+If you just added an admin or business-only route and encounter the "You need a business account" message:
+
+1. Add the email address you sign in with to `VITE_PLATFORM_ADMIN_EMAILS` in your `.env` file. Multiple emails can be supplied by separating them with commas.
+2. Restart your Vite dev server so it reads the new environment variable values.
+3. Sign out and back in to refresh your Supabase session with the updated access.
+
+When you deploy for production, you can either keep this fallback list up to date or assign the relevant `platform_admin`, `business_admin`, or `business_user` roles directly inside Supabase.
+
 ## How can I deploy this project?
 
 Simply open [Lovable](https://lovable.dev/projects/7a82915e-d201-4d08-b5c7-4604442f8071) and click on Share -> Publish.
