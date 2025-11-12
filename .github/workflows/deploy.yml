@@ -17,22 +17,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # SETUP NODE WITHOUT AUTO npm ci
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 18
-          cache: false  # DISABLE CACHE TO AVOID npm ci
+          # No cache line = cache disabled
 
-      # MANUAL INSTALL
       - name: Install Dependencies
         run: npm install
 
-      # BUILD
       - name: Build
         run: npm run build
 
-      # UPLOAD
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
         with:
