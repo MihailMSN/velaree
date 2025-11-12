@@ -24,12 +24,12 @@ jobs:
       - name: Build
         run: |
           npm run build
-          touch out/.nojekyll
-          echo "mihailmsn.github.io" > out/CNAME
+          touch dist/.nojekyll
+          echo "mihailmsn.github.io" > dist/CNAME
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./out
+          publish_dir: ./dist
           force_orphan: true
