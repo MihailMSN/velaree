@@ -18,17 +18,16 @@ jobs:
           node-version: 18
           cache: 'npm'
 
-      - name: Install Dependencies
+      - name: Install
         run: npm install
 
-      - name: Build & Export
+      - name: Build
         run: |
           npm run build
-          npm run export
           touch out/.nojekyll
           echo "mihailmsn.github.io" > out/CNAME
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
