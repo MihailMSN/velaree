@@ -5,6 +5,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/velaree' : '',
+  basePath: process.env.NODE_ENV === 'production' ? '/velaree' : '',
 };
 
 module.exports = nextConfig;
