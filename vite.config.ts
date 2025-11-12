@@ -3,5 +3,5 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/velaree/',  // Critical for GitHub Pages
+  base: '/velaree/'
 })
