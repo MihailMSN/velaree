@@ -30,18 +30,16 @@ const StackedCardSwap = ({
 
   const getCardStyle = (index: number) => {
     const position = (index - activeIndex + children.length) % children.length;
-    const yOffset = position * 70;
-    const xOffset = position * 40;
+    const yOffset = position * 75;
+    const xOffset = position * 100;
     const scale = 1 - position * 0.05;
     const zIndex = children.length - position;
-    const opacity = position === 0 ? 1 : Math.max(0.5, 1 - position * 0.15);
 
     return {
       y: -yOffset,
       x: xOffset,
       scale,
       zIndex,
-      opacity,
     };
   };
 
@@ -61,7 +59,7 @@ const StackedCardSwap = ({
           return (
             <motion.div
               key={index}
-              className="absolute top-0 left-0 cursor-pointer rounded-xl border border-border bg-card overflow-hidden"
+              className="absolute top-0 left-0 cursor-pointer rounded-xl border border-border bg-card overflow-hidden backdrop-blur-none"
               style={{
                 width: cardWidth,
                 height: cardHeight,
@@ -75,7 +73,6 @@ const StackedCardSwap = ({
                 y: style.y,
                 x: style.x,
                 scale: style.scale,
-                opacity: style.opacity,
               }}
               transition={{
                 type: "spring",
