@@ -43,7 +43,7 @@ const Hero = () => {
           </div>
 
           {/* Right Column - Card Showcase */}
-          <div className="hidden lg:flex lg:w-1/2 justify-center items-center">
+          <div className="hidden lg:flex lg:w-1/2 justify-center items-end">
             <HeroCardShowcase />
           </div>
         </div>
