@@ -42,7 +42,7 @@ const Hero = () => {
 
           {/* Right Column - Card Showcase */}
           <div className="hidden lg:flex lg:w-1/2 justify-center items-end">
-            <HeroCardShowcase className="px-px py-0 border-green-950 my-0 pb-0 pt-[110px]" />
+            <HeroCardShowcase className="px-px my-0 py-0 pb-px pr-[120px] pl-0 pt-[115px] border-primary" />
           </div>
         </div>
       </div>
