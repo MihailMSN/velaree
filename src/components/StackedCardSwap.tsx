@@ -34,24 +34,44 @@ const StackedCardSwap = ({
     const offset = position * 44;
     const scale = 1 - position * 0.03;
     const zIndex = children.length - position;
+    
+    // Subtle rotation for depth - front card is flat, background cards tilt slightly
+    const rotateX = position * 2; // Tilt back slightly
+    const rotateY = position * -1.5; // Rotate slightly left
+    const rotateZ = position * 0.5; // Slight twist
 
     return {
       y: -offset,
+      x: position * 8, // Slight horizontal offset
       scale,
       zIndex,
       opacity: position > 3 ? 0 : 1,
+      rotateX,
+      rotateY,
+      rotateZ,
     };
   };
 
   return (
     <div
       className="relative"
-      style={{ width: cardWidth, height: cardHeight + 180 }}
+      style={{ 
+        width: cardWidth, 
+        height: cardHeight + 180,
+        perspective: 1200, // Enable 3D perspective
+      }}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
       {/* Stacked Cards */}
-      <div className="relative" style={{ width: cardWidth, height: cardHeight }}>
+      <div 
+        className="relative" 
+        style={{ 
+          width: cardWidth, 
+          height: cardHeight,
+          transformStyle: "preserve-3d",
+        }}
+      >
         {children.map((child, index) => {
           const position = (index - activeIndex + children.length) % children.length;
           const isActive = position === 0;
@@ -64,12 +84,17 @@ const StackedCardSwap = ({
               style={{
                 width: cardWidth,
                 zIndex: style.zIndex,
+                transformStyle: "preserve-3d",
               }}
               initial={false}
               animate={{
                 y: style.y,
+                x: style.x,
                 scale: style.scale,
                 opacity: style.opacity,
+                rotateX: style.rotateX,
+                rotateY: style.rotateY,
+                rotateZ: style.rotateZ,
               }}
               transition={{
                 type: "spring",
