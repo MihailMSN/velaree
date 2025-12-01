@@ -1,11 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
 import { useState } from "react";
 import { toast } from "sonner";
 import { z } from "zod";
 import { useMutation } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
+import { Send, Loader2 } from "lucide-react";
 
 const contactFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters").max(100),
@@ -28,6 +30,7 @@ const ContactForm = () => {
   
   // Honeypot field - should always be empty
   const [honeypot, setHoneypot] = useState("");
+  const [focusedField, setFocusedField] = useState<string | null>(null);
 
   const mutation = useMutation({
     mutationFn: async (data: ContactFormData) => {
@@ -90,90 +93,142 @@ const ContactForm = () => {
     }));
   };
 
+  const inputClasses = (fieldName: string) => `
+    bg-primary-foreground/5 border-primary-foreground/20 text-primary-foreground 
+    placeholder:text-primary-foreground/40 text-base px-4 py-3 rounded-xl
+    focus:bg-primary-foreground/10 focus:border-primary-foreground/40
+    transition-all duration-300
+    ${focusedField === fieldName ? 'ring-2 ring-primary-foreground/20' : ''}
+  `;
+
   return (
-    <form onSubmit={handleSubmit} className="space-y-6 max-w-2xl mx-auto">
-      {/* Honeypot field - hidden from users, bots will fill it */}
-      <div className="absolute -left-[9999px] opacity-0 h-0 overflow-hidden" aria-hidden="true">
-        <Input
-          type="text"
-          name="website"
-          tabIndex={-1}
-          autoComplete="off"
-          value={honeypot}
-          onChange={(e) => setHoneypot(e.target.value)}
-        />
-      </div>
-
-      <div className="grid md:grid-cols-2 gap-6">
-        <div>
-          <Input 
-            name="name" 
-            placeholder="Full Name *" 
-            value={formData.name} 
-            onChange={handleChange} 
-            className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50 text-lg px-6 py-6 rounded-full" 
-            required 
+    <div className="bg-primary-foreground/5 backdrop-blur-sm border border-primary-foreground/10 rounded-3xl p-8 md:p-10 shadow-2xl">
+      <form onSubmit={handleSubmit} className="space-y-6">
+        {/* Honeypot field - hidden from users, bots will fill it */}
+        <div className="absolute -left-[9999px] opacity-0 h-0 overflow-hidden" aria-hidden="true">
+          <Input
+            type="text"
+            name="website"
+            tabIndex={-1}
+            autoComplete="off"
+            value={honeypot}
+            onChange={(e) => setHoneypot(e.target.value)}
           />
         </div>
-        <div>
-          <Input 
-            name="company" 
-            placeholder="Company *" 
-            value={formData.company} 
-            onChange={handleChange} 
-            className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50 text-lg px-6 py-6 rounded-full" 
-            required 
+
+        <div className="grid md:grid-cols-2 gap-6">
+          <div className="space-y-2">
+            <Label htmlFor="name" className="text-primary-foreground/80 text-sm font-medium">
+              Full Name *
+            </Label>
+            <Input 
+              id="name"
+              name="name" 
+              placeholder="John Smith" 
+              value={formData.name} 
+              onChange={handleChange}
+              onFocus={() => setFocusedField('name')}
+              onBlur={() => setFocusedField(null)}
+              className={inputClasses('name')}
+              required 
+            />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="company" className="text-primary-foreground/80 text-sm font-medium">
+              Company *
+            </Label>
+            <Input 
+              id="company"
+              name="company" 
+              placeholder="Acme Travel Co." 
+              value={formData.company} 
+              onChange={handleChange}
+              onFocus={() => setFocusedField('company')}
+              onBlur={() => setFocusedField(null)}
+              className={inputClasses('company')}
+              required 
+            />
+          </div>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-6">
+          <div className="space-y-2">
+            <Label htmlFor="role" className="text-primary-foreground/80 text-sm font-medium">
+              Your Role *
+            </Label>
+            <Input 
+              id="role"
+              name="role" 
+              placeholder="CTO, Product Manager, etc." 
+              value={formData.role} 
+              onChange={handleChange}
+              onFocus={() => setFocusedField('role')}
+              onBlur={() => setFocusedField(null)}
+              className={inputClasses('role')}
+              required 
+            />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="email" className="text-primary-foreground/80 text-sm font-medium">
+              Work Email *
+            </Label>
+            <Input 
+              id="email"
+              type="email" 
+              name="email" 
+              placeholder="john@company.com" 
+              value={formData.email} 
+              onChange={handleChange}
+              onFocus={() => setFocusedField('email')}
+              onBlur={() => setFocusedField(null)}
+              className={inputClasses('email')}
+              required 
+            />
+          </div>
+        </div>
+
+        <div className="space-y-2">
+          <Label htmlFor="message" className="text-primary-foreground/80 text-sm font-medium">
+            How can we help? (optional)
+          </Label>
+          <Textarea 
+            id="message"
+            name="message" 
+            placeholder="Tell us about your current challenges and what you're looking to achieve..." 
+            value={formData.message} 
+            onChange={handleChange}
+            onFocus={() => setFocusedField('message')}
+            onBlur={() => setFocusedField(null)}
+            className={`${inputClasses('message')} min-h-28 resize-none`}
           />
         </div>
-      </div>
 
-      <div className="grid md:grid-cols-2 gap-6">
-        <div>
-          <Input 
-            name="role" 
-            placeholder="Your Role *" 
-            value={formData.role} 
-            onChange={handleChange} 
-            className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50 text-lg px-6 py-6 rounded-full" 
-            required 
-          />
-        </div>
-        <div>
-          <Input 
-            type="email" 
-            name="email" 
-            placeholder="Work Email *" 
-            value={formData.email} 
-            onChange={handleChange} 
-            className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50 text-lg px-6 py-6 rounded-full" 
-            required 
-          />
-        </div>
-      </div>
+        <Button 
+          type="submit" 
+          size="lg" 
+          className="w-full text-base font-semibold px-8 py-6 rounded-xl transition-all duration-300 hover:scale-[1.02] hover:shadow-xl bg-background text-primary hover:bg-background/90 gap-2 group"
+          disabled={mutation.isPending}
+        >
+          {mutation.isPending ? (
+            <>
+              <Loader2 className="w-5 h-5 animate-spin" />
+              Submitting...
+            </>
+          ) : (
+            <>
+              Book Your Demo
+              <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </>
+          )}
+        </Button>
 
-      <div>
-        <Textarea 
-          name="message" 
-          placeholder="Tell us about your needs (optional)" 
-          value={formData.message} 
-          onChange={handleChange} 
-          className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50 text-lg px-6 py-4 rounded-2xl min-h-32 resize-none" 
-        />
-      </div>
-
-      <Button 
-        type="submit" 
-        size="lg" 
-        className="w-full text-lg px-8 py-6 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg text-white bg-black"
-        disabled={mutation.isPending}
-      >
-        {mutation.isPending ? "Submitting..." : "Book a Demo"}
-      </Button>
-
-      <p className="text-primary-foreground/60 text-sm text-center">
-        See how Velaree can automate your travel operations
-      </p>
-    </form>
+        <p className="text-primary-foreground/50 text-sm text-center">
+          By submitting, you agree to receive communications from Velaree.
+          <br />
+          <span className="text-primary-foreground/40">We respect your privacy.</span>
+        </p>
+      </form>
+    </div>
   );
 };
 
