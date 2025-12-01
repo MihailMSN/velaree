@@ -31,7 +31,7 @@ const StackedCardSwap = ({
 
   const getCardStyle = (index: number) => {
     const position = (index - activeIndex + children.length) % children.length;
-    const offset = position * 44;
+    const offset = position * 40;
     const scale = 1 - position * 0.03;
     const zIndex = children.length - position;
 
@@ -46,7 +46,7 @@ const StackedCardSwap = ({
   return (
     <div
       className="relative"
-      style={{ width: cardWidth, height: cardHeight + 180 }}
+      style={{ width: cardWidth, height: cardHeight + 80 }}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
