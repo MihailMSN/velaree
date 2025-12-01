@@ -9,7 +9,7 @@ const labels = ["aSuite", "aRStool", "Unify", "hRStool"];
 const HeroCardShowcase = () => {
   return (
     <div 
-      className="hidden lg:block absolute right-[2%] bottom-[12%] z-0 opacity-95"
+      className="hidden lg:block absolute right-[8%] xl:right-[10%] 2xl:right-[12%] bottom-[12%] z-0 opacity-95"
       style={{ transform: 'none' }}
     >
       <StackedCardSwap 
