@@ -47,8 +47,8 @@ const ContactForm = () => {
         message: ""
       });
     },
-    onError: (error) => {
-      console.error("Error submitting contact form:", error);
+    onError: () => {
+      // Error details logged server-side only for security
       toast.error("Failed to submit request. Please try again.");
     },
   });
