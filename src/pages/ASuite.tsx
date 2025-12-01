@@ -164,8 +164,8 @@ const ASuite = () => {
 
         {/* Hero Section */}
         <section className="min-h-[70vh] flex items-center justify-center bg-gradient-to-b from-background via-background to-muted/20 relative overflow-hidden pt-32 pb-20 px-6">
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div className="w-[500px] h-[500px] md:w-[600px] md:h-[600px]">
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none -translate-y-12">
+            <div className="w-[600px] h-[600px] md:w-[800px] md:h-[800px] lg:w-[900px] lg:h-[900px]">
               <SilverOrb hoverIntensity={0.15} rotateOnHover={true} />
             </div>
           </div>
