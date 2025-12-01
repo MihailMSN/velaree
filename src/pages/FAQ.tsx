@@ -2,6 +2,7 @@ import { useState, useMemo } from "react";
 import { Helmet } from "react-helmet-async";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import FAQSidebar from "@/components/faq/FAQSidebar";
 import {
   Accordion,
   AccordionContent,
@@ -281,8 +282,16 @@ const FAQ = () => {
 
         {/* FAQ Content */}
         <section className="pb-24 px-4">
-          <div className="container mx-auto max-w-5xl">
-            {categories.length === 0 ? (
+          <div className="container mx-auto max-w-6xl">
+            <div className="flex gap-8">
+              {/* Sidebar */}
+              {!searchQuery && (
+                <FAQSidebar categories={categories} categoryConfig={categoryConfig} />
+              )}
+              
+              {/* Main Content */}
+              <div className={searchQuery ? "w-full max-w-5xl mx-auto" : "flex-1 min-w-0"}>
+                {categories.length === 0 ? (
               <div className="text-center py-16">
                 <HelpCircle className="w-16 h-16 text-muted-foreground/50 mx-auto mb-4" />
                 <h3 className="text-xl font-semibold mb-2">No results found</h3>
@@ -301,11 +310,13 @@ const FAQ = () => {
                 const config = categoryConfig[category];
                 const CategoryIcon = config?.icon || HelpCircle;
                 const isAlternate = categoryIndex % 2 === 1;
+                const categoryId = category.toLowerCase().replace(/\s+/g, "-").replace(/&/g, "and");
                 
                 return (
                   <div 
-                    key={category} 
-                    className={`mb-16 last:mb-0 ${isAlternate ? 'py-12 -mx-4 px-4 md:-mx-8 md:px-8 bg-muted/30 rounded-3xl' : ''}`}
+                    key={category}
+                    id={categoryId}
+                    className={`mb-16 last:mb-0 scroll-mt-32 ${isAlternate ? 'py-12 -mx-4 px-4 md:-mx-8 md:px-8 bg-muted/30 rounded-3xl' : ''}`}
                   >
                     {/* Category Header */}
                     <div className="flex items-center gap-4 mb-8">
@@ -349,6 +360,8 @@ const FAQ = () => {
                 );
               })
             )}
+              </div>
+            </div>
           </div>
         </section>
 
