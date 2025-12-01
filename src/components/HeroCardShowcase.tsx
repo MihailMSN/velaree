@@ -11,7 +11,7 @@ const HeroCardShowcase = () => {
     <div 
       className="hidden lg:block absolute right-[2%] bottom-[12%] z-0 opacity-95"
       style={{ 
-        transform: 'perspective(1000px) rotateY(-15deg)',
+        transform: 'perspective(1500px) rotateY(-15deg)',
         transformStyle: 'preserve-3d'
       }}
     >
