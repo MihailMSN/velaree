@@ -1,5 +1,5 @@
 import { useState, useEffect, ReactNode } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 interface StackedCardSwapProps {
   children: ReactNode[];
@@ -118,33 +118,19 @@ const StackedCardSwap = ({
                 {labels[index]}
               </div>
 
-              {/* Card Content - Only fully visible for active card */}
-              <motion.div
+              {/* Card Content */}
+              <div
                 className="rounded-b-xl rounded-tr-xl border border-border bg-card overflow-hidden"
                 style={{
                   height: cardHeight,
                   boxShadow: isActive
                     ? "0 25px 50px -12px rgba(0, 0, 0, 0.15)"
                     : "0 10px 30px -10px rgba(0, 0, 0, 0.08)",
-                }}
-                animate={{
-                  opacity: isActive ? 1 : 0.6,
+                  opacity: isActive ? 1 : 0.9,
                 }}
               >
-                <AnimatePresence mode="wait">
-                  {isActive && (
-                    <motion.div
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.2 }}
-                      className="h-full"
-                    >
-                      {child}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
+                {child}
+              </div>
             </motion.div>
           );
         })}
