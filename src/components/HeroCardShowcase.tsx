@@ -7,8 +7,8 @@ import HRStoolPreviewCard from "./mockups/HRStoolPreviewCard";
 const HeroCardShowcase = () => {
   return (
     <div 
-      className="hidden lg:block absolute right-[12%] xl:right-[15%] 2xl:right-[18%] top-1/2 -translate-y-1/2 z-0 opacity-95"
-      style={{ height: '500px', position: 'relative' }}
+      className="opacity-95"
+      style={{ height: '500px', width: '600px', position: 'relative' }}
     >
       <CardSwap
         width={520}
