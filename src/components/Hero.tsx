@@ -2,11 +2,16 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import ScrollIndicator from "./ScrollIndicator";
 import TrustBar from "./TrustBar";
+import HeroCardShowcase from "./HeroCardShowcase";
+
 const Hero = () => {
-  return <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
-      
+  return (
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
+      {/* Card Showcase Background */}
+      <HeroCardShowcase />
+
       <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-4xl mx-auto text-center animate-fade-in-up">
+        <div className="max-w-4xl lg:max-w-2xl mx-auto lg:mx-0 lg:ml-[5%] text-center lg:text-left animate-fade-in-up">
           <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-primary mb-6 leading-tight">
             The Travel API That Delivers
           </h1>
@@ -19,7 +24,7 @@ const Hero = () => {
             Trusted by leading OTAs, TMCs, and travel platforms worldwide
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
             <Button size="lg" className="text-lg px-8 py-6 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg group text-white bg-stone-950 hover:bg-stone-800">
               Start Free Trial
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -31,7 +36,7 @@ const Hero = () => {
             </Button>
           </div>
 
-          <div className="mt-8 flex flex-wrap justify-center gap-4 text-sm text-primary/60">
+          <div className="mt-8 flex flex-wrap justify-center lg:justify-start gap-4 text-sm text-primary/60">
             <span>✓ No credit card required</span>
             <span>✓ 10-minute setup</span>
             <span>✓ Full API access</span>
@@ -43,6 +48,8 @@ const Hero = () => {
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent"></div>
       
       <TrustBar />
-    </section>;
+    </section>
+  );
 };
+
 export default Hero;
