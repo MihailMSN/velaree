@@ -3,10 +3,8 @@ import { ArrowRight, MessageCircle } from "lucide-react";
 import ScrollIndicator from "./ScrollIndicator";
 import TrustBar from "./TrustBar";
 import HeroCardShowcase from "./HeroCardShowcase";
-
 const Hero = () => {
-  return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-white">
+  return <section className="relative min-h-screen flex items-center overflow-hidden bg-white">
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
           {/* Left Column - Text Content */}
@@ -44,7 +42,7 @@ const Hero = () => {
 
           {/* Right Column - Card Showcase */}
           <div className="hidden lg:flex lg:w-1/2 justify-center items-end">
-            <HeroCardShowcase />
+            <HeroCardShowcase className="px-px py-0 border-green-950 my-0 pb-0 pt-[110px]" />
           </div>
         </div>
       </div>
@@ -53,8 +51,6 @@ const Hero = () => {
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent"></div>
       
       <TrustBar />
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
