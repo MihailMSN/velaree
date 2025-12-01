@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from "framer-motion";
 interface TabConfig {
   id: string;
   label: string;
-  color: string;
 }
 
 interface CardSwapProps {
@@ -57,29 +56,24 @@ const CardSwap = ({
             <motion.button
               key={tab.id}
               onClick={() => setActiveIndex(index)}
-              className={`relative px-4 py-2 text-sm font-semibold transition-all duration-200 ${
+              className={`relative px-4 py-2 text-sm font-medium transition-all duration-200 border-t border-l border-r ${
                 isActive
-                  ? "text-white z-10"
-                  : "text-white/60 hover:text-white/80"
+                  ? "bg-card text-foreground z-10 border-border"
+                  : "bg-muted/50 text-muted-foreground hover:text-foreground hover:bg-muted border-transparent"
               }`}
               style={{
-                background: isActive ? tab.color : "rgba(255,255,255,0.1)",
-                borderTopLeftRadius: 12,
-                borderTopRightRadius: 12,
-                marginRight: -8,
+                borderTopLeftRadius: 8,
+                borderTopRightRadius: 8,
+                marginRight: -1,
                 zIndex: isActive ? 10 : tabs.length - index,
               }}
               whileHover={{ y: isActive ? 0 : -2 }}
               whileTap={{ scale: 0.98 }}
             >
               {tab.label}
-              {/* Active tab connector */}
+              {/* Active tab connector to hide bottom border */}
               {isActive && (
-                <motion.div
-                  layoutId="activeTabConnector"
-                  className="absolute -bottom-[1px] left-0 right-0 h-[2px]"
-                  style={{ background: tab.color }}
-                />
+                <div className="absolute -bottom-[1px] left-0 right-0 h-[1px] bg-card" />
               )}
             </motion.button>
           );
@@ -88,19 +82,19 @@ const CardSwap = ({
 
       {/* Content Area */}
       <div
-        className="relative overflow-hidden rounded-b-xl rounded-tr-xl shadow-2xl"
+        className="relative overflow-hidden rounded-b-lg rounded-tr-lg border border-border bg-card"
         style={{
           height: cardHeight,
-          boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 0, 0, 0.15)",
+          boxShadow: "0 10px 30px -10px rgba(0, 0, 0, 0.15)",
         }}
       >
         <AnimatePresence mode="wait">
           <motion.div
             key={activeIndex}
             className="absolute inset-0"
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
             transition={{
               type: "spring",
               stiffness: 300,
@@ -112,27 +106,18 @@ const CardSwap = ({
         </AnimatePresence>
       </div>
 
-      {/* Progress Indicator */}
-      <div className="flex gap-1 justify-center mt-3">
+      {/* Progress Indicator - Subtle dots */}
+      <div className="flex gap-1.5 justify-center mt-3">
         {tabs.map((_, index) => (
           <button
             key={index}
             onClick={() => setActiveIndex(index)}
-            className="relative h-1 rounded-full overflow-hidden transition-all duration-300"
-            style={{
-              width: index === activeIndex ? 24 : 8,
-              background: index === activeIndex ? tabs[activeIndex].color : "rgba(255,255,255,0.3)",
-            }}
-          >
-            {index === activeIndex && !isPaused && (
-              <motion.div
-                className="absolute inset-0 bg-white/50"
-                initial={{ scaleX: 0, originX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ duration: autoSwapInterval / 1000, ease: "linear" }}
-              />
-            )}
-          </button>
+            className={`h-1.5 rounded-full transition-all duration-300 ${
+              index === activeIndex 
+                ? "w-4 bg-foreground/60" 
+                : "w-1.5 bg-foreground/20 hover:bg-foreground/30"
+            }`}
+          />
         ))}
       </div>
     </div>
