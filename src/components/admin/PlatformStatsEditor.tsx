@@ -8,11 +8,15 @@ import { Label } from '@/components/ui/label';
 import { toast } from 'sonner';
 import { format } from 'date-fns';
 import { Skeleton } from '@/components/ui/skeleton';
+import { Plus, Trash2 } from 'lucide-react';
 
 const PlatformStatsEditor = () => {
   const queryClient = useQueryClient();
   const [editingMetric, setEditingMetric] = useState<string | null>(null);
   const [editValue, setEditValue] = useState('');
+  const [isCreating, setIsCreating] = useState(false);
+  const [newMetricName, setNewMetricName] = useState('');
+  const [newMetricValue, setNewMetricValue] = useState('');
 
   const { data: stats, isLoading } = useQuery({
     queryKey: ['platform-stats-admin'],
@@ -36,7 +40,6 @@ const PlatformStatsEditor = () => {
 
       if (error) throw error;
 
-      // Log admin action
       const { data: { user } } = await supabase.auth.getUser();
       if (user) {
         await supabase.from('admin_actions').insert({
@@ -60,6 +63,70 @@ const PlatformStatsEditor = () => {
     },
   });
 
+  const createStat = useMutation({
+    mutationFn: async ({ metric_name, value }: { metric_name: string; value: number }) => {
+      const { data, error } = await supabase
+        .from('platform_stats')
+        .insert({ metric_name, value })
+        .select()
+        .single();
+
+      if (error) throw error;
+
+      const { data: { user } } = await supabase.auth.getUser();
+      if (user) {
+        await supabase.from('admin_actions').insert({
+          user_id: user.id,
+          action: 'create_stat',
+          resource_type: 'platform_stat',
+          resource_id: data.id,
+          details: { metric_name, value },
+        });
+      }
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['platform-stats-admin'] });
+      queryClient.invalidateQueries({ queryKey: ['platform-stats'] });
+      toast.success('Metric created successfully');
+      setIsCreating(false);
+      setNewMetricName('');
+      setNewMetricValue('');
+    },
+    onError: (error: any) => {
+      toast.error(error.message || 'Failed to create metric');
+    },
+  });
+
+  const deleteStat = useMutation({
+    mutationFn: async (id: string) => {
+      const { error } = await supabase
+        .from('platform_stats')
+        .delete()
+        .eq('id', id);
+
+      if (error) throw error;
+
+      const { data: { user } } = await supabase.auth.getUser();
+      if (user) {
+        await supabase.from('admin_actions').insert({
+          user_id: user.id,
+          action: 'delete_stat',
+          resource_type: 'platform_stat',
+          resource_id: id,
+          details: {},
+        });
+      }
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['platform-stats-admin'] });
+      queryClient.invalidateQueries({ queryKey: ['platform-stats'] });
+      toast.success('Metric deleted successfully');
+    },
+    onError: (error: any) => {
+      toast.error(error.message || 'Failed to delete metric');
+    },
+  });
+
   const handleSave = (stat: any) => {
     const newValue = parseFloat(editValue);
     if (isNaN(newValue)) {
@@ -67,6 +134,20 @@ const PlatformStatsEditor = () => {
       return;
     }
     updateStat.mutate({ id: stat.id, value: newValue });
+  };
+
+  const handleCreate = () => {
+    const trimmedName = newMetricName.trim().toLowerCase().replace(/\s+/g, '_');
+    if (!trimmedName) {
+      toast.error('Please enter a metric name');
+      return;
+    }
+    const value = parseFloat(newMetricValue);
+    if (isNaN(value)) {
+      toast.error('Please enter a valid number');
+      return;
+    }
+    createStat.mutate({ metric_name: trimmedName, value });
   };
 
   const formatMetricName = (name: string) => {
@@ -101,11 +182,56 @@ const PlatformStatsEditor = () => {
 
   return (
     <Card>
-      <CardHeader>
-        <CardTitle>Platform Statistics</CardTitle>
-        <CardDescription>Update platform metrics displayed on the homepage</CardDescription>
+      <CardHeader className="flex flex-row items-center justify-between">
+        <div>
+          <CardTitle>Platform Statistics</CardTitle>
+          <CardDescription>Update platform metrics displayed on the homepage</CardDescription>
+        </div>
+        {!isCreating && (
+          <Button onClick={() => setIsCreating(true)} size="sm">
+            <Plus className="h-4 w-4 mr-1" />
+            Add Metric
+          </Button>
+        )}
       </CardHeader>
       <CardContent className="space-y-6">
+        {isCreating && (
+          <div className="p-4 border rounded-lg border-dashed border-primary bg-primary/5">
+            <Label className="text-base font-semibold mb-3 block">New Metric</Label>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Input
+                value={newMetricName}
+                onChange={(e) => setNewMetricName(e.target.value)}
+                placeholder="Metric name (e.g. active_users)"
+                className="flex-1"
+              />
+              <Input
+                type="number"
+                value={newMetricValue}
+                onChange={(e) => setNewMetricValue(e.target.value)}
+                placeholder="Initial value"
+                className="w-full sm:w-32"
+              />
+              <div className="flex gap-2">
+                <Button onClick={handleCreate} size="sm" disabled={createStat.isPending}>
+                  {createStat.isPending ? 'Creating...' : 'Create'}
+                </Button>
+                <Button 
+                  onClick={() => {
+                    setIsCreating(false);
+                    setNewMetricName('');
+                    setNewMetricValue('');
+                  }} 
+                  variant="outline" 
+                  size="sm"
+                >
+                  Cancel
+                </Button>
+              </div>
+            </div>
+          </div>
+        )}
+
         {stats?.map((stat) => (
           <div key={stat.id} className="flex items-center justify-between p-4 border rounded-lg">
             <div className="flex-1">
@@ -140,15 +266,26 @@ const PlatformStatsEditor = () => {
                 </Button>
               </div>
             ) : (
-              <Button
-                onClick={() => {
-                  setEditingMetric(stat.id);
-                  setEditValue(stat.value.toString());
-                }}
-                variant="outline"
-              >
-                Edit
-              </Button>
+              <div className="flex gap-2">
+                <Button
+                  onClick={() => {
+                    setEditingMetric(stat.id);
+                    setEditValue(stat.value.toString());
+                  }}
+                  variant="outline"
+                >
+                  Edit
+                </Button>
+                <Button
+                  onClick={() => deleteStat.mutate(stat.id)}
+                  variant="outline"
+                  size="icon"
+                  className="text-destructive hover:text-destructive"
+                  disabled={deleteStat.isPending}
+                >
+                  <Trash2 className="h-4 w-4" />
+                </Button>
+              </div>
             )}
           </div>
         ))}
