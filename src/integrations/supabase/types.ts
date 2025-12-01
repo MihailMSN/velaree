@@ -75,6 +75,7 @@ export type Database = {
           contact_phone: string | null
           created_at: string
           id: string
+          status: string
           updated_at: string
         }
         Insert: {
@@ -83,6 +84,7 @@ export type Database = {
           contact_phone?: string | null
           created_at?: string
           id?: string
+          status?: string
           updated_at?: string
         }
         Update: {
@@ -91,6 +93,7 @@ export type Database = {
           contact_phone?: string | null
           created_at?: string
           id?: string
+          status?: string
           updated_at?: string
         }
         Relationships: []
@@ -248,6 +251,14 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      assign_business_role: {
+        Args: {
+          _business_account_id: string
+          _role: Database["public"]["Enums"]["app_role"]
+          _target_user_id: string
+        }
+        Returns: boolean
+      }
       get_user_business_accounts: {
         Args: { _user_id: string }
         Returns: string[]

@@ -2,6 +2,14 @@ import { Navigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import { useUserRole } from '@/hooks/useUserRole';
 
+/**
+ * ProtectedRoute - UX-only route protection component
+ * 
+ * SECURITY NOTE: This component provides UI-level access control only.
+ * Actual security is enforced by Row-Level Security (RLS) policies in the database.
+ * Never rely on this component for security - it's purely for user experience.
+ * All sensitive operations are protected server-side via RLS policies.
+ */
 interface ProtectedRouteProps {
   children: React.ReactNode;
   requirePlatformAdmin?: boolean;
@@ -28,12 +36,13 @@ export const ProtectedRoute = ({
     return <Navigate to="/auth" replace />;
   }
 
+  // Generic error message to avoid information disclosure
   if (requirePlatformAdmin && !isPlatformAdmin) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-foreground mb-2">Access Denied</h1>
-          <p className="text-muted-foreground">You don't have permission to access this page.</p>
+          <h1 className="text-2xl font-bold text-foreground mb-2">Page Not Available</h1>
+          <p className="text-muted-foreground">This page is not available.</p>
         </div>
       </div>
     );
@@ -43,8 +52,8 @@ export const ProtectedRoute = ({
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-foreground mb-2">Access Denied</h1>
-          <p className="text-muted-foreground">You need a business account to access this page.</p>
+          <h1 className="text-2xl font-bold text-foreground mb-2">Page Not Available</h1>
+          <p className="text-muted-foreground">This page is not available.</p>
         </div>
       </div>
     );
