@@ -1,5 +1,5 @@
 import { useState, useEffect, ReactNode } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface StackedCardSwapProps {
   children: ReactNode[];
@@ -34,44 +34,24 @@ const StackedCardSwap = ({
     const offset = position * 44;
     const scale = 1 - position * 0.03;
     const zIndex = children.length - position;
-    
-    // Subtle rotation for depth - front card is flat, background cards tilt slightly
-    const rotateX = position * 2; // Tilt back slightly
-    const rotateY = position * -1.5; // Rotate slightly left
-    const rotateZ = position * 0.5; // Slight twist
 
     return {
       y: -offset,
-      x: position * 8, // Slight horizontal offset
       scale,
       zIndex,
       opacity: position > 3 ? 0 : 1,
-      rotateX,
-      rotateY,
-      rotateZ,
     };
   };
 
   return (
     <div
       className="relative"
-      style={{ 
-        width: cardWidth, 
-        height: cardHeight + 180,
-        perspective: 1200, // Enable 3D perspective
-      }}
+      style={{ width: cardWidth, height: cardHeight + 180 }}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
       {/* Stacked Cards */}
-      <div 
-        className="relative" 
-        style={{ 
-          width: cardWidth, 
-          height: cardHeight,
-          transformStyle: "preserve-3d",
-        }}
-      >
+      <div className="relative" style={{ width: cardWidth, height: cardHeight }}>
         {children.map((child, index) => {
           const position = (index - activeIndex + children.length) % children.length;
           const isActive = position === 0;
@@ -84,17 +64,12 @@ const StackedCardSwap = ({
               style={{
                 width: cardWidth,
                 zIndex: style.zIndex,
-                transformStyle: "preserve-3d",
               }}
               initial={false}
               animate={{
                 y: style.y,
-                x: style.x,
                 scale: style.scale,
                 opacity: style.opacity,
-                rotateX: style.rotateX,
-                rotateY: style.rotateY,
-                rotateZ: style.rotateZ,
               }}
               transition={{
                 type: "spring",
@@ -118,19 +93,33 @@ const StackedCardSwap = ({
                 {labels[index]}
               </div>
 
-              {/* Card Content */}
-              <div
+              {/* Card Content - Only fully visible for active card */}
+              <motion.div
                 className="rounded-b-xl rounded-tr-xl border border-border bg-card overflow-hidden"
                 style={{
                   height: cardHeight,
                   boxShadow: isActive
                     ? "0 25px 50px -12px rgba(0, 0, 0, 0.15)"
                     : "0 10px 30px -10px rgba(0, 0, 0, 0.08)",
-                  opacity: isActive ? 1 : 0.9,
+                }}
+                animate={{
+                  opacity: isActive ? 1 : 0.6,
                 }}
               >
-                {child}
-              </div>
+                <AnimatePresence mode="wait">
+                  {isActive && (
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="h-full"
+                    >
+                      {child}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
             </motion.div>
           );
         })}
