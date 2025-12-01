@@ -5,7 +5,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { useUserRole } from "@/hooks/useUserRole";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from "@/components/ui/dropdown-menu";
-import velareeLogoImg from "@/assets/velaree-logo.png";
+import MetallicVLogo from "./MetallicVLogo";
 
 interface NavItem {
   name: string;
@@ -70,8 +70,9 @@ const Navigation = () => {
   return <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-background/95 backdrop-blur-md shadow-md" : "bg-background/80 backdrop-blur-sm"}`}>
       <div className="container mx-auto px-[24px] py-px">
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center hover:opacity-80 transition-opacity">
-            <img src={velareeLogoImg} alt="Velaree Logo" className="h-16 md:h-24 w-auto" />
+          <Link to="/" className="flex items-center gap-1 hover:opacity-90 transition-opacity">
+            <MetallicVLogo width={48} height={48} />
+            <span className="font-bold text-xl tracking-tight text-foreground">elaree</span>
           </Link>
           
           <div className="hidden md:flex items-center gap-8">
