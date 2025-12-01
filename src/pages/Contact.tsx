@@ -2,71 +2,9 @@ import { Helmet } from "react-helmet-async";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
-import BookingCalendar from "@/components/BookingCalendar";
-import { Mail, MapPin, Phone, Clock, CheckCircle, MessageSquare, Calendar, Rocket, Copy, ExternalLink, ChevronDown, CalendarDays } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useState } from "react";
-import { toast } from "sonner";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { Mail, MapPin, Phone, Clock, CheckCircle, Calendar } from "lucide-react";
 
 const Contact = () => {
-  const [copiedEmail, setCopiedEmail] = useState(false);
-
-  const copyEmail = () => {
-    navigator.clipboard.writeText("sales@velaree.com");
-    setCopiedEmail(true);
-    toast.success("Email copied to clipboard!");
-    setTimeout(() => setCopiedEmail(false), 2000);
-  };
-
-  const quickFAQs = [
-    {
-      question: "How long does a typical demo take?",
-      answer: "Our personalized demos typically last 30-45 minutes. We tailor each session to your specific needs and use cases, ensuring you see exactly how Velaree can benefit your operations."
-    },
-    {
-      question: "Is there a minimum company size requirement?",
-      answer: "No minimum requirements! We work with travel businesses of all sizes, from growing agencies to enterprise-level TMCs and airlines. Our solutions scale with your needs."
-    },
-    {
-      question: "Can I get a trial before committing?",
-      answer: "Yes! After your demo, we can arrange a pilot program tailored to your business. This lets you experience Velaree's capabilities with your actual workflows before making a decision."
-    },
-    {
-      question: "What information should I prepare for the demo?",
-      answer: "Just bring your questions! It helps if you can share your current booking volumes and pain points, but our team will guide you through everything."
-    }
-  ];
-
-  const timelineSteps = [
-    {
-      step: 1,
-      title: "Submit Request",
-      description: "Fill out the form and our team will receive your inquiry instantly",
-      icon: MessageSquare,
-      color: "from-blue-500 to-cyan-500"
-    },
-    {
-      step: 2,
-      title: "Discovery Call",
-      description: "We'll reach out within 24 hours to understand your needs",
-      icon: Calendar,
-      color: "from-primary to-accent"
-    },
-    {
-      step: 3,
-      title: "Personalized Demo",
-      description: "See Velaree in action with a demo tailored to your business",
-      icon: Rocket,
-      color: "from-accent to-emerald-500"
-    }
-  ];
-
   const benefits = [
     "Personalized demo tailored to your use case",
     "Response within 24 hours guaranteed",
@@ -94,38 +32,28 @@ const Contact = () => {
       </Helmet>
       <Navigation />
       
-      {/* Enhanced Hero Section */}
-      <section className="min-h-[50vh] flex items-center justify-center bg-gradient-to-b from-background via-background to-muted/30 relative overflow-hidden pt-32 pb-16 px-6">
-        {/* Animated background elements */}
-        <div className="absolute inset-0 bg-grid-white/5 bg-[size:50px_50px]" />
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
-        
-        {/* Decorative floating elements */}
-        <div className="absolute top-40 right-20 w-4 h-4 bg-primary/30 rounded-full animate-bounce" style={{ animationDuration: "3s" }} />
-        <div className="absolute bottom-40 left-20 w-3 h-3 bg-accent/30 rounded-full animate-bounce" style={{ animationDuration: "2.5s", animationDelay: "0.5s" }} />
-        <div className="absolute top-60 left-1/4 w-2 h-2 bg-primary/20 rounded-full animate-bounce" style={{ animationDuration: "4s", animationDelay: "1s" }} />
-        
+      {/* Hero Section */}
+      <section className="min-h-[40vh] flex items-center justify-center bg-gradient-to-b from-background to-muted/30 relative overflow-hidden pt-32 pb-12 px-6">
         <div className="container mx-auto text-center relative z-10">
           {/* Trust badge */}
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border border-primary/20 text-primary px-5 py-2.5 rounded-full text-sm font-medium mb-8 animate-fade-in">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border border-primary/20 text-primary px-5 py-2.5 rounded-full text-sm font-medium mb-8">
             <Clock className="w-4 h-4" />
             Average response time: Under 24 hours
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-foreground animate-fade-in" style={{ animationDelay: "0.1s" }}>
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-foreground">
             Let's Build Something
             <span className="block bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
               Amazing Together
             </span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-8 animate-fade-in" style={{ animationDelay: "0.2s" }}>
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-8">
             Ready to transform your travel operations? Our team is here to show you how Velaree can automate and optimize your business.
           </p>
 
           {/* Trust indicators */}
-          <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground animate-fade-in" style={{ animationDelay: "0.3s" }}>
+          <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
               <CheckCircle className="w-4 h-4 text-emerald-500" />
               <span>500+ Demos Delivered</span>
@@ -139,28 +67,17 @@ const Contact = () => {
               <span>No Commitment Required</span>
             </div>
           </div>
-
-          {/* Scroll indicator */}
-          <div className="mt-12 animate-bounce">
-            <ChevronDown className="w-6 h-6 mx-auto text-muted-foreground/50" />
-          </div>
         </div>
       </section>
 
       {/* Two-Column Form Section */}
       <section className="py-24 bg-primary relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-primary/90" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-accent/10 via-transparent to-transparent" />
-        
-        {/* Decorative elements */}
-        <div className="absolute top-10 left-10 w-32 h-32 border border-primary-foreground/10 rounded-full" />
-        <div className="absolute bottom-10 right-10 w-48 h-48 border border-primary-foreground/5 rounded-full" />
-        <div className="absolute top-1/2 left-1/4 w-2 h-2 bg-primary-foreground/20 rounded-full" />
         
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start max-w-6xl mx-auto">
             {/* Left Column - Benefits */}
-            <div className="text-primary-foreground animate-fade-in">
+            <div className="text-primary-foreground">
               <div className="inline-flex items-center gap-2 bg-primary-foreground/10 border border-primary-foreground/20 px-4 py-2 rounded-full text-sm font-medium mb-6">
                 <Calendar className="w-4 h-4" />
                 Book Your Demo
@@ -179,8 +96,7 @@ const Contact = () => {
                 {benefits.map((benefit, index) => (
                   <div 
                     key={index} 
-                    className="flex items-center gap-3 animate-fade-in"
-                    style={{ animationDelay: `${0.1 * index}s` }}
+                    className="flex items-center gap-3"
                   >
                     <div className="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
                       <CheckCircle className="w-4 h-4 text-emerald-400" />
@@ -211,252 +127,54 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Schedule Directly Section */}
-      <section className="py-24 bg-background relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid-white/5 bg-[size:40px_40px]" />
-        <div className="absolute top-20 right-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-20 w-48 h-48 bg-accent/5 rounded-full blur-3xl" />
-        
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-6xl mx-auto">
-            {/* Left Column - Text */}
-            <div className="animate-fade-in">
-              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border border-primary/20 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
-                <CalendarDays className="w-4 h-4" />
-                Instant Scheduling
-              </div>
-              
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-                Skip the Back & Forth
-              </h2>
-              
-              <p className="text-xl text-muted-foreground mb-8">
-                Pick a time that works for you and book your demo instantly. Our team will send you a calendar invite with all the details.
-              </p>
-
-              <div className="space-y-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Clock className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-foreground">30-minute session</p>
-                    <p className="text-sm text-muted-foreground">Focused and efficient</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                    <CheckCircle className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-foreground">Instant confirmation</p>
-                    <p className="text-sm text-muted-foreground">Calendar invite sent immediately</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Calendar className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-foreground">Flexible rescheduling</p>
-                    <p className="text-sm text-muted-foreground">Easy to change if plans shift</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Column - Calendar */}
-            <div className="animate-fade-in" style={{ animationDelay: "0.1s" }}>
-              <BookingCalendar />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* What Happens Next Timeline */}
-      <section className="py-24 bg-muted/30 relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid-white/5 bg-[size:40px_40px]" />
-        
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border border-primary/20 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
-              <Rocket className="w-4 h-4" />
-              Simple Process
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-              What Happens Next?
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              From inquiry to demo in just a few simple steps
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {timelineSteps.map((item, index) => (
-              <div 
-                key={item.step} 
-                className="relative animate-fade-in"
-                style={{ animationDelay: `${0.15 * index}s` }}
-              >
-                {/* Connector line */}
-                {index < timelineSteps.length - 1 && (
-                  <div className="hidden md:block absolute top-12 left-1/2 w-full h-0.5 bg-gradient-to-r from-border to-border/50" />
-                )}
-                
-                <div className="relative bg-card border border-border rounded-2xl p-8 text-center hover:shadow-xl hover:border-primary/30 transition-all duration-300 group">
-                  {/* Step number */}
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-background border-2 border-primary flex items-center justify-center text-sm font-bold text-primary">
-                    {item.step}
-                  </div>
-                  
-                  {/* Icon */}
-                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                    <item.icon className="w-8 h-8 text-white" />
-                  </div>
-                  
-                  <h3 className="text-xl font-bold text-foreground mb-3">{item.title}</h3>
-                  <p className="text-muted-foreground">{item.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Information Cards */}
-      <section className="py-24 bg-background">
+      {/* Contact Information */}
+      <section className="py-16 bg-background border-t border-border">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl font-bold text-foreground mb-8 text-center">
               Other Ways to Reach Us
             </h2>
-            <p className="text-xl text-muted-foreground">
-              Choose the method that works best for you
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {/* Email Card */}
-            <div className="group relative animate-fade-in">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-accent/10 to-transparent rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="relative bg-card border border-border rounded-2xl p-8 text-center hover:border-primary/30 transition-all duration-300">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 via-accent/20 to-primary/10 border border-primary/10 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <Mail className="w-8 h-8 text-primary" />
+            
+            <div className="grid md:grid-cols-3 gap-6">
+              {/* Email */}
+              <div className="flex items-start gap-3 p-4 rounded-lg bg-card border border-border hover:border-primary/30 transition-colors">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <Mail className="w-5 h-5 text-primary" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-2">Email Us</h3>
-                <a href="mailto:sales@velaree.com" className="text-primary hover:underline block mb-1">
-                  sales@velaree.com
-                </a>
-                <p className="text-muted-foreground text-sm mb-4">Response within 24 hours</p>
-                <Button 
-                  variant="outline" 
-                  size="sm" 
-                  onClick={copyEmail}
-                  className="gap-2"
-                >
-                  <Copy className="w-4 h-4" />
-                  {copiedEmail ? "Copied!" : "Copy Email"}
-                </Button>
-              </div>
-            </div>
-
-            {/* Phone Card */}
-            <div className="group relative animate-fade-in" style={{ animationDelay: "0.1s" }}>
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-accent/10 to-transparent rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="relative bg-card border border-border rounded-2xl p-8 text-center hover:border-primary/30 transition-all duration-300">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 via-accent/20 to-primary/10 border border-primary/10 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <Phone className="w-8 h-8 text-primary" />
-                </div>
-                <h3 className="text-xl font-bold text-foreground mb-2">Call Us</h3>
-                <a href="tel:+15551234567" className="text-primary hover:underline block mb-1">
-                  +1 (555) 123-4567
-                </a>
-                <p className="text-muted-foreground text-sm mb-4">Mon-Fri, 9AM-6PM EST</p>
-                <Button 
-                  variant="outline" 
-                  size="sm" 
-                  asChild
-                  className="gap-2"
-                >
-                  <a href="tel:+15551234567">
-                    <ExternalLink className="w-4 h-4" />
-                    Call Now
+                <div>
+                  <h3 className="font-semibold text-foreground mb-1">Email</h3>
+                  <a href="mailto:sales@velaree.com" className="text-sm text-primary hover:underline">
+                    sales@velaree.com
                   </a>
-                </Button>
-              </div>
-            </div>
-
-            {/* Location Card */}
-            <div className="group relative animate-fade-in" style={{ animationDelay: "0.2s" }}>
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-accent/10 to-transparent rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="relative bg-card border border-border rounded-2xl p-8 text-center hover:border-primary/30 transition-all duration-300">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 via-accent/20 to-primary/10 border border-primary/10 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <MapPin className="w-8 h-8 text-primary" />
+                  <p className="text-xs text-muted-foreground mt-1">Response in 24hrs</p>
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-2">Visit Us</h3>
-                <p className="text-foreground mb-1">San Francisco, CA</p>
-                <p className="text-muted-foreground text-sm mb-4">By appointment only</p>
-                <Button 
-                  variant="outline" 
-                  size="sm" 
-                  asChild
-                  className="gap-2"
-                >
-                  <a href="https://maps.google.com/?q=San+Francisco,+CA" target="_blank" rel="noopener noreferrer">
-                    <ExternalLink className="w-4 h-4" />
-                    Get Directions
+              </div>
+
+              {/* Phone */}
+              <div className="flex items-start gap-3 p-4 rounded-lg bg-card border border-border hover:border-primary/30 transition-colors">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <Phone className="w-5 h-5 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-foreground mb-1">Phone</h3>
+                  <a href="tel:+15551234567" className="text-sm text-primary hover:underline">
+                    +1 (555) 123-4567
                   </a>
-                </Button>
+                  <p className="text-xs text-muted-foreground mt-1">Mon-Fri, 9AM-6PM</p>
+                </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Mini FAQ Section */}
-      <section className="py-24 bg-muted/30 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
-        
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-12">
-              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border border-primary/20 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
-                <MessageSquare className="w-4 h-4" />
-                Quick Answers
+              {/* Location */}
+              <div className="flex items-start gap-3 p-4 rounded-lg bg-card border border-border hover:border-primary/30 transition-colors">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-5 h-5 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-foreground mb-1">Location</h3>
+                  <p className="text-sm text-foreground">San Francisco, CA</p>
+                  <p className="text-xs text-muted-foreground mt-1">By appointment</p>
+                </div>
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-                Common Questions
-              </h2>
-              <p className="text-xl text-muted-foreground">
-                Get quick answers before booking your demo
-              </p>
-            </div>
-
-            <Accordion type="single" collapsible className="space-y-4">
-              {quickFAQs.map((faq, index) => (
-                <AccordionItem 
-                  key={index} 
-                  value={`faq-${index}`}
-                  className="bg-card border border-border rounded-xl px-6 data-[state=open]:border-primary/30 transition-colors duration-300 animate-fade-in"
-                  style={{ animationDelay: `${0.1 * index}s` }}
-                >
-                  <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary py-5 hover:no-underline">
-                    {faq.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground pb-5 leading-relaxed">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-
-            <div className="text-center mt-10">
-              <p className="text-muted-foreground mb-4">Have more questions?</p>
-              <Button variant="outline" asChild>
-                <a href="/faq">View Full FAQ</a>
-              </Button>
             </div>
           </div>
         </div>
