@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { useContactRequests } from '@/hooks/useContactRequests';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
@@ -7,8 +7,10 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
-import { Trash2, Search, X, ArrowUpDown, ArrowUp, ArrowDown } from 'lucide-react';
+import { Trash2, Search, X, ArrowUp, ArrowDown, ChevronLeft, ChevronRight } from 'lucide-react';
 import { format, subDays, isAfter } from 'date-fns';
+
+const ITEMS_PER_PAGE_OPTIONS = [10, 25, 50, 100];
 
 const ContactRequestsTable = () => {
   const { contactRequests, isLoading, updateStatus, deleteRequest } = useContactRequests();
@@ -17,6 +19,8 @@ const ContactRequestsTable = () => {
   const [dateFilter, setDateFilter] = useState<string>('all');
   const [roleFilter, setRoleFilter] = useState<string>('all');
   const [sortOrder, setSortOrder] = useState<'newest' | 'oldest'>('newest');
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
 
   // Get unique roles from data for dynamic filter options
   const uniqueRoles = useMemo(() => {
@@ -32,6 +36,7 @@ const ContactRequestsTable = () => {
     setStatusFilter('all');
     setDateFilter('all');
     setRoleFilter('all');
+    setCurrentPage(1);
   };
 
   const filteredRequests = useMemo(() => {
@@ -75,6 +80,21 @@ const ContactRequestsTable = () => {
         return sortOrder === 'newest' ? dateB - dateA : dateA - dateB;
       });
   }, [contactRequests, searchTerm, statusFilter, roleFilter, dateFilter, sortOrder]);
+
+  // Pagination calculations
+  const totalPages = Math.ceil(filteredRequests.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const paginatedRequests = filteredRequests.slice(startIndex, endIndex);
+
+  // Reset to page 1 when filters change
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchTerm, statusFilter, dateFilter, roleFilter, itemsPerPage]);
+
+  const goToPage = (page: number) => {
+    setCurrentPage(Math.max(1, Math.min(page, totalPages)));
+  };
 
   const getStatusColor = (status: string) => {
     switch (status) {
@@ -184,14 +204,27 @@ const ContactRequestsTable = () => {
         {/* Results count and clear filters */}
         <div className="flex items-center justify-between mt-4">
           <span className="text-sm text-muted-foreground">
-            Showing {filteredRequests.length} of {contactRequests.length} requests
+            Showing {startIndex + 1}-{Math.min(endIndex, filteredRequests.length)} of {filteredRequests.length} requests
+            {filteredRequests.length !== contactRequests.length && ` (filtered from ${contactRequests.length})`}
           </span>
-          {hasActiveFilters && (
-            <Button variant="ghost" size="sm" onClick={clearAllFilters} className="h-8">
-              <X className="h-4 w-4 mr-1" />
-              Clear Filters
-            </Button>
-          )}
+          <div className="flex items-center gap-2">
+            {hasActiveFilters && (
+              <Button variant="ghost" size="sm" onClick={clearAllFilters} className="h-8">
+                <X className="h-4 w-4 mr-1" />
+                Clear Filters
+              </Button>
+            )}
+            <Select value={itemsPerPage.toString()} onValueChange={(v) => setItemsPerPage(Number(v))}>
+              <SelectTrigger className="w-[100px] h-8">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                {ITEMS_PER_PAGE_OPTIONS.map(n => (
+                  <SelectItem key={n} value={n.toString()}>{n} / page</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
         </div>
       </CardHeader>
       
@@ -219,14 +252,14 @@ const ContactRequestsTable = () => {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {filteredRequests.length === 0 ? (
+            {paginatedRequests.length === 0 ? (
               <TableRow>
                 <TableCell colSpan={7} className="text-center text-muted-foreground">
                   No contact requests found
                 </TableCell>
               </TableRow>
             ) : (
-              filteredRequests.map((request) => (
+              paginatedRequests.map((request) => (
                 <TableRow key={request.id}>
                   <TableCell>{format(new Date(request.created_at), 'MMM d, yyyy')}</TableCell>
                   <TableCell className="font-medium">{request.name}</TableCell>
@@ -265,6 +298,77 @@ const ContactRequestsTable = () => {
             )}
           </TableBody>
         </Table>
+
+        {/* Pagination Controls */}
+        {totalPages > 1 && (
+          <div className="flex items-center justify-between mt-4 pt-4 border-t">
+            <span className="text-sm text-muted-foreground">
+              Page {currentPage} of {totalPages}
+            </span>
+            <div className="flex items-center gap-1">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => goToPage(1)}
+                disabled={currentPage === 1}
+                className="h-8 px-2"
+              >
+                First
+              </Button>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => goToPage(currentPage - 1)}
+                disabled={currentPage === 1}
+                className="h-8 w-8 p-0"
+              >
+                <ChevronLeft className="h-4 w-4" />
+              </Button>
+              {/* Page numbers */}
+              {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
+                let pageNum: number;
+                if (totalPages <= 5) {
+                  pageNum = i + 1;
+                } else if (currentPage <= 3) {
+                  pageNum = i + 1;
+                } else if (currentPage >= totalPages - 2) {
+                  pageNum = totalPages - 4 + i;
+                } else {
+                  pageNum = currentPage - 2 + i;
+                }
+                return (
+                  <Button
+                    key={pageNum}
+                    variant={currentPage === pageNum ? "default" : "outline"}
+                    size="sm"
+                    onClick={() => goToPage(pageNum)}
+                    className="h-8 w-8 p-0"
+                  >
+                    {pageNum}
+                  </Button>
+                );
+              })}
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => goToPage(currentPage + 1)}
+                disabled={currentPage === totalPages}
+                className="h-8 w-8 p-0"
+              >
+                <ChevronRight className="h-4 w-4" />
+              </Button>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => goToPage(totalPages)}
+                disabled={currentPage === totalPages}
+                className="h-8 px-2"
+              >
+                Last
+              </Button>
+            </div>
+          </div>
+        )}
       </CardContent>
     </Card>
   );
