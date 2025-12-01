@@ -38,7 +38,7 @@ const StackedCardSwap = ({
 
     return {
       y: -yOffset,
-      x: -xOffset,
+      x: xOffset,
       scale,
       zIndex,
       opacity,
