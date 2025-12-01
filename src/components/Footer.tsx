@@ -1,5 +1,5 @@
 import { Github, Linkedin, Twitter } from "lucide-react";
-import MetallicVLogo from "./MetallicVLogo";
+import velareeLogoImg from "@/assets/velaree-logo.png";
 
 const Footer = () => {
   const footerLinks = {
@@ -14,10 +14,11 @@ const Footer = () => {
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-5 gap-12 mb-12">
           <div className="md:col-span-1">
-            <div className="flex items-center gap-1 mb-4">
-              <MetallicVLogo width={40} height={40} />
-              <span className="font-bold text-lg tracking-tight text-primary-foreground">elaree</span>
-            </div>
+            <img 
+              src={velareeLogoImg} 
+              alt="Velaree Logo" 
+              className="h-14 w-auto mb-4 brightness-0 invert"
+            />
             <p className="text-primary-foreground/70 text-sm">
               Building the future of travel technology
             </p>
