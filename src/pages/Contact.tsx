@@ -2,7 +2,8 @@ import { Helmet } from "react-helmet-async";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
-import { Mail, MapPin, Phone, Clock, CheckCircle, MessageSquare, Calendar, Rocket, Copy, ExternalLink, ChevronDown } from "lucide-react";
+import BookingCalendar from "@/components/BookingCalendar";
+import { Mail, MapPin, Phone, Clock, CheckCircle, MessageSquare, Calendar, Rocket, Copy, ExternalLink, ChevronDown, CalendarDays } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { toast } from "sonner";
@@ -205,6 +206,70 @@ const Contact = () => {
             {/* Right Column - Form */}
             <div className="lg:pl-8">
               <ContactForm />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Schedule Directly Section */}
+      <section className="py-24 bg-background relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid-white/5 bg-[size:40px_40px]" />
+        <div className="absolute top-20 right-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 left-20 w-48 h-48 bg-accent/5 rounded-full blur-3xl" />
+        
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-6xl mx-auto">
+            {/* Left Column - Text */}
+            <div className="animate-fade-in">
+              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border border-primary/20 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
+                <CalendarDays className="w-4 h-4" />
+                Instant Scheduling
+              </div>
+              
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+                Skip the Back & Forth
+              </h2>
+              
+              <p className="text-xl text-muted-foreground mb-8">
+                Pick a time that works for you and book your demo instantly. Our team will send you a calendar invite with all the details.
+              </p>
+
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Clock className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-foreground">30-minute session</p>
+                    <p className="text-sm text-muted-foreground">Focused and efficient</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                    <CheckCircle className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-foreground">Instant confirmation</p>
+                    <p className="text-sm text-muted-foreground">Calendar invite sent immediately</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Calendar className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-foreground">Flexible rescheduling</p>
+                    <p className="text-sm text-muted-foreground">Easy to change if plans shift</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column - Calendar */}
+            <div className="animate-fade-in" style={{ animationDelay: "0.1s" }}>
+              <BookingCalendar />
             </div>
           </div>
         </div>
