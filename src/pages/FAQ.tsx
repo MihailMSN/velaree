@@ -1,3 +1,4 @@
+import { useState, useMemo } from "react";
 import { Helmet } from "react-helmet-async";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -7,8 +8,22 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Input } from "@/components/ui/input";
+import { 
+  Building2, 
+  Settings2, 
+  Package, 
+  Shield, 
+  CreditCard, 
+  Headphones,
+  HelpCircle,
+  Search,
+  Sparkles
+} from "lucide-react";
 
 const FAQ = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+
   const faqs = [
     // Company & Services
     {
@@ -143,8 +158,32 @@ const FAQ = () => {
     }
   ];
 
-  // Group FAQs by category for organized display
-  const categories = Array.from(new Set(faqs.map(faq => faq.category)));
+  // Category icons and colors mapping
+  const categoryConfig: Record<string, { icon: typeof Building2; gradient: string }> = {
+    "Company & Services": { icon: Building2, gradient: "from-blue-500/20 to-indigo-500/20" },
+    "Implementation & Integration": { icon: Settings2, gradient: "from-emerald-500/20 to-teal-500/20" },
+    "Products & Features": { icon: Package, gradient: "from-violet-500/20 to-purple-500/20" },
+    "Security & Compliance": { icon: Shield, gradient: "from-amber-500/20 to-orange-500/20" },
+    "Pricing & Plans": { icon: CreditCard, gradient: "from-rose-500/20 to-pink-500/20" },
+    "Support & Training": { icon: Headphones, gradient: "from-cyan-500/20 to-sky-500/20" }
+  };
+
+  // Filter FAQs based on search query
+  const filteredFaqs = useMemo(() => {
+    if (!searchQuery.trim()) return faqs;
+    const query = searchQuery.toLowerCase();
+    return faqs.filter(
+      faq => 
+        faq.question.toLowerCase().includes(query) || 
+        faq.answer.toLowerCase().includes(query) ||
+        faq.category.toLowerCase().includes(query)
+    );
+  }, [searchQuery]);
+
+  // Get unique categories from filtered FAQs
+  const categories = useMemo(() => {
+    return Array.from(new Set(filteredFaqs.map(faq => faq.category)));
+  }, [filteredFaqs]);
 
   // Generate FAQ structured data
   const faqStructuredData = {
@@ -201,68 +240,153 @@ const FAQ = () => {
         <Navigation />
         
         {/* Hero Section */}
-        <section className="pt-32 pb-16 px-4">
-          <div className="container mx-auto max-w-4xl">
-            <div className="text-center mb-12">
-              <h1 className="text-4xl md:text-5xl font-bold mb-4 text-primary">
+        <section className="pt-32 pb-20 px-4 relative overflow-hidden">
+          {/* Background gradient */}
+          <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent pointer-events-none" />
+          
+          <div className="container mx-auto max-w-5xl relative">
+            <div className="text-center">
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-8">
+                <Sparkles className="w-4 h-4 text-primary" />
+                <span className="text-sm font-medium text-primary">Help Center</span>
+              </div>
+              
+              <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-foreground via-foreground to-foreground/70 bg-clip-text text-transparent">
                 Frequently Asked Questions
               </h1>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-12">
                 Find answers to common questions about our travel technology solutions, implementation, pricing, and support
               </p>
+              
+              {/* Search Bar */}
+              <div className="max-w-xl mx-auto relative">
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                <Input
+                  type="text"
+                  placeholder="Search questions..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="pl-12 pr-4 py-6 text-lg rounded-xl border-border/50 bg-card/50 backdrop-blur-sm focus:border-primary/50 transition-colors"
+                />
+                {searchQuery && (
+                  <span className="absolute right-4 top-1/2 -translate-y-1/2 text-sm text-muted-foreground">
+                    {filteredFaqs.length} result{filteredFaqs.length !== 1 ? 's' : ''}
+                  </span>
+                )}
+              </div>
             </div>
           </div>
         </section>
 
         {/* FAQ Content */}
         <section className="pb-24 px-4">
-          <div className="container mx-auto max-w-4xl">
-            {categories.map((category) => (
-              <div key={category} className="mb-12">
-                <h2 className="text-2xl font-bold mb-6 text-foreground">
-                  {category}
-                </h2>
-                <Accordion type="single" collapsible className="space-y-4">
-                  {faqs
-                    .filter(faq => faq.category === category)
-                    .map((faq, index) => (
-                      <AccordionItem 
-                        key={index} 
-                        value={`${category}-${index}`}
-                        className="border border-border rounded-lg px-6 bg-card/50"
-                      >
-                        <AccordionTrigger className="text-left hover:no-underline">
-                          <span className="font-semibold text-foreground">
-                            {faq.question}
-                          </span>
-                        </AccordionTrigger>
-                        <AccordionContent className="text-muted-foreground leading-relaxed">
-                          {faq.answer}
-                        </AccordionContent>
-                      </AccordionItem>
-                    ))}
-                </Accordion>
+          <div className="container mx-auto max-w-5xl">
+            {categories.length === 0 ? (
+              <div className="text-center py-16">
+                <HelpCircle className="w-16 h-16 text-muted-foreground/50 mx-auto mb-4" />
+                <h3 className="text-xl font-semibold mb-2">No results found</h3>
+                <p className="text-muted-foreground">
+                  Try adjusting your search terms or browse all categories below
+                </p>
+                <button 
+                  onClick={() => setSearchQuery("")}
+                  className="mt-4 text-primary hover:underline font-medium"
+                >
+                  Clear search
+                </button>
               </div>
-            ))}
+            ) : (
+              categories.map((category, categoryIndex) => {
+                const config = categoryConfig[category];
+                const CategoryIcon = config?.icon || HelpCircle;
+                const isAlternate = categoryIndex % 2 === 1;
+                
+                return (
+                  <div 
+                    key={category} 
+                    className={`mb-16 last:mb-0 ${isAlternate ? 'py-12 -mx-4 px-4 md:-mx-8 md:px-8 bg-muted/30 rounded-3xl' : ''}`}
+                  >
+                    {/* Category Header */}
+                    <div className="flex items-center gap-4 mb-8">
+                      <div className={`p-3 rounded-xl bg-gradient-to-br ${config?.gradient || 'from-primary/20 to-primary/10'}`}>
+                        <CategoryIcon className="w-6 h-6 text-foreground" />
+                      </div>
+                      <div>
+                        <h2 className="text-2xl font-bold text-foreground">
+                          {category}
+                        </h2>
+                        <p className="text-sm text-muted-foreground">
+                          {filteredFaqs.filter(f => f.category === category).length} questions
+                        </p>
+                      </div>
+                    </div>
+                    
+                    {/* Accordion - Clean aRStool style */}
+                    <div className="max-w-3xl">
+                      <Accordion type="single" collapsible className="w-full">
+                        {filteredFaqs
+                          .filter(faq => faq.category === category)
+                          .map((faq, index) => (
+                            <AccordionItem 
+                              key={index} 
+                              value={`${category}-${index}`}
+                              className="border-b border-border/50"
+                            >
+                              <AccordionTrigger className="text-left text-lg font-semibold hover:no-underline py-5 group">
+                                <span className="group-hover:text-primary transition-colors">
+                                  {faq.question}
+                                </span>
+                              </AccordionTrigger>
+                              <AccordionContent className="text-muted-foreground leading-relaxed pb-6">
+                                {faq.answer}
+                              </AccordionContent>
+                            </AccordionItem>
+                          ))}
+                      </Accordion>
+                    </div>
+                  </div>
+                );
+              })
+            )}
           </div>
         </section>
 
         {/* Contact CTA */}
         <section className="pb-24 px-4">
-          <div className="container mx-auto max-w-4xl">
-            <div className="bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 rounded-2xl p-8 md:p-12 text-center">
-              <h2 className="text-3xl font-bold mb-4 text-foreground">
-                Still Have Questions?
-              </h2>
-              <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
-                Our team is here to help. Contact us for personalized assistance with your travel technology needs.
-              </p>
-              <a 
-                href="/contact" 
-                className="inline-block bg-primary text-primary-foreground px-8 py-3 rounded-full font-semibold hover:opacity-90 transition-opacity"
-              >
-                Contact Us
-              </a>
+          <div className="container mx-auto max-w-5xl">
+            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary/10 via-accent/5 to-primary/10 p-12 md:p-16">
+              {/* Decorative elements */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+              <div className="absolute bottom-0 left-0 w-48 h-48 bg-accent/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
+              
+              <div className="relative text-center">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
+                  <HelpCircle className="w-4 h-4 text-primary" />
+                  <span className="text-sm font-medium text-primary">Need More Help?</span>
+                </div>
+                
+                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+                  Still Have Questions?
+                </h2>
+                <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+                  Our team is here to help. Contact us for personalized assistance with your travel technology needs.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <a 
+                    href="/contact" 
+                    className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-xl font-semibold hover:opacity-90 transition-all hover:scale-105"
+                  >
+                    Contact Sales
+                  </a>
+                  <a 
+                    href="/rstool" 
+                    className="inline-flex items-center justify-center gap-2 bg-card border border-border px-8 py-4 rounded-xl font-semibold hover:border-primary/50 transition-all"
+                  >
+                    Explore aRStool
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </section>
