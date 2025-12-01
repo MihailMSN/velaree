@@ -4,10 +4,14 @@ import RStoolPreviewCard from "./mockups/RStoolPreviewCard";
 import UnifyPreviewCard from "./mockups/UnifyPreviewCard";
 import HRStoolPreviewCard from "./mockups/HRStoolPreviewCard";
 
-const HeroCardShowcase = () => {
+interface HeroCardShowcaseProps {
+  className?: string;
+}
+
+const HeroCardShowcase = ({ className = "" }: HeroCardShowcaseProps) => {
   return (
     <div 
-      className="opacity-95"
+      className={`opacity-95 ${className}`}
       style={{ height: '500px', width: '600px', position: 'relative' }}
     >
       <CardSwap
