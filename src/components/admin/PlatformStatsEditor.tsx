@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { toast } from 'sonner';
 import { format } from 'date-fns';
+import { Skeleton } from '@/components/ui/skeleton';
 
 const PlatformStatsEditor = () => {
   const queryClient = useQueryClient();
@@ -76,7 +77,26 @@ const PlatformStatsEditor = () => {
   };
 
   if (isLoading) {
-    return <div className="flex justify-center p-8">Loading...</div>;
+    return (
+      <Card>
+        <CardHeader>
+          <CardTitle>Platform Statistics</CardTitle>
+          <CardDescription>Update platform metrics displayed on the homepage</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-6">
+          {[1, 2, 3].map((i) => (
+            <div key={i} className="flex items-center justify-between p-4 border rounded-lg">
+              <div className="flex-1 space-y-2">
+                <Skeleton className="h-5 w-32" />
+                <Skeleton className="h-8 w-24" />
+                <Skeleton className="h-3 w-40" />
+              </div>
+              <Skeleton className="h-9 w-16" />
+            </div>
+          ))}
+        </CardContent>
+      </Card>
+    );
   }
 
   return (
