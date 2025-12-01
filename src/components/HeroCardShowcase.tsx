@@ -8,7 +8,13 @@ const labels = ["aSuite", "aRStool", "Unify", "hRStool"];
 
 const HeroCardShowcase = () => {
   return (
-    <div className="hidden lg:block absolute right-[2%] bottom-[12%] rotate-2 z-0 opacity-95">
+    <div 
+      className="hidden lg:block absolute right-[2%] bottom-[12%] z-0 opacity-95"
+      style={{ 
+        transform: 'perspective(1000px) rotateY(-15deg)',
+        transformStyle: 'preserve-3d'
+      }}
+    >
       <StackedCardSwap 
         labels={labels}
         autoSwapInterval={5000}
