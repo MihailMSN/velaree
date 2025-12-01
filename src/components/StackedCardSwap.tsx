@@ -1,9 +1,9 @@
 import { useState, useEffect, ReactNode } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 interface StackedCardSwapProps {
   children: ReactNode[];
-  labels: string[];
+  labels?: string[];
   autoSwapInterval?: number;
   cardWidth?: number;
   cardHeight?: number;
@@ -11,7 +11,6 @@ interface StackedCardSwapProps {
 
 const StackedCardSwap = ({
   children,
-  labels,
   autoSwapInterval = 5000,
   cardWidth = 520,
   cardHeight = 380,
@@ -31,15 +30,18 @@ const StackedCardSwap = ({
 
   const getCardStyle = (index: number) => {
     const position = (index - activeIndex + children.length) % children.length;
-    const offset = position * 40;
-    const scale = 1 - position * 0.03;
+    const yOffset = position * 50;
+    const xOffset = position * 25;
+    const scale = 1 - position * 0.05;
     const zIndex = children.length - position;
+    const opacity = position === 0 ? 1 : Math.max(0.5, 1 - position * 0.15);
 
     return {
-      y: -offset,
+      y: -yOffset,
+      x: -xOffset,
       scale,
       zIndex,
-      opacity: position > 3 ? 0 : 1,
+      opacity,
     };
   };
 
@@ -50,7 +52,6 @@ const StackedCardSwap = ({
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      {/* Stacked Cards */}
       <div className="relative" style={{ width: cardWidth, height: cardHeight }}>
         {children.map((child, index) => {
           const position = (index - activeIndex + children.length) % children.length;
@@ -60,14 +61,19 @@ const StackedCardSwap = ({
           return (
             <motion.div
               key={index}
-              className="absolute top-0 left-0 cursor-pointer"
+              className="absolute top-0 left-0 cursor-pointer rounded-xl border border-border bg-card overflow-hidden"
               style={{
                 width: cardWidth,
+                height: cardHeight,
                 zIndex: style.zIndex,
+                boxShadow: isActive
+                  ? "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
+                  : "0 10px 30px -10px rgba(0, 0, 0, 0.1)",
               }}
               initial={false}
               animate={{
                 y: style.y,
+                x: style.x,
                 scale: style.scale,
                 opacity: style.opacity,
               }}
@@ -78,48 +84,7 @@ const StackedCardSwap = ({
               }}
               onClick={() => !isActive && setActiveIndex(index)}
             >
-              {/* Tab Header - Always visible */}
-              <div
-                className={`px-5 py-2.5 rounded-t-lg font-medium text-sm transition-all duration-200 ${
-                  isActive
-                    ? "bg-card text-foreground border-t border-l border-r border-border"
-                    : "bg-muted/80 text-muted-foreground border border-border/50 hover:bg-muted"
-                }`}
-                style={{
-                  width: "fit-content",
-                  marginBottom: -1,
-                }}
-              >
-                {labels[index]}
-              </div>
-
-              {/* Card Content - Only fully visible for active card */}
-              <motion.div
-                className="rounded-b-xl rounded-tr-xl border border-border bg-card overflow-hidden"
-                style={{
-                  height: cardHeight,
-                  boxShadow: isActive
-                    ? "0 25px 50px -12px rgba(0, 0, 0, 0.15)"
-                    : "0 10px 30px -10px rgba(0, 0, 0, 0.08)",
-                }}
-                animate={{
-                  opacity: isActive ? 1 : 0.6,
-                }}
-              >
-                <AnimatePresence mode="wait">
-                  {isActive && (
-                    <motion.div
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.2 }}
-                      className="h-full"
-                    >
-                      {child}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
+              {child}
             </motion.div>
           );
         })}
