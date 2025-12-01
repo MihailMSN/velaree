@@ -1,8 +1,15 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
+interface TabConfig {
+  id: string;
+  label: string;
+  color: string;
+}
+
 interface CardSwapProps {
   children: React.ReactNode[];
+  tabs: TabConfig[];
   autoSwapInterval?: number;
   cardWidth?: number;
   cardHeight?: number;
@@ -10,27 +17,22 @@ interface CardSwapProps {
 
 const CardSwap = ({
   children,
+  tabs,
   autoSwapInterval = 5000,
   cardWidth = 420,
   cardHeight = 280,
 }: CardSwapProps) => {
-  const [cards, setCards] = useState(
-    children.map((child, index) => ({ id: index, content: child }))
-  );
+  const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  const swapToBack = () => {
-    setCards((prev) => {
-      const newCards = [...prev];
-      const [first, ...rest] = newCards;
-      return [...rest, first];
-    });
+  const nextTab = () => {
+    setActiveIndex((prev) => (prev + 1) % children.length);
   };
 
   useEffect(() => {
     if (!isPaused && autoSwapInterval > 0) {
-      intervalRef.current = setInterval(swapToBack, autoSwapInterval);
+      intervalRef.current = setInterval(nextTab, autoSwapInterval);
     }
 
     return () => {
@@ -38,102 +40,99 @@ const CardSwap = ({
         clearInterval(intervalRef.current);
       }
     };
-  }, [isPaused, autoSwapInterval]);
+  }, [isPaused, autoSwapInterval, children.length]);
 
   return (
     <div
       className="relative"
-      style={{
-        width: cardWidth,
-        height: cardHeight + 40,
-        perspective: "1000px",
-      }}
+      style={{ width: cardWidth }}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      <AnimatePresence mode="popLayout">
-        {cards.map((card, index) => {
-          const isTop = index === 0;
-          const stackOffset = index * 8;
-          const rotation = index * 2 - 2;
-          const scale = 1 - index * 0.03;
-          const opacity = 1 - index * 0.15;
-
+      {/* Tab Headers */}
+      <div className="flex relative" style={{ height: 36 }}>
+        {tabs.map((tab, index) => {
+          const isActive = index === activeIndex;
           return (
-            <motion.div
-              key={card.id}
-              className="absolute cursor-pointer"
+            <motion.button
+              key={tab.id}
+              onClick={() => setActiveIndex(index)}
+              className={`relative px-4 py-2 text-sm font-semibold transition-all duration-200 ${
+                isActive
+                  ? "text-white z-10"
+                  : "text-white/60 hover:text-white/80"
+              }`}
               style={{
-                width: cardWidth,
-                height: cardHeight,
-                zIndex: cards.length - index,
-                transformStyle: "preserve-3d",
+                background: isActive ? tab.color : "rgba(255,255,255,0.1)",
+                borderTopLeftRadius: 12,
+                borderTopRightRadius: 12,
+                marginRight: -8,
+                zIndex: isActive ? 10 : tabs.length - index,
               }}
-              initial={{
-                y: -50,
-                x: 0,
-                rotate: 0,
-                scale: 1,
-                opacity: 0,
-              }}
-              animate={{
-                y: stackOffset,
-                x: stackOffset / 2,
-                rotate: rotation,
-                scale: scale,
-                opacity: opacity,
-              }}
-              exit={{
-                y: cardHeight + 50,
-                x: 100,
-                rotate: 15,
-                scale: 0.9,
-                opacity: 0,
-              }}
-              transition={{
-                type: "spring",
-                stiffness: 200,
-                damping: 25,
-                mass: 1,
-              }}
-              onClick={() => isTop && swapToBack()}
+              whileHover={{ y: isActive ? 0 : -2 }}
+              whileTap={{ scale: 0.98 }}
             >
-              <div
-                className="w-full h-full rounded-xl overflow-hidden shadow-2xl"
-                style={{
-                  boxShadow: isTop
-                    ? "0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 30px rgba(0, 0, 0, 0.1)"
-                    : "0 10px 30px -10px rgba(0, 0, 0, 0.2)",
-                }}
-              >
-                {card.content}
-              </div>
-            </motion.div>
+              {tab.label}
+              {/* Active tab connector */}
+              {isActive && (
+                <motion.div
+                  layoutId="activeTabConnector"
+                  className="absolute -bottom-[1px] left-0 right-0 h-[2px]"
+                  style={{ background: tab.color }}
+                />
+              )}
+            </motion.button>
           );
         })}
-      </AnimatePresence>
+      </div>
 
-      {/* Navigation dots */}
-      <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 flex gap-2">
-        {cards.map((card, index) => (
-          <button
-            key={card.id}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${
-              index === 0
-                ? "bg-primary scale-125"
-                : "bg-primary/30 hover:bg-primary/50"
-            }`}
-            onClick={() => {
-              // Move clicked card to front
-              setCards((prev) => {
-                const cardIndex = prev.findIndex((c) => c.id === card.id);
-                if (cardIndex === 0) return prev;
-                const newCards = [...prev];
-                const [removed] = newCards.splice(cardIndex, 1);
-                return [removed, ...newCards];
-              });
+      {/* Content Area */}
+      <div
+        className="relative overflow-hidden rounded-b-xl rounded-tr-xl shadow-2xl"
+        style={{
+          height: cardHeight,
+          boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 0, 0, 0.15)",
+        }}
+      >
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeIndex}
+            className="absolute inset-0"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            transition={{
+              type: "spring",
+              stiffness: 300,
+              damping: 30,
             }}
-          />
+          >
+            {children[activeIndex]}
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      {/* Progress Indicator */}
+      <div className="flex gap-1 justify-center mt-3">
+        {tabs.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setActiveIndex(index)}
+            className="relative h-1 rounded-full overflow-hidden transition-all duration-300"
+            style={{
+              width: index === activeIndex ? 24 : 8,
+              background: index === activeIndex ? tabs[activeIndex].color : "rgba(255,255,255,0.3)",
+            }}
+          >
+            {index === activeIndex && !isPaused && (
+              <motion.div
+                className="absolute inset-0 bg-white/50"
+                initial={{ scaleX: 0, originX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: autoSwapInterval / 1000, ease: "linear" }}
+              />
+            )}
+          </button>
         ))}
       </div>
     </div>
