@@ -30,8 +30,8 @@ const StackedCardSwap = ({
 
   const getCardStyle = (index: number) => {
     const position = (index - activeIndex + children.length) % children.length;
-    const yOffset = position * 50;
-    const xOffset = position * 25;
+    const yOffset = position * 70;
+    const xOffset = position * 40;
     const scale = 1 - position * 0.05;
     const zIndex = children.length - position;
     const opacity = position === 0 ? 1 : Math.max(0.5, 1 - position * 0.15);
