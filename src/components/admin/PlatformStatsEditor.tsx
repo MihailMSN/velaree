@@ -14,7 +14,7 @@ const PlatformStatsEditor = () => {
   const [editValue, setEditValue] = useState('');
 
   const { data: stats, isLoading } = useQuery({
-    queryKey: ['platform-stats'],
+    queryKey: ['platform-stats-admin'],
     queryFn: async () => {
       const { data, error } = await supabase
         .from('platform_stats')
@@ -48,6 +48,7 @@ const PlatformStatsEditor = () => {
       }
     },
     onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['platform-stats-admin'] });
       queryClient.invalidateQueries({ queryKey: ['platform-stats'] });
       toast.success('Stat updated successfully');
       setEditingMetric(null);
