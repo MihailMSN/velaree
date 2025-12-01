@@ -10,7 +10,7 @@ const OrbBackground = ({ className = "" }: OrbBackgroundProps) => {
       <motion.div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] md:w-[600px] md:h-[600px] rounded-full"
         style={{
-          background: "radial-gradient(circle, hsl(var(--muted)) 0%, hsl(var(--border) / 0.5) 40%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(180, 180, 195, 0.6) 0%, rgba(160, 165, 180, 0.35) 40%, transparent 70%)",
           filter: "blur(80px)",
         }}
         animate={{
