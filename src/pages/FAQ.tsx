@@ -3,9 +3,12 @@ import { Helmet } from "react-helmet-async";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import FAQSidebar from "@/components/faq/FAQSidebar";
-import BackToTopButton from "@/components/faq/BackToTopButton";
-import AnimatedAccordionItem from "@/components/faq/AnimatedAccordionItem";
-import { Accordion } from "@/components/ui/accordion";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { Input } from "@/components/ui/input";
 import { 
   Building2, 
@@ -330,19 +333,26 @@ const FAQ = () => {
                       </div>
                     </div>
                     
-                    {/* Accordion - Clean aRStool style with animations */}
+                    {/* Accordion - Clean aRStool style */}
                     <div className="max-w-3xl">
                       <Accordion type="single" collapsible className="w-full">
                         {filteredFaqs
                           .filter(faq => faq.category === category)
                           .map((faq, index) => (
-                            <AnimatedAccordionItem
-                              key={index}
+                            <AccordionItem 
+                              key={index} 
                               value={`${category}-${index}`}
-                              question={faq.question}
-                              answer={faq.answer}
-                              index={index}
-                            />
+                              className="border-b border-border/50"
+                            >
+                              <AccordionTrigger className="text-left text-lg font-semibold hover:no-underline py-5 group">
+                                <span className="group-hover:text-primary transition-colors">
+                                  {faq.question}
+                                </span>
+                              </AccordionTrigger>
+                              <AccordionContent className="text-muted-foreground leading-relaxed pb-6">
+                                {faq.answer}
+                              </AccordionContent>
+                            </AccordionItem>
                           ))}
                       </Accordion>
                     </div>
@@ -395,7 +405,6 @@ const FAQ = () => {
         </section>
 
         <Footer />
-        <BackToTopButton />
       </div>
     </>
   );
