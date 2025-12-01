@@ -1,6 +1,6 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import OrbBackground from "@/components/OrbBackground";
+import SilverOrb from "@/components/SilverOrb";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -164,7 +164,11 @@ const ASuite = () => {
 
         {/* Hero Section */}
         <section className="min-h-[70vh] flex items-center justify-center bg-gradient-to-b from-background via-background to-muted/20 relative overflow-hidden pt-32 pb-20 px-6">
-          <OrbBackground />
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div className="w-[500px] h-[500px] md:w-[600px] md:h-[600px]">
+              <SilverOrb hoverIntensity={0.15} rotateOnHover={true} />
+            </div>
+          </div>
           <div className="absolute inset-0 bg-grid-white/5 bg-[size:50px_50px]" />
           <div className="container mx-auto text-center relative z-10">
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border border-primary/20 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6 animate-fade-in">
