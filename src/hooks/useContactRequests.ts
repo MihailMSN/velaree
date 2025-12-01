@@ -78,10 +78,70 @@ export const useContactRequests = () => {
     },
   });
 
+  const bulkUpdateStatus = useMutation({
+    mutationFn: async ({ ids, status }: { ids: string[]; status: string }) => {
+      const { error } = await supabase
+        .from('contact_requests')
+        .update({ status })
+        .in('id', ids);
+
+      if (error) throw error;
+
+      // Log admin action
+      const { data: { user } } = await supabase.auth.getUser();
+      if (user) {
+        await supabase.from('admin_actions').insert({
+          user_id: user.id,
+          action: 'bulk_update_status',
+          resource_type: 'contact_request',
+          details: { ids, status, count: ids.length },
+        });
+      }
+    },
+    onSuccess: (_, variables) => {
+      queryClient.invalidateQueries({ queryKey: ['contact-requests'] });
+      toast.success(`Updated status for ${variables.ids.length} request(s)`);
+    },
+    onError: (error: any) => {
+      toast.error(error.message || 'Failed to update status');
+    },
+  });
+
+  const bulkDelete = useMutation({
+    mutationFn: async (ids: string[]) => {
+      const { error } = await supabase
+        .from('contact_requests')
+        .delete()
+        .in('id', ids);
+
+      if (error) throw error;
+
+      // Log admin action
+      const { data: { user } } = await supabase.auth.getUser();
+      if (user) {
+        await supabase.from('admin_actions').insert({
+          user_id: user.id,
+          action: 'bulk_delete',
+          resource_type: 'contact_request',
+          details: { ids, count: ids.length },
+        });
+      }
+    },
+    onSuccess: (_, ids) => {
+      queryClient.invalidateQueries({ queryKey: ['contact-requests'] });
+      toast.success(`Deleted ${ids.length} request(s)`);
+    },
+    onError: (error: any) => {
+      toast.error(error.message || 'Failed to delete requests');
+    },
+  });
+
   return {
     contactRequests: contactRequests ?? [],
     isLoading,
     updateStatus,
     deleteRequest,
+    bulkUpdateStatus,
+    bulkDelete,
   };
 };
