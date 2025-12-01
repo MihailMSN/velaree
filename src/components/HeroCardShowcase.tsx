@@ -20,7 +20,7 @@ const HeroCardShowcase = ({ className = "" }: HeroCardShowcaseProps) => {
         cardDistance={100}
         verticalDistance={75}
         delay={5000}
-        pauseOnHover={true}
+        pauseOnHover={false}
         skewAmount={0}
         easing="elastic"
       >
