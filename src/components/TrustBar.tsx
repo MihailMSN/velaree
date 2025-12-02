@@ -35,24 +35,27 @@ const TrustBar = () => {
   ];
 
   return (
-    <div className="border-t border-border/50 bg-secondary/30 backdrop-blur-sm py-6">
-      <div className="container mx-auto">
-        <div className="text-center mb-4">
-          <p className="text-sm text-muted-foreground font-medium">
+    <div className="relative bg-gradient-to-b from-white to-secondary/50 border-y border-border/40 py-12">
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-8">
+          <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground/70 font-medium">
             Trusted by leading travel platforms
           </p>
         </div>
-        <LogoLoop
-          logos={partnerLogos}
-          speed={120}
-          direction="left"
-          logoHeight={48}
-          gap={64}
-          pauseOnHover
-          fadeOut
-          scaleOnHover
-          ariaLabel="Travel industry partners"
-        />
+        <div className="[&_img]:grayscale [&_img]:opacity-60 hover:[&_img]:grayscale-0 hover:[&_img]:opacity-100 [&_img]:transition-all [&_img]:duration-500">
+          <LogoLoop
+            logos={partnerLogos}
+            speed={80}
+            direction="left"
+            logoHeight={56}
+            gap={80}
+            pauseOnHover
+            fadeOut
+            fadeOutColor="rgba(255, 255, 255, 0)"
+            scaleOnHover
+            ariaLabel="Travel industry partners"
+          />
+        </div>
       </div>
     </div>
   );
