@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import ScrollIndicator from "./ScrollIndicator";
-import TrustBar from "./TrustBar";
 import HeroCardShowcase from "./HeroCardShowcase";
 const Hero = () => {
   return <section className="relative min-h-screen flex items-center overflow-hidden bg-white">
@@ -49,8 +48,6 @@ const Hero = () => {
 
       <ScrollIndicator />
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent"></div>
-      
-      <TrustBar />
     </section>;
 };
 export default Hero;

@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
+import TrustBar from "@/components/TrustBar";
 import SectionDivider from "@/components/SectionDivider";
 import HowItWorks from "@/components/HowItWorks";
 import Mission from "@/components/Mission";
@@ -67,6 +68,7 @@ const Index = () => {
       </Helmet>
       <Navigation />
       <Hero />
+      <TrustBar />
       <SectionDivider />
       <HowItWorks />
       <Mission />
