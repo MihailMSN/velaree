@@ -1,38 +1,83 @@
 import LogoLoop from "@/components/ui/logo-loop";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
 
 const TrustBar = () => {
-  const partnerLogos = [
+  const partnerData = [
     { 
       src: "/logos/amadeus.png",
       alt: "Amadeus GDS",
-      title: "Amadeus GDS"
+      title: "Amadeus GDS",
+      description: "Leading global distribution system connecting travel agencies with airlines, hotels, and travel suppliers worldwide.",
+      integration: "Real-time availability and pricing data"
     },
     { 
       src: "/logos/sabre.png",
       alt: "Sabre GDS",
-      title: "Sabre GDS"
+      title: "Sabre GDS",
+      description: "One of the world's largest GDS platforms serving travel agencies, airlines, and corporate travel management.",
+      integration: "Advanced booking and inventory management"
     },
     { 
       src: "/logos/travelport.png",
       alt: "Travelport GDS",
-      title: "Travelport GDS"
+      title: "Travelport GDS",
+      description: "Global technology company providing distribution, technology, and payment solutions for the travel industry.",
+      integration: "Multi-source content aggregation"
     },
     { 
       src: "/logos/iata.png",
       alt: "IATA",
-      title: "International Air Transport Association"
+      title: "IATA",
+      description: "International Air Transport Association - setting global standards for airline safety, security, and efficiency.",
+      integration: "Compliance with industry standards"
     },
     { 
       src: "/logos/google-flights.png",
       alt: "Google Flights",
-      title: "Google Flights"
+      title: "Google Flights",
+      description: "Powerful flight search engine providing comprehensive comparison shopping across airlines and travel sites.",
+      integration: "Price comparison and availability data"
     },
     { 
       src: "/logos/ndc.png",
       alt: "NDC",
-      title: "New Distribution Capability"
+      title: "NDC",
+      description: "New Distribution Capability - IATA's modern XML-based standard enabling airlines to distribute rich content directly.",
+      integration: "Direct airline content and ancillaries"
     },
   ];
+
+  const partnerLogos = partnerData.map((partner) => ({
+    node: (
+      <HoverCard openDelay={200} closeDelay={100}>
+        <HoverCardTrigger asChild>
+          <img
+            src={partner.src}
+            alt={partner.alt}
+            title={partner.title}
+            className="h-full w-auto cursor-pointer"
+          />
+        </HoverCardTrigger>
+        <HoverCardContent className="w-80" side="top">
+          <div className="space-y-2">
+            <h4 className="text-sm font-semibold text-foreground">{partner.title}</h4>
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              {partner.description}
+            </p>
+            <div className="pt-2 border-t border-border/50">
+              <p className="text-xs font-medium text-primary">
+                {partner.integration}
+              </p>
+            </div>
+          </div>
+        </HoverCardContent>
+      </HoverCard>
+    ),
+  }));
 
   return (
     <div className="relative bg-gradient-to-b from-background via-secondary/30 to-background border-y border-border/40 py-20">
