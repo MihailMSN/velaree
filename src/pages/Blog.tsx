@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
@@ -6,126 +6,44 @@ import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Calendar, Clock, ArrowRight, User } from "lucide-react";
-
-interface BlogPost {
-  id: string;
-  title: string;
-  excerpt: string;
-  category: string;
-  author: string;
-  date: string;
-  readTime: string;
-  featured?: boolean;
-  image?: string;
-}
-
-const blogPosts: BlogPost[] = [
-  {
-    id: "1",
-    title: "The Future of NDC: What Airlines Need to Know in 2025",
-    excerpt: "NDC adoption is accelerating across the industry. Learn how the latest developments are reshaping airline distribution and what it means for your business.",
-    category: "Industry Trends",
-    author: "Sarah Chen",
-    date: "Nov 28, 2025",
-    readTime: "8 min read",
-    featured: true,
-  },
-  {
-    id: "2",
-    title: "How AI is Transforming Flight Reshop Operations",
-    excerpt: "Discover how machine learning algorithms are helping travel agencies save millions by automatically identifying better fares for existing bookings.",
-    category: "Technology",
-    author: "Michael Torres",
-    date: "Nov 25, 2025",
-    readTime: "6 min read",
-    featured: true,
-  },
-  {
-    id: "3",
-    title: "Maximizing Private Fare Access: A Complete Guide",
-    excerpt: "Learn the strategies top TMCs use to unlock exclusive airline rates and pass significant savings to their corporate clients.",
-    category: "Best Practices",
-    author: "Emma Williams",
-    date: "Nov 22, 2025",
-    readTime: "10 min read",
-    featured: true,
-  },
-  {
-    id: "4",
-    title: "Understanding Multi-GDS Aggregation",
-    excerpt: "Why connecting to multiple GDS systems simultaneously is essential for comprehensive fare coverage in today's fragmented market.",
-    category: "Technology",
-    author: "James Park",
-    date: "Nov 18, 2025",
-    readTime: "5 min read",
-  },
-  {
-    id: "5",
-    title: "Case Study: How TravelCorp Reduced Costs by 23%",
-    excerpt: "A deep dive into how one of Europe's largest TMCs transformed their operations with automated reshop technology.",
-    category: "Case Studies",
-    author: "Lisa Anderson",
-    date: "Nov 15, 2025",
-    readTime: "7 min read",
-  },
-  {
-    id: "6",
-    title: "API Integration Best Practices for Travel Tech",
-    excerpt: "Technical guide for developers building travel applications. Covers authentication, rate limiting, and error handling.",
-    category: "Developer",
-    author: "David Kim",
-    date: "Nov 12, 2025",
-    readTime: "12 min read",
-  },
-  {
-    id: "7",
-    title: "The Rise of Corporate Self-Booking Tools",
-    excerpt: "How modern enterprises are empowering employees with sophisticated booking tools while maintaining policy compliance.",
-    category: "Industry Trends",
-    author: "Rachel Green",
-    date: "Nov 8, 2025",
-    readTime: "6 min read",
-  },
-  {
-    id: "8",
-    title: "Sustainability in Travel: Beyond Carbon Offsets",
-    excerpt: "Exploring how technology can help travel companies make meaningful progress on environmental goals.",
-    category: "Sustainability",
-    author: "Tom Wilson",
-    date: "Nov 5, 2025",
-    readTime: "8 min read",
-  },
-];
-
-const categories = [
-  { name: "All", count: blogPosts.length },
-  { name: "Industry Trends", count: blogPosts.filter(p => p.category === "Industry Trends").length },
-  { name: "Technology", count: blogPosts.filter(p => p.category === "Technology").length },
-  { name: "Best Practices", count: blogPosts.filter(p => p.category === "Best Practices").length },
-  { name: "Case Studies", count: blogPosts.filter(p => p.category === "Case Studies").length },
-  { name: "Developer", count: blogPosts.filter(p => p.category === "Developer").length },
-  { name: "Sustainability", count: blogPosts.filter(p => p.category === "Sustainability").length },
-];
-
-const categoryColors: Record<string, string> = {
-  "Industry Trends": "bg-primary/10 text-primary border-primary/20",
-  "Technology": "bg-accent/20 text-accent-foreground border-accent/30",
-  "Best Practices": "bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/20",
-  "Case Studies": "bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/20",
-  "Developer": "bg-violet-500/10 text-violet-700 dark:text-violet-400 border-violet-500/20",
-  "Sustainability": "bg-teal-500/10 text-teal-700 dark:text-teal-400 border-teal-500/20",
-};
+import { Input } from "@/components/ui/input";
+import { Calendar, Clock, ArrowRight, User, Search, X } from "lucide-react";
+import { blogPosts, categories, categoryColors, searchPosts } from "@/data/blogPosts";
 
 const Blog = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [searchQuery, setSearchQuery] = useState("");
 
-  const filteredPosts = selectedCategory === "All" 
-    ? blogPosts 
-    : blogPosts.filter(post => post.category === selectedCategory);
+  const filteredPosts = useMemo(() => {
+    let posts = blogPosts;
+    
+    // Apply search filter
+    if (searchQuery.trim()) {
+      posts = searchPosts(searchQuery);
+    }
+    
+    // Apply category filter
+    if (selectedCategory !== "All") {
+      posts = posts.filter(post => post.category === selectedCategory);
+    }
+    
+    return posts;
+  }, [selectedCategory, searchQuery]);
 
   const featuredPosts = blogPosts.filter(post => post.featured);
-  const regularPosts = filteredPosts.filter(post => !post.featured || selectedCategory !== "All");
+  const showFeatured = selectedCategory === "All" && !searchQuery.trim();
+
+  const categoryCountMap = useMemo(() => {
+    const basePosts = searchQuery.trim() ? searchPosts(searchQuery) : blogPosts;
+    return categories.reduce((acc, cat) => {
+      acc[cat] = basePosts.filter(p => p.category === cat).length;
+      return acc;
+    }, {} as Record<string, number>);
+  }, [searchQuery]);
+
+  const clearSearch = () => {
+    setSearchQuery("");
+  };
 
   return (
     <>
@@ -144,57 +62,82 @@ const Blog = () => {
               <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
                 Travel Tech Insights
               </h1>
-              <p className="text-xl text-muted-foreground">
+              <p className="text-xl text-muted-foreground mb-8">
                 Expert perspectives on NDC, airline distribution, and the future of travel technology.
               </p>
+              
+              {/* Search Bar */}
+              <div className="relative max-w-xl mx-auto">
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                <Input
+                  type="text"
+                  placeholder="Search articles..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="pl-12 pr-12 py-6 text-lg rounded-full border-border/60 bg-card focus-visible:ring-primary"
+                />
+                {searchQuery && (
+                  <button
+                    onClick={clearSearch}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 p-1 rounded-full hover:bg-muted transition-colors"
+                  >
+                    <X className="w-5 h-5 text-muted-foreground" />
+                  </button>
+                )}
+              </div>
+              
+              {searchQuery && (
+                <p className="mt-4 text-sm text-muted-foreground">
+                  Found {filteredPosts.length} result{filteredPosts.length !== 1 ? "s" : ""} for "{searchQuery}"
+                </p>
+              )}
             </div>
           </div>
         </section>
 
         {/* Featured Articles */}
-        {selectedCategory === "All" && (
+        {showFeatured && (
           <section className="py-12">
             <div className="container mx-auto px-6">
               <h2 className="text-2xl font-bold text-foreground mb-8">Featured Articles</h2>
               <div className="grid md:grid-cols-3 gap-6">
                 {featuredPosts.map((post) => (
-                  <Card 
-                    key={post.id} 
-                    className="group hover:shadow-xl transition-all duration-300 border-border/60 bg-card hover:border-primary/30 cursor-pointer"
-                  >
-                    <CardHeader className="pb-3">
-                      <Badge 
-                        variant="outline" 
-                        className={`w-fit ${categoryColors[post.category] || "bg-muted"}`}
-                      >
-                        {post.category}
-                      </Badge>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2">
-                        {post.title}
-                      </h3>
-                      <p className="text-sm text-muted-foreground line-clamp-3">
-                        {post.excerpt}
-                      </p>
-                      <div className="flex items-center justify-between text-xs text-muted-foreground pt-2">
-                        <div className="flex items-center gap-2">
-                          <User className="w-3 h-3" />
-                          <span>{post.author}</span>
+                  <Link key={post.id} to={`/blog/${post.id}`}>
+                    <Card className="h-full group hover:shadow-xl transition-all duration-300 border-border/60 bg-card hover:border-primary/30">
+                      <CardHeader className="pb-3">
+                        <Badge 
+                          variant="outline" 
+                          className={`w-fit ${categoryColors[post.category] || "bg-muted"}`}
+                        >
+                          {post.category}
+                        </Badge>
+                      </CardHeader>
+                      <CardContent className="space-y-4">
+                        <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2">
+                          {post.title}
+                        </h3>
+                        <p className="text-sm text-muted-foreground line-clamp-3">
+                          {post.excerpt}
+                        </p>
+                        <div className="flex items-center justify-between text-xs text-muted-foreground pt-2">
+                          <div className="flex items-center gap-2">
+                            <User className="w-3 h-3" />
+                            <span>{post.author}</span>
+                          </div>
+                          <div className="flex items-center gap-3">
+                            <span className="flex items-center gap-1">
+                              <Calendar className="w-3 h-3" />
+                              {post.date}
+                            </span>
+                            <span className="flex items-center gap-1">
+                              <Clock className="w-3 h-3" />
+                              {post.readTime}
+                            </span>
+                          </div>
                         </div>
-                        <div className="flex items-center gap-3">
-                          <span className="flex items-center gap-1">
-                            <Calendar className="w-3 h-3" />
-                            {post.date}
-                          </span>
-                          <span className="flex items-center gap-1">
-                            <Clock className="w-3 h-3" />
-                            {post.readTime}
-                          </span>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
+                      </CardContent>
+                    </Card>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -212,23 +155,40 @@ const Blog = () => {
                     Categories
                   </h3>
                   <div className="flex flex-wrap lg:flex-col gap-2">
+                    <button
+                      onClick={() => setSelectedCategory("All")}
+                      className={`flex items-center justify-between px-4 py-2 rounded-lg text-sm transition-all duration-200 ${
+                        selectedCategory === "All"
+                          ? "bg-primary text-primary-foreground font-medium"
+                          : "bg-card hover:bg-accent/50 text-foreground/80"
+                      }`}
+                    >
+                      <span>All</span>
+                      <span className={`ml-2 text-xs ${
+                        selectedCategory === "All" 
+                          ? "text-primary-foreground/70" 
+                          : "text-muted-foreground"
+                      }`}>
+                        {searchQuery.trim() ? filteredPosts.length : blogPosts.length}
+                      </span>
+                    </button>
                     {categories.map((category) => (
                       <button
-                        key={category.name}
-                        onClick={() => setSelectedCategory(category.name)}
+                        key={category}
+                        onClick={() => setSelectedCategory(category)}
                         className={`flex items-center justify-between px-4 py-2 rounded-lg text-sm transition-all duration-200 ${
-                          selectedCategory === category.name
+                          selectedCategory === category
                             ? "bg-primary text-primary-foreground font-medium"
                             : "bg-card hover:bg-accent/50 text-foreground/80"
                         }`}
                       >
-                        <span>{category.name}</span>
+                        <span>{category}</span>
                         <span className={`ml-2 text-xs ${
-                          selectedCategory === category.name 
+                          selectedCategory === category 
                             ? "text-primary-foreground/70" 
                             : "text-muted-foreground"
                         }`}>
-                          {category.count}
+                          {categoryCountMap[category]}
                         </span>
                       </button>
                     ))}
@@ -262,44 +222,54 @@ const Blog = () => {
                   </span>
                 </div>
 
-                <div className="grid sm:grid-cols-2 gap-6">
-                  {(selectedCategory === "All" ? regularPosts.slice(3) : regularPosts).map((post) => (
-                    <Card 
-                      key={post.id} 
-                      className="group hover:shadow-lg transition-all duration-300 border-border/60 bg-card hover:border-primary/30 cursor-pointer"
-                    >
-                      <CardContent className="p-5 space-y-3">
-                        <Badge 
-                          variant="outline" 
-                          className={`${categoryColors[post.category] || "bg-muted"}`}
-                        >
-                          {post.category}
-                        </Badge>
-                        <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2">
-                          {post.title}
-                        </h3>
-                        <p className="text-sm text-muted-foreground line-clamp-2">
-                          {post.excerpt}
-                        </p>
-                        <div className="flex items-center justify-between text-xs text-muted-foreground pt-2">
-                          <span>{post.author}</span>
-                          <span className="flex items-center gap-1">
-                            <Clock className="w-3 h-3" />
-                            {post.readTime}
-                          </span>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
+                {filteredPosts.length === 0 ? (
+                  <div className="text-center py-16">
+                    <p className="text-muted-foreground mb-4">No articles found matching your criteria.</p>
+                    <Button variant="outline" onClick={() => { setSearchQuery(""); setSelectedCategory("All"); }}>
+                      Clear Filters
+                    </Button>
+                  </div>
+                ) : (
+                  <div className="grid sm:grid-cols-2 gap-6">
+                    {(showFeatured ? filteredPosts.filter(p => !p.featured) : filteredPosts).map((post) => (
+                      <Link key={post.id} to={`/blog/${post.id}`}>
+                        <Card className="h-full group hover:shadow-lg transition-all duration-300 border-border/60 bg-card hover:border-primary/30">
+                          <CardContent className="p-5 space-y-3">
+                            <Badge 
+                              variant="outline" 
+                              className={`${categoryColors[post.category] || "bg-muted"}`}
+                            >
+                              {post.category}
+                            </Badge>
+                            <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2">
+                              {post.title}
+                            </h3>
+                            <p className="text-sm text-muted-foreground line-clamp-2">
+                              {post.excerpt}
+                            </p>
+                            <div className="flex items-center justify-between text-xs text-muted-foreground pt-2">
+                              <span>{post.author}</span>
+                              <span className="flex items-center gap-1">
+                                <Clock className="w-3 h-3" />
+                                {post.readTime}
+                              </span>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      </Link>
+                    ))}
+                  </div>
+                )}
 
-                {/* Load More */}
-                <div className="text-center mt-10">
-                  <Button variant="outline" className="rounded-full px-8">
-                    Load More Articles
-                    <ArrowRight className="ml-2 w-4 h-4" />
-                  </Button>
-                </div>
+                {/* Load More - only show if there would be more articles */}
+                {filteredPosts.length >= 8 && (
+                  <div className="text-center mt-10">
+                    <Button variant="outline" className="rounded-full px-8">
+                      Load More Articles
+                      <ArrowRight className="ml-2 w-4 h-4" />
+                    </Button>
+                  </div>
+                )}
               </div>
             </div>
           </div>
