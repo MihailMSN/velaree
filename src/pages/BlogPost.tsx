@@ -11,13 +11,17 @@ import { blogPosts, categoryColors, getRelatedPosts } from "@/data/blogPosts";
 import { useToast } from "@/hooks/use-toast";
 import MarkdownRenderer from "@/components/blog/MarkdownRenderer";
 import TableOfContents, { extractHeadings } from "@/components/blog/TableOfContents";
-
 const BlogPost = () => {
-  const { id } = useParams<{ id: string }>();
+  const {
+    id
+  } = useParams<{
+    id: string;
+  }>();
   const navigate = useNavigate();
-  const { toast } = useToast();
+  const {
+    toast
+  } = useToast();
   const [activeHeading, setActiveHeading] = useState<string>("");
-
   const post = blogPosts.find(p => p.id === id);
   const relatedPosts = post ? getRelatedPosts(post, 3) : [];
   const headings = post ? extractHeadings(post.content) : [];
@@ -25,29 +29,23 @@ const BlogPost = () => {
   // Track active heading on scroll
   useEffect(() => {
     if (!post || headings.length < 2) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveHeading(entry.target.id);
-          }
-        });
-      },
-      { rootMargin: "-100px 0px -80% 0px" }
-    );
-
-    headings.forEach((heading) => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setActiveHeading(entry.target.id);
+        }
+      });
+    }, {
+      rootMargin: "-100px 0px -80% 0px"
+    });
+    headings.forEach(heading => {
       const element = document.getElementById(heading.id);
       if (element) observer.observe(element);
     });
-
     return () => observer.disconnect();
   }, [post, headings]);
-
   if (!post) {
-    return (
-      <>
+    return <>
         <Navigation />
         <main className="min-h-screen bg-background pt-32">
           <div className="container mx-auto px-6 text-center">
@@ -60,37 +58,31 @@ const BlogPost = () => {
           </div>
         </main>
         <Footer />
-      </>
-    );
+      </>;
   }
-
   const handleShare = async () => {
     try {
       await navigator.share({
         title: post.title,
         text: post.excerpt,
-        url: window.location.href,
+        url: window.location.href
       });
     } catch {
       await navigator.clipboard.writeText(window.location.href);
       toast({
         title: "Link copied",
-        description: "Article link has been copied to clipboard.",
+        description: "Article link has been copied to clipboard."
       });
     }
   };
-
   const handleBookmark = () => {
     toast({
       title: "Article bookmarked",
-      description: "You can find your saved articles in your profile.",
+      description: "You can find your saved articles in your profile."
     });
   };
-
   const showTOC = headings.length >= 2;
-
-  return (
-    <>
+  return <>
       <Helmet>
         <title>{post.title} | Velaree Blog</title>
         <meta name="description" content={post.excerpt} />
@@ -108,19 +100,12 @@ const BlogPost = () => {
           <div className="container mx-auto px-6">
             <div className="max-w-3xl mx-auto lg:max-w-none lg:px-0">
               <div className="lg:max-w-3xl lg:mx-auto">
-                <Button 
-                  variant="ghost" 
-                  onClick={() => navigate("/blog")}
-                  className="mb-6 -ml-2 text-muted-foreground hover:text-foreground"
-                >
+                <Button variant="ghost" onClick={() => navigate("/blog")} className="mb-6 -ml-2 text-muted-foreground hover:text-foreground">
                   <ArrowLeft className="mr-2 w-4 h-4" />
                   Back to Blog
                 </Button>
 
-                <Badge 
-                  variant="outline" 
-                  className={`mb-4 ${categoryColors[post.category] || "bg-muted"}`}
-                >
+                <Badge variant="outline" className={`mb-4 ${categoryColors[post.category] || "bg-muted"}`}>
                   {post.category}
                 </Badge>
 
@@ -175,11 +160,9 @@ const BlogPost = () => {
 
                 {/* Tags */}
                 <div className="flex flex-wrap gap-2 mt-12 pt-8 border-t border-border">
-                  {post.tags.map(tag => (
-                    <Badge key={tag} variant="secondary" className="rounded-full">
+                  {post.tags.map(tag => <Badge key={tag} variant="secondary" className="rounded-full">
                       {tag}
-                    </Badge>
-                  ))}
+                    </Badge>)}
                 </div>
 
                 {/* Author Card */}
@@ -200,30 +183,23 @@ const BlogPost = () => {
               </div>
 
               {/* Table of Contents Sidebar */}
-              {showTOC && (
-                <aside className="hidden xl:block w-64 flex-shrink-0">
+              {showTOC && <aside className="hidden xl:block w-64 flex-shrink-0">
                   <TableOfContents content={post.content} activeId={activeHeading} />
-                </aside>
-              )}
+                </aside>}
             </div>
           </div>
         </section>
 
         {/* Related Articles */}
-        {relatedPosts.length > 0 && (
-          <section className="py-12 bg-muted/30">
+        {relatedPosts.length > 0 && <section className="py-12 bg-muted/30">
             <div className="container mx-auto px-6">
               <div className="max-w-5xl mx-auto">
                 <h2 className="text-2xl font-bold text-foreground mb-8">Related Articles</h2>
                 <div className="grid md:grid-cols-3 gap-6">
-                  {relatedPosts.map(relatedPost => (
-                    <Link key={relatedPost.id} to={`/blog/${relatedPost.id}`}>
+                  {relatedPosts.map(relatedPost => <Link key={relatedPost.id} to={`/blog/${relatedPost.id}`}>
                       <Card className="h-full group hover:shadow-lg transition-all duration-300 border-border/60 bg-card hover:border-primary/30">
                         <CardContent className="p-5 space-y-3">
-                          <Badge 
-                            variant="outline" 
-                            className={`${categoryColors[relatedPost.category] || "bg-muted"}`}
-                          >
+                          <Badge variant="outline" className={`${categoryColors[relatedPost.category] || "bg-muted"}`}>
                             {relatedPost.category}
                           </Badge>
                           <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2">
@@ -238,13 +214,11 @@ const BlogPost = () => {
                           </div>
                         </CardContent>
                       </Card>
-                    </Link>
-                  ))}
+                    </Link>)}
                 </div>
               </div>
             </div>
-          </section>
-        )}
+          </section>}
 
         {/* CTA */}
         <section className="py-16">
@@ -256,7 +230,7 @@ const BlogPost = () => {
               See how Velaree can help you access better content, automate operations, and reduce costs.
             </p>
             <Link to="/contact">
-              <Button size="lg" className="rounded-full px-8">
+              <Button size="lg" className="rounded-full px-8 bg-secondary-foreground">
                 Get Started
               </Button>
             </Link>
@@ -265,8 +239,6 @@ const BlogPost = () => {
       </main>
 
       <Footer />
-    </>
-  );
+    </>;
 };
-
 export default BlogPost;
