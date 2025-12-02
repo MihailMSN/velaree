@@ -4,7 +4,8 @@ import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Card } from "@/components/ui/card";
-import { ArrowRight } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { ArrowRight, Plane, Building2, Layers, Link as LinkIcon, LucideIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Contact = () => {
@@ -27,11 +28,17 @@ const Contact = () => {
     }
   ];
 
-  const quickLinks = [
-    { title: "aRStool", description: "AI-powered air ticket re-shopping", path: "/rstool" },
-    { title: "hRStool", description: "Hotel reservation re-shopping", path: "/hrstool" },
-    { title: "aSuite", description: "Complete automation suite", path: "/asuite" },
-    { title: "UnifyTool", description: "Unified API platform", path: "/unifytool" },
+  const quickLinks: Array<{ 
+    title: string; 
+    description: string; 
+    path: string; 
+    icon?: LucideIcon; 
+    badgeColor?: string;
+  }> = [
+    { title: "aRStool", description: "AI-powered air ticket re-shopping", path: "/rstool", icon: Plane, badgeColor: "feature-purple" },
+    { title: "hRStool", description: "Hotel reservation re-shopping", path: "/hrstool", icon: Building2, badgeColor: "feature-emerald" },
+    { title: "aSuite", description: "Complete automation suite", path: "/asuite", icon: Layers, badgeColor: "feature-blue" },
+    { title: "UnifyTool", description: "Unified API platform", path: "/unifytool", icon: LinkIcon, badgeColor: "feature-amber" },
     { title: "Technology", description: "Our tech stack & approach", path: "/technology" },
     { title: "Pricing", description: "Plans & pricing details", path: "/pricing" }
   ];
@@ -117,22 +124,35 @@ const Contact = () => {
           </p>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {quickLinks.map((link, index) => (
-              <Link key={index} to={link.path}>
-                <Card className="p-6 hover:border-primary/50 transition-all duration-300 hover:shadow-lg group cursor-pointer h-full">
-                  <h3 className="text-xl font-bold mb-2 text-foreground group-hover:text-primary transition-colors">
-                    {link.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm mb-4">
-                    {link.description}
-                  </p>
-                  <div className="flex items-center gap-2 text-primary text-sm font-medium">
-                    Learn more
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </Card>
-              </Link>
-            ))}
+            {quickLinks.map((link, index) => {
+              const Icon = link.icon;
+              return (
+                <Link key={index} to={link.path}>
+                  <Card className="p-6 hover:border-primary/50 transition-all duration-300 hover:shadow-lg group cursor-pointer h-full">
+                    <div className="flex items-start gap-3 mb-3">
+                      {Icon && link.badgeColor && (
+                        <Badge 
+                          variant="outline" 
+                          className={`bg-${link.badgeColor}/10 text-${link.badgeColor} border-${link.badgeColor}/20 p-2`}
+                        >
+                          <Icon className="w-4 h-4" />
+                        </Badge>
+                      )}
+                      <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                        {link.title}
+                      </h3>
+                    </div>
+                    <p className="text-muted-foreground text-sm mb-4">
+                      {link.description}
+                    </p>
+                    <div className="flex items-center gap-2 text-primary text-sm font-medium">
+                      Learn more
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </Card>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
