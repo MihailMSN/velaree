@@ -35,20 +35,20 @@ const TrustBar = () => {
   ];
 
   return (
-    <div className="relative bg-gradient-to-b from-background via-secondary/30 to-background border-y border-border/40 py-16">
+    <div className="relative bg-gradient-to-b from-background via-secondary/30 to-background border-y border-border/40 py-20">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-10">
+        <div className="text-center mb-12">
           <p className="text-sm uppercase tracking-[0.25em] text-muted-foreground font-semibold">
             Trusted by leading travel platforms
           </p>
         </div>
-        <div className="[&_img]:grayscale-[40%] [&_img]:opacity-75 hover:[&_img]:grayscale-0 hover:[&_img]:opacity-100 [&_img]:transition-all [&_img]:duration-300 [&_img]:ease-out">
+        <div className="[&_img]:grayscale-[30%] [&_img]:opacity-70 hover:[&_img]:grayscale-0 hover:[&_img]:opacity-100 [&_img]:transition-all [&_img]:duration-300 [&_img]:ease-out [&_img]:object-contain">
           <LogoLoop
             logos={partnerLogos}
-            speed={60}
+            speed={50}
             direction="left"
-            logoHeight={68}
-            gap={96}
+            logoHeight={52}
+            gap={120}
             pauseOnHover
             fadeOut
             fadeOutColor="rgba(255, 255, 255, 0)"
