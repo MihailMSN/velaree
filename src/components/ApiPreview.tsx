@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Check, Copy } from "lucide-react";
@@ -125,18 +126,15 @@ const ApiPreview = () => {
 
             {/* CTA */}
             <div className="text-center mt-8">
-              <a
-                href="/contact"
+              <Link
+                to="/contact"
                 className="inline-flex items-center px-6 py-3 bg-accent text-accent-foreground rounded-full font-semibold hover:bg-accent/90 transition-all duration-300 hover:shadow-lg"
               >
                 Get API Keys →
-              </a>
-              <a
-                href="#"
-                className="inline-flex items-center px-6 py-3 text-muted-foreground hover:text-foreground transition-colors ml-4"
-              >
-                View Full Docs
-              </a>
+              </Link>
+              <span className="inline-flex items-center px-6 py-3 text-muted-foreground/50 cursor-not-allowed ml-4">
+                View Full Docs (Coming Soon)
+              </span>
             </div>
           </Card>
         </div>
