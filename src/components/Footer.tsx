@@ -11,7 +11,7 @@ const Footer = () => {
     "Pricing": "/pricing",
     "About": null,
     "Careers": null,
-    "Blog": null,
+    "Blog": "/blog",
     "Contact": "/contact",
     "Documentation": null,
     "API Reference": null,
