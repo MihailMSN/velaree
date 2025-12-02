@@ -1,11 +1,33 @@
 import { Github, Linkedin, Twitter } from "lucide-react";
+import { Link } from "react-router-dom";
 import velareeLogoImg from "@/assets/velaree-logo.png";
 
 const Footer = () => {
+  // Map link names to actual routes (null = no route yet)
+  const linkRoutes: Record<string, string | null> = {
+    "Solutions": "/asuite",
+    "Technology": "/technology",
+    "Integrations": null,
+    "Pricing": "/pricing",
+    "About": null,
+    "Careers": null,
+    "Blog": null,
+    "Contact": "/contact",
+    "Documentation": null,
+    "API Reference": null,
+    "Support": null,
+    "Status": null,
+    "Privacy": null,
+    "Terms": null,
+    "Security": null,
+    "Compliance": null,
+    "FAQ": "/faq",
+  };
+
   const footerLinks = {
     Product: ["Solutions", "Technology", "Integrations", "Pricing"],
     Company: ["About", "Careers", "Blog", "Contact"],
-    Resources: ["Documentation", "API Reference", "Support", "Status"],
+    Resources: ["Documentation", "API Reference", "Support", "FAQ"],
     Legal: ["Privacy", "Terms", "Security", "Compliance"]
   };
 
@@ -28,16 +50,30 @@ const Footer = () => {
             <div key={category}>
               <h4 className="font-semibold mb-4">{category}</h4>
               <ul className="space-y-2">
-                {links.map((link) => (
-                  <li key={link}>
-                    <a 
-                      href="#" 
-                      className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm"
-                    >
-                      {link}
-                    </a>
-                  </li>
-                ))}
+                {links.map((link) => {
+                  const route = linkRoutes[link];
+                  
+                  if (route) {
+                    return (
+                      <li key={link}>
+                        <Link 
+                          to={route}
+                          className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm"
+                        >
+                          {link}
+                        </Link>
+                      </li>
+                    );
+                  }
+                  
+                  return (
+                    <li key={link}>
+                      <span className="text-primary-foreground/40 text-sm cursor-not-allowed">
+                        {link}
+                      </span>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           ))}
@@ -49,13 +85,28 @@ const Footer = () => {
           </p>
           
           <div className="flex gap-6">
-            <a href="#" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors">
+            <a 
+              href="https://twitter.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+            >
               <Twitter size={20} />
             </a>
-            <a href="#" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors">
+            <a 
+              href="https://linkedin.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+            >
               <Linkedin size={20} />
             </a>
-            <a href="#" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors">
+            <a 
+              href="https://github.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+            >
               <Github size={20} />
             </a>
           </div>
