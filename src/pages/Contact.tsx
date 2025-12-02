@@ -35,10 +35,10 @@ const Contact = () => {
     icon?: LucideIcon; 
     badgeColor?: string;
   }> = [
-    { title: "aRStool", description: "AI-powered air ticket re-shopping", path: "/rstool", icon: Plane, badgeColor: "feature-purple" },
-    { title: "hRStool", description: "Hotel reservation re-shopping", path: "/hrstool", icon: Building2, badgeColor: "feature-emerald" },
-    { title: "aSuite", description: "Complete automation suite", path: "/asuite", icon: Layers, badgeColor: "feature-blue" },
-    { title: "UnifyTool", description: "Unified API platform", path: "/unifytool", icon: LinkIcon, badgeColor: "feature-amber" },
+    { title: "aRStool", description: "AI-powered air ticket re-shopping", path: "/rstool", icon: Plane, badgeColor: "bg-feature-purple-muted text-feature-purple-foreground border-feature-purple" },
+    { title: "hRStool", description: "Hotel reservation re-shopping", path: "/hrstool", icon: Building2, badgeColor: "bg-feature-emerald-muted text-feature-emerald-foreground border-feature-emerald" },
+    { title: "aSuite", description: "Complete automation suite", path: "/asuite", icon: Layers, badgeColor: "bg-feature-blue-muted text-feature-blue-foreground border-feature-blue" },
+    { title: "UnifyTool", description: "Unified API platform", path: "/unifytool", icon: LinkIcon, badgeColor: "bg-feature-amber-muted text-feature-amber-foreground border-feature-amber" },
     { title: "Technology", description: "Our tech stack & approach", path: "/technology" },
     { title: "Pricing", description: "Plans & pricing details", path: "/pricing" }
   ];
@@ -133,7 +133,7 @@ const Contact = () => {
                       {Icon && link.badgeColor && (
                         <Badge 
                           variant="outline" 
-                          className={`bg-${link.badgeColor}/10 text-${link.badgeColor} border-${link.badgeColor}/20 p-2`}
+                          className={`${link.badgeColor} p-2 rounded-full`}
                         >
                           <Icon className="w-4 h-4" />
                         </Badge>
