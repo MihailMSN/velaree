@@ -1,4 +1,5 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -8,14 +9,41 @@ import { Button } from "@/components/ui/button";
 import { Calendar, Clock, ArrowLeft, User, Share2, Bookmark } from "lucide-react";
 import { blogPosts, categoryColors, getRelatedPosts } from "@/data/blogPosts";
 import { useToast } from "@/hooks/use-toast";
+import MarkdownRenderer from "@/components/blog/MarkdownRenderer";
+import TableOfContents, { extractHeadings } from "@/components/blog/TableOfContents";
 
 const BlogPost = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const { toast } = useToast();
+  const [activeHeading, setActiveHeading] = useState<string>("");
 
   const post = blogPosts.find(p => p.id === id);
   const relatedPosts = post ? getRelatedPosts(post, 3) : [];
+  const headings = post ? extractHeadings(post.content) : [];
+
+  // Track active heading on scroll
+  useEffect(() => {
+    if (!post || headings.length < 2) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveHeading(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-100px 0px -80% 0px" }
+    );
+
+    headings.forEach((heading) => {
+      const element = document.getElementById(heading.id);
+      if (element) observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, [post, headings]);
 
   if (!post) {
     return (
@@ -24,7 +52,7 @@ const BlogPost = () => {
         <main className="min-h-screen bg-background pt-32">
           <div className="container mx-auto px-6 text-center">
             <h1 className="text-4xl font-bold text-foreground mb-4">Article Not Found</h1>
-            <p className="text-muted-foreground mb-8">The article you're looking for doesn't exist.</p>
+            <p className="text-muted-foreground mb-8">The article you are looking for does not exist.</p>
             <Button onClick={() => navigate("/blog")} className="rounded-full">
               <ArrowLeft className="mr-2 w-4 h-4" />
               Back to Blog
@@ -59,6 +87,8 @@ const BlogPost = () => {
     });
   };
 
+  const showTOC = headings.length >= 2;
+
   return (
     <>
       <Helmet>
@@ -76,113 +106,105 @@ const BlogPost = () => {
         {/* Hero */}
         <section className="py-12 bg-gradient-to-b from-primary/5 to-background">
           <div className="container mx-auto px-6">
-            <div className="max-w-3xl mx-auto">
-              <Button 
-                variant="ghost" 
-                onClick={() => navigate("/blog")}
-                className="mb-6 -ml-2 text-muted-foreground hover:text-foreground"
-              >
-                <ArrowLeft className="mr-2 w-4 h-4" />
-                Back to Blog
-              </Button>
+            <div className="max-w-3xl mx-auto lg:max-w-none lg:px-0">
+              <div className="lg:max-w-3xl lg:mx-auto">
+                <Button 
+                  variant="ghost" 
+                  onClick={() => navigate("/blog")}
+                  className="mb-6 -ml-2 text-muted-foreground hover:text-foreground"
+                >
+                  <ArrowLeft className="mr-2 w-4 h-4" />
+                  Back to Blog
+                </Button>
 
-              <Badge 
-                variant="outline" 
-                className={`mb-4 ${categoryColors[post.category] || "bg-muted"}`}
-              >
-                {post.category}
-              </Badge>
+                <Badge 
+                  variant="outline" 
+                  className={`mb-4 ${categoryColors[post.category] || "bg-muted"}`}
+                >
+                  {post.category}
+                </Badge>
 
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight">
-                {post.title}
-              </h1>
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight">
+                  {post.title}
+                </h1>
 
-              <p className="text-xl text-muted-foreground mb-8">
-                {post.excerpt}
-              </p>
+                <p className="text-xl text-muted-foreground mb-8">
+                  {post.excerpt}
+                </p>
 
-              <div className="flex flex-wrap items-center gap-6 text-sm text-muted-foreground pb-8 border-b border-border">
-                <div className="flex items-center gap-2">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                    <User className="w-5 h-5 text-primary" />
+                <div className="flex flex-wrap items-center gap-6 text-sm text-muted-foreground pb-8 border-b border-border">
+                  <div className="flex items-center gap-2">
+                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                      <User className="w-5 h-5 text-primary" />
+                    </div>
+                    <div>
+                      <p className="font-medium text-foreground">{post.author}</p>
+                      <p className="text-xs">{post.authorRole}</p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="font-medium text-foreground">{post.author}</p>
-                    <p className="text-xs">{post.authorRole}</p>
+                  <span className="flex items-center gap-1">
+                    <Calendar className="w-4 h-4" />
+                    {post.date}
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <Clock className="w-4 h-4" />
+                    {post.readTime}
+                  </span>
+                  <div className="flex-1" />
+                  <div className="flex gap-2">
+                    <Button variant="outline" size="icon" onClick={handleShare} className="rounded-full">
+                      <Share2 className="w-4 h-4" />
+                    </Button>
+                    <Button variant="outline" size="icon" onClick={handleBookmark} className="rounded-full">
+                      <Bookmark className="w-4 h-4" />
+                    </Button>
                   </div>
-                </div>
-                <span className="flex items-center gap-1">
-                  <Calendar className="w-4 h-4" />
-                  {post.date}
-                </span>
-                <span className="flex items-center gap-1">
-                  <Clock className="w-4 h-4" />
-                  {post.readTime}
-                </span>
-                <div className="flex-1" />
-                <div className="flex gap-2">
-                  <Button variant="outline" size="icon" onClick={handleShare} className="rounded-full">
-                    <Share2 className="w-4 h-4" />
-                  </Button>
-                  <Button variant="outline" size="icon" onClick={handleBookmark} className="rounded-full">
-                    <Bookmark className="w-4 h-4" />
-                  </Button>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Article Content */}
+        {/* Article Content with TOC */}
         <section className="py-12">
           <div className="container mx-auto px-6">
-            <div className="max-w-3xl mx-auto">
-              <article className="prose prose-lg dark:prose-invert max-w-none prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-foreground prose-a:text-primary hover:prose-a:text-primary/80 prose-code:text-foreground prose-code:bg-muted prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-pre:bg-primary prose-pre:text-primary-foreground prose-blockquote:border-primary prose-blockquote:text-muted-foreground">
-                <div 
-                  dangerouslySetInnerHTML={{ 
-                    __html: post.content
-                      .replace(/^## (.*$)/gm, '<h2>$1</h2>')
-                      .replace(/^### (.*$)/gm, '<h3>$1</h3>')
-                      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-                      .replace(/\*(.*?)\*/g, '<em>$1</em>')
-                      .replace(/`([^`]+)`/g, '<code>$1</code>')
-                      .replace(/```(\w+)?\n([\s\S]*?)```/g, '<pre><code>$2</code></pre>')
-                      .replace(/^> (.*$)/gm, '<blockquote>$1</blockquote>')
-                      .replace(/^- (.*$)/gm, '<li>$1</li>')
-                      .replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>')
-                      .replace(/\n\n/g, '</p><p>')
-                      .replace(/^\|.*\|$/gm, (match) => {
-                        const cells = match.split('|').filter(c => c.trim());
-                        return `<tr>${cells.map(c => `<td>${c.trim()}</td>`).join('')}</tr>`;
-                      })
-                  }} 
-                />
-              </article>
+            <div className="flex gap-12 max-w-6xl mx-auto">
+              {/* Main Content */}
+              <div className="flex-1 max-w-3xl">
+                <MarkdownRenderer content={post.content} />
 
-              {/* Tags */}
-              <div className="flex flex-wrap gap-2 mt-12 pt-8 border-t border-border">
-                {post.tags.map(tag => (
-                  <Badge key={tag} variant="secondary" className="rounded-full">
-                    {tag}
-                  </Badge>
-                ))}
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2 mt-12 pt-8 border-t border-border">
+                  {post.tags.map(tag => (
+                    <Badge key={tag} variant="secondary" className="rounded-full">
+                      {tag}
+                    </Badge>
+                  ))}
+                </div>
+
+                {/* Author Card */}
+                <Card className="mt-8 bg-muted/30 border-border/60">
+                  <CardContent className="p-6 flex items-center gap-4">
+                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <User className="w-8 h-8 text-primary" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-foreground">{post.author}</p>
+                      <p className="text-sm text-muted-foreground">{post.authorRole}</p>
+                      <p className="text-sm text-muted-foreground mt-1">
+                        Expert in travel technology and airline distribution systems.
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
               </div>
 
-              {/* Author Card */}
-              <Card className="mt-8 bg-muted/30 border-border/60">
-                <CardContent className="p-6 flex items-center gap-4">
-                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <User className="w-8 h-8 text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-foreground">{post.author}</p>
-                    <p className="text-sm text-muted-foreground">{post.authorRole}</p>
-                    <p className="text-sm text-muted-foreground mt-1">
-                      Expert in travel technology and airline distribution systems.
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
+              {/* Table of Contents Sidebar */}
+              {showTOC && (
+                <aside className="hidden xl:block w-64 flex-shrink-0">
+                  <TableOfContents content={post.content} activeId={activeHeading} />
+                </aside>
+              )}
             </div>
           </div>
         </section>
