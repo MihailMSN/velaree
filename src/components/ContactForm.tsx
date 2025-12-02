@@ -94,15 +94,15 @@ const ContactForm = () => {
   };
 
   const inputClasses = (fieldName: string) => `
-    bg-primary-foreground/5 border-primary-foreground/20 text-primary-foreground 
-    placeholder:text-primary-foreground/40 text-base px-4 py-3 rounded-xl
-    focus:bg-primary-foreground/10 focus:border-primary-foreground/40
+    bg-background border-border text-foreground 
+    placeholder:text-muted-foreground text-base px-4 py-3 rounded-xl
+    focus:bg-accent focus:border-primary
     transition-all duration-300
-    ${focusedField === fieldName ? 'ring-2 ring-primary-foreground/20' : ''}
+    ${focusedField === fieldName ? 'ring-2 ring-primary/20' : ''}
   `;
 
   return (
-    <div className="bg-primary-foreground/5 backdrop-blur-sm border border-primary-foreground/10 rounded-3xl p-8 md:p-10 shadow-2xl">
+    <div className="bg-card border border-border rounded-3xl p-8 md:p-10 shadow-lg">
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Honeypot field - hidden from users, bots will fill it */}
         <div className="absolute -left-[9999px] opacity-0 h-0 overflow-hidden" aria-hidden="true">
@@ -118,7 +118,7 @@ const ContactForm = () => {
 
         <div className="grid md:grid-cols-2 gap-6">
           <div className="space-y-2">
-            <Label htmlFor="name" className="text-primary-foreground/80 text-sm font-medium">
+            <Label htmlFor="name" className="text-foreground text-sm font-medium">
               Full Name *
             </Label>
             <Input 
@@ -134,7 +134,7 @@ const ContactForm = () => {
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="company" className="text-primary-foreground/80 text-sm font-medium">
+            <Label htmlFor="company" className="text-foreground text-sm font-medium">
               Company *
             </Label>
             <Input 
@@ -153,7 +153,7 @@ const ContactForm = () => {
 
         <div className="grid md:grid-cols-2 gap-6">
           <div className="space-y-2">
-            <Label htmlFor="role" className="text-primary-foreground/80 text-sm font-medium">
+            <Label htmlFor="role" className="text-foreground text-sm font-medium">
               Your Role *
             </Label>
             <Input 
@@ -169,7 +169,7 @@ const ContactForm = () => {
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="email" className="text-primary-foreground/80 text-sm font-medium">
+            <Label htmlFor="email" className="text-foreground text-sm font-medium">
               Work Email *
             </Label>
             <Input 
@@ -188,7 +188,7 @@ const ContactForm = () => {
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="message" className="text-primary-foreground/80 text-sm font-medium">
+          <Label htmlFor="message" className="text-foreground text-sm font-medium">
             How can we help? (optional)
           </Label>
           <Textarea 
@@ -206,7 +206,7 @@ const ContactForm = () => {
         <Button 
           type="submit" 
           size="lg" 
-          className="w-full text-base font-semibold px-8 py-6 rounded-xl transition-all duration-300 hover:scale-[1.02] hover:shadow-xl bg-background text-primary hover:bg-background/90 gap-2 group"
+          className="w-full text-base font-semibold px-8 py-6 rounded-xl transition-all duration-300 hover:scale-[1.02] hover:shadow-xl gap-2 group"
           disabled={mutation.isPending}
         >
           {mutation.isPending ? (
@@ -222,10 +222,10 @@ const ContactForm = () => {
           )}
         </Button>
 
-        <p className="text-primary-foreground/50 text-sm text-center">
+        <p className="text-muted-foreground text-sm text-center">
           By submitting, you agree to receive communications from Velaree.
           <br />
-          <span className="text-primary-foreground/40">We respect your privacy.</span>
+          <span className="text-muted-foreground/70">We respect your privacy.</span>
         </p>
       </form>
     </div>
