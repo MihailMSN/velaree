@@ -62,14 +62,23 @@ const TrustBar = () => {
             className="h-full w-auto cursor-pointer"
           />
         </HoverCardTrigger>
-        <HoverCardContent className="w-80" side="top">
-          <div className="space-y-2">
-            <h4 className="text-sm font-semibold text-foreground">{partner.title}</h4>
+        <HoverCardContent 
+          className="w-80 border-accent/40 bg-gradient-to-br from-card via-card to-accent/10" 
+          side="top"
+        >
+          <div className="space-y-3">
+            <div className="flex items-center gap-2">
+              <div className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
+              <h4 className="text-sm font-semibold text-foreground tracking-tight">{partner.title}</h4>
+            </div>
             <p className="text-xs text-muted-foreground leading-relaxed">
               {partner.description}
             </p>
-            <div className="pt-2 border-t border-border/50">
-              <p className="text-xs font-medium text-primary">
+            <div className="pt-3 border-t border-accent/30">
+              <div className="flex items-center gap-2">
+                <span className="text-[10px] uppercase tracking-wider text-muted-foreground/70 font-medium">Integration</span>
+              </div>
+              <p className="text-xs font-medium text-foreground/90 mt-1">
                 {partner.integration}
               </p>
             </div>
