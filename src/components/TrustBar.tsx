@@ -3,28 +3,34 @@ import LogoLoop from "@/components/ui/logo-loop";
 const TrustBar = () => {
   const partnerLogos = [
     { 
-      node: <span className="text-lg font-semibold tracking-wide text-muted-foreground/80 hover:text-foreground transition-colors">AMADEUS</span>, 
-      title: "Amadeus GDS" 
+      src: "/logos/amadeus.png",
+      alt: "Amadeus GDS",
+      title: "Amadeus GDS"
     },
     { 
-      node: <span className="text-lg font-semibold tracking-wide text-muted-foreground/80 hover:text-foreground transition-colors">SABRE</span>, 
-      title: "Sabre GDS" 
+      src: "/logos/sabre.png",
+      alt: "Sabre GDS",
+      title: "Sabre GDS"
     },
     { 
-      node: <span className="text-lg font-semibold tracking-wide text-muted-foreground/80 hover:text-foreground transition-colors">TRAVELPORT</span>, 
-      title: "Travelport GDS" 
+      src: "/logos/travelport.png",
+      alt: "Travelport GDS",
+      title: "Travelport GDS"
     },
     { 
-      node: <span className="text-lg font-semibold tracking-wide text-muted-foreground/80 hover:text-foreground transition-colors">IATA</span>, 
-      title: "IATA" 
+      src: "/logos/iata.png",
+      alt: "IATA",
+      title: "International Air Transport Association"
     },
     { 
-      node: <span className="text-lg font-semibold tracking-wide text-muted-foreground/80 hover:text-foreground transition-colors">GOOGLE FLIGHTS</span>, 
-      title: "Google Flights" 
+      src: "/logos/google-flights.png",
+      alt: "Google Flights",
+      title: "Google Flights"
     },
     { 
-      node: <span className="text-lg font-semibold tracking-wide text-muted-foreground/80 hover:text-foreground transition-colors">NDC</span>, 
-      title: "NDC" 
+      src: "/logos/ndc.png",
+      alt: "NDC",
+      title: "New Distribution Capability"
     },
   ];
 
@@ -40,8 +46,8 @@ const TrustBar = () => {
           logos={partnerLogos}
           speed={120}
           direction="left"
-          logoHeight={32}
-          gap={48}
+          logoHeight={48}
+          gap={64}
           pauseOnHover
           fadeOut
           scaleOnHover
