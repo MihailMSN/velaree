@@ -26,8 +26,8 @@ const solutions = [
       "24/7 uptime guarantee"
     ],
     benefits: "Reduce booking time from minutes to seconds while improving conversion rates by up to 40%",
-    gradient: "from-blue-500/20 via-cyan-500/10 to-blue-600/5",
-    hoverGradient: "group-hover:from-blue-500/30 group-hover:via-cyan-500/20 group-hover:to-blue-600/10",
+    gradient: "from-blue-50 via-cyan-50 to-slate-50",
+    hoverGradient: "group-hover:from-blue-100 group-hover:via-cyan-100 group-hover:to-slate-100",
     link: "/technology"
   },
   {
@@ -43,8 +43,8 @@ const solutions = [
       "Fare rules and restrictions API"
     ],
     benefits: "Increase profit margins by 25-35% with access to exclusive consolidator inventory",
-    gradient: "from-emerald-500/20 via-green-500/10 to-emerald-600/5",
-    hoverGradient: "group-hover:from-emerald-500/30 group-hover:via-green-500/20 group-hover:to-emerald-600/10",
+    gradient: "from-emerald-50 via-green-50 to-slate-50",
+    hoverGradient: "group-hover:from-emerald-100 group-hover:via-green-100 group-hover:to-slate-100",
     link: "/technology"
   },
   {
@@ -60,8 +60,8 @@ const solutions = [
       "Customer notification system"
     ],
     benefits: "Reduce manual operations by 70% and eliminate human errors in routine tasks",
-    gradient: "from-amber-500/20 via-orange-500/10 to-amber-600/5",
-    hoverGradient: "group-hover:from-amber-500/30 group-hover:via-orange-500/20 group-hover:to-amber-600/10",
+    gradient: "from-amber-50 via-orange-50 to-slate-50",
+    hoverGradient: "group-hover:from-amber-100 group-hover:via-orange-100 group-hover:to-slate-100",
     link: "/asuite"
   },
   {
@@ -77,8 +77,8 @@ const solutions = [
       "Revenue recovery alerts and reporting"
     ],
     benefits: "Capture 15-20% additional revenue post-sale by identifying and acting on price drops and availability changes",
-    gradient: "from-violet-500/20 via-purple-500/10 to-violet-600/5",
-    hoverGradient: "group-hover:from-violet-500/30 group-hover:via-purple-500/20 group-hover:to-violet-600/10",
+    gradient: "from-violet-50 via-purple-50 to-slate-50",
+    hoverGradient: "group-hover:from-violet-100 group-hover:via-purple-100 group-hover:to-slate-100",
     link: "/rstool"
   }
 ];
@@ -96,7 +96,7 @@ const SolutionCard = ({ solution, index, MockupComponent }: SolutionCardProps) =
   
   return (
     <div 
-      className={`group bg-gradient-to-br ${solution.gradient} ${solution.hoverGradient} border border-border/50 hover:border-primary/30 rounded-3xl p-6 md:p-10 lg:p-12 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1`}
+      className={`group bg-card bg-gradient-to-br ${solution.gradient} ${solution.hoverGradient} border border-border/50 hover:border-primary/30 rounded-3xl p-6 md:p-10 lg:p-12 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1`}
     >
       <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         {/* Content Side */}
