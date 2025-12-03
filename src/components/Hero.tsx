@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, MessageCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 import ScrollIndicator from "./ScrollIndicator";
 import HeroCardShowcase from "./HeroCardShowcase";
 const Hero = () => {
@@ -21,15 +22,19 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
-              <Button size="lg" className="text-lg px-8 py-6 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg group text-white bg-stone-950 hover:bg-stone-800">
-                Start Free Trial
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
+              <Link to="/auth">
+                <Button size="lg" className="text-lg px-8 py-6 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg group text-white bg-stone-950 hover:bg-stone-800">
+                  Start Free Trial
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
               
-              <Button size="lg" variant="outline" className="bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground text-lg px-8 py-6 rounded-full transition-all duration-300 group">
-                <MessageCircle className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
-                Schedule Demo
-              </Button>
+              <Link to="/contact">
+                <Button size="lg" variant="outline" className="bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground text-lg px-8 py-6 rounded-full transition-all duration-300 group">
+                  <MessageCircle className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
+                  Schedule Demo
+                </Button>
+              </Link>
             </div>
 
             <div className="mt-8 flex flex-wrap justify-center lg:justify-start gap-4 text-sm text-primary/60">
