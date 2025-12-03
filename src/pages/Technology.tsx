@@ -9,6 +9,7 @@ import ClickToBookMockup from "@/components/mockups/ClickToBookMockup";
 import PrivateFareMockup from "@/components/mockups/PrivateFareMockup";
 import AutomationMockup from "@/components/mockups/AutomationMockup";
 import RStoolDemoDashboard from "@/components/rstool/RStoolDemoDashboard";
+import ScrollStack, { ScrollStackItem } from "@/components/ui/scroll-stack";
 
 const solutions = [
   {
@@ -23,7 +24,8 @@ const solutions = [
       "Payment gateway integration",
       "24/7 uptime guarantee"
     ],
-    benefits: "Reduce booking time from minutes to seconds while improving conversion rates by up to 40%"
+    benefits: "Reduce booking time from minutes to seconds while improving conversion rates by up to 40%",
+    gradient: "from-blue-500/20 via-cyan-500/10 to-blue-600/5"
   },
   {
     icon: DollarSign,
@@ -37,7 +39,8 @@ const solutions = [
       "Multi-currency support",
       "Fare rules and restrictions API"
     ],
-    benefits: "Increase profit margins by 25-35% with access to exclusive consolidator inventory"
+    benefits: "Increase profit margins by 25-35% with access to exclusive consolidator inventory",
+    gradient: "from-emerald-500/20 via-green-500/10 to-emerald-600/5"
   },
   {
     icon: Zap,
@@ -51,7 +54,8 @@ const solutions = [
       "Refund and exchange processing",
       "Customer notification system"
     ],
-    benefits: "Reduce manual operations by 70% and eliminate human errors in routine tasks"
+    benefits: "Reduce manual operations by 70% and eliminate human errors in routine tasks",
+    gradient: "from-amber-500/20 via-orange-500/10 to-amber-600/5"
   },
   {
     icon: RefreshCw,
@@ -65,9 +69,12 @@ const solutions = [
       "One-click re-booking with automatic ticketing",
       "Revenue recovery alerts and reporting"
     ],
-    benefits: "Capture 15-20% additional revenue post-sale by identifying and acting on price drops and availability changes"
+    benefits: "Capture 15-20% additional revenue post-sale by identifying and acting on price drops and availability changes",
+    gradient: "from-violet-500/20 via-purple-500/10 to-violet-600/5"
   }
 ];
+
+const MockupComponents = [ClickToBookMockup, PrivateFareMockup, AutomationMockup, RStoolDemoDashboard];
 
 const Technology = () => {
   return (
@@ -101,80 +108,17 @@ const Technology = () => {
             "@type": "ItemList",
             "name": "Velaree Travel Technology Solutions",
             "description": "Comprehensive suite of travel technology solutions for modern travel businesses",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "item": {
-                  "@type": "SoftwareApplication",
-                  "name": "Click-to-Book Platform",
-                  "applicationCategory": "BusinessApplication",
-                  "description": "Instant booking for OTAs and TMCs with real-time availability and pricing from 50+ suppliers",
-                  "featureList": [
-                    "Multi-source aggregation from 50+ suppliers",
-                    "Sub-second search response times",
-                    "Automated ticketing and confirmation",
-                    "Mobile-optimized booking flow",
-                    "Payment gateway integration",
-                    "24/7 uptime guarantee"
-                  ]
-                }
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "item": {
-                  "@type": "SoftwareApplication",
-                  "name": "Private Fare API",
-                  "applicationCategory": "BusinessApplication",
-                  "description": "Connect with global consolidators and airlines for exclusive rates",
-                  "featureList": [
-                    "Access to 100+ consolidator networks",
-                    "Negotiated private fares and net rates",
-                    "Real-time fare comparison engine",
-                    "Automated markup configuration",
-                    "Multi-currency support",
-                    "Fare rules and restrictions API"
-                  ]
-                }
-              },
-              {
-                "@type": "ListItem",
-                "position": 3,
-                "item": {
-                  "@type": "SoftwareApplication",
-                  "name": "Automation Suite",
-                  "applicationCategory": "BusinessApplication",
-                  "description": "Manage ticketing, pricing, and servicing effortlessly with intelligent automation",
-                  "featureList": [
-                    "Auto-ticketing with PNR management",
-                    "Dynamic pricing engine",
-                    "Queue monitoring and alerts",
-                    "Schedule change automation",
-                    "Refund and exchange processing",
-                    "Customer notification system"
-                  ]
-                }
-              },
-              {
-                "@type": "ListItem",
-                "position": 4,
-                "item": {
-                  "@type": "SoftwareApplication",
-                  "name": "Re-Shopping Engine",
-                  "applicationCategory": "BusinessApplication",
-                  "description": "Maximize post-sale revenue with continuous fare monitoring and automated re-booking",
-                  "featureList": [
-                    "Real-time PNR monitoring across all bookings",
-                    "Automated price drop detection every 60 seconds",
-                    "Cross-content availability comparison",
-                    "Private fare re-shopping with live consolidator rates",
-                    "One-click re-booking with automatic ticketing",
-                    "Revenue recovery alerts and reporting"
-                  ]
-                }
+            "itemListElement": solutions.map((solution, index) => ({
+              "@type": "ListItem",
+              "position": index + 1,
+              "item": {
+                "@type": "SoftwareApplication",
+                "name": solution.title,
+                "applicationCategory": "BusinessApplication",
+                "description": solution.description,
+                "featureList": solution.features
               }
-            ]
+            }))
           })}
         </script>
       </Helmet>
@@ -197,57 +141,68 @@ const Technology = () => {
         </div>
       </section>
 
-      {/* Solutions Detail */}
+      {/* Solutions with ScrollStack */}
       <section className="py-24">
         <div className="container mx-auto px-6">
-          <div className="space-y-24">
+          <ScrollStack
+            useWindowScroll={true}
+            itemDistance={150}
+            itemScale={0.02}
+            itemStackDistance={40}
+            stackPosition="15%"
+            baseScale={0.9}
+            blurAmount={2}
+          >
             {solutions.map((solution, index) => {
               const Icon = solution.icon;
-              const MockupComponent = index === 0 ? ClickToBookMockup : index === 1 ? PrivateFareMockup : index === 2 ? AutomationMockup : RStoolDemoDashboard;
+              const MockupComponent = MockupComponents[index];
               
               return (
-                <div 
-                  key={index}
-                  className={`grid lg:grid-cols-2 gap-12 items-center ${
-                    index % 2 === 1 ? 'lg:flex-row-reverse' : ''
-                  }`}
-                >
-                  <div className={`animate-fade-in ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
-                    <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary/20 via-accent/20 to-primary/10 border border-primary/10 flex items-center justify-center mb-6">
-                      <Icon className="w-10 h-10 text-primary" strokeWidth={1.5} />
-                    </div>
-                    <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-                      {solution.title}
-                    </h2>
-                    <p className="text-xl text-muted-foreground mb-6">
-                      {solution.description}
-                    </p>
-                    <Card className="p-6 bg-accent/10 border-accent/20 mb-6">
-                      <p className="text-foreground font-semibold">
-                        {solution.benefits}
-                      </p>
-                    </Card>
-                    
-                    <Card className="p-6 bg-card border-border">
-                      <h3 className="text-xl font-bold text-foreground mb-4">Key Features</h3>
-                      <ul className="space-y-3">
-                        {solution.features.map((feature, idx) => (
-                          <li key={idx} className="flex items-start gap-3">
-                            <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                            <span className="text-foreground text-sm">{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </Card>
-                  </div>
+                <ScrollStackItem key={index}>
+                  <div className={`bg-gradient-to-br ${solution.gradient} border border-border/50 rounded-3xl p-8 md:p-12 shadow-xl`}>
+                    <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                      {/* Content Side */}
+                      <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
+                        <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/30 to-accent/20 border border-primary/20 flex items-center justify-center mb-6">
+                          <Icon className="w-8 h-8 text-primary" strokeWidth={1.5} />
+                        </div>
+                        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                          {solution.title}
+                        </h2>
+                        <p className="text-lg text-muted-foreground mb-6">
+                          {solution.description}
+                        </p>
+                        <Card className="p-5 bg-accent/10 border-accent/20 mb-6">
+                          <p className="text-foreground font-medium text-sm">
+                            {solution.benefits}
+                          </p>
+                        </Card>
+                        
+                        <Card className="p-5 bg-card/80 backdrop-blur-sm border-border">
+                          <h3 className="text-lg font-bold text-foreground mb-4">Key Features</h3>
+                          <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                            {solution.features.map((feature, idx) => (
+                              <li key={idx} className="flex items-start gap-2">
+                                <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
+                                <span className="text-foreground text-sm">{feature}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </Card>
+                      </div>
 
-                  <div className={`animate-fade-in ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                    <MockupComponent />
+                      {/* Mockup Side */}
+                      <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
+                        <div className="rounded-2xl overflow-hidden">
+                          <MockupComponent />
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                </ScrollStackItem>
               );
             })}
-          </div>
+          </ScrollStack>
         </div>
       </section>
 
