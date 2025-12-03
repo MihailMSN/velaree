@@ -9,8 +9,6 @@ import ClickToBookMockup from "@/components/mockups/ClickToBookMockup";
 import PrivateFareMockup from "@/components/mockups/PrivateFareMockup";
 import AutomationMockup from "@/components/mockups/AutomationMockup";
 import RStoolDemoDashboard from "@/components/rstool/RStoolDemoDashboard";
-import ScrollStack, { ScrollStackItem } from "@/components/ui/scroll-stack";
-import { useIsMobile } from "@/hooks/use-mobile";
 
 const solutions = [
   {
@@ -96,7 +94,7 @@ const SolutionCard = ({ solution, index, MockupComponent }: SolutionCardProps) =
   
   return (
     <div 
-      className={`group bg-card bg-gradient-to-br ${solution.gradient} ${solution.hoverGradient} border border-border/50 hover:border-primary/30 rounded-3xl p-6 md:p-10 lg:p-12 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1`}
+      className={`group bg-card bg-gradient-to-br ${solution.gradient} border border-border/50 hover:border-primary/30 rounded-3xl p-6 md:p-10 lg:p-12 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1`}
     >
       <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         {/* Content Side */}
@@ -154,8 +152,6 @@ const SolutionCard = ({ solution, index, MockupComponent }: SolutionCardProps) =
 };
 
 const Technology = () => {
-  const isMobile = useIsMobile();
-
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
@@ -220,43 +216,19 @@ const Technology = () => {
         </div>
       </section>
 
-      {/* Solutions Section - Desktop with ScrollStack, Mobile with simple stack */}
+      {/* Solutions Section */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
-          {isMobile ? (
-            // Mobile: Simple stacked cards without scroll effect
-            <div className="space-y-8">
-              {solutions.map((solution, index) => (
-                <SolutionCard 
-                  key={index}
-                  solution={solution}
-                  index={index}
-                  MockupComponent={MockupComponents[index]}
-                />
-              ))}
-            </div>
-          ) : (
-            // Desktop: ScrollStack effect
-            <ScrollStack
-              useWindowScroll={true}
-              itemDistance={150}
-              itemScale={0.02}
-              itemStackDistance={40}
-              stackPosition="15%"
-              baseScale={0.9}
-              blurAmount={2}
-            >
-              {solutions.map((solution, index) => (
-                <ScrollStackItem key={index}>
-                  <SolutionCard 
-                    solution={solution}
-                    index={index}
-                    MockupComponent={MockupComponents[index]}
-                  />
-                </ScrollStackItem>
-              ))}
-            </ScrollStack>
-          )}
+          <div className="space-y-8">
+            {solutions.map((solution, index) => (
+              <SolutionCard 
+                key={index}
+                solution={solution}
+                index={index}
+                MockupComponent={MockupComponents[index]}
+              />
+            ))}
+          </div>
         </div>
       </section>
 
