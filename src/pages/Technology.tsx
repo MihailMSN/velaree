@@ -3,13 +3,14 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Plane, DollarSign, Zap, RefreshCw, CheckCircle2 } from "lucide-react";
+import { Plane, DollarSign, Zap, RefreshCw, CheckCircle2, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import ClickToBookMockup from "@/components/mockups/ClickToBookMockup";
 import PrivateFareMockup from "@/components/mockups/PrivateFareMockup";
 import AutomationMockup from "@/components/mockups/AutomationMockup";
 import RStoolDemoDashboard from "@/components/rstool/RStoolDemoDashboard";
 import ScrollStack, { ScrollStackItem } from "@/components/ui/scroll-stack";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const solutions = [
   {
@@ -25,7 +26,9 @@ const solutions = [
       "24/7 uptime guarantee"
     ],
     benefits: "Reduce booking time from minutes to seconds while improving conversion rates by up to 40%",
-    gradient: "from-blue-500/20 via-cyan-500/10 to-blue-600/5"
+    gradient: "from-blue-500/20 via-cyan-500/10 to-blue-600/5",
+    hoverGradient: "group-hover:from-blue-500/30 group-hover:via-cyan-500/20 group-hover:to-blue-600/10",
+    link: "/technology"
   },
   {
     icon: DollarSign,
@@ -40,7 +43,9 @@ const solutions = [
       "Fare rules and restrictions API"
     ],
     benefits: "Increase profit margins by 25-35% with access to exclusive consolidator inventory",
-    gradient: "from-emerald-500/20 via-green-500/10 to-emerald-600/5"
+    gradient: "from-emerald-500/20 via-green-500/10 to-emerald-600/5",
+    hoverGradient: "group-hover:from-emerald-500/30 group-hover:via-green-500/20 group-hover:to-emerald-600/10",
+    link: "/technology"
   },
   {
     icon: Zap,
@@ -55,7 +60,9 @@ const solutions = [
       "Customer notification system"
     ],
     benefits: "Reduce manual operations by 70% and eliminate human errors in routine tasks",
-    gradient: "from-amber-500/20 via-orange-500/10 to-amber-600/5"
+    gradient: "from-amber-500/20 via-orange-500/10 to-amber-600/5",
+    hoverGradient: "group-hover:from-amber-500/30 group-hover:via-orange-500/20 group-hover:to-amber-600/10",
+    link: "/asuite"
   },
   {
     icon: RefreshCw,
@@ -70,13 +77,85 @@ const solutions = [
       "Revenue recovery alerts and reporting"
     ],
     benefits: "Capture 15-20% additional revenue post-sale by identifying and acting on price drops and availability changes",
-    gradient: "from-violet-500/20 via-purple-500/10 to-violet-600/5"
+    gradient: "from-violet-500/20 via-purple-500/10 to-violet-600/5",
+    hoverGradient: "group-hover:from-violet-500/30 group-hover:via-purple-500/20 group-hover:to-violet-600/10",
+    link: "/rstool"
   }
 ];
 
 const MockupComponents = [ClickToBookMockup, PrivateFareMockup, AutomationMockup, RStoolDemoDashboard];
 
+interface SolutionCardProps {
+  solution: typeof solutions[0];
+  index: number;
+  MockupComponent: React.ComponentType;
+}
+
+const SolutionCard = ({ solution, index, MockupComponent }: SolutionCardProps) => {
+  const Icon = solution.icon;
+  
+  return (
+    <div 
+      className={`group bg-gradient-to-br ${solution.gradient} ${solution.hoverGradient} border border-border/50 hover:border-primary/30 rounded-3xl p-6 md:p-10 lg:p-12 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1`}
+    >
+      <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        {/* Content Side */}
+        <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
+          <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-primary/30 to-accent/20 border border-primary/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
+            <Icon className="w-7 h-7 md:w-8 md:h-8 text-primary" strokeWidth={1.5} />
+          </div>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
+            {solution.title}
+          </h2>
+          <p className="text-base md:text-lg text-muted-foreground mb-5">
+            {solution.description}
+          </p>
+          <Card className="p-4 md:p-5 bg-accent/10 border-accent/20 mb-5 group-hover:bg-accent/20 transition-colors duration-300">
+            <p className="text-foreground font-medium text-sm">
+              {solution.benefits}
+            </p>
+          </Card>
+          
+          <Card className="p-4 md:p-5 bg-card/80 backdrop-blur-sm border-border overflow-hidden">
+            <h3 className="text-base md:text-lg font-bold text-foreground mb-3">Key Features</h3>
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
+              {solution.features.map((feature, idx) => (
+                <li 
+                  key={idx} 
+                  className="flex items-start gap-2 opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+                  style={{ transitionDelay: `${idx * 50}ms` }}
+                >
+                  <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
+                  <span className="text-foreground text-sm">{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </Card>
+
+          {/* Learn More Link */}
+          <Link 
+            to={solution.link}
+            className="inline-flex items-center gap-2 mt-5 text-primary font-medium opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300"
+          >
+            Learn more
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+          </Link>
+        </div>
+
+        {/* Mockup Side */}
+        <div className={`${index % 2 === 1 ? 'lg:order-1' : ''} group-hover:scale-[1.02] transition-transform duration-500`}>
+          <div className="rounded-2xl overflow-hidden shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+            <MockupComponent />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const Technology = () => {
+  const isMobile = useIsMobile();
+
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
@@ -141,68 +220,43 @@ const Technology = () => {
         </div>
       </section>
 
-      {/* Solutions with ScrollStack */}
-      <section className="py-24">
-        <div className="container mx-auto px-6">
-          <ScrollStack
-            useWindowScroll={true}
-            itemDistance={150}
-            itemScale={0.02}
-            itemStackDistance={40}
-            stackPosition="15%"
-            baseScale={0.9}
-            blurAmount={2}
-          >
-            {solutions.map((solution, index) => {
-              const Icon = solution.icon;
-              const MockupComponent = MockupComponents[index];
-              
-              return (
+      {/* Solutions Section - Desktop with ScrollStack, Mobile with simple stack */}
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-4 md:px-6">
+          {isMobile ? (
+            // Mobile: Simple stacked cards without scroll effect
+            <div className="space-y-8">
+              {solutions.map((solution, index) => (
+                <SolutionCard 
+                  key={index}
+                  solution={solution}
+                  index={index}
+                  MockupComponent={MockupComponents[index]}
+                />
+              ))}
+            </div>
+          ) : (
+            // Desktop: ScrollStack effect
+            <ScrollStack
+              useWindowScroll={true}
+              itemDistance={150}
+              itemScale={0.02}
+              itemStackDistance={40}
+              stackPosition="15%"
+              baseScale={0.9}
+              blurAmount={2}
+            >
+              {solutions.map((solution, index) => (
                 <ScrollStackItem key={index}>
-                  <div className={`bg-gradient-to-br ${solution.gradient} border border-border/50 rounded-3xl p-8 md:p-12 shadow-xl`}>
-                    <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-                      {/* Content Side */}
-                      <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
-                        <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/30 to-accent/20 border border-primary/20 flex items-center justify-center mb-6">
-                          <Icon className="w-8 h-8 text-primary" strokeWidth={1.5} />
-                        </div>
-                        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                          {solution.title}
-                        </h2>
-                        <p className="text-lg text-muted-foreground mb-6">
-                          {solution.description}
-                        </p>
-                        <Card className="p-5 bg-accent/10 border-accent/20 mb-6">
-                          <p className="text-foreground font-medium text-sm">
-                            {solution.benefits}
-                          </p>
-                        </Card>
-                        
-                        <Card className="p-5 bg-card/80 backdrop-blur-sm border-border">
-                          <h3 className="text-lg font-bold text-foreground mb-4">Key Features</h3>
-                          <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                            {solution.features.map((feature, idx) => (
-                              <li key={idx} className="flex items-start gap-2">
-                                <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
-                                <span className="text-foreground text-sm">{feature}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </Card>
-                      </div>
-
-                      {/* Mockup Side */}
-                      <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
-                        <div className="rounded-2xl overflow-hidden">
-                          <MockupComponent />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <SolutionCard 
+                    solution={solution}
+                    index={index}
+                    MockupComponent={MockupComponents[index]}
+                  />
                 </ScrollStackItem>
-              );
-            })}
-          </ScrollStack>
+              ))}
+            </ScrollStack>
+          )}
         </div>
       </section>
 
