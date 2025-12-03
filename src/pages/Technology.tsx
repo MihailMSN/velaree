@@ -97,47 +97,49 @@ const SolutionCard = ({ solution, index, MockupComponent }: SolutionCardProps) =
   if ('fullWidthMockup' in solution && solution.fullWidthMockup) {
     return (
       <div 
-        className={`group bg-card bg-gradient-to-br ${solution.gradient} border border-border/50 hover:border-primary/30 rounded-3xl p-6 md:p-10 lg:p-12 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1`}
+        className={`group bg-card bg-gradient-to-br ${solution.gradient} border border-border/50 hover:border-primary/30 rounded-3xl p-8 md:p-12 lg:p-16 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1`}
       >
         {/* Full-width Mockup at top */}
-        <div className="rounded-2xl overflow-hidden shadow-lg mb-8">
+        <div className="rounded-2xl overflow-hidden shadow-lg mb-10 lg:mb-12">
           <MockupComponent />
         </div>
         
         {/* Content below mockup in 2-column grid */}
-        <div className="grid lg:grid-cols-2 gap-8 items-start">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
           {/* Left: Title, Description, Benefits */}
-          <div>
-            <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-primary/30 to-accent/20 border border-primary/20 flex items-center justify-center mb-5">
+          <div className="space-y-5">
+            <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-primary/30 to-accent/20 border border-primary/20 flex items-center justify-center">
               <Icon className="w-7 h-7 md:w-8 md:h-8 text-primary" strokeWidth={1.5} />
             </div>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-3">
-              {solution.title}
-            </h2>
-            <p className="text-base md:text-lg text-muted-foreground mb-5">
-              {solution.description}
-            </p>
-            <Card className="p-4 md:p-5 bg-accent/10 border-accent/20">
-              <p className="text-foreground font-medium text-sm">
+            <div>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-3">
+                {solution.title}
+              </h2>
+              <p className="text-base md:text-lg text-muted-foreground">
+                {solution.description}
+              </p>
+            </div>
+            <Card className="p-5 md:p-6 bg-accent/10 border-accent/20">
+              <p className="text-foreground font-medium text-sm md:text-base leading-relaxed">
                 {solution.benefits}
               </p>
             </Card>
           </div>
           
           {/* Right: Key Features */}
-          <Card className="p-4 md:p-5 bg-card/80 backdrop-blur-sm border-border">
-            <h3 className="text-base md:text-lg font-bold text-foreground mb-3">Key Features</h3>
-            <ul className="space-y-2">
+          <Card className="p-5 md:p-6 bg-card/80 backdrop-blur-sm border-border h-full">
+            <h3 className="text-lg md:text-xl font-bold text-foreground mb-4">Key Features</h3>
+            <ul className="space-y-3">
               {solution.features.map((feature, idx) => (
-                <li key={idx} className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
-                  <span className="text-foreground text-sm">{feature}</span>
+                <li key={idx} className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                  <span className="text-foreground text-sm md:text-base">{feature}</span>
                 </li>
               ))}
             </ul>
             <Link 
               to={solution.link}
-              className="inline-flex items-center gap-2 mt-5 text-primary font-medium"
+              className="inline-flex items-center gap-2 mt-6 text-primary font-semibold hover:gap-3 transition-all"
             >
               Learn more
               <ArrowRight className="w-4 h-4" />
