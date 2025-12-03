@@ -77,7 +77,8 @@ const solutions = [
     benefits: "Capture 15-20% additional revenue post-sale by identifying and acting on price drops and availability changes",
     gradient: "from-violet-50 via-purple-50 to-slate-50",
     hoverGradient: "group-hover:from-violet-100 group-hover:via-purple-100 group-hover:to-slate-100",
-    link: "/rstool"
+    link: "/rstool",
+    fullWidthMockup: true
   }
 ];
 
@@ -92,6 +93,62 @@ interface SolutionCardProps {
 const SolutionCard = ({ solution, index, MockupComponent }: SolutionCardProps) => {
   const Icon = solution.icon;
   
+  // Full-width mockup layout (mockup on top, text below)
+  if ('fullWidthMockup' in solution && solution.fullWidthMockup) {
+    return (
+      <div 
+        className={`group bg-card bg-gradient-to-br ${solution.gradient} border border-border/50 hover:border-primary/30 rounded-3xl p-6 md:p-10 lg:p-12 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1`}
+      >
+        {/* Full-width Mockup at top */}
+        <div className="rounded-2xl overflow-hidden shadow-lg mb-8">
+          <MockupComponent />
+        </div>
+        
+        {/* Content below mockup in 2-column grid */}
+        <div className="grid lg:grid-cols-2 gap-8 items-start">
+          {/* Left: Title, Description, Benefits */}
+          <div>
+            <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-primary/30 to-accent/20 border border-primary/20 flex items-center justify-center mb-5">
+              <Icon className="w-7 h-7 md:w-8 md:h-8 text-primary" strokeWidth={1.5} />
+            </div>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-3">
+              {solution.title}
+            </h2>
+            <p className="text-base md:text-lg text-muted-foreground mb-5">
+              {solution.description}
+            </p>
+            <Card className="p-4 md:p-5 bg-accent/10 border-accent/20">
+              <p className="text-foreground font-medium text-sm">
+                {solution.benefits}
+              </p>
+            </Card>
+          </div>
+          
+          {/* Right: Key Features */}
+          <Card className="p-4 md:p-5 bg-card/80 backdrop-blur-sm border-border">
+            <h3 className="text-base md:text-lg font-bold text-foreground mb-3">Key Features</h3>
+            <ul className="space-y-2">
+              {solution.features.map((feature, idx) => (
+                <li key={idx} className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
+                  <span className="text-foreground text-sm">{feature}</span>
+                </li>
+              ))}
+            </ul>
+            <Link 
+              to={solution.link}
+              className="inline-flex items-center gap-2 mt-5 text-primary font-medium"
+            >
+              Learn more
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </Card>
+        </div>
+      </div>
+    );
+  }
+  
+  // Standard 2-column layout (mockup side by side with content)
   return (
     <div 
       className={`group bg-card bg-gradient-to-br ${solution.gradient} border border-border/50 hover:border-primary/30 rounded-3xl p-6 md:p-10 lg:p-12 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1`}
