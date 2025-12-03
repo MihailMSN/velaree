@@ -7,7 +7,7 @@ const Footer = () => {
   const linkRoutes: Record<string, string | null> = {
     "Solutions": "/asuite",
     "Technology": "/technology",
-    "Integrations": null,
+    "Integrations": "/technology",
     "Pricing": "/pricing",
     "About": null,
     "Careers": null,
@@ -15,7 +15,7 @@ const Footer = () => {
     "Contact": "/contact",
     "Documentation": null,
     "API Reference": null,
-    "Support": null,
+    "Support": "/faq",
     "Status": null,
     "Privacy": null,
     "Terms": null,

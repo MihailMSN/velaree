@@ -12,6 +12,7 @@ import { blogPosts, categories, categoryColors, searchPosts } from "@/data/blogP
 const Blog = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
+  const [visibleCount, setVisibleCount] = useState(8);
   const filteredPosts = useMemo(() => {
     let posts = blogPosts;
 
@@ -178,7 +179,7 @@ const Blog = () => {
                       Clear Filters
                     </Button>
                   </div> : <div className="grid sm:grid-cols-2 gap-6">
-                    {(showFeatured ? filteredPosts.filter(p => !p.featured) : filteredPosts).map(post => <Link key={post.id} to={`/blog/${post.id}`}>
+                    {(showFeatured ? filteredPosts.filter(p => !p.featured) : filteredPosts).slice(0, visibleCount).map(post => <Link key={post.id} to={`/blog/${post.id}`}>
                         <Card className="h-full group hover:shadow-lg transition-all duration-300 border-border/60 bg-card hover:border-primary/30">
                           <CardContent className="p-5 space-y-3">
                             <Badge variant="outline" className={`${categoryColors[post.category] || "bg-muted"}`}>
@@ -202,9 +203,9 @@ const Blog = () => {
                       </Link>)}
                   </div>}
 
-                {/* Load More - only show if there would be more articles */}
-                {filteredPosts.length >= 8 && <div className="text-center mt-10">
-                    <Button variant="outline" className="rounded-full px-8">
+                {/* Load More - only show if there are more articles to show */}
+                {(showFeatured ? filteredPosts.filter(p => !p.featured) : filteredPosts).length > visibleCount && <div className="text-center mt-10">
+                    <Button variant="outline" className="rounded-full px-8" onClick={() => setVisibleCount(prev => prev + 8)}>
                       Load More Articles
                       <ArrowRight className="ml-2 w-4 h-4" />
                     </Button>
