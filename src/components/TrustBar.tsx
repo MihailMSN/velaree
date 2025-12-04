@@ -60,7 +60,7 @@ const TrustBar = () => {
               src={partner.src}
               alt={partner.alt}
               title={partner.title}
-              className="h-9 w-auto cursor-pointer object-contain brightness-0 invert"
+              className="h-9 w-auto cursor-pointer object-contain"
             />
           </div>
         </HoverCardTrigger>
