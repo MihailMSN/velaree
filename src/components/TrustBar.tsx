@@ -43,11 +43,11 @@ const TrustBar = () => {
       integration: "Price comparison and availability data"
     },
     { 
-      src: "/logos/ndc.png",
-      alt: "NDC",
-      title: "NDC",
-      description: "New Distribution Capability - IATA's modern XML-based standard enabling airlines to distribute rich content directly.",
-      integration: "Direct airline content and ancillaries"
+      src: "/logos/mystifly.png",
+      alt: "Mystifly",
+      title: "Mystifly",
+      description: "Global B2B travel technology company providing air content consolidation and distribution solutions to travel businesses worldwide.",
+      integration: "Consolidated fare aggregation and ticketing"
     },
   ];
 
