@@ -55,12 +55,12 @@ const TrustBar = () => {
     node: (
       <HoverCard openDelay={200} closeDelay={100}>
         <HoverCardTrigger asChild>
-          <div className="bg-white rounded-lg px-4 py-3 flex items-center justify-center shadow-sm">
+          <div className="bg-white rounded-lg px-5 py-2.5 flex items-center justify-center shadow-sm h-14">
             <img
               src={partner.src}
               alt={partner.alt}
               title={partner.title}
-              className="h-full w-auto cursor-pointer max-h-10 object-contain"
+              className="h-9 w-auto cursor-pointer object-contain"
             />
           </div>
         </HoverCardTrigger>
@@ -98,20 +98,20 @@ const TrustBar = () => {
             Trusted by leading travel platforms
           </p>
         </div>
-        <div className="[&_img]:transition-all [&_img]:duration-300 [&_img]:ease-out">
-          <LogoLoop
-            logos={partnerLogos}
-            speed={50}
-            direction="left"
-            logoHeight={48}
-            gap={80}
-            pauseOnHover
-            fadeOut
-            fadeOutColor="hsl(var(--background))"
-            scaleOnHover
-            ariaLabel="Travel industry partners"
-          />
-        </div>
+      </div>
+      <div className="px-8 md:px-16">
+        <LogoLoop
+          logos={partnerLogos}
+          speed={40}
+          direction="left"
+          logoHeight={64}
+          gap={48}
+          pauseOnHover
+          fadeOut
+          fadeOutColor="hsl(var(--background))"
+          scaleOnHover
+          ariaLabel="Travel industry partners"
+        />
       </div>
     </div>
   );

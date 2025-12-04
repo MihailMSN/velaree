@@ -75,7 +75,7 @@
 .logoloop--horizontal.logoloop--fade::after {
   top: 0;
   bottom: 0;
-  width: 120px;
+  width: 60px;
 }
 
 .logoloop--horizontal.logoloop--fade::before {
