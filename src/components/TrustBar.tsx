@@ -55,12 +55,12 @@ const TrustBar = () => {
     node: (
       <HoverCard openDelay={200} closeDelay={100}>
         <HoverCardTrigger asChild>
-          <div className="bg-white rounded-lg px-5 py-2.5 flex items-center justify-center shadow-sm h-14">
+          <div className="bg-gradient-to-r from-primary via-accent/40 to-primary border border-accent/30 rounded-lg px-5 py-2.5 flex items-center justify-center shadow-sm h-14">
             <img
               src={partner.src}
               alt={partner.alt}
               title={partner.title}
-              className="h-9 w-auto cursor-pointer object-contain"
+              className="h-9 w-auto cursor-pointer object-contain brightness-0 invert"
             />
           </div>
         </HoverCardTrigger>
