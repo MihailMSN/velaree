@@ -55,12 +55,14 @@ const TrustBar = () => {
     node: (
       <HoverCard openDelay={200} closeDelay={100}>
         <HoverCardTrigger asChild>
-          <img
-            src={partner.src}
-            alt={partner.alt}
-            title={partner.title}
-            className="h-full w-auto cursor-pointer"
-          />
+          <div className="bg-white rounded-lg px-4 py-3 flex items-center justify-center shadow-sm">
+            <img
+              src={partner.src}
+              alt={partner.alt}
+              title={partner.title}
+              className="h-full w-auto cursor-pointer max-h-10 object-contain"
+            />
+          </div>
         </HoverCardTrigger>
         <HoverCardContent 
           className="w-80 border-accent/40 bg-gradient-to-br from-card via-card to-accent/10" 
@@ -89,23 +91,23 @@ const TrustBar = () => {
   }));
 
   return (
-    <div className="relative bg-gradient-to-b from-background via-secondary/30 to-background border-y border-border/40 py-20">
+    <div className="relative bg-background border-y border-border/40 py-16">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
           <p className="text-sm uppercase tracking-[0.25em] text-muted-foreground font-semibold">
             Trusted by leading travel platforms
           </p>
         </div>
-        <div className="[&_img]:grayscale-[30%] [&_img]:opacity-70 hover:[&_img]:grayscale-0 hover:[&_img]:opacity-100 [&_img]:transition-all [&_img]:duration-300 [&_img]:ease-out [&_img]:object-contain">
+        <div className="[&_img]:transition-all [&_img]:duration-300 [&_img]:ease-out">
           <LogoLoop
             logos={partnerLogos}
             speed={50}
             direction="left"
-            logoHeight={52}
-            gap={120}
+            logoHeight={48}
+            gap={80}
             pauseOnHover
             fadeOut
-            fadeOutColor="rgba(255, 255, 255, 0)"
+            fadeOutColor="hsl(var(--background))"
             scaleOnHover
             ariaLabel="Travel industry partners"
           />
