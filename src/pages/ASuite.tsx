@@ -165,8 +165,8 @@ const ASuite = () => {
 
         {/* Hero Section */}
         <section className="min-h-[70vh] flex items-center justify-center relative overflow-hidden pt-32 pb-20 px-6 bg-white">
-          {/* Prism Background */}
-          <div className="absolute inset-0 flex items-center justify-center">
+          {/* Prism Background - offset down to avoid navbar clipping */}
+          <div className="absolute inset-0 flex items-center justify-center pt-24">
             <Prism 
               animationType="rotate"
               height={3.5}
@@ -176,7 +176,7 @@ const ASuite = () => {
               bloom={1}
               noise={0}
               timeScale={0.5}
-              hueShift={0}
+              hueShift={2.5}
               transparent={true}
               suspendWhenOffscreen={true}
             />
@@ -214,7 +214,7 @@ const ASuite = () => {
         </section>
 
         {/* Platform Overview */}
-        <section className="py-24 px-6 bg-muted/30">
+        <section className="py-24 px-6 bg-white">
           <div className="container mx-auto max-w-7xl text-center">
             <Badge variant="outline" className="mb-4">
               Platform Overview
