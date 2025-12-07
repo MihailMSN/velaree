@@ -169,10 +169,16 @@ const ASuite = () => {
           <div className="absolute inset-0 flex items-center justify-center">
             <Prism 
               animationType="rotate"
-              scale={4}
+              height={3.5}
+              baseWidth={5.5}
+              scale={3.6}
               glow={1.2}
-              timeScale={0.3}
+              bloom={1}
+              noise={0.5}
+              timeScale={0.5}
+              hueShift={0}
               transparent={true}
+              suspendWhenOffscreen={true}
             />
           </div>
           
