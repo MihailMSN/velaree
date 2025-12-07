@@ -164,17 +164,17 @@ const ASuite = () => {
         <Navigation />
 
         {/* Hero Section */}
-        <section className="min-h-[70vh] flex items-center justify-center relative overflow-hidden pt-32 pb-20 px-6">
+        <section className="min-h-[70vh] flex items-center justify-center relative overflow-hidden pt-32 pb-20 px-6 bg-white">
           {/* Prism Background */}
           <div className="absolute inset-0 flex items-center justify-center">
             <Prism 
               animationType="rotate"
               height={3.5}
               baseWidth={5.5}
-              scale={3.6}
-              glow={1.2}
+              scale={2.2}
+              glow={1}
               bloom={1}
-              noise={0.5}
+              noise={0}
               timeScale={0.5}
               hueShift={0}
               transparent={true}
