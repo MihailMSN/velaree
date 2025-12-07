@@ -7,7 +7,9 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import ASuiteDashboardMockup from "@/components/asuite/ASuiteDashboardMockup";
+import Prism from "@/components/backgrounds/Prism";
 import { Settings, Users, FileText, LayoutDashboard, UserCog, BarChart3, Code, Ticket, Mail, Palette, Shield, Database, Zap, CheckCircle2, ArrowRight } from "lucide-react";
+
 const ASuite = () => {
   const coreFeatures = [{
     icon: Users,
@@ -162,31 +164,42 @@ const ASuite = () => {
         <Navigation />
 
         {/* Hero Section */}
-        <section className="min-h-[70vh] flex items-center justify-center bg-gradient-to-b from-background via-background to-muted/20 relative overflow-hidden pt-32 pb-20 px-6">
-          <div className="absolute inset-0 bg-grid-white/5 bg-[size:50px_50px]" />
+        <section className="min-h-[70vh] flex items-center justify-center relative overflow-hidden pt-32 pb-20 px-6">
+          {/* Prism Background */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <Prism 
+              animationType="rotate"
+              scale={4}
+              glow={1.2}
+              timeScale={0.3}
+              transparent={true}
+            />
+          </div>
+          
+          {/* Content */}
           <div className="container mx-auto text-center relative z-10">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border border-primary/20 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6 animate-fade-in">
+            <div className="inline-flex items-center gap-2 bg-background/80 backdrop-blur-sm border border-primary/20 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6 animate-fade-in">
               <Settings className="w-4 h-4" />
               Complete Management Platform
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-primary animate-fade-in">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-primary animate-fade-in drop-shadow-lg">
               aSuite
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-4 max-w-3xl mx-auto animate-fade-in">
+            <p className="text-xl md:text-2xl text-foreground/90 mb-4 max-w-3xl mx-auto animate-fade-in drop-shadow-md">
               Your Command Center for Travel Operations
             </p>
-            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto animate-fade-in">
+            <p className="text-lg text-foreground/80 mb-8 max-w-2xl mx-auto animate-fade-in drop-shadow-md">
               Manage your entire travel technology stack, customers, content, and operations from one unified CRM/CMS platform.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
               <Link to="/contact">
-                <Button size="lg" className="rounded-full px-8 bg-stone-950 hover:bg-stone-800">
+                <Button size="lg" className="rounded-full px-8 bg-stone-950 hover:bg-stone-800 shadow-lg">
                   Book Demo
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </Link>
               <Link to="/pricing">
-                <Button size="lg" variant="outline" className="rounded-full px-8">
+                <Button size="lg" variant="outline" className="rounded-full px-8 bg-background/80 backdrop-blur-sm shadow-lg">
                   View Pricing
                 </Button>
               </Link>
