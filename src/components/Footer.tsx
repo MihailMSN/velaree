@@ -39,7 +39,7 @@ const Footer = () => {
             <img 
               src={velareeLogoImg} 
               alt="Velaree Logo" 
-              className="h-10 w-auto mb-4 brightness-0 invert"
+              className="h-12 w-auto mb-4 brightness-0 invert"
             />
             <p className="text-primary-foreground/70 text-sm">
               Building the future of travel technology
