@@ -2,3 +2,6 @@ project_id = "faxdicigustxqdkcqcdm"
 
 [functions.submit-contact]
 verify_jwt = false
+
+[functions.generate-logo]
+verify_jwt = false
