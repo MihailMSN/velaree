@@ -1,6 +1,5 @@
 import { Github, Linkedin, Twitter } from "lucide-react";
 import { Link } from "react-router-dom";
-import velareeLogoImg from "@/assets/velaree-logo.png";
 const Footer = () => {
   // Map link names to actual routes (null = no route yet)
   const linkRoutes: Record<string, string | null> = {
