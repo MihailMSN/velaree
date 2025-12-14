@@ -15,10 +15,10 @@ const ScrollIndicator = () => {
       aria-label="Scroll to content"
     >
       <div className="flex flex-col items-center gap-2">
-        <span className="text-primary-foreground/60 text-sm font-light group-hover:text-primary-foreground/80 transition-colors">
+        <span className="text-primary/60 text-sm font-light group-hover:text-primary/80 transition-colors">
           Scroll to explore
         </span>
-        <ChevronDown className="w-6 h-6 text-primary-foreground/60 group-hover:text-primary-foreground/80 transition-colors" />
+        <ChevronDown className="w-6 h-6 text-primary/60 group-hover:text-primary/80 transition-colors" />
       </div>
     </button>
   );
