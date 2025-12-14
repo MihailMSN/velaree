@@ -84,12 +84,13 @@ const ContactForm = () => {
   };
   const inputClasses = (fieldName: string) => `
     bg-background border-border text-foreground 
-    placeholder:text-muted-foreground text-base px-4 py-3 rounded-xl
+    placeholder:text-muted-foreground text-base px-4 py-3 sm:py-3 rounded-xl
     focus:bg-accent focus:border-primary
     transition-all duration-300
+    min-h-[48px]
     ${focusedField === fieldName ? 'ring-2 ring-primary/20' : ''}
   `;
-  return <div className="bg-card border border-border rounded-3xl p-8 md:p-10 shadow-lg">
+  return <div className="bg-card border border-border rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-10 shadow-lg">
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Honeypot field - hidden from users, bots will fill it */}
         <div className="absolute -left-[9999px] opacity-0 h-0 overflow-hidden" aria-hidden="true">

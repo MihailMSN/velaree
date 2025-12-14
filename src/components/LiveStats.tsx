@@ -34,63 +34,65 @@ const LiveStats = () => {
   ];
 
   return (
-    <div className="py-12 bg-gradient-to-r from-primary via-primary/95 to-primary">
-      <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+    <div className="py-8 sm:py-12 bg-gradient-to-r from-primary via-primary/95 to-primary">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8">
           {/* Title */}
           <div className="text-center md:text-left">
-            <h3 className="text-2xl md:text-3xl font-bold text-primary-foreground mb-2">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-primary-foreground mb-1 sm:mb-2">
               Live Platform Activity
             </h3>
-            <p className="text-primary-foreground/70 text-sm">
+            <p className="text-primary-foreground/70 text-xs sm:text-sm">
               Real-time metrics from our global network
             </p>
           </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full md:w-auto">
-            {isLoading ? (
-              Array.from({ length: 3 }).map((_, index) => (
-                <div key={index} className="flex items-center gap-4 p-4 rounded-xl bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20">
-                  <Skeleton className="w-12 h-12 rounded-lg bg-primary-foreground/20" />
-                  <div className="space-y-2">
-                    <Skeleton className="h-8 w-20 bg-primary-foreground/20" />
-                    <Skeleton className="h-4 w-28 bg-primary-foreground/20" />
-                  </div>
-                </div>
-              ))
-            ) : (
-              displayStats.map((stat, index) => {
-              const Icon = stat.icon;
-              return (
-                <div
-                  key={index}
-                  className="flex items-center gap-4 p-4 rounded-xl bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 animate-fade-in"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${stat.color} flex items-center justify-center flex-shrink-0`}>
-                    <Icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <div className="text-2xl font-bold text-primary-foreground tabular-nums">
-                      {stat.value}
-                      {stat.suffix && <span className="text-lg ml-0.5">{stat.suffix}</span>}
-                    </div>
-                    <div className="text-xs text-primary-foreground/70">
-                      {stat.label}
+          {/* Stats - Horizontal scroll on mobile */}
+          <div className="w-full md:w-auto overflow-x-auto pb-2 md:pb-0 -mx-4 px-4 sm:mx-0 sm:px-0">
+            <div className="flex md:grid md:grid-cols-3 gap-3 sm:gap-4 md:gap-6 min-w-max md:min-w-0">
+              {isLoading ? (
+                Array.from({ length: 3 }).map((_, index) => (
+                  <div key={index} className="flex items-center gap-3 p-3 sm:p-4 rounded-xl bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 min-w-[160px] sm:min-w-[180px]">
+                    <Skeleton className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-primary-foreground/20" />
+                    <div className="space-y-2">
+                      <Skeleton className="h-6 sm:h-8 w-16 sm:w-20 bg-primary-foreground/20" />
+                      <Skeleton className="h-3 sm:h-4 w-20 sm:w-28 bg-primary-foreground/20" />
                     </div>
                   </div>
-                </div>
-              );
-            })
-          )}
+                ))
+              ) : (
+                displayStats.map((stat, index) => {
+                  const Icon = stat.icon;
+                  return (
+                    <div
+                      key={index}
+                      className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 animate-fade-in min-w-[160px] sm:min-w-[180px]"
+                      style={{ animationDelay: `${index * 0.1}s` }}
+                    >
+                      <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br ${stat.color} flex items-center justify-center flex-shrink-0`}>
+                        <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
+                      </div>
+                      <div>
+                        <div className="text-xl sm:text-2xl font-bold text-primary-foreground tabular-nums">
+                          {stat.value}
+                          {stat.suffix && <span className="text-sm sm:text-lg ml-0.5">{stat.suffix}</span>}
+                        </div>
+                        <div className="text-[10px] sm:text-xs text-primary-foreground/70">
+                          {stat.label}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })
+              )}
+            </div>
           </div>
         </div>
 
         {/* Status Indicator */}
-        <div className="flex items-center justify-center gap-2 mt-6">
+        <div className="flex items-center justify-center gap-2 mt-4 sm:mt-6">
           <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
-          <span className="text-xs text-primary-foreground/80">
+          <span className="text-[10px] sm:text-xs text-primary-foreground/80">
             All systems operational • 99.9% uptime
           </span>
         </div>

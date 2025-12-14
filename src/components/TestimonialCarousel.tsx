@@ -42,36 +42,36 @@ const TestimonialCarousel = () => {
   };
 
   return (
-    <section className="py-24 bg-gradient-to-b from-primary/5 via-accent/5 to-background">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
+    <section className="py-12 sm:py-16 md:py-24 bg-gradient-to-b from-primary/5 via-accent/5 to-background">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="text-center mb-8 sm:mb-12 md:mb-16 animate-fade-in">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 sm:mb-6">
             Trusted by Industry Leaders
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
             See how travel companies scaled their operations with Velaree
           </p>
         </div>
 
         <div className="max-w-4xl mx-auto relative">
-          <Card className="p-12 bg-card border-border shadow-xl animate-fade-in">
-            <div className="text-center space-y-8">
-              <div className="text-4xl md:text-5xl font-bold text-accent">
+          <Card className="p-6 sm:p-8 md:p-12 bg-card border-border shadow-xl animate-fade-in">
+            <div className="text-center space-y-4 sm:space-y-6 md:space-y-8">
+              <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-accent">
                 {testimonials[currentIndex].metric}
               </div>
               
-              <blockquote className="text-xl md:text-2xl text-foreground font-light leading-relaxed">
+              <blockquote className="text-base sm:text-lg md:text-xl lg:text-2xl text-foreground font-light leading-relaxed">
                 "{testimonials[currentIndex].quote}"
               </blockquote>
               
-              <div className="space-y-2">
-                <div className="font-bold text-lg text-foreground">
+              <div className="space-y-1 sm:space-y-2">
+                <div className="font-bold text-base sm:text-lg text-foreground">
                   {testimonials[currentIndex].name}
                 </div>
-                <div className="text-muted-foreground">
+                <div className="text-sm sm:text-base text-muted-foreground">
                   {testimonials[currentIndex].role}
                 </div>
-                <div className="text-sm text-muted-foreground/80">
+                <div className="text-xs sm:text-sm text-muted-foreground/80">
                   {testimonials[currentIndex].company}
                 </div>
                 <div className="inline-flex items-center px-3 py-1 rounded-full bg-accent/20 border border-accent/40 text-xs font-medium text-foreground mt-2">
@@ -82,12 +82,12 @@ const TestimonialCarousel = () => {
           </Card>
 
           {/* Navigation */}
-          <div className="flex items-center justify-center gap-4 mt-8">
+          <div className="flex items-center justify-center gap-4 mt-6 sm:mt-8">
             <Button
               variant="outline"
               size="icon"
               onClick={previous}
-              className="rounded-full hover:bg-accent/10"
+              className="rounded-full hover:bg-accent/10 active:bg-accent/20 min-w-[44px] min-h-[44px]"
             >
               <ChevronLeft className="w-5 h-5" />
             </Button>
@@ -97,10 +97,10 @@ const TestimonialCarousel = () => {
                 <button
                   key={index}
                   onClick={() => setCurrentIndex(index)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  className={`h-2 rounded-full transition-all duration-300 min-w-[32px] ${
                     index === currentIndex
                       ? "bg-accent w-8"
-                      : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                      : "bg-muted-foreground/30 hover:bg-muted-foreground/50 w-2"
                   }`}
                   aria-label={`Go to testimonial ${index + 1}`}
                 />
@@ -111,7 +111,7 @@ const TestimonialCarousel = () => {
               variant="outline"
               size="icon"
               onClick={next}
-              className="rounded-full hover:bg-accent/10"
+              className="rounded-full hover:bg-accent/10 active:bg-accent/20 min-w-[44px] min-h-[44px]"
             >
               <ChevronRight className="w-5 h-5" />
             </Button>
