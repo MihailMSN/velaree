@@ -135,27 +135,40 @@ const Navigation = () => {
         </div>
 
         {isMobileMenuOpen && <div className="md:hidden mt-4 pb-4 animate-fade-in">
-            <div className="flex flex-col gap-4">
-              {navItems.map(item => <button key={item.name} onClick={() => handleNavigation(item.path)} className={`relative inline-block w-full pr-6 transition-colors duration-200 py-2 text-left ${location.pathname === item.path ? "text-foreground font-semibold" : "text-foreground/70 hover:text-foreground"}`}>
-                  {item.name}
-                  {item.icon && <span className={`absolute top-1.5 right-0 inline-flex items-center justify-center w-4 h-4 rounded-full border ${item.badgeColor}`}>
-                      <item.icon className="w-2.5 h-2.5" />
-                    </span>}
-                </button>)}
-              <Button onClick={() => handleNavigation('/contact')} className="w-full rounded-full mt-2">
+            <div className="flex flex-col gap-1">
+              {navItems.map((item, index) => (
+                <div key={item.name}>
+                  <button 
+                    onClick={() => handleNavigation(item.path)} 
+                    className={`relative flex items-center w-full pr-8 transition-colors duration-200 py-3 min-h-[48px] text-left ${location.pathname === item.path ? "text-foreground font-semibold" : "text-foreground/70 hover:text-foreground active:bg-accent/50"}`}
+                  >
+                    {item.name}
+                    {item.icon && (
+                      <span className={`absolute top-3 right-0 inline-flex items-center justify-center w-5 h-5 rounded-full border ${item.badgeColor}`}>
+                        <item.icon className="w-3 h-3" />
+                      </span>
+                    )}
+                  </button>
+                  {index < navItems.length - 1 && <div className="h-px bg-border/50" />}
+                </div>
+              ))}
+              
+              <div className="h-px bg-border my-2" />
+              
+              <Button onClick={() => handleNavigation('/contact')} className="w-full rounded-full mt-2 min-h-[48px]">
                 Book Demo
               </Button>
               {user ? <>
-                  <Button onClick={() => handleNavigation('/dashboard')} variant="outline" className="w-full rounded-full">
+                  <Button onClick={() => handleNavigation('/dashboard')} variant="outline" className="w-full rounded-full min-h-[48px]">
                     Dashboard
                   </Button>
-                  {isPlatformAdmin && <Button onClick={() => handleNavigation('/admin')} variant="outline" className="w-full rounded-full">
+                  {isPlatformAdmin && <Button onClick={() => handleNavigation('/admin')} variant="outline" className="w-full rounded-full min-h-[48px]">
                       Admin Panel
                     </Button>}
-                  <Button onClick={signOut} variant="ghost" className="w-full rounded-full">
+                  <Button onClick={signOut} variant="ghost" className="w-full rounded-full min-h-[48px]">
                     Sign Out
                   </Button>
-                </> : <Button onClick={() => handleNavigation('/auth')} variant="outline" className="w-full rounded-full">
+                </> : <Button onClick={() => handleNavigation('/auth')} variant="outline" className="w-full rounded-full min-h-[48px]">
                   Sign In
                 </Button>}
             </div>

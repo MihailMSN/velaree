@@ -13,6 +13,8 @@ import LiveStats from "@/components/LiveStats";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
+import BackToTop from "@/components/BackToTop";
+
 const Index = () => {
   return <div className="min-h-screen bg-background">
       <Helmet>
@@ -79,6 +81,7 @@ const Index = () => {
       <TestimonialCarousel />
       <CTA />
       <Footer />
+      <BackToTop />
     </div>;
 };
 export default Index;
