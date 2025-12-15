@@ -3,12 +3,17 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Plane, DollarSign, Zap, RefreshCw, CheckCircle2, ArrowRight } from "lucide-react";
+import { Plane, DollarSign, Zap, RefreshCw, CheckCircle2, ArrowRight, FileCode, BookOpen } from "lucide-react";
 import { Link } from "react-router-dom";
 import ClickToBookMockup from "@/components/mockups/ClickToBookMockup";
 import PrivateFareMockup from "@/components/mockups/PrivateFareMockup";
 import AutomationMockup from "@/components/mockups/AutomationMockup";
 import RStoolDemoDashboard from "@/components/rstool/RStoolDemoDashboard";
+import ApiFlowDiagram from "@/components/ApiFlowDiagram";
+import TechnicalSpecs from "@/components/TechnicalSpecs";
+import ApiPreview from "@/components/ApiPreview";
+import ValuePillars from "@/components/ValuePillars";
+import TrustBar from "@/components/TrustBar";
 
 const solutions = [
   {
@@ -84,6 +89,13 @@ const solutions = [
 
 const MockupComponents = [ClickToBookMockup, PrivateFareMockup, AutomationMockup, RStoolDemoDashboard];
 
+const heroStats = [
+  { value: "200+", label: "Airlines" },
+  { value: "50+", label: "Suppliers" },
+  { value: "<500ms", label: "Response" },
+  { value: "99.9%", label: "Uptime" }
+];
+
 interface SolutionCardProps {
   solution: typeof solutions[0];
   index: number;
@@ -97,7 +109,8 @@ const SolutionCard = ({ solution, index, MockupComponent }: SolutionCardProps) =
   if ('fullWidthMockup' in solution && solution.fullWidthMockup) {
     return (
       <div 
-        className={`group bg-card bg-gradient-to-br ${solution.gradient} border border-border/50 hover:border-primary/30 rounded-3xl p-8 md:p-12 lg:p-16 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1`}
+        className={`group bg-card bg-gradient-to-br ${solution.gradient} border border-border/50 hover:border-primary/30 rounded-3xl p-8 md:p-12 lg:p-16 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 animate-fade-in`}
+        style={{ animationDelay: `${index * 0.15}s` }}
       >
         {/* Full-width Mockup at top */}
         <div className="rounded-2xl overflow-hidden shadow-lg mb-10 lg:mb-12">
@@ -153,7 +166,8 @@ const SolutionCard = ({ solution, index, MockupComponent }: SolutionCardProps) =
   // Standard 2-column layout (mockup side by side with content)
   return (
     <div 
-      className={`group bg-card bg-gradient-to-br ${solution.gradient} border border-border/50 hover:border-primary/30 rounded-3xl p-6 md:p-10 lg:p-12 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1`}
+      className={`group bg-card bg-gradient-to-br ${solution.gradient} border border-border/50 hover:border-primary/30 rounded-3xl p-6 md:p-10 lg:p-12 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 animate-fade-in`}
+      style={{ animationDelay: `${index * 0.15}s` }}
     >
       <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         {/* Content Side */}
@@ -258,26 +272,95 @@ const Technology = () => {
       </Helmet>
       <Navigation />
       
-      {/* Hero Section */}
-      <section className="min-h-[70vh] flex items-center justify-center bg-gradient-to-b from-background via-background to-muted/20 relative overflow-hidden pt-32 pb-20 px-6">
+      {/* Enhanced Hero Section */}
+      <section className="min-h-[80vh] flex items-center justify-center bg-gradient-to-b from-background via-background to-muted/20 relative overflow-hidden pt-32 pb-20 px-6">
         <div className="absolute inset-0 bg-grid-white/5 bg-[size:50px_50px]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent" />
+        
         <div className="container mx-auto text-center relative z-10">
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border border-primary/20 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border border-primary/20 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6 animate-fade-in">
             <Zap className="w-4 h-4" />
             Powerful Travel Technology Stack
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-primary">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-primary animate-fade-in" style={{ animationDelay: "0.1s" }}>
             Technology
           </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: "0.2s" }}>
             Powerful tools built for modern travel businesses
           </p>
+          
+          {/* Hero Stats Bar */}
+          <div className="flex flex-wrap justify-center gap-4 md:gap-8 mb-10 animate-fade-in" style={{ animationDelay: "0.3s" }}>
+            {heroStats.map((stat, index) => (
+              <div 
+                key={index}
+                className="flex flex-col items-center px-6 py-3 rounded-xl bg-card/50 backdrop-blur-sm border border-border/50"
+              >
+                <span className="text-2xl md:text-3xl font-bold text-primary">{stat.value}</span>
+                <span className="text-xs md:text-sm text-muted-foreground">{stat.label}</span>
+              </div>
+            ))}
+          </div>
+          
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in" style={{ animationDelay: "0.4s" }}>
+            <Link to="/contact">
+              <Button size="lg" className="rounded-full px-8 py-6 text-lg">
+                <FileCode className="w-5 h-5 mr-2" />
+                Get API Keys
+              </Button>
+            </Link>
+            <Link to="/contact">
+              <Button variant="outline" size="lg" className="rounded-full px-8 py-6 text-lg">
+                <BookOpen className="w-5 h-5 mr-2" />
+                Book a Demo
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* API Flow Diagram Section */}
+      <section className="py-16 md:py-24 bg-muted/30">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 animate-fade-in">
+              How It Works
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: "0.1s" }}>
+              One unified API connecting you to the entire travel ecosystem
+            </p>
+          </div>
+          <ApiFlowDiagram />
+        </div>
+      </section>
+
+      {/* Value Pillars Section */}
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 animate-fade-in">
+              Built for Scale
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: "0.1s" }}>
+              Enterprise-grade infrastructure that grows with your business
+            </p>
+          </div>
+          <ValuePillars />
         </div>
       </section>
 
       {/* Solutions Section */}
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-24 bg-muted/20">
         <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 animate-fade-in">
+              Our Solutions
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: "0.1s" }}>
+              Four powerful products to transform your travel operations
+            </p>
+          </div>
           <div className="space-y-8">
             {solutions.map((solution, index) => (
               <SolutionCard 
@@ -291,24 +374,44 @@ const Technology = () => {
         </div>
       </section>
 
+      {/* Technical Specs Section */}
+      <TechnicalSpecs />
+
+      {/* API Preview Section */}
+      <ApiPreview />
+
+      {/* Integration Partners Trust Bar */}
+      <TrustBar />
+
       {/* CTA Section */}
       <section className="py-24 bg-primary">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-primary-foreground mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-primary-foreground mb-6 animate-fade-in">
             Ready to Get Started?
           </h2>
-          <p className="text-xl text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-primary-foreground/80 mb-8 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: "0.1s" }}>
             Schedule a personalized demo to see how Velaree can transform your operations
           </p>
-          <Link to="/contact">
-            <Button 
-              size="lg"
-              variant="secondary"
-              className="text-lg px-8 py-6 rounded-full transition-all duration-300 hover:scale-105"
-            >
-              Book a Demo
-            </Button>
-          </Link>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in" style={{ animationDelay: "0.2s" }}>
+            <Link to="/contact">
+              <Button 
+                size="lg"
+                variant="secondary"
+                className="text-lg px-8 py-6 rounded-full transition-all duration-300 hover:scale-105"
+              >
+                Book a Demo
+              </Button>
+            </Link>
+            <Link to="/contact">
+              <Button 
+                size="lg"
+                variant="outline"
+                className="text-lg px-8 py-6 rounded-full bg-transparent border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 transition-all duration-300"
+              >
+                Get API Keys
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
 
