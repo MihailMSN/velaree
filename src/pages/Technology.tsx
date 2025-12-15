@@ -14,104 +14,75 @@ import TechnicalSpecs from "@/components/TechnicalSpecs";
 import ApiPreview from "@/components/ApiPreview";
 import ValuePillars from "@/components/ValuePillars";
 import TrustBar from "@/components/TrustBar";
-
-const solutions = [
-  {
-    icon: Plane,
-    title: "Click-to-Book Platform",
-    description: "Instant booking for OTAs and TMCs with real-time availability and pricing",
-    features: [
-      "Multi-source aggregation from 50+ suppliers",
-      "Sub-second search response times",
-      "Automated ticketing and confirmation",
-      "Mobile-optimized booking flow",
-      "Payment gateway integration",
-      "24/7 uptime guarantee"
-    ],
-    benefits: "Reduce booking time from minutes to seconds while improving conversion rates by up to 40%",
-    gradient: "from-blue-50 via-cyan-50 to-slate-50",
-    hoverGradient: "group-hover:from-blue-100 group-hover:via-cyan-100 group-hover:to-slate-100",
-    link: "/technology"
-  },
-  {
-    icon: DollarSign,
-    title: "Private Fare API",
-    description: "Connect with global consolidators and airlines for exclusive rates",
-    features: [
-      "Access to 100+ consolidator networks",
-      "Negotiated private fares and net rates",
-      "Real-time fare comparison engine",
-      "Automated markup configuration",
-      "Multi-currency support",
-      "Fare rules and restrictions API"
-    ],
-    benefits: "Increase profit margins by 25-35% with access to exclusive consolidator inventory",
-    gradient: "from-emerald-50 via-green-50 to-slate-50",
-    hoverGradient: "group-hover:from-emerald-100 group-hover:via-green-100 group-hover:to-slate-100",
-    link: "/technology"
-  },
-  {
-    icon: Zap,
-    title: "Automation Suite",
-    description: "Manage ticketing, pricing, and servicing effortlessly with intelligent automation",
-    features: [
-      "Auto-ticketing with PNR management",
-      "Dynamic pricing engine",
-      "Queue monitoring and alerts",
-      "Schedule change automation",
-      "Refund and exchange processing",
-      "Customer notification system"
-    ],
-    benefits: "Reduce manual operations by 70% and eliminate human errors in routine tasks",
-    gradient: "from-amber-50 via-orange-50 to-slate-50",
-    hoverGradient: "group-hover:from-amber-100 group-hover:via-orange-100 group-hover:to-slate-100",
-    link: "/asuite"
-  },
-  {
-    icon: RefreshCw,
-    title: "Re-Shopping Engine",
-    description: "Maximize post-sale revenue with continuous fare monitoring and automated re-booking",
-    features: [
-      "Real-time PNR monitoring across all bookings",
-      "Automated price drop detection every 60 seconds",
-      "Cross-content availability comparison",
-      "Private fare re-shopping with live consolidator rates",
-      "One-click re-booking with automatic ticketing",
-      "Revenue recovery alerts and reporting"
-    ],
-    benefits: "Capture 15-20% additional revenue post-sale by identifying and acting on price drops and availability changes",
-    gradient: "from-violet-50 via-purple-50 to-slate-50",
-    hoverGradient: "group-hover:from-violet-100 group-hover:via-purple-100 group-hover:to-slate-100",
-    link: "/rstool",
-    fullWidthMockup: true
-  }
-];
-
+const solutions = [{
+  icon: Plane,
+  title: "Click-to-Book Platform",
+  description: "Instant booking for OTAs and TMCs with real-time availability and pricing",
+  features: ["Multi-source aggregation from 50+ suppliers", "Sub-second search response times", "Automated ticketing and confirmation", "Mobile-optimized booking flow", "Payment gateway integration", "24/7 uptime guarantee"],
+  benefits: "Reduce booking time from minutes to seconds while improving conversion rates by up to 40%",
+  gradient: "from-blue-50 via-cyan-50 to-slate-50",
+  hoverGradient: "group-hover:from-blue-100 group-hover:via-cyan-100 group-hover:to-slate-100",
+  link: "/technology"
+}, {
+  icon: DollarSign,
+  title: "Private Fare API",
+  description: "Connect with global consolidators and airlines for exclusive rates",
+  features: ["Access to 100+ consolidator networks", "Negotiated private fares and net rates", "Real-time fare comparison engine", "Automated markup configuration", "Multi-currency support", "Fare rules and restrictions API"],
+  benefits: "Increase profit margins by 25-35% with access to exclusive consolidator inventory",
+  gradient: "from-emerald-50 via-green-50 to-slate-50",
+  hoverGradient: "group-hover:from-emerald-100 group-hover:via-green-100 group-hover:to-slate-100",
+  link: "/technology"
+}, {
+  icon: Zap,
+  title: "Automation Suite",
+  description: "Manage ticketing, pricing, and servicing effortlessly with intelligent automation",
+  features: ["Auto-ticketing with PNR management", "Dynamic pricing engine", "Queue monitoring and alerts", "Schedule change automation", "Refund and exchange processing", "Customer notification system"],
+  benefits: "Reduce manual operations by 70% and eliminate human errors in routine tasks",
+  gradient: "from-amber-50 via-orange-50 to-slate-50",
+  hoverGradient: "group-hover:from-amber-100 group-hover:via-orange-100 group-hover:to-slate-100",
+  link: "/asuite"
+}, {
+  icon: RefreshCw,
+  title: "Re-Shopping Engine",
+  description: "Maximize post-sale revenue with continuous fare monitoring and automated re-booking",
+  features: ["Real-time PNR monitoring across all bookings", "Automated price drop detection every 60 seconds", "Cross-content availability comparison", "Private fare re-shopping with live consolidator rates", "One-click re-booking with automatic ticketing", "Revenue recovery alerts and reporting"],
+  benefits: "Capture 15-20% additional revenue post-sale by identifying and acting on price drops and availability changes",
+  gradient: "from-violet-50 via-purple-50 to-slate-50",
+  hoverGradient: "group-hover:from-violet-100 group-hover:via-purple-100 group-hover:to-slate-100",
+  link: "/rstool",
+  fullWidthMockup: true
+}];
 const MockupComponents = [ClickToBookMockup, PrivateFareMockup, AutomationMockup, RStoolDemoDashboard];
-
-const heroStats = [
-  { value: "200+", label: "Airlines" },
-  { value: "50+", label: "Suppliers" },
-  { value: "<500ms", label: "Response" },
-  { value: "99.9%", label: "Uptime" }
-];
-
+const heroStats = [{
+  value: "200+",
+  label: "Airlines"
+}, {
+  value: "50+",
+  label: "Suppliers"
+}, {
+  value: "<500ms",
+  label: "Response"
+}, {
+  value: "99.9%",
+  label: "Uptime"
+}];
 interface SolutionCardProps {
   solution: typeof solutions[0];
   index: number;
   MockupComponent: React.ComponentType;
 }
-
-const SolutionCard = ({ solution, index, MockupComponent }: SolutionCardProps) => {
+const SolutionCard = ({
+  solution,
+  index,
+  MockupComponent
+}: SolutionCardProps) => {
   const Icon = solution.icon;
-  
+
   // Full-width mockup layout (mockup on top, text below)
   if ('fullWidthMockup' in solution && solution.fullWidthMockup) {
-    return (
-      <div 
-        className={`group bg-card bg-gradient-to-br ${solution.gradient} border border-border/50 hover:border-primary/30 rounded-3xl p-8 md:p-12 lg:p-16 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 animate-fade-in`}
-        style={{ animationDelay: `${index * 0.15}s` }}
-      >
+    return <div className={`group bg-card bg-gradient-to-br ${solution.gradient} border border-border/50 hover:border-primary/30 rounded-3xl p-8 md:p-12 lg:p-16 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 animate-fade-in`} style={{
+      animationDelay: `${index * 0.15}s`
+    }}>
         {/* Full-width Mockup at top */}
         <div className="rounded-2xl overflow-hidden shadow-lg mb-10 lg:mb-12">
           <MockupComponent />
@@ -143,32 +114,24 @@ const SolutionCard = ({ solution, index, MockupComponent }: SolutionCardProps) =
           <Card className="p-5 md:p-6 bg-card/80 backdrop-blur-sm border-border h-full">
             <h3 className="text-lg md:text-xl font-bold text-foreground mb-4">Key Features</h3>
             <ul className="space-y-3">
-              {solution.features.map((feature, idx) => (
-                <li key={idx} className="flex items-start gap-3">
+              {solution.features.map((feature, idx) => <li key={idx} className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                   <span className="text-foreground text-sm md:text-base">{feature}</span>
-                </li>
-              ))}
+                </li>)}
             </ul>
-            <Link 
-              to={solution.link}
-              className="inline-flex items-center gap-2 mt-6 text-primary font-semibold hover:gap-3 transition-all"
-            >
+            <Link to={solution.link} className="inline-flex items-center gap-2 mt-6 text-primary font-semibold hover:gap-3 transition-all">
               Learn more
               <ArrowRight className="w-4 h-4" />
             </Link>
           </Card>
         </div>
-      </div>
-    );
+      </div>;
   }
-  
+
   // Standard 2-column layout (mockup side by side with content)
-  return (
-    <div 
-      className={`group bg-card bg-gradient-to-br ${solution.gradient} border border-border/50 hover:border-primary/30 rounded-3xl p-6 md:p-10 lg:p-12 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 animate-fade-in`}
-      style={{ animationDelay: `${index * 0.15}s` }}
-    >
+  return <div className={`group bg-card bg-gradient-to-br ${solution.gradient} border border-border/50 hover:border-primary/30 rounded-3xl p-6 md:p-10 lg:p-12 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 animate-fade-in`} style={{
+    animationDelay: `${index * 0.15}s`
+  }}>
       <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         {/* Content Side */}
         <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
@@ -190,24 +153,17 @@ const SolutionCard = ({ solution, index, MockupComponent }: SolutionCardProps) =
           <Card className="p-4 md:p-5 bg-card/80 backdrop-blur-sm border-border overflow-hidden">
             <h3 className="text-base md:text-lg font-bold text-foreground mb-3">Key Features</h3>
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
-              {solution.features.map((feature, idx) => (
-                <li 
-                  key={idx} 
-                  className="flex items-start gap-2 opacity-80 group-hover:opacity-100 transition-opacity duration-300"
-                  style={{ transitionDelay: `${idx * 50}ms` }}
-                >
+              {solution.features.map((feature, idx) => <li key={idx} className="flex items-start gap-2 opacity-80 group-hover:opacity-100 transition-opacity duration-300" style={{
+              transitionDelay: `${idx * 50}ms`
+            }}>
                   <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
                   <span className="text-foreground text-sm">{feature}</span>
-                </li>
-              ))}
+                </li>)}
             </ul>
           </Card>
 
           {/* Learn More Link */}
-          <Link 
-            to={solution.link}
-            className="inline-flex items-center gap-2 mt-5 text-primary font-medium opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300"
-          >
+          <Link to={solution.link} className="inline-flex items-center gap-2 mt-5 text-primary font-medium opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
             Learn more
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
           </Link>
@@ -220,23 +176,14 @@ const SolutionCard = ({ solution, index, MockupComponent }: SolutionCardProps) =
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 const Technology = () => {
-  return (
-    <div className="min-h-screen bg-background">
+  return <div className="min-h-screen bg-background">
       <Helmet>
         <title>Travel Technology Solutions | Velaree Tech Stack</title>
-        <meta 
-          name="description" 
-          content="Explore Velaree's powerful travel technology: Click-to-Book Platform, Private Fare API, Automation Suite, and Re-Shopping Engine for OTAs, TMCs, and airlines." 
-        />
-        <meta 
-          name="keywords" 
-          content="travel technology, OTA platform, TMC software, airline booking system, private fare API, travel automation, re-shopping engine" 
-        />
+        <meta name="description" content="Explore Velaree's powerful travel technology: Click-to-Book Platform, Private Fare API, Automation Suite, and Re-Shopping Engine for OTAs, TMCs, and airlines." />
+        <meta name="keywords" content="travel technology, OTA platform, TMC software, airline booking system, private fare API, travel automation, re-shopping engine" />
         <link rel="canonical" href="https://velaree.com/technology" />
         
         {/* Open Graph tags */}
@@ -252,22 +199,22 @@ const Technology = () => {
         
         <script type="application/ld+json">
           {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "ItemList",
-            "name": "Velaree Travel Technology Solutions",
-            "description": "Comprehensive suite of travel technology solutions for modern travel businesses",
-            "itemListElement": solutions.map((solution, index) => ({
-              "@type": "ListItem",
-              "position": index + 1,
-              "item": {
-                "@type": "SoftwareApplication",
-                "name": solution.title,
-                "applicationCategory": "BusinessApplication",
-                "description": solution.description,
-                "featureList": solution.features
-              }
-            }))
-          })}
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "name": "Velaree Travel Technology Solutions",
+          "description": "Comprehensive suite of travel technology solutions for modern travel businesses",
+          "itemListElement": solutions.map((solution, index) => ({
+            "@type": "ListItem",
+            "position": index + 1,
+            "item": {
+              "@type": "SoftwareApplication",
+              "name": solution.title,
+              "applicationCategory": "BusinessApplication",
+              "description": solution.description,
+              "featureList": solution.features
+            }
+          }))
+        })}
         </script>
       </Helmet>
       <Navigation />
@@ -282,30 +229,33 @@ const Technology = () => {
             <Zap className="w-4 h-4" />
             Powerful Travel Technology Stack
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-primary animate-fade-in" style={{ animationDelay: "0.1s" }}>
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-primary animate-fade-in" style={{
+          animationDelay: "0.1s"
+        }}>
             Technology
           </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: "0.2s" }}>
+          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto animate-fade-in" style={{
+          animationDelay: "0.2s"
+        }}>
             Powerful tools built for modern travel businesses
           </p>
           
           {/* Hero Stats Bar */}
-          <div className="flex flex-wrap justify-center gap-4 md:gap-8 mb-10 animate-fade-in" style={{ animationDelay: "0.3s" }}>
-            {heroStats.map((stat, index) => (
-              <div 
-                key={index}
-                className="flex flex-col items-center px-6 py-3 rounded-xl bg-card/50 backdrop-blur-sm border border-border/50"
-              >
+          <div className="flex flex-wrap justify-center gap-4 md:gap-8 mb-10 animate-fade-in" style={{
+          animationDelay: "0.3s"
+        }}>
+            {heroStats.map((stat, index) => <div key={index} className="flex flex-col items-center px-6 py-3 rounded-xl bg-card/50 backdrop-blur-sm border border-border/50">
                 <span className="text-2xl md:text-3xl font-bold text-primary">{stat.value}</span>
                 <span className="text-xs md:text-sm text-muted-foreground">{stat.label}</span>
-              </div>
-            ))}
+              </div>)}
           </div>
           
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in" style={{ animationDelay: "0.4s" }}>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in" style={{
+          animationDelay: "0.4s"
+        }}>
             <Link to="/contact">
-              <Button size="lg" className="rounded-full px-8 py-6 text-lg">
+              <Button size="lg" className="rounded-full px-8 py-6 text-lg bg-primary">
                 <FileCode className="w-5 h-5 mr-2" />
                 Get API Keys
               </Button>
@@ -327,7 +277,9 @@ const Technology = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 animate-fade-in">
               How It Works
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: "0.1s" }}>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-in" style={{
+            animationDelay: "0.1s"
+          }}>
               One unified API connecting you to the entire travel ecosystem
             </p>
           </div>
@@ -342,7 +294,9 @@ const Technology = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 animate-fade-in">
               Built for Scale
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: "0.1s" }}>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-in" style={{
+            animationDelay: "0.1s"
+          }}>
               Enterprise-grade infrastructure that grows with your business
             </p>
           </div>
@@ -357,19 +311,14 @@ const Technology = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 animate-fade-in">
               Our Solutions
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: "0.1s" }}>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-in" style={{
+            animationDelay: "0.1s"
+          }}>
               Four powerful products to transform your travel operations
             </p>
           </div>
           <div className="space-y-8">
-            {solutions.map((solution, index) => (
-              <SolutionCard 
-                key={index}
-                solution={solution}
-                index={index}
-                MockupComponent={MockupComponents[index]}
-              />
-            ))}
+            {solutions.map((solution, index) => <SolutionCard key={index} solution={solution} index={index} MockupComponent={MockupComponents[index]} />)}
           </div>
         </div>
       </section>
@@ -389,25 +338,21 @@ const Technology = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-primary-foreground mb-6 animate-fade-in">
             Ready to Get Started?
           </h2>
-          <p className="text-xl text-primary-foreground/80 mb-8 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: "0.1s" }}>
+          <p className="text-xl text-primary-foreground/80 mb-8 max-w-2xl mx-auto animate-fade-in" style={{
+          animationDelay: "0.1s"
+        }}>
             Schedule a personalized demo to see how Velaree can transform your operations
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in" style={{ animationDelay: "0.2s" }}>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in" style={{
+          animationDelay: "0.2s"
+        }}>
             <Link to="/contact">
-              <Button 
-                size="lg"
-                variant="secondary"
-                className="text-lg px-8 py-6 rounded-full transition-all duration-300 hover:scale-105"
-              >
+              <Button size="lg" variant="secondary" className="text-lg px-8 py-6 rounded-full transition-all duration-300 hover:scale-105 bg-[sidebar-accent-foreground] bg-secondary">
                 Book a Demo
               </Button>
             </Link>
             <Link to="/contact">
-              <Button 
-                size="lg"
-                variant="outline"
-                className="text-lg px-8 py-6 rounded-full bg-transparent border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 transition-all duration-300"
-              >
+              <Button size="lg" variant="outline" className="text-lg px-8 py-6 rounded-full bg-transparent border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 transition-all duration-300">
                 Get API Keys
               </Button>
             </Link>
@@ -416,8 +361,6 @@ const Technology = () => {
       </section>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Technology;
