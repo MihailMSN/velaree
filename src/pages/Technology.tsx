@@ -115,7 +115,7 @@ const SolutionCard = ({
             <h3 className="text-lg md:text-xl font-bold text-foreground mb-4">Key Features</h3>
             <ul className="space-y-3">
               {solution.features.map((feature, idx) => <li key={idx} className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5 border-primary-foreground shadow" />
                   <span className="text-foreground text-sm md:text-base">{feature}</span>
                 </li>)}
             </ul>
@@ -156,7 +156,7 @@ const SolutionCard = ({
               {solution.features.map((feature, idx) => <li key={idx} className="flex items-start gap-2 opacity-80 group-hover:opacity-100 transition-opacity duration-300" style={{
               transitionDelay: `${idx * 50}ms`
             }}>
-                  <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 flex-shrink-0 mt-0.5 bg-primary-foreground text-primary-foreground border-primary-foreground" />
                   <span className="text-foreground text-sm">{feature}</span>
                 </li>)}
             </ul>
