@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Calendar, Clock, ArrowRight, User, Search, X } from "lucide-react";
 import { blogPosts, categories, categoryColors, searchPosts } from "@/data/blogPosts";
+import NewsletterForm from "@/components/blog/NewsletterForm";
 const Blog = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
@@ -143,19 +144,9 @@ const Blog = () => {
                   </div>
 
                   {/* Newsletter CTA */}
-                  <Card className="mt-8 bg-gradient-to-br from-primary/10 to-accent/10 border-primary/20">
-                    <CardContent className="p-5">
-                      <h4 className="font-semibold text-foreground mb-2">Stay Updated</h4>
-                      <p className="text-sm text-muted-foreground mb-4">
-                        Get the latest insights delivered to your inbox.
-                      </p>
-                      <Link to="/contact">
-                        <Button size="sm" className="w-full rounded-full bg-secondary-foreground">
-                          Subscribe
-                        </Button>
-                      </Link>
-                    </CardContent>
-                  </Card>
+                  <div className="mt-8">
+                    <NewsletterForm source="blog-sidebar" />
+                  </div>
                 </div>
               </aside>
 

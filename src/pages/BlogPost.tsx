@@ -11,6 +11,9 @@ import { blogPosts, categoryColors, getRelatedPosts } from "@/data/blogPosts";
 import { useToast } from "@/hooks/use-toast";
 import MarkdownRenderer from "@/components/blog/MarkdownRenderer";
 import TableOfContents, { extractHeadings } from "@/components/blog/TableOfContents";
+import ReadingProgressBar from "@/components/blog/ReadingProgressBar";
+import NewsletterForm from "@/components/blog/NewsletterForm";
+
 const BlogPost = () => {
   const {
     id
@@ -93,6 +96,7 @@ const BlogPost = () => {
       </Helmet>
 
       <Navigation />
+      <ReadingProgressBar />
 
       <main className="min-h-screen bg-background pt-24">
         {/* Hero */}
@@ -118,15 +122,18 @@ const BlogPost = () => {
                 </p>
 
                 <div className="flex flex-wrap items-center gap-6 text-sm text-muted-foreground pb-8 border-b border-border">
-                  <div className="flex items-center gap-2">
-                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Link 
+                    to={`/blog/author/${encodeURIComponent(post.author.toLowerCase().replace(/\s+/g, "-"))}`}
+                    className="flex items-center gap-2 group"
+                  >
+                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                       <User className="w-5 h-5 text-primary" />
                     </div>
                     <div>
-                      <p className="font-medium text-foreground">{post.author}</p>
+                      <p className="font-medium text-foreground group-hover:text-primary transition-colors">{post.author}</p>
                       <p className="text-xs">{post.authorRole}</p>
                     </div>
-                  </div>
+                  </Link>
                   <span className="flex items-center gap-1">
                     <Calendar className="w-4 h-4" />
                     {post.date}
@@ -166,20 +173,27 @@ const BlogPost = () => {
                 </div>
 
                 {/* Author Card */}
-                <Card className="mt-8 bg-muted/30 border-border/60">
-                  <CardContent className="p-6 flex items-center gap-4">
-                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                      <User className="w-8 h-8 text-primary" />
-                    </div>
-                    <div>
-                      <p className="font-semibold text-foreground">{post.author}</p>
-                      <p className="text-sm text-muted-foreground">{post.authorRole}</p>
-                      <p className="text-sm text-muted-foreground mt-1">
-                        Expert in travel technology and airline distribution systems.
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
+                <Link to={`/blog/author/${encodeURIComponent(post.author.toLowerCase().replace(/\s+/g, "-"))}`}>
+                  <Card className="mt-8 bg-muted/30 border-border/60 hover:border-primary/30 transition-colors group">
+                    <CardContent className="p-6 flex items-center gap-4">
+                      <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
+                        <User className="w-8 h-8 text-primary" />
+                      </div>
+                      <div>
+                        <p className="font-semibold text-foreground group-hover:text-primary transition-colors">{post.author}</p>
+                        <p className="text-sm text-muted-foreground">{post.authorRole}</p>
+                        <p className="text-sm text-muted-foreground mt-1">
+                          Expert in travel technology and airline distribution systems.
+                        </p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
+
+                {/* Newsletter CTA */}
+                <div className="mt-8">
+                  <NewsletterForm source="blog-post" />
+                </div>
               </div>
 
               {/* Table of Contents Sidebar */}
