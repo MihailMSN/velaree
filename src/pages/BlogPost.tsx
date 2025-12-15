@@ -15,6 +15,7 @@ import ReadingProgressBar from "@/components/blog/ReadingProgressBar";
 import NewsletterForm from "@/components/blog/NewsletterForm";
 import SocialShareButtons from "@/components/blog/SocialShareButtons";
 import FloatingShareBar from "@/components/blog/FloatingShareBar";
+import { useOGImage } from "@/hooks/useOGImage";
 
 const BlogPost = () => {
   const {
@@ -30,6 +31,16 @@ const BlogPost = () => {
   const post = blogPosts.find(p => p.id === id);
   const relatedPosts = post ? getRelatedPosts(post, 3) : [];
   const headings = post ? extractHeadings(post.content) : [];
+  
+  // Get or generate OG image
+  const { ogImageUrl } = useOGImage({
+    title: post?.title || "",
+    category: post?.category || "",
+    author: post?.author || "",
+    postId: id || "",
+    readTime: post?.readTime,
+    autoGenerate: true,
+  });
 
   // Track active heading on scroll
   useEffect(() => {
@@ -98,10 +109,16 @@ const BlogPost = () => {
         <meta name="twitter:title" content={post.title} />
         <meta name="twitter:description" content={post.excerpt} />
         <meta name="twitter:site" content="@velaree" />
+        {ogImageUrl && <meta name="twitter:image" content={ogImageUrl} />}
         
-        {/* LinkedIn specific */}
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
+        {/* OG Image */}
+        {ogImageUrl && (
+          <>
+            <meta property="og:image" content={ogImageUrl} />
+            <meta property="og:image:width" content="1200" />
+            <meta property="og:image:height" content="630" />
+          </>
+        )}
       </Helmet>
 
       <Navigation />

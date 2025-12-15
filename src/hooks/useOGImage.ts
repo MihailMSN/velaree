@@ -7,16 +7,15 @@ interface UseOGImageOptions {
   author: string;
   postId: string;
   readTime?: string;
+  autoGenerate?: boolean;
 }
 
 interface UseOGImageResult {
   ogImageUrl: string | null;
   isLoading: boolean;
   error: string | null;
+  generate: () => Promise<void>;
 }
-
-// Simple in-memory cache for generated images
-const imageCache = new Map<string, string>();
 
 export const useOGImage = ({
   title,
@@ -24,70 +23,82 @@ export const useOGImage = ({
   author,
   postId,
   readTime,
+  autoGenerate = true,
 }: UseOGImageOptions): UseOGImageResult => {
   const [ogImageUrl, setOgImageUrl] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  const generate = async (forceRegenerate = false) => {
+    if (!title || !postId) return;
+    
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      const { data, error: fnError } = await supabase.functions.invoke(
+        "generate-og-image",
+        {
+          body: { title, category, author, postId, readTime, forceRegenerate },
+        }
+      );
+
+      if (fnError) {
+        throw new Error(fnError.message);
+      }
+
+      if (data?.imageUrl) {
+        setOgImageUrl(data.imageUrl);
+      }
+    } catch (err: unknown) {
+      const errorMessage = err instanceof Error ? err.message : "Failed to generate OG image";
+      console.error("OG image error:", errorMessage);
+      setError(errorMessage);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   useEffect(() => {
-    const generateImage = async () => {
-      // Check cache first
-      if (imageCache.has(postId)) {
-        setOgImageUrl(imageCache.get(postId)!);
+    const checkCache = async () => {
+      if (!postId) return;
+
+      // First check if we have a cached image
+      const { data: cached } = await supabase
+        .from("og_image_cache")
+        .select("public_url")
+        .eq("post_id", postId)
+        .single();
+
+      if (cached?.public_url) {
+        setOgImageUrl(cached.public_url);
         return;
       }
 
-      // For now, we'll skip automatic generation to avoid API costs
-      // Users can trigger generation manually or we use a fallback
-      // setIsLoading(true);
-      // setError(null);
-
-      // try {
-      //   const { data, error: fnError } = await supabase.functions.invoke(
-      //     "generate-og-image",
-      //     {
-      //       body: { title, category, author, readTime },
-      //     }
-      //   );
-
-      //   if (fnError) throw fnError;
-
-      //   if (data?.imageUrl) {
-      //     imageCache.set(postId, data.imageUrl);
-      //     setOgImageUrl(data.imageUrl);
-      //   }
-      // } catch (err: any) {
-      //   console.error("Failed to generate OG image:", err);
-      //   setError(err.message);
-      // } finally {
-      //   setIsLoading(false);
-      // }
+      // If auto-generate is enabled and no cache, generate
+      if (autoGenerate) {
+        generate();
+      }
     };
 
-    if (title && category && author) {
-      generateImage();
-    }
-  }, [title, category, author, postId, readTime]);
+    checkCache();
+  }, [postId, autoGenerate]);
 
-  return { ogImageUrl, isLoading, error };
+  return { 
+    ogImageUrl, 
+    isLoading, 
+    error, 
+    generate: () => generate(true) 
+  };
 };
 
-// Manual generation function for on-demand use
-export const generateOGImage = async (
-  title: string,
-  category: string,
-  author: string,
-  readTime?: string
-): Promise<string | null> => {
-  try {
-    const { data, error } = await supabase.functions.invoke("generate-og-image", {
-      body: { title, category, author, readTime },
-    });
+// Utility to get cached OG image URL synchronously (for SSR/meta tags)
+export const getCachedOGImageUrl = async (postId: string): Promise<string | null> => {
+  const { data } = await supabase
+    .from("og_image_cache")
+    .select("public_url")
+    .eq("post_id", postId)
+    .single();
 
-    if (error) throw error;
-    return data?.imageUrl || null;
-  } catch (err) {
-    console.error("Failed to generate OG image:", err);
-    return null;
-  }
+  return data?.public_url || null;
 };

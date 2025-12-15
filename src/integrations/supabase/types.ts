@@ -155,6 +155,33 @@ export type Database = {
         }
         Relationships: []
       }
+      og_image_cache: {
+        Row: {
+          created_at: string
+          id: string
+          post_id: string
+          public_url: string
+          storage_path: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          post_id: string
+          public_url: string
+          storage_path: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          post_id?: string
+          public_url?: string
+          storage_path?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       platform_stats: {
         Row: {
           created_at: string
