@@ -6,13 +6,14 @@ import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Calendar, Clock, ArrowLeft, User, Share2, Bookmark } from "lucide-react";
+import { Calendar, Clock, ArrowLeft, User, Bookmark } from "lucide-react";
 import { blogPosts, categoryColors, getRelatedPosts } from "@/data/blogPosts";
 import { useToast } from "@/hooks/use-toast";
 import MarkdownRenderer from "@/components/blog/MarkdownRenderer";
 import TableOfContents, { extractHeadings } from "@/components/blog/TableOfContents";
 import ReadingProgressBar from "@/components/blog/ReadingProgressBar";
 import NewsletterForm from "@/components/blog/NewsletterForm";
+import SocialShareButtons from "@/components/blog/SocialShareButtons";
 
 const BlogPost = () => {
   const {
@@ -63,36 +64,43 @@ const BlogPost = () => {
         <Footer />
       </>;
   }
-  const handleShare = async () => {
-    try {
-      await navigator.share({
-        title: post.title,
-        text: post.excerpt,
-        url: window.location.href
-      });
-    } catch {
-      await navigator.clipboard.writeText(window.location.href);
-      toast({
-        title: "Link copied",
-        description: "Article link has been copied to clipboard."
-      });
-    }
-  };
+  const currentUrl = typeof window !== "undefined" ? window.location.href : `https://velaree.com/blog/${post.id}`;
+  
   const handleBookmark = () => {
     toast({
       title: "Article bookmarked",
       description: "You can find your saved articles in your profile."
     });
   };
+
   const showTOC = headings.length >= 2;
   return <>
       <Helmet>
         <title>{post.title} | Velaree Blog</title>
         <meta name="description" content={post.excerpt} />
+        
+        {/* Open Graph */}
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.excerpt} />
         <meta property="og:type" content="article" />
+        <meta property="og:url" content={currentUrl} />
+        <meta property="og:site_name" content="Velaree" />
+        <meta property="article:author" content={post.author} />
+        <meta property="article:published_time" content={post.date} />
+        <meta property="article:section" content={post.category} />
+        {post.tags.map((tag) => (
+          <meta key={tag} property="article:tag" content={tag} />
+        ))}
+        
+        {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={post.title} />
+        <meta name="twitter:description" content={post.excerpt} />
+        <meta name="twitter:site" content="@velaree" />
+        
+        {/* LinkedIn specific */}
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
       </Helmet>
 
       <Navigation />
@@ -143,10 +151,12 @@ const BlogPost = () => {
                     {post.readTime}
                   </span>
                   <div className="flex-1" />
-                  <div className="flex gap-2">
-                    <Button variant="outline" size="icon" onClick={handleShare} className="rounded-full">
-                      <Share2 className="w-4 h-4" />
-                    </Button>
+                  <div className="flex items-center gap-2">
+                    <SocialShareButtons 
+                      title={post.title} 
+                      url={currentUrl} 
+                      excerpt={post.excerpt}
+                    />
                     <Button variant="outline" size="icon" onClick={handleBookmark} className="rounded-full">
                       <Bookmark className="w-4 h-4" />
                     </Button>
