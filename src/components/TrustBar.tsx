@@ -4,6 +4,7 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
+import OptimizedImage from "@/components/ui/optimized-image";
 
 const TrustBar = () => {
   const partnerData = [
@@ -56,11 +57,12 @@ const TrustBar = () => {
       <HoverCard openDelay={200} closeDelay={100}>
         <HoverCardTrigger asChild>
           <div className="bg-white rounded-lg px-5 py-2.5 flex items-center justify-center shadow-sm h-14">
-            <img
+            <OptimizedImage
               src={partner.src}
               alt={partner.alt}
               title={partner.title}
               className="h-9 w-auto cursor-pointer object-contain"
+              height={36}
             />
           </div>
         </HoverCardTrigger>
