@@ -14,6 +14,7 @@ import TableOfContents, { extractHeadings } from "@/components/blog/TableOfConte
 import ReadingProgressBar from "@/components/blog/ReadingProgressBar";
 import NewsletterForm from "@/components/blog/NewsletterForm";
 import SocialShareButtons from "@/components/blog/SocialShareButtons";
+import FloatingShareBar from "@/components/blog/FloatingShareBar";
 
 const BlogPost = () => {
   const {
@@ -105,6 +106,7 @@ const BlogPost = () => {
 
       <Navigation />
       <ReadingProgressBar />
+      <FloatingShareBar title={post.title} url={currentUrl} excerpt={post.excerpt} />
 
       <main className="min-h-screen bg-background pt-24">
         {/* Hero */}
