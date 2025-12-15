@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Check, Copy } from "lucide-react";
-
 const codeExamples = {
   search: `// Search for flights
 const response = await velaree.flights.search({
@@ -17,7 +16,6 @@ const response = await velaree.flights.search({
 // Returns in < 500ms
 console.log(response.flights.length); // 247 options
 console.log(response.privateFares); // 89 exclusive fares`,
-  
   book: `// Instant booking
 const booking = await velaree.bookings.create({
   flightId: "VL_8472KD",
@@ -36,7 +34,6 @@ const booking = await velaree.bookings.create({
 console.log(booking.status); // "confirmed"
 console.log(booking.pnr); // "ABC123"
 console.log(booking.ticketNumber); // "125-4587..."`,
-  
   manage: `// Automated schedule change handling
 velaree.webhooks.on('schedule_change', async (event) => {
   const { booking, changes } = event;
@@ -54,18 +51,14 @@ velaree.webhooks.on('schedule_change', async (event) => {
 
 // Velaree handles the rest automatically`
 };
-
 const ApiPreview = () => {
   const [copiedTab, setCopiedTab] = useState<string | null>(null);
-
   const copyToClipboard = (code: string, tab: string) => {
     navigator.clipboard.writeText(code);
     setCopiedTab(tab);
     setTimeout(() => setCopiedTab(null), 2000);
   };
-
-  return (
-    <section className="py-24 bg-gradient-to-b from-primary/5 via-accent/5 to-background">
+  return <section className="py-24 bg-gradient-to-b from-primary/5 via-accent/5 to-background">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
@@ -85,27 +78,17 @@ const ApiPreview = () => {
                 <TabsTrigger value="manage">Automate</TabsTrigger>
               </TabsList>
 
-              {Object.entries(codeExamples).map(([key, code]) => (
-                <TabsContent key={key} value={key} className="relative">
+              {Object.entries(codeExamples).map(([key, code]) => <TabsContent key={key} value={key} className="relative">
                   <div className="relative">
-                    <button
-                      onClick={() => copyToClipboard(code, key)}
-                      className="absolute top-3 right-3 p-2 rounded-lg bg-muted hover:bg-accent transition-colors z-10"
-                      title="Copy code"
-                    >
-                      {copiedTab === key ? (
-                        <Check className="w-4 h-4 text-green-600" />
-                      ) : (
-                        <Copy className="w-4 h-4 text-muted-foreground" />
-                      )}
+                    <button onClick={() => copyToClipboard(code, key)} className="absolute top-3 right-3 p-2 rounded-lg bg-muted hover:bg-accent transition-colors z-10" title="Copy code">
+                      {copiedTab === key ? <Check className="w-4 h-4 text-green-600" /> : <Copy className="w-4 h-4 text-muted-foreground" />}
                     </button>
                     
                     <pre className="bg-primary text-primary-foreground p-6 rounded-lg overflow-x-auto text-sm leading-relaxed">
                       <code>{code}</code>
                     </pre>
                   </div>
-                </TabsContent>
-              ))}
+                </TabsContent>)}
             </Tabs>
 
             {/* Features Grid */}
@@ -126,10 +109,7 @@ const ApiPreview = () => {
 
             {/* CTA */}
             <div className="text-center mt-8">
-              <Link
-                to="/contact"
-                className="inline-flex items-center px-6 py-3 bg-accent text-accent-foreground rounded-full font-semibold hover:bg-accent/90 transition-all duration-300 hover:shadow-lg"
-              >
+              <Link to="/contact" className="inline-flex items-center px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:shadow-lg bg-primary text-primary-foreground">
                 Get API Keys →
               </Link>
               <span className="inline-flex items-center px-6 py-3 text-muted-foreground/50 cursor-not-allowed ml-4">
@@ -139,8 +119,6 @@ const ApiPreview = () => {
           </Card>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default ApiPreview;
