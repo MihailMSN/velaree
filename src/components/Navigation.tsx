@@ -75,7 +75,7 @@ const Navigation = () => {
       <div className="container mx-auto px-[24px] py-px">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center hover:opacity-80 transition-opacity">
-            <img alt="Velaree Logo" className="h-16 md:h-24 w-auto mix-blend-multiply" loading="eager" decoding="async" fetchPriority="high" src="/lovable-uploads/5008e276-1efd-4488-9d76-1ef5b5604551.png" />
+            <img alt="Velaree Logo" className="h-16 md:h-24 w-auto mix-blend-multiply" loading="eager" decoding="async" fetchPriority="high" src="/lovable-uploads/8bb7b63f-7523-43f8-8770-d9fd51cdeab3.png" />
           </Link>
           
           <div className="hidden md:flex items-center gap-8">
