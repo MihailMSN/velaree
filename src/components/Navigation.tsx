@@ -75,14 +75,7 @@ const Navigation = () => {
       <div className="container mx-auto px-[24px] py-px">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center hover:opacity-80 transition-opacity">
-            <img 
-              alt="Velaree Logo" 
-              className="h-16 md:h-24 w-auto mix-blend-multiply" 
-              src="/lovable-uploads/ff8f54b9-0431-473c-b8e5-e4a4918446bc.png"
-              loading="eager"
-              decoding="async"
-              fetchPriority="high"
-            />
+            <img alt="Velaree Logo" className="h-16 md:h-24 w-auto mix-blend-multiply" loading="eager" decoding="async" fetchPriority="high" src="/lovable-uploads/5008e276-1efd-4488-9d76-1ef5b5604551.png" />
           </Link>
           
           <div className="hidden md:flex items-center gap-8">
@@ -143,22 +136,15 @@ const Navigation = () => {
 
         {isMobileMenuOpen && <div className="md:hidden mt-4 pb-4 animate-fade-in">
             <div className="flex flex-col gap-1">
-              {navItems.map((item, index) => (
-                <div key={item.name}>
-                  <button 
-                    onClick={() => handleNavigation(item.path)} 
-                    className={`relative flex items-center w-full pr-8 transition-colors duration-200 py-3 min-h-[48px] text-left ${location.pathname === item.path ? "text-foreground font-semibold" : "text-foreground/70 hover:text-foreground active:bg-accent/50"}`}
-                  >
+              {navItems.map((item, index) => <div key={item.name}>
+                  <button onClick={() => handleNavigation(item.path)} className={`relative flex items-center w-full pr-8 transition-colors duration-200 py-3 min-h-[48px] text-left ${location.pathname === item.path ? "text-foreground font-semibold" : "text-foreground/70 hover:text-foreground active:bg-accent/50"}`}>
                     {item.name}
-                    {item.icon && (
-                      <span className={`absolute top-3 right-0 inline-flex items-center justify-center w-5 h-5 rounded-full border ${item.badgeColor}`}>
+                    {item.icon && <span className={`absolute top-3 right-0 inline-flex items-center justify-center w-5 h-5 rounded-full border ${item.badgeColor}`}>
                         <item.icon className="w-3 h-3" />
-                      </span>
-                    )}
+                      </span>}
                   </button>
                   {index < navItems.length - 1 && <div className="h-px bg-border/50" />}
-                </div>
-              ))}
+                </div>)}
               
               <div className="h-px bg-border my-2" />
               
