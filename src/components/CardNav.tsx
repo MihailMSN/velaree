@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState, useCallback } from 'react';
+import { useLayoutEffect, useRef, useState, useCallback, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ArrowUpRight, User, LogOut, LayoutDashboard } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
@@ -34,6 +34,7 @@ interface CardNavProps {
 const CardNav = ({ className = '', ease = 'power3.out' }: CardNavProps) => {
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const navRef = useRef<HTMLElement>(null);
   const cardsRef = useRef<HTMLDivElement[]>([]);
   const tlRef = useRef<gsap.core.Timeline | null>(null);
@@ -42,10 +43,19 @@ const CardNav = ({ className = '', ease = 'power3.out' }: CardNavProps) => {
   const { user, signOut } = useAuth();
   const { isPlatformAdmin } = useUserRole();
 
+  // Scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const items: NavItem[] = [
     {
       label: 'Products',
-      bgColor: 'hsl(250, 45%, 15%)',
+      bgColor: 'hsl(var(--feature-purple))',
       textColor: '#fff',
       links: [
         { label: 'aSuite', href: '/asuite', ariaLabel: 'aSuite Product' },
@@ -56,7 +66,7 @@ const CardNav = ({ className = '', ease = 'power3.out' }: CardNavProps) => {
     },
     {
       label: 'Company',
-      bgColor: 'hsl(160, 45%, 15%)',
+      bgColor: 'hsl(var(--feature-emerald))',
       textColor: '#fff',
       links: [
         { label: 'Technology', href: '/technology', ariaLabel: 'Technology Page' },
@@ -67,7 +77,7 @@ const CardNav = ({ className = '', ease = 'power3.out' }: CardNavProps) => {
     },
     {
       label: 'Connect',
-      bgColor: 'hsl(30, 45%, 15%)',
+      bgColor: 'hsl(var(--feature-amber))',
       textColor: '#fff',
       links: [
         { label: 'Contact', href: '/contact', ariaLabel: 'Contact Page' },
@@ -212,7 +222,7 @@ const CardNav = ({ className = '', ease = 'power3.out' }: CardNavProps) => {
     <div className={`card-nav-container ${className}`}>
       <nav
         ref={navRef}
-        className={`card-nav ${isExpanded ? 'open' : ''}`}
+        className={`card-nav ${isExpanded ? 'open' : ''} ${isScrolled ? 'scrolled' : ''}`}
         style={{ backgroundColor: 'hsl(var(--background))' }}
       >
         <div className="card-nav-top">
