@@ -1,6 +1,11 @@
 import { useLayoutEffect, useRef, useState, useCallback, useEffect } from 'react';
 import { gsap } from 'gsap';
-import { ArrowUpRight, User, LogOut, LayoutDashboard } from 'lucide-react';
+import { 
+  ArrowUpRight, User, LogOut, LayoutDashboard, 
+  Layers, Link as LinkIcon, Plane, Building2,
+  Code, CreditCard, FileText, HelpCircle,
+  Mail, LogIn, Shield, LucideIcon
+} from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import { useUserRole } from '@/hooks/useUserRole';
@@ -17,6 +22,7 @@ interface NavLink {
   label: string;
   href: string;
   ariaLabel: string;
+  icon?: LucideIcon;
 }
 
 interface NavItem {
@@ -58,10 +64,10 @@ const CardNav = ({ className = '', ease = 'power3.out' }: CardNavProps) => {
       bgColor: 'linear-gradient(135deg, hsl(0 0% 99%) 0%, hsl(32 28% 94%) 50%, hsl(0 0% 98%) 100%)',
       textColor: 'hsl(var(--foreground))',
       links: [
-        { label: 'aSuite', href: '/asuite', ariaLabel: 'aSuite Product' },
-        { label: 'UnifyTool', href: '/unifytool', ariaLabel: 'UnifyTool Product' },
-        { label: 'aRStool', href: '/rstool', ariaLabel: 'aRStool Product' },
-        { label: 'hRStool', href: '/hrstool', ariaLabel: 'hRStool Product' },
+        { label: 'aSuite', href: '/asuite', ariaLabel: 'aSuite Product', icon: Layers },
+        { label: 'UnifyTool', href: '/unifytool', ariaLabel: 'UnifyTool Product', icon: LinkIcon },
+        { label: 'aRStool', href: '/rstool', ariaLabel: 'aRStool Product', icon: Plane },
+        { label: 'hRStool', href: '/hrstool', ariaLabel: 'hRStool Product', icon: Building2 },
       ],
     },
     {
@@ -69,10 +75,10 @@ const CardNav = ({ className = '', ease = 'power3.out' }: CardNavProps) => {
       bgColor: 'linear-gradient(135deg, hsl(0 0% 99%) 0%, hsl(32 28% 94%) 50%, hsl(0 0% 98%) 100%)',
       textColor: 'hsl(var(--foreground))',
       links: [
-        { label: 'Technology', href: '/technology', ariaLabel: 'Technology Page' },
-        { label: 'Pricing', href: '/pricing', ariaLabel: 'Pricing Page' },
-        { label: 'Blog', href: '/blog', ariaLabel: 'Blog Page' },
-        { label: 'FAQ', href: '/faq', ariaLabel: 'FAQ Page' },
+        { label: 'Technology', href: '/technology', ariaLabel: 'Technology Page', icon: Code },
+        { label: 'Pricing', href: '/pricing', ariaLabel: 'Pricing Page', icon: CreditCard },
+        { label: 'Blog', href: '/blog', ariaLabel: 'Blog Page', icon: FileText },
+        { label: 'FAQ', href: '/faq', ariaLabel: 'FAQ Page', icon: HelpCircle },
       ],
     },
     {
@@ -80,12 +86,12 @@ const CardNav = ({ className = '', ease = 'power3.out' }: CardNavProps) => {
       bgColor: 'linear-gradient(135deg, hsl(0 0% 99%) 0%, hsl(32 28% 94%) 50%, hsl(0 0% 98%) 100%)',
       textColor: 'hsl(var(--foreground))',
       links: [
-        { label: 'Contact', href: '/contact', ariaLabel: 'Contact Page' },
+        { label: 'Contact', href: '/contact', ariaLabel: 'Contact Page', icon: Mail },
         ...(user
-          ? [{ label: 'Dashboard', href: '/dashboard', ariaLabel: 'User Dashboard' }]
-          : [{ label: 'Sign In', href: '/auth', ariaLabel: 'Sign In' }]),
+          ? [{ label: 'Dashboard', href: '/dashboard', ariaLabel: 'User Dashboard', icon: LayoutDashboard }]
+          : [{ label: 'Sign In', href: '/auth', ariaLabel: 'Sign In', icon: LogIn }]),
         ...(isPlatformAdmin
-          ? [{ label: 'Admin Panel', href: '/admin', ariaLabel: 'Admin Panel' }]
+          ? [{ label: 'Admin Panel', href: '/admin', ariaLabel: 'Admin Panel', icon: Shield }]
           : []),
       ],
     },
@@ -302,20 +308,27 @@ const CardNav = ({ className = '', ease = 'power3.out' }: CardNavProps) => {
             >
               <div className="nav-card-label">{item.label}</div>
               <div className="nav-card-links">
-                {item.links.map((lnk, i) => (
-                  <span
-                    key={`${lnk.label}-${i}`}
-                    className="nav-card-link"
-                    onClick={() => handleNavigation(lnk.href)}
-                    aria-label={lnk.ariaLabel}
-                    role="link"
-                    tabIndex={0}
-                    onKeyDown={(e) => e.key === 'Enter' && handleNavigation(lnk.href)}
-                  >
-                    <ArrowUpRight className="nav-card-link-icon" aria-hidden="true" />
-                    {lnk.label}
-                  </span>
-                ))}
+                {item.links.map((lnk, i) => {
+                  const Icon = lnk.icon;
+                  return (
+                    <span
+                      key={`${lnk.label}-${i}`}
+                      className="nav-card-link"
+                      onClick={() => handleNavigation(lnk.href)}
+                      aria-label={lnk.ariaLabel}
+                      role="link"
+                      tabIndex={0}
+                      onKeyDown={(e) => e.key === 'Enter' && handleNavigation(lnk.href)}
+                    >
+                      {Icon ? (
+                        <Icon className="nav-card-link-icon" aria-hidden="true" />
+                      ) : (
+                        <ArrowUpRight className="nav-card-link-icon" aria-hidden="true" />
+                      )}
+                      {lnk.label}
+                    </span>
+                  );
+                })}
               </div>
             </div>
           ))}
