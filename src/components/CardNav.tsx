@@ -23,6 +23,7 @@ interface NavLink {
   href: string;
   ariaLabel: string;
   icon?: LucideIcon;
+  iconColor?: string;
 }
 
 interface NavItem {
@@ -64,10 +65,10 @@ const CardNav = ({ className = '', ease = 'power3.out' }: CardNavProps) => {
       bgColor: 'linear-gradient(135deg, hsl(0 0% 99%) 0%, hsl(32 28% 94%) 50%, hsl(0 0% 98%) 100%)',
       textColor: 'hsl(var(--foreground))',
       links: [
-        { label: 'aSuite', href: '/asuite', ariaLabel: 'aSuite Product', icon: Layers },
-        { label: 'UnifyTool', href: '/unifytool', ariaLabel: 'UnifyTool Product', icon: LinkIcon },
-        { label: 'aRStool', href: '/rstool', ariaLabel: 'aRStool Product', icon: Plane },
-        { label: 'hRStool', href: '/hrstool', ariaLabel: 'hRStool Product', icon: Building2 },
+        { label: 'aSuite', href: '/asuite', ariaLabel: 'aSuite Product', icon: Layers, iconColor: 'hsl(var(--feature-blue))' },
+        { label: 'UnifyTool', href: '/unifytool', ariaLabel: 'UnifyTool Product', icon: LinkIcon, iconColor: 'hsl(var(--feature-amber))' },
+        { label: 'aRStool', href: '/rstool', ariaLabel: 'aRStool Product', icon: Plane, iconColor: 'hsl(var(--feature-purple))' },
+        { label: 'hRStool', href: '/hrstool', ariaLabel: 'hRStool Product', icon: Building2, iconColor: 'hsl(var(--feature-emerald))' },
       ],
     },
     {
@@ -75,10 +76,10 @@ const CardNav = ({ className = '', ease = 'power3.out' }: CardNavProps) => {
       bgColor: 'linear-gradient(135deg, hsl(0 0% 99%) 0%, hsl(32 28% 94%) 50%, hsl(0 0% 98%) 100%)',
       textColor: 'hsl(var(--foreground))',
       links: [
-        { label: 'Technology', href: '/technology', ariaLabel: 'Technology Page', icon: Code },
-        { label: 'Pricing', href: '/pricing', ariaLabel: 'Pricing Page', icon: CreditCard },
-        { label: 'Blog', href: '/blog', ariaLabel: 'Blog Page', icon: FileText },
-        { label: 'FAQ', href: '/faq', ariaLabel: 'FAQ Page', icon: HelpCircle },
+        { label: 'Technology', href: '/technology', ariaLabel: 'Technology Page', icon: Code, iconColor: 'hsl(var(--feature-purple))' },
+        { label: 'Pricing', href: '/pricing', ariaLabel: 'Pricing Page', icon: CreditCard, iconColor: 'hsl(var(--feature-emerald))' },
+        { label: 'Blog', href: '/blog', ariaLabel: 'Blog Page', icon: FileText, iconColor: 'hsl(var(--feature-blue))' },
+        { label: 'FAQ', href: '/faq', ariaLabel: 'FAQ Page', icon: HelpCircle, iconColor: 'hsl(var(--feature-amber))' },
       ],
     },
     {
@@ -86,12 +87,12 @@ const CardNav = ({ className = '', ease = 'power3.out' }: CardNavProps) => {
       bgColor: 'linear-gradient(135deg, hsl(0 0% 99%) 0%, hsl(32 28% 94%) 50%, hsl(0 0% 98%) 100%)',
       textColor: 'hsl(var(--foreground))',
       links: [
-        { label: 'Contact', href: '/contact', ariaLabel: 'Contact Page', icon: Mail },
+        { label: 'Contact', href: '/contact', ariaLabel: 'Contact Page', icon: Mail, iconColor: 'hsl(var(--feature-blue))' },
         ...(user
-          ? [{ label: 'Dashboard', href: '/dashboard', ariaLabel: 'User Dashboard', icon: LayoutDashboard }]
-          : [{ label: 'Sign In', href: '/auth', ariaLabel: 'Sign In', icon: LogIn }]),
+          ? [{ label: 'Dashboard', href: '/dashboard', ariaLabel: 'User Dashboard', icon: LayoutDashboard, iconColor: 'hsl(var(--feature-purple))' }]
+          : [{ label: 'Sign In', href: '/auth', ariaLabel: 'Sign In', icon: LogIn, iconColor: 'hsl(var(--feature-emerald))' }]),
         ...(isPlatformAdmin
-          ? [{ label: 'Admin Panel', href: '/admin', ariaLabel: 'Admin Panel', icon: Shield }]
+          ? [{ label: 'Admin Panel', href: '/admin', ariaLabel: 'Admin Panel', icon: Shield, iconColor: 'hsl(var(--feature-amber))' }]
           : []),
       ],
     },
@@ -321,7 +322,11 @@ const CardNav = ({ className = '', ease = 'power3.out' }: CardNavProps) => {
                       onKeyDown={(e) => e.key === 'Enter' && handleNavigation(lnk.href)}
                     >
                       {Icon ? (
-                        <Icon className="nav-card-link-icon" aria-hidden="true" />
+                        <Icon 
+                          className="nav-card-link-icon" 
+                          aria-hidden="true" 
+                          style={{ color: lnk.iconColor }}
+                        />
                       ) : (
                         <ArrowUpRight className="nav-card-link-icon" aria-hidden="true" />
                       )}

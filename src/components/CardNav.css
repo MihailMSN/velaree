@@ -210,14 +210,14 @@
 }
 
 .nav-card-link-icon {
-  width: 16px;
-  height: 16px;
-  opacity: 0.8;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
   transition: transform 0.2s ease;
 }
 
 .nav-card-link:hover .nav-card-link-icon {
-  transform: translate(2px, -2px);
+  transform: scale(1.1);
 }
 
 /* User menu integration */
