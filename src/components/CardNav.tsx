@@ -55,8 +55,8 @@ const CardNav = ({ className = '', ease = 'power3.out' }: CardNavProps) => {
   const items: NavItem[] = [
     {
       label: 'Products',
-      bgColor: 'hsl(var(--feature-purple))',
-      textColor: '#fff',
+      bgColor: 'linear-gradient(135deg, hsl(0 0% 99%) 0%, hsl(32 28% 94%) 50%, hsl(0 0% 98%) 100%)',
+      textColor: 'hsl(var(--foreground))',
       links: [
         { label: 'aSuite', href: '/asuite', ariaLabel: 'aSuite Product' },
         { label: 'UnifyTool', href: '/unifytool', ariaLabel: 'UnifyTool Product' },
@@ -66,8 +66,8 @@ const CardNav = ({ className = '', ease = 'power3.out' }: CardNavProps) => {
     },
     {
       label: 'Company',
-      bgColor: 'hsl(var(--feature-emerald))',
-      textColor: '#fff',
+      bgColor: 'linear-gradient(135deg, hsl(0 0% 99%) 0%, hsl(32 28% 94%) 50%, hsl(0 0% 98%) 100%)',
+      textColor: 'hsl(var(--foreground))',
       links: [
         { label: 'Technology', href: '/technology', ariaLabel: 'Technology Page' },
         { label: 'Pricing', href: '/pricing', ariaLabel: 'Pricing Page' },
@@ -77,8 +77,8 @@ const CardNav = ({ className = '', ease = 'power3.out' }: CardNavProps) => {
     },
     {
       label: 'Connect',
-      bgColor: 'hsl(var(--feature-amber))',
-      textColor: '#fff',
+      bgColor: 'linear-gradient(135deg, hsl(0 0% 99%) 0%, hsl(32 28% 94%) 50%, hsl(0 0% 98%) 100%)',
+      textColor: 'hsl(var(--foreground))',
       links: [
         { label: 'Contact', href: '/contact', ariaLabel: 'Contact Page' },
         ...(user
@@ -111,7 +111,7 @@ const CardNav = ({ className = '', ease = 'power3.out' }: CardNavProps) => {
 
         void contentEl.offsetHeight;
 
-        const topBar = 60;
+        const topBar = 48;
         const padding = 16;
         const contentHeight = contentEl.scrollHeight;
 
@@ -130,7 +130,7 @@ const CardNav = ({ className = '', ease = 'power3.out' }: CardNavProps) => {
     const navEl = navRef.current;
     if (!navEl) return null;
 
-    gsap.set(navEl, { height: 60, overflow: 'hidden' });
+    gsap.set(navEl, { height: 48, overflow: 'hidden' });
     gsap.set(cardsRef.current, { y: 50, opacity: 0 });
 
     const tl = gsap.timeline({ paused: true });
@@ -298,7 +298,7 @@ const CardNav = ({ className = '', ease = 'power3.out' }: CardNavProps) => {
               key={`${item.label}-${idx}`}
               className="nav-card"
               ref={setCardRef(idx)}
-              style={{ backgroundColor: item.bgColor, color: item.textColor }}
+              style={{ background: item.bgColor, color: item.textColor }}
             >
               <div className="nav-card-label">{item.label}</div>
               <div className="nav-card-links">
