@@ -118,7 +118,7 @@ const CardNav = ({ className = '', ease = 'power3.out' }: CardNavProps) => {
 
         void contentEl.offsetHeight;
 
-        const topBar = 48;
+        const topBar = 56;
         const padding = 16;
         const contentHeight = contentEl.scrollHeight;
 
@@ -137,7 +137,7 @@ const CardNav = ({ className = '', ease = 'power3.out' }: CardNavProps) => {
     const navEl = navRef.current;
     if (!navEl) return null;
 
-    gsap.set(navEl, { height: 48, overflow: 'hidden' });
+    gsap.set(navEl, { height: 56, overflow: 'hidden' });
     gsap.set(cardsRef.current, { y: 50, opacity: 0 });
 
     const tl = gsap.timeline({ paused: true });
