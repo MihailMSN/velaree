@@ -129,6 +129,9 @@
   padding: 0 16px 16px;
   visibility: hidden;
   pointer-events: none;
+  border-top: 1px solid hsl(var(--border) / 0.3);
+  margin-top: 8px;
+  padding-top: 16px;
 }
 
 .card-nav.open .card-nav-content {
@@ -140,6 +143,19 @@
   .card-nav-content {
     grid-template-columns: 1fr;
     gap: 8px;
+  }
+}
+
+/* Dividers between nav cards on desktop */
+@media (min-width: 769px) {
+  .nav-card:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: -6px;
+    top: 20%;
+    height: 60%;
+    width: 1px;
+    background: linear-gradient(180deg, transparent 0%, hsl(var(--border) / 0.4) 50%, transparent 100%);
   }
 }
 

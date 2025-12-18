@@ -62,7 +62,7 @@ const CardNav = ({ className = '', ease = 'power3.out' }: CardNavProps) => {
   const items: NavItem[] = [
     {
       label: 'Products',
-      bgColor: 'linear-gradient(135deg, hsl(0 0% 99%) 0%, hsl(32 28% 94%) 50%, hsl(0 0% 98%) 100%)',
+      bgColor: 'linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(0 0% 97%) 50%, hsl(0 0% 95%) 100%)',
       textColor: 'hsl(var(--foreground))',
       links: [
         { label: 'aSuite', href: '/asuite', ariaLabel: 'aSuite Product', icon: Layers, iconColor: 'hsl(var(--feature-blue))' },
@@ -73,7 +73,7 @@ const CardNav = ({ className = '', ease = 'power3.out' }: CardNavProps) => {
     },
     {
       label: 'Company',
-      bgColor: 'linear-gradient(135deg, hsl(0 0% 99%) 0%, hsl(32 28% 94%) 50%, hsl(0 0% 98%) 100%)',
+      bgColor: 'linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(0 0% 97%) 50%, hsl(0 0% 95%) 100%)',
       textColor: 'hsl(var(--foreground))',
       links: [
         { label: 'Technology', href: '/technology', ariaLabel: 'Technology Page', icon: Code, iconColor: 'hsl(var(--feature-purple))' },
@@ -84,7 +84,7 @@ const CardNav = ({ className = '', ease = 'power3.out' }: CardNavProps) => {
     },
     {
       label: 'Connect',
-      bgColor: 'linear-gradient(135deg, hsl(0 0% 99%) 0%, hsl(32 28% 94%) 50%, hsl(0 0% 98%) 100%)',
+      bgColor: 'linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(0 0% 97%) 50%, hsl(0 0% 95%) 100%)',
       textColor: 'hsl(var(--foreground))',
       links: [
         { label: 'Contact', href: '/contact', ariaLabel: 'Contact Page', icon: Mail, iconColor: 'hsl(var(--feature-blue))' },
