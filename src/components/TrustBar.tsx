@@ -50,6 +50,27 @@ const TrustBar = () => {
       description: "Global B2B travel technology company providing air content consolidation and distribution solutions to travel businesses worldwide.",
       integration: "Consolidated fare aggregation and ticketing"
     },
+    { 
+      src: "/logos/unmatched-fares.jpg",
+      alt: "Unmatched Fares",
+      title: "Unmatched Fares",
+      description: "Travel technology platform offering competitive fare solutions and unique pricing for travel agencies and businesses.",
+      integration: "Exclusive fare access and pricing"
+    },
+    { 
+      src: "/logos/bcd-travel.png",
+      alt: "BCD Travel",
+      title: "BCD Travel",
+      description: "One of the world's largest corporate travel management companies, providing end-to-end travel solutions for businesses globally.",
+      integration: "Corporate travel management solutions"
+    },
+    { 
+      src: "/logos/fora.png",
+      alt: "FORA",
+      title: "FORA",
+      description: "Modern travel advisor platform empowering travel advisors with technology, tools, and support to build successful travel businesses.",
+      integration: "Travel advisor platform integration"
+    },
   ];
 
   const partnerLogos = partnerData.map((partner) => ({
