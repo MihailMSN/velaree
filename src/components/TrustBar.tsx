@@ -77,13 +77,13 @@ const TrustBar = () => {
     node: (
       <HoverCard openDelay={200} closeDelay={100}>
         <HoverCardTrigger asChild>
-          <div className="bg-white rounded-lg px-5 py-2.5 flex items-center justify-center shadow-sm h-14">
+          <div className="bg-white rounded-lg px-6 py-3 flex items-center justify-center shadow-sm h-16 min-w-[120px]">
             <OptimizedImage
               src={partner.src}
               alt={partner.alt}
               title={partner.title}
-              className="h-9 w-auto cursor-pointer object-contain"
-              height={36}
+              className="h-8 max-w-[100px] cursor-pointer object-contain"
+              height={32}
             />
           </div>
         </HoverCardTrigger>
