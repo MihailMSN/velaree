@@ -130,7 +130,7 @@ const CardNav = ({ className = '', ease = 'power3.out' }: CardNavProps) => {
         return topBar + contentHeight + padding;
       }
     }
-    return 260;
+    return 320;
   }, []);
 
   const createTimeline = useCallback(() => {
