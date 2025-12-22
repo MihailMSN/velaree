@@ -174,11 +174,13 @@ const UnifyTool = () => {
         <meta property="og:description" content="All-in-one travel technology platform combining click-to-book, private fares, air/hotel re-shopping, and automation. One unified solution for OTAs, TMCs, and travel agencies." />
         <meta property="og:url" content="https://velaree.com/unifytool" />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="/og-unify.png" />
         
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="UnifyTool - Complete Travel Technology Platform | Velaree" />
         <meta name="twitter:description" content="All-in-one travel technology platform combining click-to-book, private fares, air/hotel re-shopping, and automation." />
+        <meta name="twitter:image" content="/og-unify.png" />
         
         {/* JSON-LD Structured Data */}
         <script type="application/ld+json">
