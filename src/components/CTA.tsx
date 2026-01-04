@@ -1,4 +1,5 @@
 import ContactForm from "./ContactForm";
+import PitchDeckDownload from "./PitchDeckDownload";
 
 const CTA = () => {
   return (
@@ -14,6 +15,10 @@ const CTA = () => {
           <p className="text-base sm:text-lg md:text-xl text-primary-foreground/80 mb-8 sm:mb-12 max-w-2xl mx-auto">
             Join leading OTAs, TMCs, and airlines using Velaree to power their digital infrastructure
           </p>
+          
+          <div className="mb-8">
+            <PitchDeckDownload />
+          </div>
           
           <ContactForm />
         </div>
