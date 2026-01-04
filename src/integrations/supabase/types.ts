@@ -182,6 +182,33 @@ export type Database = {
         }
         Relationships: []
       }
+      pitch_deck_leads: {
+        Row: {
+          company: string | null
+          downloaded_at: string
+          email: string
+          id: string
+          name: string | null
+          source: string | null
+        }
+        Insert: {
+          company?: string | null
+          downloaded_at?: string
+          email: string
+          id?: string
+          name?: string | null
+          source?: string | null
+        }
+        Update: {
+          company?: string | null
+          downloaded_at?: string
+          email?: string
+          id?: string
+          name?: string | null
+          source?: string | null
+        }
+        Relationships: []
+      }
       platform_stats: {
         Row: {
           created_at: string

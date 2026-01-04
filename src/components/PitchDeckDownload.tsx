@@ -1,10 +1,14 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Download, Loader2 } from "lucide-react";
+import { Download, Loader2, Presentation } from "lucide-react";
 import { jsPDF } from "jspdf";
+import PitchDeckViewer from "./PitchDeckViewer";
+import PitchDeckEmailCapture from "./PitchDeckEmailCapture";
 
 const PitchDeckDownload = () => {
   const [isGenerating, setIsGenerating] = useState(false);
+  const [showViewer, setShowViewer] = useState(false);
+  const [showEmailCapture, setShowEmailCapture] = useState(false);
 
   const generatePitchDeck = async () => {
     setIsGenerating(true);
@@ -58,7 +62,6 @@ const PitchDeckDownload = () => {
       // ===== SLIDE 1: Cover =====
       addSlideBackground();
       
-      // Large V logo
       pdf.setFontSize(300);
       pdf.setTextColor(primaryTeal);
       pdf.setFont("helvetica", "bold");
@@ -209,21 +212,9 @@ const PitchDeckDownload = () => {
       pdf.text("Product Suite", width / 2, 200, { align: "center" });
       
       const products = [
-        { 
-          name: "aSuite", 
-          tagline: "CRM & CMS Platform",
-          features: ["Customer management", "Content control", "White-label ready", "Analytics dashboard"]
-        },
-        { 
-          name: "aRStool", 
-          tagline: "AI Re-Shopping Engine",
-          features: ["24/7 PNR monitoring", "Auto fare optimization", "15-20% savings", "Multi-GDS search"]
-        },
-        { 
-          name: "UnifyTool", 
-          tagline: "Unified Platform",
-          features: ["Click-to-book", "Private fares", "Automation suite", "Complete solution"]
-        }
+        { name: "aSuite", tagline: "CRM & CMS Platform", features: ["Customer management", "Content control", "White-label ready", "Analytics dashboard"] },
+        { name: "aRStool", tagline: "AI Re-Shopping Engine", features: ["24/7 PNR monitoring", "Auto fare optimization", "15-20% savings", "Multi-GDS search"] },
+        { name: "UnifyTool", tagline: "Unified Platform", features: ["Click-to-book", "Private fares", "Automation suite", "Complete solution"] }
       ];
       
       products.forEach((product, i) => {
@@ -302,24 +293,9 @@ const PitchDeckDownload = () => {
       pdf.text("Customer Success", width / 2, 200, { align: "center" });
       
       const caseStudies = [
-        { 
-          type: "European OTA",
-          challenge: "Manual booking errors causing refunds",
-          result: "84% Error Reduction",
-          metric: "$890K annual savings"
-        },
-        { 
-          type: "Corporate TMC",
-          challenge: "Missing post-sale savings opportunities",
-          result: "$2.4M Additional Revenue",
-          metric: "First year implementation"
-        },
-        { 
-          type: "Asia-Pacific Consolidator",
-          challenge: "Slow ticketing and support burden",
-          result: "<2 Min Ticketing",
-          metric: "92% support reduction"
-        }
+        { type: "European OTA", challenge: "Manual booking errors causing refunds", result: "84% Error Reduction", metric: "$890K annual savings" },
+        { type: "Corporate TMC", challenge: "Missing post-sale savings opportunities", result: "$2.4M Additional Revenue", metric: "First year implementation" },
+        { type: "Asia-Pacific Consolidator", challenge: "Slow ticketing and support burden", result: "<2 Min Ticketing", metric: "92% support reduction" }
       ];
       
       caseStudies.forEach((study, i) => {
@@ -393,7 +369,6 @@ const PitchDeckDownload = () => {
       pdf.addPage();
       addSlideBackground();
       
-      // Large centered logo
       pdf.setFontSize(200);
       pdf.setTextColor(primaryTeal);
       pdf.setFont("helvetica", "bold");
@@ -419,7 +394,6 @@ const PitchDeckDownload = () => {
       
       addPageNumber(9, 9);
 
-      // Save the PDF
       pdf.save("Velaree-Pitch-Deck.pdf");
       
     } catch (error) {
@@ -429,26 +403,60 @@ const PitchDeckDownload = () => {
     }
   };
 
+  const handleDownloadRequest = () => {
+    setShowViewer(false);
+    setShowEmailCapture(true);
+  };
+
+  const handleEmailSuccess = () => {
+    setShowEmailCapture(false);
+    generatePitchDeck();
+  };
+
   return (
-    <Button
-      onClick={generatePitchDeck}
-      disabled={isGenerating}
-      variant="outline"
-      size="lg"
-      className="border-primary/50 hover:bg-primary/10 hover:border-primary"
-    >
-      {isGenerating ? (
-        <>
-          <Loader2 className="w-5 h-5 mr-2 animate-spin" />
-          Generating...
-        </>
-      ) : (
-        <>
-          <Download className="w-5 h-5 mr-2" />
-          Download Pitch Deck
-        </>
-      )}
-    </Button>
+    <>
+      <div className="flex flex-col sm:flex-row gap-3 justify-center">
+        <Button
+          onClick={() => setShowViewer(true)}
+          variant="outline"
+          size="lg"
+          className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:border-primary-foreground/50"
+        >
+          <Presentation className="w-5 h-5 mr-2" />
+          View Pitch Deck
+        </Button>
+        <Button
+          onClick={() => setShowEmailCapture(true)}
+          disabled={isGenerating}
+          size="lg"
+          className="bg-accent hover:bg-accent/90 text-accent-foreground"
+        >
+          {isGenerating ? (
+            <>
+              <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+              Generating...
+            </>
+          ) : (
+            <>
+              <Download className="w-5 h-5 mr-2" />
+              Download Pitch Deck
+            </>
+          )}
+        </Button>
+      </div>
+
+      <PitchDeckViewer 
+        isOpen={showViewer} 
+        onClose={() => setShowViewer(false)}
+        onDownloadRequest={handleDownloadRequest}
+      />
+
+      <PitchDeckEmailCapture
+        isOpen={showEmailCapture}
+        onClose={() => setShowEmailCapture(false)}
+        onSuccess={handleEmailSuccess}
+      />
+    </>
   );
 };
 
