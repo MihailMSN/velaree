@@ -319,7 +319,7 @@ const RevenueModelSlide = () => {
 const GTMSlide = () => (
   <div className="p-12 md:p-16 h-full flex flex-col justify-center">
     <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-12 text-center">Go-to-Market Strategy</h2>
-    <div className="flex flex-col md:flex-row gap-6 md:gap-8 max-w-6xl mx-auto">
+    <div className="flex flex-col md:flex-row gap-6 md:gap-16 max-w-6xl mx-auto">
       {[
         { phase: "Phase 1", time: "0-12 months", title: "Foundation", items: ["Beta partners", "Product refinement", "Case studies", "Early adopter pricing"] },
         { phase: "Phase 2", time: "12-24 months", title: "Expansion", items: ["Channel partnerships", "Geographic expansion", "Marketing scale-up", "Team growth"] },
@@ -342,7 +342,7 @@ const GTMSlide = () => (
             </ul>
           </div>
           {i < 2 && (
-            <div className="hidden md:flex absolute top-1/2 -right-4 w-8 text-2xl text-muted-foreground items-center justify-center">→</div>
+            <div className="hidden md:flex absolute top-1/2 -translate-y-1/2 -right-10 w-8 h-8 rounded-full bg-gradient-to-r from-primary via-accent/40 to-primary border border-accent/50 text-foreground text-sm items-center justify-center z-10">→</div>
           )}
         </div>
       ))}
@@ -376,7 +376,7 @@ const CompetitionSlide = () => (
         <h4 className="font-semibold text-xl md:text-2xl text-foreground mb-6 text-center">Our Differentiators</h4>
         <div className="flex flex-wrap justify-center gap-3">
           {["Unified Platform", "AI-First Approach", "Modern Infrastructure", "Transparent Pricing", "Rapid Integration", "24/7 Support"].map((diff) => (
-            <span key={diff} className="px-4 py-2 rounded-full bg-accent text-accent-foreground text-base md:text-lg font-medium">{diff}</span>
+            <span key={diff} className="px-5 py-2.5 rounded-full bg-gradient-to-r from-primary via-accent/40 to-primary border border-accent/50 text-foreground text-base md:text-lg font-medium shadow-sm">{diff}</span>
           ))}
         </div>
       </div>
