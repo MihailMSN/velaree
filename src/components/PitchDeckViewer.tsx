@@ -15,9 +15,12 @@ interface Slide {
 // Slide 1: Cover
 const CoverSlide = () => (
   <div className="flex flex-col items-center justify-center h-full text-center p-12 md:p-16 bg-gradient-to-br from-background via-background to-accent/20">
-    <div className="flex items-baseline mb-6">
-      <span className="text-8xl md:text-9xl lg:text-[10rem] font-bold text-primary">V</span>
-      <span className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground">elaree</span>
+    <div className="mb-6">
+      <img 
+        src="/lovable-uploads/velaree-logo-text.png" 
+        alt="Velaree" 
+        className="h-24 md:h-32 lg:h-40 w-auto"
+      />
     </div>
     <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-muted-foreground mb-4">
       Next-Generation Travel Technology
