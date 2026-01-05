@@ -249,7 +249,7 @@ const CardNav = ({ className = '', ease = 'power3.out' }: CardNavProps) => {
           <div className="logo-container">
             <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
               <img
-                src="/lovable-uploads/8bb7b63f-7523-43f8-8770-d9fd51cdeab3.png"
+                src="/lovable-uploads/velaree-nav-logo.png"
                 alt="Velaree Logo"
                 className="logo"
                 loading="eager"
