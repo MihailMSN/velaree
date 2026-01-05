@@ -238,41 +238,45 @@ const TargetMarketSlide = () => {
 // Slide 8: TAM
 const TAMSlide = () => (
   <div className="p-12 md:p-16 h-full flex flex-col justify-center">
-    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-12 text-center">Total Addressable Market</h2>
-    <div className="flex flex-col items-center justify-center gap-8 max-w-5xl mx-auto">
+    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-8 text-center">Total Addressable Market</h2>
+    <div className="flex flex-col lg:flex-row items-center justify-center gap-12 max-w-6xl mx-auto">
       {/* Concentric circles visualization */}
-      <div className="relative w-[320px] h-[320px] md:w-[400px] md:h-[400px] lg:w-[480px] lg:h-[480px]">
-        <div className="absolute inset-0 rounded-full bg-primary/5 border-2 border-primary/20 flex items-center justify-center shadow-lg">
-          <div className="absolute top-6 md:top-8 text-center">
-            <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary">$24B</div>
-            <div className="text-sm md:text-base text-muted-foreground">TAM</div>
-          </div>
-        </div>
-        <div className="absolute inset-10 md:inset-12 lg:inset-16 rounded-full bg-primary/10 border-2 border-primary/30 flex items-center justify-center shadow-md">
-          <div className="absolute top-4 md:top-6 text-center">
-            <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary">$4.2B</div>
-            <div className="text-sm md:text-base text-muted-foreground">SAM</div>
-          </div>
-        </div>
-        <div className="absolute inset-24 md:inset-28 lg:inset-36 rounded-full bg-primary/20 border-2 border-primary/40 flex items-center justify-center shadow">
+      <div className="relative w-[280px] h-[280px] md:w-[340px] md:h-[340px]">
+        {/* Outer circle - TAM */}
+        <div className="absolute inset-0 rounded-full bg-primary/5 border-2 border-primary/20 shadow-lg" />
+        {/* Middle circle - SAM */}
+        <div className="absolute inset-12 md:inset-14 rounded-full bg-primary/10 border-2 border-primary/30 shadow-md" />
+        {/* Inner circle - SOM */}
+        <div className="absolute inset-24 md:inset-28 rounded-full bg-primary/20 border-2 border-primary/40 shadow flex items-center justify-center">
           <div className="text-center">
-            <div className="text-xl md:text-2xl lg:text-3xl font-bold text-primary">$850M</div>
-            <div className="text-sm md:text-base text-muted-foreground">SOM</div>
+            <div className="text-lg md:text-xl font-bold text-primary">$850M</div>
+            <div className="text-xs text-muted-foreground">SOM</div>
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-3 gap-8 md:gap-12 lg:gap-16 mt-6 text-center">
-        <div>
-          <div className="font-semibold text-xl md:text-2xl text-foreground">TAM</div>
-          <div className="text-base md:text-lg text-muted-foreground">Global B2B Travel Tech</div>
+      
+      {/* Side labels */}
+      <div className="flex flex-col gap-6">
+        <div className="flex items-center gap-4 bg-gradient-to-br from-card via-accent/5 to-card border border-border/50 rounded-xl p-5 shadow-md">
+          <div className="w-4 h-4 rounded-full bg-primary/20 border-2 border-primary/40 shrink-0" />
+          <div>
+            <div className="text-3xl md:text-4xl font-bold text-primary">$24B</div>
+            <div className="text-sm text-muted-foreground font-medium">TAM — Global B2B Travel Tech</div>
+          </div>
         </div>
-        <div>
-          <div className="font-semibold text-xl md:text-2xl text-foreground">SAM</div>
-          <div className="text-base md:text-lg text-muted-foreground">OTA & TMC Platforms</div>
+        <div className="flex items-center gap-4 bg-gradient-to-br from-card via-accent/5 to-card border border-border/50 rounded-xl p-5 shadow-md">
+          <div className="w-4 h-4 rounded-full bg-primary/30 border-2 border-primary/50 shrink-0" />
+          <div>
+            <div className="text-2xl md:text-3xl font-bold text-primary">$4.2B</div>
+            <div className="text-sm text-muted-foreground font-medium">SAM — OTA & TMC Platforms</div>
+          </div>
         </div>
-        <div>
-          <div className="font-semibold text-xl md:text-2xl text-foreground">SOM</div>
-          <div className="text-base md:text-lg text-muted-foreground">Year 3 Target</div>
+        <div className="flex items-center gap-4 bg-gradient-to-br from-card via-accent/5 to-card border border-border/50 rounded-xl p-5 shadow-md">
+          <div className="w-4 h-4 rounded-full bg-primary/40 border-2 border-primary/60 shrink-0" />
+          <div>
+            <div className="text-xl md:text-2xl font-bold text-primary">$850M</div>
+            <div className="text-sm text-muted-foreground font-medium">SOM — Year 3 Target</div>
+          </div>
         </div>
       </div>
     </div>
