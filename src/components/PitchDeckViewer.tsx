@@ -1,6 +1,31 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, X, Download, Maximize2, Minimize2 } from "lucide-react";
+import { 
+  ChevronLeft, 
+  ChevronRight, 
+  X, 
+  Download, 
+  Maximize2, 
+  Minimize2,
+  Settings2,
+  Unlink,
+  Package,
+  Timer,
+  Plug,
+  Bot,
+  BarChart3,
+  Globe,
+  Building2,
+  Plane,
+  ClipboardList,
+  Briefcase,
+  Zap,
+  CreditCard,
+  CircleDollarSign,
+  Landmark,
+  Wrench,
+  type LucideIcon
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
@@ -60,48 +85,60 @@ const VisionSlide = () => (
 );
 
 // Slide 3: Market Problem
-const ProblemSlide = () => (
-  <div className="p-12 md:p-16 h-full flex flex-col justify-center">
-    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-12 text-center">Market Problem</h2>
-    <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-      {[
-        { title: "Manual Processes", desc: "70% of travel operations still rely on error-prone manual workflows", icon: "⚙️" },
-        { title: "Fragmented Systems", desc: "Multiple GDS connections require separate integrations and maintenance", icon: "🔗" },
-        { title: "Limited Inventory", desc: "Traditional systems access only a fraction of global inventory", icon: "📦" },
-        { title: "Slow Performance", desc: "Legacy systems can't meet modern speed and reliability expectations", icon: "🐢" },
-      ].map((item) => (
-        <div key={item.title} className="flex gap-6 p-6 md:p-8 rounded-2xl bg-card border border-border/50 shadow-lg hover:shadow-xl transition-shadow">
-          <span className="text-4xl md:text-5xl">{item.icon}</span>
-          <div>
-            <h3 className="font-semibold text-foreground text-xl md:text-2xl mb-2">{item.title}</h3>
-            <p className="text-base md:text-lg text-muted-foreground">{item.desc}</p>
+const ProblemSlide = () => {
+  const problems: { title: string; desc: string; Icon: LucideIcon }[] = [
+    { title: "Manual Processes", desc: "70% of travel operations still rely on error-prone manual workflows", Icon: Settings2 },
+    { title: "Fragmented Systems", desc: "Multiple GDS connections require separate integrations and maintenance", Icon: Unlink },
+    { title: "Limited Inventory", desc: "Traditional systems access only a fraction of global inventory", Icon: Package },
+    { title: "Slow Performance", desc: "Legacy systems can't meet modern speed and reliability expectations", Icon: Timer },
+  ];
+
+  return (
+    <div className="p-12 md:p-16 h-full flex flex-col justify-center">
+      <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-12 text-center">Market Problem</h2>
+      <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        {problems.map((item) => (
+          <div key={item.title} className="flex gap-6 p-6 md:p-8 rounded-2xl bg-gradient-to-br from-card via-accent/5 to-card border border-border/50 hover:border-accent/40 shadow-lg hover:shadow-xl transition-all">
+            <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/10 via-accent/20 to-primary/10 border border-accent/30 flex items-center justify-center shrink-0">
+              <item.Icon className="w-7 h-7 text-primary" />
+            </div>
+            <div>
+              <h3 className="font-semibold text-foreground text-xl md:text-2xl mb-2">{item.title}</h3>
+              <p className="text-base md:text-lg text-muted-foreground">{item.desc}</p>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 // Slide 4: Our Solution
-const SolutionSlide = () => (
-  <div className="p-12 md:p-16 h-full flex flex-col justify-center">
-    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 text-center">Our Solution</h2>
-    <p className="text-center text-xl md:text-2xl text-muted-foreground mb-12">One unified platform for the entire travel technology stack</p>
-    <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-      {[
-        { icon: "🔌", title: "Unified API", desc: "Single integration to access 200+ airlines and all major GDS systems", color: "bg-blue-50 border-blue-200 dark:bg-blue-950/30 dark:border-blue-800" },
-        { icon: "🤖", title: "AI Automation", desc: "Intelligent workflows handling ticketing, changes, and notifications", color: "bg-violet-50 border-violet-200 dark:bg-violet-950/30 dark:border-violet-800" },
-        { icon: "📊", title: "Real-time Analytics", desc: "Complete visibility into operations with actionable insights", color: "bg-emerald-50 border-emerald-200 dark:bg-emerald-950/30 dark:border-emerald-800" },
-      ].map((item) => (
-        <div key={item.title} className={`rounded-2xl p-8 md:p-10 text-center border-2 shadow-lg hover:shadow-xl transition-shadow ${item.color}`}>
-          <span className="text-5xl md:text-6xl mb-6 block">{item.icon}</span>
-          <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-3">{item.title}</h3>
-          <p className="text-base md:text-lg text-muted-foreground">{item.desc}</p>
-        </div>
-      ))}
+const SolutionSlide = () => {
+  const solutions: { Icon: LucideIcon; title: string; desc: string }[] = [
+    { Icon: Plug, title: "Unified API", desc: "Single integration to access 200+ airlines and all major GDS systems" },
+    { Icon: Bot, title: "AI Automation", desc: "Intelligent workflows handling ticketing, changes, and notifications" },
+    { Icon: BarChart3, title: "Real-time Analytics", desc: "Complete visibility into operations with actionable insights" },
+  ];
+
+  return (
+    <div className="p-12 md:p-16 h-full flex flex-col justify-center">
+      <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 text-center">Our Solution</h2>
+      <p className="text-center text-xl md:text-2xl text-muted-foreground mb-12">One unified platform for the entire travel technology stack</p>
+      <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {solutions.map((item) => (
+          <div key={item.title} className="rounded-2xl p-8 md:p-10 text-center bg-gradient-to-br from-card via-accent/5 to-card border border-border/50 hover:border-accent/40 shadow-lg hover:shadow-xl transition-all">
+            <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary/10 via-accent/20 to-primary/10 border border-accent/30 flex items-center justify-center mx-auto mb-6">
+              <item.Icon className="w-8 h-8 text-primary" />
+            </div>
+            <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-3">{item.title}</h3>
+            <p className="text-base md:text-lg text-muted-foreground">{item.desc}</p>
+          </div>
+        ))}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 // Slide 5: Industry Demand
 const IndustryDemandSlide = () => (
@@ -163,34 +200,40 @@ const HowItWorksSlide = () => (
 );
 
 // Slide 7: Target Market
-const TargetMarketSlide = () => (
-  <div className="p-12 md:p-16 h-full flex flex-col justify-center">
-    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-12 text-center">Target Market</h2>
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-      {[
-        { segment: "OTAs", desc: "Online Travel Agencies seeking efficiency", size: "Primary", icon: "🌐" },
-        { segment: "TMCs", desc: "Travel Management Companies scaling operations", size: "Primary", icon: "🏢" },
-        { segment: "Airlines", desc: "Direct carriers optimizing distribution", size: "Primary", icon: "✈️" },
-        { segment: "Consolidators", desc: "Ticket consolidators improving margins", size: "Secondary", icon: "📋" },
-        { segment: "Corporate Travel", desc: "Enterprise travel management platforms", size: "Secondary", icon: "💼" },
-        { segment: "Travel Tech", desc: "Platforms seeking white-label solutions", size: "Tertiary", icon: "⚡" },
-      ].map((market) => (
-        <div key={market.segment} className="p-6 md:p-8 rounded-2xl bg-card border border-border/50 shadow-md hover:shadow-lg transition-shadow">
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl md:text-4xl">{market.icon}</span>
-            <h3 className="font-semibold text-xl md:text-2xl text-foreground">{market.segment}</h3>
+const TargetMarketSlide = () => {
+  const markets: { segment: string; desc: string; size: string; Icon: LucideIcon }[] = [
+    { segment: "OTAs", desc: "Online Travel Agencies seeking efficiency", size: "Primary", Icon: Globe },
+    { segment: "TMCs", desc: "Travel Management Companies scaling operations", size: "Primary", Icon: Building2 },
+    { segment: "Airlines", desc: "Direct carriers optimizing distribution", size: "Primary", Icon: Plane },
+    { segment: "Consolidators", desc: "Ticket consolidators improving margins", size: "Secondary", Icon: ClipboardList },
+    { segment: "Corporate Travel", desc: "Enterprise travel management platforms", size: "Secondary", Icon: Briefcase },
+    { segment: "Travel Tech", desc: "Platforms seeking white-label solutions", size: "Tertiary", Icon: Zap },
+  ];
+
+  return (
+    <div className="p-12 md:p-16 h-full flex flex-col justify-center">
+      <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-12 text-center">Target Market</h2>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        {markets.map((market) => (
+          <div key={market.segment} className="p-6 md:p-8 rounded-2xl bg-gradient-to-br from-card via-accent/5 to-card border border-border/50 hover:border-accent/40 shadow-md hover:shadow-lg transition-all">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/10 via-accent/20 to-primary/10 border border-accent/30 flex items-center justify-center">
+                <market.Icon className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-semibold text-xl md:text-2xl text-foreground">{market.segment}</h3>
+            </div>
+            <p className="text-base md:text-lg text-muted-foreground mb-4">{market.desc}</p>
+            <span className={`text-sm px-3 py-1 rounded-full font-medium ${
+              market.size === "Primary" ? "bg-primary/10 text-primary" :
+              market.size === "Secondary" ? "bg-accent text-accent-foreground" :
+              "bg-muted text-muted-foreground"
+            }`}>{market.size}</span>
           </div>
-          <p className="text-base md:text-lg text-muted-foreground mb-4">{market.desc}</p>
-          <span className={`text-sm px-3 py-1 rounded-full font-medium ${
-            market.size === "Primary" ? "bg-primary/10 text-primary" :
-            market.size === "Secondary" ? "bg-accent text-accent-foreground" :
-            "bg-muted text-muted-foreground"
-          }`}>{market.size}</span>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 // Slide 8: TAM
 const TAMSlide = () => (
@@ -237,30 +280,36 @@ const TAMSlide = () => (
 );
 
 // Slide 9: Revenue Model
-const RevenueModelSlide = () => (
-  <div className="p-12 md:p-16 h-full flex flex-col justify-center">
-    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-12 text-center">Revenue Model</h2>
-    <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-      {[
-        { title: "SaaS Subscriptions", desc: "Tiered monthly/annual pricing based on volume and features", revenue: "40%", icon: "💳" },
-        { title: "Transaction Fees", desc: "Per-booking fee for platform usage (€0.50-2.00)", revenue: "35%", icon: "💰" },
-        { title: "Enterprise Licensing", desc: "Custom solutions for large-scale implementations", revenue: "15%", icon: "🏛️" },
-        { title: "Implementation Services", desc: "Onboarding, integration, and ongoing support", revenue: "10%", icon: "🛠️" },
-      ].map((model) => (
-        <div key={model.title} className="p-6 md:p-8 rounded-2xl bg-card border border-border/50 shadow-lg hover:shadow-xl transition-shadow">
-          <div className="flex items-start justify-between mb-4">
-            <div className="flex items-center gap-4">
-              <span className="text-3xl md:text-4xl">{model.icon}</span>
-              <h3 className="font-semibold text-xl md:text-2xl text-foreground">{model.title}</h3>
+const RevenueModelSlide = () => {
+  const models: { title: string; desc: string; revenue: string; Icon: LucideIcon }[] = [
+    { title: "SaaS Subscriptions", desc: "Tiered monthly/annual pricing based on volume and features", revenue: "40%", Icon: CreditCard },
+    { title: "Transaction Fees", desc: "Per-booking fee for platform usage (€0.50-2.00)", revenue: "35%", Icon: CircleDollarSign },
+    { title: "Enterprise Licensing", desc: "Custom solutions for large-scale implementations", revenue: "15%", Icon: Landmark },
+    { title: "Implementation Services", desc: "Onboarding, integration, and ongoing support", revenue: "10%", Icon: Wrench },
+  ];
+
+  return (
+    <div className="p-12 md:p-16 h-full flex flex-col justify-center">
+      <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-12 text-center">Revenue Model</h2>
+      <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        {models.map((model) => (
+          <div key={model.title} className="p-6 md:p-8 rounded-2xl bg-gradient-to-br from-card via-accent/5 to-card border border-border/50 hover:border-accent/40 shadow-lg hover:shadow-xl transition-all">
+            <div className="flex items-start justify-between mb-4">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/10 via-accent/20 to-primary/10 border border-accent/30 flex items-center justify-center">
+                  <model.Icon className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="font-semibold text-xl md:text-2xl text-foreground">{model.title}</h3>
+              </div>
+              <span className="text-2xl md:text-3xl font-bold text-primary">{model.revenue}</span>
             </div>
-            <span className="text-2xl md:text-3xl font-bold text-primary">{model.revenue}</span>
+            <p className="text-base md:text-lg text-muted-foreground">{model.desc}</p>
           </div>
-          <p className="text-base md:text-lg text-muted-foreground">{model.desc}</p>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 // Slide 10: Go-to-Market
 const GTMSlide = () => (
@@ -273,24 +322,16 @@ const GTMSlide = () => (
         { phase: "Phase 3", time: "24-36 months", title: "Enterprise", items: ["Enterprise sales", "Global presence", "Strategic M&A", "IPO preparation"] },
       ].map((phase, i) => (
         <div key={phase.phase} className="flex-1 relative">
-          <div className={`p-6 md:p-8 rounded-2xl border-2 shadow-lg ${
-            i === 0 ? "bg-blue-50 border-blue-200 dark:bg-blue-950/30 dark:border-blue-800" :
-            i === 1 ? "bg-violet-50 border-violet-200 dark:bg-violet-950/30 dark:border-violet-800" :
-            "bg-emerald-50 border-emerald-200 dark:bg-emerald-950/30 dark:border-emerald-800"
-          }`}>
+          <div className="p-6 md:p-8 rounded-2xl border bg-gradient-to-br from-card via-accent/5 to-card border-border/50 hover:border-accent/40 shadow-lg transition-all">
             <div className="flex items-center gap-3 mb-4">
-              <span className={`px-3 py-1.5 rounded-lg text-sm font-semibold ${
-                i === 0 ? "bg-blue-500 text-white" :
-                i === 1 ? "bg-violet-500 text-white" :
-                "bg-emerald-500 text-white"
-              }`}>{phase.phase}</span>
+              <span className="px-3 py-1.5 rounded-lg text-sm font-semibold bg-primary text-primary-foreground">{phase.phase}</span>
               <span className="text-sm md:text-base text-muted-foreground">{phase.time}</span>
             </div>
             <h3 className="font-semibold text-xl md:text-2xl text-foreground mb-4">{phase.title}</h3>
             <ul className="space-y-2">
               {phase.items.map((item) => (
                 <li key={item} className="text-base md:text-lg text-muted-foreground flex items-center gap-3">
-                  <span className="w-2 h-2 rounded-full bg-muted-foreground/50" />
+                  <span className="w-2 h-2 rounded-full bg-primary/50" />
                   {item}
                 </li>
               ))}
