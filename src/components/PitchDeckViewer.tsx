@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
 import MiniCardShowcase from "./pitchdeck/MiniCardShowcase";
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, Legend } from "recharts";
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, Legend, PieChart as RechartsPie, Pie, Cell, LineChart, Line } from "recharts";
 interface Slide {
   id: number;
   title: string;
@@ -138,7 +138,7 @@ const VisionSlide = () => <div className="p-8 md:p-12 h-full flex flex-col justi
     </div>
   </div>;
 
-// Slide 3: Market Problem - Enhanced with quantified impacts and sources
+// Slide 3: Market Problem - Enhanced with quantified impacts and pie chart
 const ProblemSlide = () => {
   const problems: {
     title: string;
@@ -171,50 +171,108 @@ const ProblemSlide = () => {
     source: "Travelport",
     Icon: Timer
   }];
-  return <div className="p-8 md:p-12 h-full flex flex-col justify-center overflow-y-auto">
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-8 text-center">Market Problem</h2>
+
+  const inefficiencyData = [
+    { name: 'Manual Processes', value: 38, color: 'hsl(0, 84%, 60%)' },
+    { name: 'System Fragmentation', value: 27, color: 'hsl(15, 84%, 55%)' },
+    { name: 'Limited Inventory', value: 22, color: 'hsl(30, 84%, 50%)' },
+    { name: 'Performance Issues', value: 13, color: 'hsl(45, 84%, 45%)' },
+  ];
+
+  return (
+    <div className="p-6 md:p-10 h-full flex flex-col justify-center overflow-y-auto">
+      <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4 text-center">Market Problem</h2>
       
-      <div className="grid md:grid-cols-2 gap-5 max-w-6xl mx-auto mb-6">
-        {problems.map(item => <div key={item.title} className="flex gap-4 p-5 rounded-xl bg-gradient-to-br from-card via-accent/5 to-card border border-border/50 hover:border-accent/40 shadow-md transition-all">
-            <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary/10 via-accent/20 to-primary/10 border border-accent/30 flex items-center justify-center shrink-0">
-              <item.Icon className="w-6 h-6 text-primary" />
-            </div>
-            <div className="flex-1">
-              <h3 className="font-semibold text-foreground text-lg mb-1">{item.title}</h3>
-              <p className="text-sm text-muted-foreground mb-2">{item.desc}</p>
-              <div className="flex items-center justify-between">
-                <span className="text-sm font-bold text-red-500">{item.impact}</span>
-                <span className="text-xs text-muted-foreground/60">Source: {item.source}</span>
+      <div className="flex flex-col lg:flex-row gap-6 max-w-6xl mx-auto mb-4">
+        {/* Problem Cards */}
+        <div className="grid grid-cols-2 gap-3 flex-1">
+          {problems.map(item => (
+            <div key={item.title} className="flex gap-3 p-3 rounded-xl bg-gradient-to-br from-card via-accent/5 to-card border border-border/50 hover:border-accent/40 shadow-md transition-all">
+              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary/10 via-accent/20 to-primary/10 border border-accent/30 flex items-center justify-center shrink-0">
+                <item.Icon className="w-5 h-5 text-primary" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <h3 className="font-semibold text-foreground text-sm mb-0.5">{item.title}</h3>
+                <p className="text-xs text-muted-foreground mb-1 line-clamp-2">{item.desc}</p>
+                <div className="flex items-center justify-between gap-1">
+                  <span className="text-xs font-bold text-red-500">{item.impact}</span>
+                  <span className="text-[10px] text-muted-foreground/60 truncate">{item.source}</span>
+                </div>
               </div>
             </div>
-          </div>)}
+          ))}
+        </div>
+
+        {/* Pie Chart */}
+        <div className="bg-card rounded-xl p-4 border border-border/50 shadow-sm lg:w-[280px]">
+          <h4 className="text-sm font-semibold text-foreground mb-2 text-center">Operational Inefficiency Breakdown</h4>
+          <div className="h-[160px]">
+            <ResponsiveContainer width="100%" height="100%">
+              <RechartsPie>
+                <Pie
+                  data={inefficiencyData}
+                  cx="50%"
+                  cy="50%"
+                  innerRadius={35}
+                  outerRadius={60}
+                  paddingAngle={3}
+                  dataKey="value"
+                  label={({ name, value }) => `${value}%`}
+                  labelLine={false}
+                >
+                  {inefficiencyData.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={entry.color} />
+                  ))}
+                </Pie>
+                <Tooltip
+                  contentStyle={{
+                    backgroundColor: 'hsl(var(--card))',
+                    border: '1px solid hsl(var(--border))',
+                    borderRadius: '8px',
+                    fontSize: '12px'
+                  }}
+                  formatter={(value: number) => [`${value}%`, 'Share']}
+                />
+              </RechartsPie>
+            </ResponsiveContainer>
+          </div>
+          <div className="grid grid-cols-2 gap-1 mt-2">
+            {inefficiencyData.map((item) => (
+              <div key={item.name} className="flex items-center gap-1 text-[10px]">
+                <div className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: item.color }} />
+                <span className="text-muted-foreground truncate">{item.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
       
       {/* Cost of Inaction Summary */}
       <div className="max-w-6xl mx-auto">
-        <div className="bg-gradient-to-r from-red-500/10 via-red-500/5 to-red-500/10 rounded-xl p-5 border border-red-500/20">
-          <h4 className="text-lg font-semibold text-foreground mb-3 text-center">Cost of Inaction</h4>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+        <div className="bg-gradient-to-r from-red-500/10 via-red-500/5 to-red-500/10 rounded-xl p-4 border border-red-500/20">
+          <h4 className="text-sm font-semibold text-foreground mb-2 text-center">Cost of Inaction</h4>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-center">
             <div>
-              <div className="text-2xl font-bold text-red-500">$12.4B</div>
-              <div className="text-xs text-muted-foreground">Total Industry Loss</div>
+              <div className="text-xl font-bold text-red-500">$12.4B</div>
+              <div className="text-[10px] text-muted-foreground">Total Industry Loss</div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-red-500">38%</div>
-              <div className="text-xs text-muted-foreground">Operational Waste</div>
+              <div className="text-xl font-bold text-red-500">38%</div>
+              <div className="text-[10px] text-muted-foreground">Operational Waste</div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-red-500">4.2hrs</div>
-              <div className="text-xs text-muted-foreground">Avg. Daily Manual Work</div>
+              <div className="text-xl font-bold text-red-500">4.2hrs</div>
+              <div className="text-[10px] text-muted-foreground">Avg. Daily Manual Work</div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-red-500">67%</div>
-              <div className="text-xs text-muted-foreground">Staff Turnover Related</div>
+              <div className="text-xl font-bold text-red-500">67%</div>
+              <div className="text-[10px] text-muted-foreground">Staff Turnover Related</div>
             </div>
           </div>
         </div>
       </div>
-    </div>;
+    </div>
+  );
 };
 
 // Slide 4: Our Solution - Enhanced with metrics and before/after
@@ -719,7 +777,7 @@ const TAMSlide = () => {
   );
 };
 
-// Slide 9: Revenue Model - Enhanced with projections and unit economics
+// Slide 9: Revenue Model - Enhanced with projections, charts, and unit economics
 const RevenueModelSlide = () => {
   const models: {
     title: string;
@@ -747,80 +805,152 @@ const RevenueModelSlide = () => {
     revenue: "10%",
     Icon: Wrench
   }];
-  return <div className="p-8 md:p-12 h-full flex flex-col justify-center overflow-y-auto">
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 text-center">Revenue Model</h2>
+
+  const revenueProjectionData = [
+    { quarter: 'Q1 Y1', arr: 120, mrr: 10, customers: 5 },
+    { quarter: 'Q2 Y1', arr: 240, mrr: 20, customers: 12 },
+    { quarter: 'Q3 Y1', arr: 360, mrr: 30, customers: 18 },
+    { quarter: 'Q4 Y1', arr: 480, mrr: 40, customers: 25 },
+    { quarter: 'Q1 Y2', arr: 720, mrr: 60, customers: 38 },
+    { quarter: 'Q2 Y2', arr: 1200, mrr: 100, customers: 55 },
+    { quarter: 'Q3 Y2', arr: 1800, mrr: 150, customers: 78 },
+    { quarter: 'Q4 Y2', arr: 2400, mrr: 200, customers: 100 },
+    { quarter: 'Q1 Y3', arr: 3600, mrr: 300, customers: 140 },
+    { quarter: 'Q2 Y3', arr: 5200, mrr: 433, customers: 185 },
+    { quarter: 'Q3 Y3', arr: 6800, mrr: 567, customers: 230 },
+    { quarter: 'Q4 Y3', arr: 8500, mrr: 708, customers: 280 },
+  ];
+
+  return (
+    <div className="p-6 md:p-10 h-full flex flex-col justify-start overflow-y-auto">
+      <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4 text-center">Revenue Model</h2>
       
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-6xl mx-auto mb-6">
-        {models.map(model => <div key={model.title} className="p-4 rounded-xl bg-gradient-to-br from-card via-accent/5 to-card border border-border/50 shadow-sm text-center">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary/10 via-accent/20 to-primary/10 border border-accent/30 flex items-center justify-center mx-auto mb-2">
-              <model.Icon className="w-5 h-5 text-primary" />
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-6xl mx-auto mb-4">
+        {models.map(model => (
+          <div key={model.title} className="p-3 rounded-xl bg-gradient-to-br from-card via-accent/5 to-card border border-border/50 shadow-sm text-center">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary/10 via-accent/20 to-primary/10 border border-accent/30 flex items-center justify-center mx-auto mb-1">
+              <model.Icon className="w-4 h-4 text-primary" />
             </div>
-            <div className="text-xl font-bold text-primary mb-1">{model.revenue}</div>
-            <h3 className="font-semibold text-sm text-foreground">{model.title}</h3>
-            <p className="text-xs text-muted-foreground">{model.desc}</p>
-          </div>)}
+            <div className="text-lg font-bold text-primary mb-0.5">{model.revenue}</div>
+            <h3 className="font-semibold text-xs text-foreground">{model.title}</h3>
+            <p className="text-[10px] text-muted-foreground">{model.desc}</p>
+          </div>
+        ))}
       </div>
       
-      {/* 3-Year Revenue Projections */}
+      {/* Revenue Chart */}
       <div className="max-w-6xl mx-auto bg-card rounded-xl p-4 border border-border/50 shadow-sm mb-4">
-        <h4 className="font-semibold text-foreground mb-3 text-center">3-Year Revenue Projections</h4>
-        <div className="grid grid-cols-3 gap-4 text-center">
-          {[{
-          year: "Year 1",
-          arr: "€480K",
-          mrr: "€40K",
-          growth: "-"
-        }, {
-          year: "Year 2",
-          arr: "€2.4M",
-          mrr: "€200K",
-          growth: "+400%"
-        }, {
-          year: "Year 3",
-          arr: "€8.5M",
-          mrr: "€708K",
-          growth: "+254%"
-        }].map(item => <div key={item.year} className="p-3 rounded-lg bg-muted/30">
-              <div className="text-sm font-medium text-muted-foreground">{item.year}</div>
-              <div className="text-xl font-bold text-primary">{item.arr}</div>
-              <div className="text-xs text-muted-foreground">ARR ({item.mrr} MRR)</div>
-              <div className="text-xs text-emerald-600 font-medium">{item.growth}</div>
-            </div>)}
+        <h4 className="text-sm font-semibold text-foreground mb-2 text-center">3-Year ARR Growth Projection (€K)</h4>
+        <div className="h-[160px]">
+          <ResponsiveContainer width="100%" height="100%">
+            <LineChart data={revenueProjectionData} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
+              <defs>
+                <linearGradient id="arrGradient" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="5%" stopColor="hsl(var(--primary))" stopOpacity={0.3} />
+                  <stop offset="95%" stopColor="hsl(var(--primary))" stopOpacity={0} />
+                </linearGradient>
+              </defs>
+              <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" opacity={0.5} />
+              <XAxis 
+                dataKey="quarter" 
+                tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 9 }} 
+                axisLine={{ stroke: 'hsl(var(--border))' }}
+                interval={2}
+              />
+              <YAxis 
+                tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 10 }} 
+                axisLine={{ stroke: 'hsl(var(--border))' }}
+              />
+              <Tooltip
+                contentStyle={{
+                  backgroundColor: 'hsl(var(--card))',
+                  border: '1px solid hsl(var(--border))',
+                  borderRadius: '8px',
+                  fontSize: '12px'
+                }}
+                labelStyle={{ color: 'hsl(var(--foreground))' }}
+                formatter={(value: number, name: string) => {
+                  if (name === 'arr') return [`€${value}K`, 'ARR'];
+                  if (name === 'customers') return [value, 'Customers'];
+                  return [value, name];
+                }}
+              />
+              <Line 
+                type="monotone" 
+                dataKey="arr" 
+                stroke="hsl(var(--primary))" 
+                strokeWidth={3}
+                dot={{ fill: 'hsl(var(--primary))', strokeWidth: 2, r: 3 }}
+                activeDot={{ r: 5, fill: 'hsl(var(--primary))' }}
+                name="arr"
+              />
+              <Line 
+                type="monotone" 
+                dataKey="customers" 
+                stroke="hsl(var(--primary) / 0.5)" 
+                strokeWidth={2}
+                strokeDasharray="5 5"
+                dot={false}
+                name="customers"
+              />
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
+        <div className="flex justify-center gap-6 mt-2 text-xs">
+          <div className="flex items-center gap-2">
+            <div className="w-6 h-0.5 bg-primary rounded" />
+            <span className="text-muted-foreground">ARR (€K)</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-6 h-0.5 bg-primary/50 rounded" style={{ backgroundImage: 'repeating-linear-gradient(90deg, hsl(var(--primary) / 0.5) 0, hsl(var(--primary) / 0.5) 5px, transparent 5px, transparent 10px)' }} />
+            <span className="text-muted-foreground">Customers</span>
+          </div>
         </div>
       </div>
-      
-      {/* Unit Economics */}
-      <div className="max-w-6xl mx-auto bg-card rounded-xl p-4 border border-border/50 shadow-sm">
-        <h4 className="font-semibold text-foreground mb-3 text-center">Unit Economics</h4>
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-3 text-center">
-          {[{
-          label: "CAC",
-          value: "€2,400",
-          note: "Customer Acquisition"
-        }, {
-          label: "LTV",
-          value: "€28,800",
-          note: "Lifetime Value"
-        }, {
-          label: "LTV:CAC",
-          value: "12:1",
-          note: "Ratio"
-        }, {
-          label: "ARPU",
-          value: "€800",
-          note: "Per Month"
-        }, {
-          label: "Payback",
-          value: "3 mo",
-          note: "Period"
-        }].map(item => <div key={item.label}>
-              <div className="text-lg font-bold text-primary">{item.value}</div>
-              <div className="text-xs text-foreground font-medium">{item.label}</div>
-              <div className="text-xs text-muted-foreground">{item.note}</div>
-            </div>)}
+
+      {/* Year Summary + Unit Economics */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 max-w-6xl mx-auto">
+        {/* 3-Year Summary */}
+        <div className="bg-card rounded-xl p-3 border border-border/50 shadow-sm">
+          <h4 className="text-xs font-semibold text-foreground mb-2 text-center">Year-End Targets</h4>
+          <div className="grid grid-cols-3 gap-2 text-center">
+            {[
+              { year: "Year 1", arr: "€480K", mrr: "€40K", growth: "-" },
+              { year: "Year 2", arr: "€2.4M", mrr: "€200K", growth: "+400%" },
+              { year: "Year 3", arr: "€8.5M", mrr: "€708K", growth: "+254%" },
+            ].map(item => (
+              <div key={item.year} className="p-2 rounded-lg bg-muted/30">
+                <div className="text-[10px] font-medium text-muted-foreground">{item.year}</div>
+                <div className="text-lg font-bold text-primary">{item.arr}</div>
+                <div className="text-[10px] text-muted-foreground">MRR: {item.mrr}</div>
+                <div className="text-[10px] text-emerald-600 font-medium">{item.growth}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        {/* Unit Economics */}
+        <div className="bg-card rounded-xl p-3 border border-border/50 shadow-sm">
+          <h4 className="text-xs font-semibold text-foreground mb-2 text-center">Unit Economics</h4>
+          <div className="grid grid-cols-5 gap-2 text-center">
+            {[
+              { label: "CAC", value: "€2.4K", note: "Acquisition" },
+              { label: "LTV", value: "€28.8K", note: "Lifetime" },
+              { label: "LTV:CAC", value: "12:1", note: "Ratio" },
+              { label: "ARPU", value: "€800", note: "/Month" },
+              { label: "Payback", value: "3mo", note: "Period" },
+            ].map(item => (
+              <div key={item.label}>
+                <div className="text-sm font-bold text-primary">{item.value}</div>
+                <div className="text-[10px] text-foreground font-medium">{item.label}</div>
+                <div className="text-[10px] text-muted-foreground">{item.note}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-    </div>;
+    </div>
+  );
 };
 
 // Slide 10: Go-to-Market - Enhanced with KPIs and milestones
