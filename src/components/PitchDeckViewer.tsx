@@ -13,29 +13,29 @@ interface Slide {
 }
 
 // Slide 1: Cover - Enhanced with key metrics and stage info
-const CoverSlide = () => <div className="flex flex-col items-center justify-center h-full text-center p-8 md:p-12 bg-gradient-to-br from-background via-background to-accent/20">
-    <div className="mb-4">
-      <img src="/lovable-uploads/velaree-logo-text.png" alt="Velaree" className="h-20 md:h-28 lg:h-36 w-auto" />
+const CoverSlide = () => <div className="flex flex-col items-center justify-center h-full text-center p-10 md:p-16 lg:p-20 bg-gradient-to-br from-background via-background to-accent/20">
+    <div className="mb-8">
+      <img src="/lovable-uploads/velaree-logo-text.png" alt="Velaree" className="h-24 md:h-32 lg:h-40 w-auto" />
     </div>
     
-    <div className="flex items-center gap-3 mb-4">
-      <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium border border-primary/20">
+    <div className="flex items-center gap-4 mb-6">
+      <span className="px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium border border-primary/20">
         Est. 2024
       </span>
-      <span className="px-3 py-1 rounded-full bg-accent text-accent-foreground text-sm font-medium">
+      <span className="px-4 py-1.5 rounded-full bg-accent text-accent-foreground text-sm font-medium">
         Pre-Seed Stage
       </span>
     </div>
     
-    <h2 className="text-xl md:text-2xl lg:text-3xl font-medium text-muted-foreground mb-3">
+    <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-muted-foreground mb-4">
       Next-Generation Travel Technology
     </h2>
-    <p className="text-base md:text-lg text-muted-foreground/70 max-w-2xl mb-6">
+    <p className="text-lg md:text-xl text-muted-foreground/70 max-w-2xl mb-10">
       Unified APIs • AI Automation • Real-time Analytics
     </p>
     
     {/* Key highlights bar */}
-    <div className="flex flex-wrap justify-center gap-4 md:gap-8 mb-8 py-4 px-6 rounded-2xl bg-card/50 border border-border/50">
+    <div className="flex flex-wrap justify-center gap-8 md:gap-12 mb-10 py-6 px-10 rounded-2xl bg-card/50 border border-border/50">
       {[{
       value: "200+",
       label: "Airlines"
@@ -48,32 +48,32 @@ const CoverSlide = () => <div className="flex flex-col items-center justify-cent
     }, {
       value: "18mo",
       label: "Runway"
-    }].map(item => <div key={item.label} className="text-center">
-          <div className="text-xl md:text-2xl font-bold text-primary">{item.value}</div>
-          <div className="text-xs md:text-sm text-muted-foreground">{item.label}</div>
+    }].map(item => <div key={item.label} className="text-center px-2">
+          <div className="text-2xl md:text-3xl font-bold text-primary">{item.value}</div>
+          <div className="text-sm text-muted-foreground mt-1">{item.label}</div>
         </div>)}
     </div>
     
-    <div className="flex items-center gap-3 text-sm text-muted-foreground">
-      <span className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse" />
+    <div className="flex items-center gap-3 text-base text-muted-foreground">
+      <span className="w-3 h-3 rounded-full bg-primary animate-pulse" />
       Investor Presentation 2025
     </div>
     
-    <div className="mt-6 text-sm text-muted-foreground/60">
+    <div className="mt-8 text-sm text-muted-foreground/60">
       contact@velaree.com • velaree.com
     </div>
   </div>;
 
 // Slide 2: Vision - Enhanced with timeline and expanded metrics
-const VisionSlide = () => <div className="p-8 md:p-12 h-full flex flex-col justify-center bg-gradient-to-br from-background to-accent/20 overflow-y-auto">
-    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 text-center">Our Vision</h2>
+const VisionSlide = () => <div className="p-10 md:p-14 lg:p-16 h-full flex flex-col justify-center bg-gradient-to-br from-background to-accent/20 overflow-y-auto">
+    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-8 text-center">Our Vision</h2>
     <div className="max-w-6xl mx-auto">
-      <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground leading-relaxed mb-8 text-center max-w-4xl mx-auto">
+      <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground leading-relaxed mb-10 text-center max-w-4xl mx-auto">
         "Empowering travel businesses with <span className="text-primary font-semibold">intelligent technology</span> that transforms operations, reduces costs, and unlocks new revenue opportunities."
       </p>
       
       {/* Expanded metrics grid */}
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-5 md:gap-6 mb-10">
         {[{
         value: "200+",
         label: "Airlines Connected",
@@ -94,17 +94,17 @@ const VisionSlide = () => <div className="p-8 md:p-12 h-full flex flex-col justi
         value: "<2s",
         label: "Avg Response",
         growth: "-40% YoY"
-      }].map(stat => <div key={stat.label} className="text-center p-4 rounded-xl bg-card border border-border/50 shadow-sm">
+      }].map(stat => <div key={stat.label} className="text-center p-5 md:p-6 rounded-xl bg-card border border-border/50 shadow-sm">
             <div className="text-2xl md:text-3xl font-bold text-primary">{stat.value}</div>
-            <div className="text-sm text-muted-foreground mt-1">{stat.label}</div>
-            <div className="text-xs text-emerald-600 mt-1 font-medium">{stat.growth}</div>
+            <div className="text-sm text-muted-foreground mt-2">{stat.label}</div>
+            <div className="text-xs text-emerald-600 mt-2 font-medium">{stat.growth}</div>
           </div>)}
       </div>
       
       {/* Vision Timeline */}
-      <div className="bg-card rounded-2xl border border-border/50 p-5 shadow-lg">
-        <h3 className="text-lg font-semibold text-foreground mb-4 text-center">Vision Timeline</h3>
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div className="bg-card rounded-2xl border border-border/50 p-6 md:p-8 shadow-lg">
+        <h3 className="text-lg font-semibold text-foreground mb-6 text-center">Vision Timeline</h3>
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           {[{
           year: "2025",
           milestone: "Product Market Fit",
@@ -125,13 +125,13 @@ const VisionSlide = () => <div className="p-8 md:p-12 h-full flex flex-col justi
           year: "2030",
           milestone: "IPO / Exit",
           status: "Goal"
-        }].map((item, i) => <div key={item.year} className="flex items-center gap-3 flex-1">
-              <div className="text-center flex-1">
-                <div className="text-lg font-bold text-primary">{item.year}</div>
-                <div className="text-sm text-foreground font-medium">{item.milestone}</div>
-                <span className={`text-xs px-2 py-0.5 rounded-full ${item.status === "In Progress" ? "bg-emerald-500/10 text-emerald-600" : item.status === "Planned" ? "bg-blue-500/10 text-blue-600" : "bg-violet-500/10 text-violet-600"}`}>{item.status}</span>
+        }].map((item, i) => <div key={item.year} className="flex items-center gap-4 flex-1">
+              <div className="text-center flex-1 py-2">
+                <div className="text-xl font-bold text-primary">{item.year}</div>
+                <div className="text-sm text-foreground font-medium mt-1">{item.milestone}</div>
+                <span className={`text-xs px-3 py-1 rounded-full mt-2 inline-block ${item.status === "In Progress" ? "bg-emerald-500/10 text-emerald-600" : item.status === "Planned" ? "bg-blue-500/10 text-blue-600" : "bg-violet-500/10 text-violet-600"}`}>{item.status}</span>
               </div>
-              {i < 4 && <ArrowRight className="w-4 h-4 text-muted-foreground hidden md:block" />}
+              {i < 4 && <ArrowRight className="w-5 h-5 text-muted-foreground hidden md:block" />}
             </div>)}
         </div>
       </div>
@@ -180,23 +180,23 @@ const ProblemSlide = () => {
   ];
 
   return (
-    <div className="p-6 md:p-10 h-full flex flex-col justify-center overflow-y-auto">
-      <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4 text-center">Market Problem</h2>
+    <div className="p-8 md:p-12 lg:p-14 h-full flex flex-col justify-center overflow-y-auto">
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-8 text-center">Market Problem</h2>
       
-      <div className="flex flex-col lg:flex-row gap-6 max-w-6xl mx-auto mb-4">
+      <div className="flex flex-col lg:flex-row gap-8 max-w-6xl mx-auto mb-8">
         {/* Problem Cards */}
-        <div className="grid grid-cols-2 gap-3 flex-1">
+        <div className="grid grid-cols-2 gap-5 flex-1">
           {problems.map(item => (
-            <div key={item.title} className="flex gap-3 p-3 rounded-xl bg-gradient-to-br from-card via-accent/5 to-card border border-border/50 hover:border-accent/40 shadow-md transition-all">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary/10 via-accent/20 to-primary/10 border border-accent/30 flex items-center justify-center shrink-0">
-                <item.Icon className="w-5 h-5 text-primary" />
+            <div key={item.title} className="flex gap-4 p-5 rounded-xl bg-gradient-to-br from-card via-accent/5 to-card border border-border/50 hover:border-accent/40 shadow-md transition-all">
+              <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary/10 via-accent/20 to-primary/10 border border-accent/30 flex items-center justify-center shrink-0">
+                <item.Icon className="w-6 h-6 text-primary" />
               </div>
               <div className="flex-1 min-w-0">
-                <h3 className="font-semibold text-foreground text-sm mb-0.5">{item.title}</h3>
-                <p className="text-xs text-muted-foreground mb-1 line-clamp-2">{item.desc}</p>
-                <div className="flex items-center justify-between gap-1">
-                  <span className="text-xs font-bold text-red-500">{item.impact}</span>
-                  <span className="text-[10px] text-muted-foreground/60 truncate">{item.source}</span>
+                <h3 className="font-semibold text-foreground text-base mb-1">{item.title}</h3>
+                <p className="text-sm text-muted-foreground mb-2 line-clamp-2">{item.desc}</p>
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-sm font-bold text-red-500">{item.impact}</span>
+                  <span className="text-xs text-muted-foreground/60 truncate">{item.source}</span>
                 </div>
               </div>
             </div>
@@ -204,17 +204,17 @@ const ProblemSlide = () => {
         </div>
 
         {/* Pie Chart */}
-        <div className="bg-card rounded-xl p-4 border border-border/50 shadow-sm lg:w-[280px]">
-          <h4 className="text-sm font-semibold text-foreground mb-2 text-center">Operational Inefficiency Breakdown</h4>
-          <div className="h-[160px]">
+        <div className="bg-card rounded-xl p-6 border border-border/50 shadow-sm lg:w-[320px]">
+          <h4 className="text-base font-semibold text-foreground mb-4 text-center">Operational Inefficiency Breakdown</h4>
+          <div className="h-[200px]">
             <ResponsiveContainer width="100%" height="100%">
               <RechartsPie>
                 <Pie
                   data={inefficiencyData}
                   cx="50%"
                   cy="50%"
-                  innerRadius={35}
-                  outerRadius={60}
+                  innerRadius={45}
+                  outerRadius={75}
                   paddingAngle={3}
                   dataKey="value"
                   label={({ name, value }) => `${value}%`}
@@ -236,10 +236,10 @@ const ProblemSlide = () => {
               </RechartsPie>
             </ResponsiveContainer>
           </div>
-          <div className="grid grid-cols-2 gap-1 mt-2">
+          <div className="grid grid-cols-2 gap-2 mt-4">
             {inefficiencyData.map((item) => (
-              <div key={item.name} className="flex items-center gap-1 text-[10px]">
-                <div className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: item.color }} />
+              <div key={item.name} className="flex items-center gap-2 text-xs">
+                <div className="w-3 h-3 rounded-full shrink-0" style={{ backgroundColor: item.color }} />
                 <span className="text-muted-foreground truncate">{item.name}</span>
               </div>
             ))}
@@ -249,24 +249,24 @@ const ProblemSlide = () => {
       
       {/* Cost of Inaction Summary */}
       <div className="max-w-6xl mx-auto">
-        <div className="bg-gradient-to-r from-red-500/10 via-red-500/5 to-red-500/10 rounded-xl p-4 border border-red-500/20">
-          <h4 className="text-sm font-semibold text-foreground mb-2 text-center">Cost of Inaction</h4>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-center">
+        <div className="bg-gradient-to-r from-red-500/10 via-red-500/5 to-red-500/10 rounded-xl p-6 border border-red-500/20">
+          <h4 className="text-base font-semibold text-foreground mb-4 text-center">Cost of Inaction</h4>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             <div>
-              <div className="text-xl font-bold text-red-500">$12.4B</div>
-              <div className="text-[10px] text-muted-foreground">Total Industry Loss</div>
+              <div className="text-2xl font-bold text-red-500">$12.4B</div>
+              <div className="text-xs text-muted-foreground mt-1">Total Industry Loss</div>
             </div>
             <div>
-              <div className="text-xl font-bold text-red-500">38%</div>
-              <div className="text-[10px] text-muted-foreground">Operational Waste</div>
+              <div className="text-2xl font-bold text-red-500">38%</div>
+              <div className="text-xs text-muted-foreground mt-1">Operational Waste</div>
             </div>
             <div>
-              <div className="text-xl font-bold text-red-500">4.2hrs</div>
-              <div className="text-[10px] text-muted-foreground">Avg. Daily Manual Work</div>
+              <div className="text-2xl font-bold text-red-500">4.2hrs</div>
+              <div className="text-xs text-muted-foreground mt-1">Avg. Daily Manual Work</div>
             </div>
             <div>
-              <div className="text-xl font-bold text-red-500">67%</div>
-              <div className="text-[10px] text-muted-foreground">Staff Turnover Related</div>
+              <div className="text-2xl font-bold text-red-500">67%</div>
+              <div className="text-xs text-muted-foreground mt-1">Staff Turnover Related</div>
             </div>
           </div>
         </div>
@@ -302,43 +302,43 @@ const SolutionSlide = () => {
     metric: "3x",
     metricLabel: "Faster Decisions"
   }];
-  return <div className="p-8 md:p-12 h-full flex flex-col justify-center overflow-y-auto">
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-2 text-center">Our Solution</h2>
-      <p className="text-center text-lg text-muted-foreground mb-6">One unified platform for the entire travel technology stack</p>
+  return <div className="p-10 md:p-14 lg:p-16 h-full flex flex-col justify-center overflow-y-auto">
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 text-center">Our Solution</h2>
+      <p className="text-center text-lg text-muted-foreground mb-10">One unified platform for the entire travel technology stack</p>
       
-      <div className="grid md:grid-cols-3 gap-5 max-w-6xl mx-auto mb-6">
-        {solutions.map(item => <div key={item.title} className="rounded-xl p-5 text-center bg-gradient-to-br from-card via-accent/5 to-card border border-border/50 shadow-md">
-            <div className="w-14 h-14 rounded-lg bg-gradient-to-br from-primary/10 via-accent/20 to-primary/10 border border-accent/30 flex items-center justify-center mx-auto mb-4">
-              <item.Icon className="w-7 h-7 text-primary" />
+      <div className="grid md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto mb-10">
+        {solutions.map(item => <div key={item.title} className="rounded-xl p-6 md:p-8 text-center bg-gradient-to-br from-card via-accent/5 to-card border border-border/50 shadow-md">
+            <div className="w-16 h-16 rounded-lg bg-gradient-to-br from-primary/10 via-accent/20 to-primary/10 border border-accent/30 flex items-center justify-center mx-auto mb-5">
+              <item.Icon className="w-8 h-8 text-primary" />
             </div>
-            <h3 className="text-lg font-semibold text-foreground mb-2">{item.title}</h3>
-            <p className="text-sm text-muted-foreground mb-3">{item.desc}</p>
-            <div className="pt-3 border-t border-border/50">
-              <div className="text-2xl font-bold text-primary">{item.metric}</div>
-              <div className="text-xs text-muted-foreground">{item.metricLabel}</div>
+            <h3 className="text-xl font-semibold text-foreground mb-3">{item.title}</h3>
+            <p className="text-sm text-muted-foreground mb-4">{item.desc}</p>
+            <div className="pt-4 border-t border-border/50">
+              <div className="text-3xl font-bold text-primary">{item.metric}</div>
+              <div className="text-sm text-muted-foreground mt-1">{item.metricLabel}</div>
             </div>
           </div>)}
       </div>
       
       {/* Before/After Comparison */}
       <div className="max-w-6xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-5">
-          <div className="bg-red-500/5 rounded-xl p-5 border border-red-500/20">
-            <h4 className="font-semibold text-red-600 mb-3 flex items-center gap-2">
-              <X className="w-4 h-4" /> Before Velaree
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+          <div className="bg-red-500/5 rounded-xl p-6 border border-red-500/20">
+            <h4 className="font-semibold text-red-600 mb-4 flex items-center gap-2 text-lg">
+              <X className="w-5 h-5" /> Before Velaree
             </h4>
-            <ul className="space-y-2 text-sm text-muted-foreground">
+            <ul className="space-y-3 text-base text-muted-foreground">
               <li>• 6-12 months integration time</li>
               <li>• 5+ separate vendor contracts</li>
               <li>• Manual reconciliation daily</li>
               <li>• Limited fare visibility</li>
             </ul>
           </div>
-          <div className="bg-emerald-500/5 rounded-xl p-5 border border-emerald-500/20">
-            <h4 className="font-semibold text-emerald-600 mb-3 flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4" /> After Velaree
+          <div className="bg-emerald-500/5 rounded-xl p-6 border border-emerald-500/20">
+            <h4 className="font-semibold text-emerald-600 mb-4 flex items-center gap-2 text-lg">
+              <CheckCircle2 className="w-5 h-5" /> After Velaree
             </h4>
-            <ul className="space-y-2 text-sm text-muted-foreground">
+            <ul className="space-y-3 text-base text-muted-foreground">
               <li>• 2-4 weeks go-live</li>
               <li>• Single unified contract</li>
               <li>• Automated real-time sync</li>
@@ -349,9 +349,9 @@ const SolutionSlide = () => {
       </div>
       
       {/* Tech Stack */}
-      <div className="max-w-6xl mx-auto mt-5">
-        <div className="flex flex-wrap justify-center gap-2">
-          {["AWS", "Kubernetes", "PostgreSQL", "Redis", "GraphQL", "REST API"].map(tech => <span key={tech} className="px-3 py-1 rounded-full bg-muted text-xs font-medium text-muted-foreground">
+      <div className="max-w-6xl mx-auto mt-8">
+        <div className="flex flex-wrap justify-center gap-3">
+          {["AWS", "Kubernetes", "PostgreSQL", "Redis", "GraphQL", "REST API"].map(tech => <span key={tech} className="px-4 py-1.5 rounded-full bg-muted text-sm font-medium text-muted-foreground">
               {tech}
             </span>)}
         </div>
@@ -360,11 +360,11 @@ const SolutionSlide = () => {
 };
 
 // Slide 5: Industry Demand - Enhanced with regional data and projections
-const IndustryDemandSlide = () => <div className="p-8 md:p-12 h-full flex flex-col justify-center overflow-y-auto">
-    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 text-center">Industry Demand</h2>
+const IndustryDemandSlide = () => <div className="p-10 md:p-14 lg:p-16 h-full flex flex-col justify-center overflow-y-auto">
+    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-10 text-center">Industry Demand</h2>
     <div className="max-w-6xl mx-auto">
       {/* Primary stats */}
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-6 mb-10">
         {[{
         value: "$1.4T",
         label: "Global Travel Market",
@@ -380,16 +380,16 @@ const IndustryDemandSlide = () => <div className="p-8 md:p-12 h-full flex flex-c
         label: "Annual Growth",
         sub: "Travel tech spending",
         growth: "CAGR 2024-28"
-      }].map(stat => <div key={stat.label} className="text-center p-5 rounded-xl bg-primary/5 border border-primary/10 shadow-md">
-            <div className="text-3xl md:text-4xl font-bold text-primary mb-2">{stat.value}</div>
-            <div className="font-semibold text-foreground text-sm">{stat.label}</div>
-            <div className="text-xs text-muted-foreground mt-1">{stat.sub}</div>
-            <div className="text-xs text-emerald-600 font-medium mt-1">{stat.growth}</div>
+      }].map(stat => <div key={stat.label} className="text-center p-6 rounded-xl bg-primary/5 border border-primary/10 shadow-md">
+            <div className="text-3xl md:text-4xl font-bold text-primary mb-3">{stat.value}</div>
+            <div className="font-semibold text-foreground text-base">{stat.label}</div>
+            <div className="text-sm text-muted-foreground mt-2">{stat.sub}</div>
+            <div className="text-sm text-emerald-600 font-medium mt-2">{stat.growth}</div>
           </div>)}
       </div>
       
       {/* Regional breakdown */}
-      <div className="grid grid-cols-3 gap-4 mb-6">
+      <div className="grid grid-cols-3 gap-5 md:gap-6 mb-10">
         {[{
         region: "EMEA",
         value: "$420B",
@@ -405,18 +405,18 @@ const IndustryDemandSlide = () => <div className="p-8 md:p-12 h-full flex flex-c
         value: "$420B",
         share: "30%",
         growth: "+14%"
-      }].map(region => <div key={region.region} className="text-center p-4 rounded-xl bg-card border border-border/50 shadow-sm">
-            <div className="text-lg font-bold text-foreground">{region.region}</div>
-            <div className="text-xl font-bold text-primary">{region.value}</div>
-            <div className="text-xs text-muted-foreground">{region.share} market share</div>
-            <div className="text-xs text-emerald-600 font-medium">{region.growth} growth</div>
+      }].map(region => <div key={region.region} className="text-center p-5 rounded-xl bg-card border border-border/50 shadow-sm">
+            <div className="text-lg font-bold text-foreground mb-1">{region.region}</div>
+            <div className="text-2xl font-bold text-primary">{region.value}</div>
+            <div className="text-sm text-muted-foreground mt-2">{region.share} market share</div>
+            <div className="text-sm text-emerald-600 font-medium mt-1">{region.growth} growth</div>
           </div>)}
       </div>
       
       {/* Growth projections */}
-      <div className="bg-card rounded-xl p-5 border border-border/50 shadow-md mb-4">
-        <h4 className="font-semibold text-foreground mb-3 text-center">Market Growth Projections</h4>
-        <div className="grid grid-cols-4 gap-3 text-center">
+      <div className="bg-card rounded-xl p-6 border border-border/50 shadow-md mb-6">
+        <h4 className="font-semibold text-foreground mb-5 text-center text-lg">Market Growth Projections</h4>
+        <div className="grid grid-cols-4 gap-4 text-center">
           {[{
           year: "2024",
           value: "$24B"
@@ -429,18 +429,18 @@ const IndustryDemandSlide = () => <div className="p-8 md:p-12 h-full flex flex-c
         }, {
           year: "2028",
           value: "$52B"
-        }].map(item => <div key={item.year}>
-              <div className="text-lg font-bold text-primary">{item.value}</div>
-              <div className="text-xs text-muted-foreground">{item.year}</div>
+        }].map(item => <div key={item.year} className="py-2">
+              <div className="text-xl font-bold text-primary">{item.value}</div>
+              <div className="text-sm text-muted-foreground mt-1">{item.year}</div>
             </div>)}
         </div>
-        <div className="text-center mt-2">
+        <div className="text-center mt-4">
           <span className="text-xs text-muted-foreground/60">Source: Phocuswright, IATA, Skift Research 2024</span>
         </div>
       </div>
       
-      <div className="bg-accent/40 rounded-xl p-4 text-center shadow-sm">
-        <p className="text-base text-muted-foreground">
+      <div className="bg-accent/40 rounded-xl p-5 text-center shadow-sm">
+        <p className="text-lg text-muted-foreground">
           <span className="font-semibold text-foreground">Digital transformation</span> is no longer optional — it's survival
         </p>
       </div>
@@ -448,17 +448,17 @@ const IndustryDemandSlide = () => <div className="p-8 md:p-12 h-full flex flex-c
   </div>;
 
 // Slide 6: How It Works - Enhanced with product metrics
-const HowItWorksSlide = () => <div className="p-8 md:p-12 h-full flex flex-col justify-center overflow-y-auto">
-    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-2 text-center">How It Works</h2>
-    <p className="text-center text-lg text-muted-foreground mb-6">A complete product suite for every travel need</p>
-    <div className="flex flex-col lg:flex-row items-center justify-center gap-8 max-w-6xl mx-auto">
+const HowItWorksSlide = () => <div className="p-10 md:p-14 lg:p-16 h-full flex flex-col justify-center overflow-y-auto">
+    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 text-center">How It Works</h2>
+    <p className="text-center text-lg text-muted-foreground mb-10">A complete product suite for every travel need</p>
+    <div className="flex flex-col lg:flex-row items-center justify-center gap-12 max-w-6xl mx-auto">
       {/* Mini Card Showcase */}
-      <div className="w-[360px] h-[280px] lg:w-[400px] lg:h-[300px]">
+      <div className="w-[400px] h-[320px] lg:w-[440px] lg:h-[340px]">
         <MiniCardShowcase />
       </div>
       
       {/* Products List with metrics */}
-      <div className="space-y-3 flex-1 max-w-xl">
+      <div className="space-y-4 flex-1 max-w-xl">
         {[{
         name: "aSuite",
         desc: "CRM, CMS & automation platform",
@@ -483,25 +483,25 @@ const HowItWorksSlide = () => <div className="p-8 md:p-12 h-full flex flex-col j
         metric: "10-15% savings target",
         status: "Q1 2026",
         color: "bg-amber-500"
-      }].map(product => <div key={product.name} className="flex items-center gap-3 p-4 rounded-xl bg-card border border-border/50 shadow-sm hover:shadow-md transition-shadow">
-            <div className={`w-3 h-3 rounded-full ${product.color} shadow`} />
+      }].map(product => <div key={product.name} className="flex items-center gap-4 p-5 rounded-xl bg-card border border-border/50 shadow-sm hover:shadow-md transition-shadow">
+            <div className={`w-4 h-4 rounded-full ${product.color} shadow`} />
             <div className="flex-1">
-              <div className="flex items-center gap-2">
-                <span className="font-semibold text-foreground">{product.name}</span>
-                <span className={`text-xs px-2 py-0.5 rounded-full ${product.status === "Live" ? "bg-emerald-500/10 text-emerald-600" : "bg-amber-500/10 text-amber-600"}`}>{product.status}</span>
+              <div className="flex items-center gap-3">
+                <span className="font-semibold text-foreground text-lg">{product.name}</span>
+                <span className={`text-xs px-3 py-1 rounded-full ${product.status === "Live" ? "bg-emerald-500/10 text-emerald-600" : "bg-amber-500/10 text-amber-600"}`}>{product.status}</span>
               </div>
-              <p className="text-sm text-muted-foreground">{product.desc}</p>
-              <p className="text-xs text-primary font-medium mt-1">{product.metric}</p>
+              <p className="text-sm text-muted-foreground mt-1">{product.desc}</p>
+              <p className="text-sm text-primary font-medium mt-2">{product.metric}</p>
             </div>
           </div>)}
       </div>
     </div>
     
     {/* Integration partners */}
-    <div className="mt-6 text-center">
-      <p className="text-xs text-muted-foreground mb-2">Integrated with</p>
+    <div className="mt-10 text-center">
+      <p className="text-sm text-muted-foreground mb-3">Integrated with</p>
       <div className="flex justify-center gap-4">
-        {["Amadeus", "Sabre", "Travelport", "Mystifly", "TBO"].map(partner => <span key={partner} className="px-3 py-1 rounded-full bg-muted text-xs font-medium text-muted-foreground">
+        {["Amadeus", "Sabre", "Travelport", "Mystifly", "TBO"].map(partner => <span key={partner} className="px-4 py-1.5 rounded-full bg-muted text-sm font-medium text-muted-foreground">
             {partner}
           </span>)}
       </div>
@@ -560,53 +560,53 @@ const TargetMarketSlide = () => {
     customers: "~500",
     Icon: Zap
   }];
-  return <div className="p-8 md:p-12 h-full flex flex-col justify-center overflow-y-auto">
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 text-center">Target Market</h2>
+  return <div className="p-10 md:p-14 lg:p-16 h-full flex flex-col justify-center overflow-y-auto">
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-10 text-center">Target Market</h2>
       
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto mb-6">
-        {markets.map(market => <div key={market.segment} className="p-4 rounded-xl bg-gradient-to-br from-card via-accent/5 to-card border border-border/50 shadow-sm">
-            <div className="flex items-center gap-2 mb-2">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary/10 via-accent/20 to-primary/10 border border-accent/30 flex items-center justify-center">
-                <market.Icon className="w-5 h-5 text-primary" />
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 max-w-6xl mx-auto mb-10">
+        {markets.map(market => <div key={market.segment} className="p-5 md:p-6 rounded-xl bg-gradient-to-br from-card via-accent/5 to-card border border-border/50 shadow-sm">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary/10 via-accent/20 to-primary/10 border border-accent/30 flex items-center justify-center">
+                <market.Icon className="w-6 h-6 text-primary" />
               </div>
               <div>
-                <h3 className="font-semibold text-foreground">{market.segment}</h3>
-                <p className="text-xs text-muted-foreground">{market.desc}</p>
+                <h3 className="font-semibold text-foreground text-lg">{market.segment}</h3>
+                <p className="text-sm text-muted-foreground">{market.desc}</p>
               </div>
             </div>
-            <div className="flex items-center justify-between mt-3 pt-2 border-t border-border/50">
+            <div className="flex items-center justify-between mt-4 pt-4 border-t border-border/50">
               <div>
-                <div className="text-lg font-bold text-primary">{market.marketSize}</div>
-                <div className="text-xs text-muted-foreground">Market Size</div>
+                <div className="text-xl font-bold text-primary">{market.marketSize}</div>
+                <div className="text-sm text-muted-foreground">Market Size</div>
               </div>
               <div className="text-right">
-                <div className="text-sm font-semibold text-foreground">{market.customers}</div>
-                <div className="text-xs text-muted-foreground">Companies</div>
+                <div className="text-base font-semibold text-foreground">{market.customers}</div>
+                <div className="text-sm text-muted-foreground">Companies</div>
               </div>
             </div>
-            <span className={`text-xs px-2 py-0.5 rounded-full mt-2 inline-block ${market.size === "Primary" ? "bg-primary/10 text-primary" : market.size === "Secondary" ? "bg-accent text-accent-foreground" : "bg-muted text-muted-foreground"}`}>{market.size}</span>
+            <span className={`text-xs px-3 py-1 rounded-full mt-3 inline-block ${market.size === "Primary" ? "bg-primary/10 text-primary" : market.size === "Secondary" ? "bg-accent text-accent-foreground" : "bg-muted text-muted-foreground"}`}>{market.size}</span>
           </div>)}
       </div>
       
       {/* Ideal Customer Profile */}
-      <div className="max-w-6xl mx-auto bg-card rounded-xl p-4 border border-border/50 shadow-sm">
-        <h4 className="font-semibold text-foreground mb-3 text-center">Ideal Customer Profile</h4>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center text-sm">
+      <div className="max-w-6xl mx-auto bg-card rounded-xl p-6 border border-border/50 shadow-sm">
+        <h4 className="font-semibold text-foreground mb-5 text-center text-lg">Ideal Customer Profile</h4>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           <div>
-            <div className="font-semibold text-primary">10,000+</div>
-            <div className="text-xs text-muted-foreground">Annual Bookings</div>
+            <div className="text-xl font-semibold text-primary">10,000+</div>
+            <div className="text-sm text-muted-foreground mt-1">Annual Bookings</div>
           </div>
           <div>
-            <div className="font-semibold text-primary">€1M+</div>
-            <div className="text-xs text-muted-foreground">Annual Revenue</div>
+            <div className="text-xl font-semibold text-primary">€1M+</div>
+            <div className="text-sm text-muted-foreground mt-1">Annual Revenue</div>
           </div>
           <div>
-            <div className="font-semibold text-primary">Multi-GDS</div>
-            <div className="text-xs text-muted-foreground">Current Setup</div>
+            <div className="text-xl font-semibold text-primary">Multi-GDS</div>
+            <div className="text-sm text-muted-foreground mt-1">Current Setup</div>
           </div>
           <div>
-            <div className="font-semibold text-primary">B2B/B2C</div>
-            <div className="text-xs text-muted-foreground">Business Model</div>
+            <div className="text-xl font-semibold text-primary">B2B/B2C</div>
+            <div className="text-sm text-muted-foreground mt-1">Business Model</div>
           </div>
         </div>
       </div>
@@ -632,34 +632,34 @@ const TAMSlide = () => {
   ];
 
   return (
-    <div className="p-6 md:p-10 h-full flex flex-col justify-start overflow-y-auto">
-      <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4 text-center">Total Addressable Market</h2>
+    <div className="p-8 md:p-12 lg:p-14 h-full flex flex-col justify-center overflow-y-auto">
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-8 text-center">Total Addressable Market</h2>
       
-      <div className="flex flex-col lg:flex-row items-center justify-center gap-6 max-w-6xl mx-auto mb-4">
+      <div className="flex flex-col lg:flex-row items-center justify-center gap-10 max-w-6xl mx-auto mb-8">
         {/* Concentric circles visualization */}
-        <div className="relative w-[180px] h-[180px] md:w-[200px] md:h-[200px] shrink-0">
+        <div className="relative w-[220px] h-[220px] md:w-[260px] md:h-[260px] shrink-0">
           <div className="absolute inset-0 rounded-full bg-primary/5 border-2 border-primary/20 shadow-lg" />
-          <div className="absolute inset-8 md:inset-10 rounded-full bg-primary/10 border-2 border-primary/30 shadow-md" />
-          <div className="absolute inset-16 md:inset-20 rounded-full bg-primary/20 border-2 border-primary/40 shadow flex items-center justify-center">
+          <div className="absolute inset-10 md:inset-12 rounded-full bg-primary/10 border-2 border-primary/30 shadow-md" />
+          <div className="absolute inset-20 md:inset-24 rounded-full bg-primary/20 border-2 border-primary/40 shadow flex items-center justify-center">
             <div className="text-center">
-              <div className="text-sm font-bold text-primary">$850M</div>
-              <div className="text-[10px] text-muted-foreground">SOM Y3</div>
+              <div className="text-base font-bold text-primary">$850M</div>
+              <div className="text-xs text-muted-foreground">SOM Y3</div>
             </div>
           </div>
         </div>
         
         {/* Market breakdown */}
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-4">
           {[
             { label: "TAM", value: "$24B", desc: "Global B2B Travel Tech", color: "bg-primary/20 border-primary/40" },
             { label: "SAM", value: "$4.2B", desc: "OTA & TMC Platforms", color: "bg-primary/30 border-primary/50" },
             { label: "SOM", value: "$850M", desc: "Year 3 Target", color: "bg-primary/40 border-primary/60" },
           ].map((item) => (
-            <div key={item.label} className="flex items-center gap-3 bg-card border border-border/50 rounded-lg p-3 shadow-sm">
-              <div className={`w-3 h-3 rounded-full ${item.color} shrink-0`} />
+            <div key={item.label} className="flex items-center gap-4 bg-card border border-border/50 rounded-xl p-4 shadow-sm">
+              <div className={`w-4 h-4 rounded-full ${item.color} shrink-0`} />
               <div>
-                <div className="text-lg font-bold text-primary">{item.value}</div>
-                <div className="text-xs text-muted-foreground">{item.label} — {item.desc}</div>
+                <div className="text-xl font-bold text-primary">{item.value}</div>
+                <div className="text-sm text-muted-foreground">{item.label} — {item.desc}</div>
               </div>
             </div>
           ))}
@@ -667,11 +667,11 @@ const TAMSlide = () => {
       </div>
 
       {/* Charts Row */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 max-w-6xl mx-auto mb-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl mx-auto mb-8">
         {/* Market Growth Area Chart */}
-        <div className="bg-card rounded-xl p-4 border border-border/50 shadow-sm">
-          <h4 className="text-sm font-semibold text-foreground mb-2 text-center">Market Growth Projection ($B)</h4>
-          <div className="h-[160px]">
+        <div className="bg-card rounded-xl p-5 border border-border/50 shadow-sm">
+          <h4 className="text-base font-semibold text-foreground mb-4 text-center">Market Growth Projection ($B)</h4>
+          <div className="h-[200px]">
             <ResponsiveContainer width="100%" height="100%">
               <AreaChart data={marketGrowthData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
                 <defs>
@@ -685,8 +685,8 @@ const TAMSlide = () => {
                   </linearGradient>
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" opacity={0.5} />
-                <XAxis dataKey="year" tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 10 }} axisLine={{ stroke: 'hsl(var(--border))' }} />
-                <YAxis tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 10 }} axisLine={{ stroke: 'hsl(var(--border))' }} />
+                <XAxis dataKey="year" tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 11 }} axisLine={{ stroke: 'hsl(var(--border))' }} />
+                <YAxis tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 11 }} axisLine={{ stroke: 'hsl(var(--border))' }} />
                 <Tooltip 
                   contentStyle={{ 
                     backgroundColor: 'hsl(var(--card))', 
@@ -701,28 +701,28 @@ const TAMSlide = () => {
               </AreaChart>
             </ResponsiveContainer>
           </div>
-          <div className="flex justify-center gap-4 mt-2 text-xs">
-            <div className="flex items-center gap-1">
-              <div className="w-3 h-3 rounded bg-primary/30" />
+          <div className="flex justify-center gap-6 mt-4 text-sm">
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-4 rounded bg-primary/30" />
               <span className="text-muted-foreground">TAM (15% CAGR)</span>
             </div>
-            <div className="flex items-center gap-1">
-              <div className="w-3 h-3 rounded bg-primary/50" />
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-4 rounded bg-primary/50" />
               <span className="text-muted-foreground">SAM</span>
             </div>
           </div>
         </div>
 
         {/* SOM & Customers Bar Chart */}
-        <div className="bg-card rounded-xl p-4 border border-border/50 shadow-sm">
-          <h4 className="text-sm font-semibold text-foreground mb-2 text-center">SOM Revenue & Customer Growth</h4>
-          <div className="h-[160px]">
+        <div className="bg-card rounded-xl p-5 border border-border/50 shadow-sm">
+          <h4 className="text-base font-semibold text-foreground mb-4 text-center">SOM Revenue & Customer Growth</h4>
+          <div className="h-[200px]">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={revenueCustomersData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" opacity={0.5} />
-                <XAxis dataKey="year" tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 10 }} axisLine={{ stroke: 'hsl(var(--border))' }} />
-                <YAxis yAxisId="left" tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 10 }} axisLine={{ stroke: 'hsl(var(--border))' }} />
-                <YAxis yAxisId="right" orientation="right" tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 10 }} axisLine={{ stroke: 'hsl(var(--border))' }} />
+                <XAxis dataKey="year" tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 11 }} axisLine={{ stroke: 'hsl(var(--border))' }} />
+                <YAxis yAxisId="left" tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 11 }} axisLine={{ stroke: 'hsl(var(--border))' }} />
+                <YAxis yAxisId="right" orientation="right" tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 11 }} axisLine={{ stroke: 'hsl(var(--border))' }} />
                 <Tooltip 
                   contentStyle={{ 
                     backgroundColor: 'hsl(var(--card))', 
@@ -737,13 +737,13 @@ const TAMSlide = () => {
               </BarChart>
             </ResponsiveContainer>
           </div>
-          <div className="flex justify-center gap-4 mt-2 text-xs">
-            <div className="flex items-center gap-1">
-              <div className="w-3 h-3 rounded bg-primary" />
+          <div className="flex justify-center gap-6 mt-4 text-sm">
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-4 rounded bg-primary" />
               <span className="text-muted-foreground">Revenue ($M)</span>
             </div>
-            <div className="flex items-center gap-1">
-              <div className="w-3 h-3 rounded bg-primary/40" />
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-4 rounded bg-primary/40" />
               <span className="text-muted-foreground">Customers</span>
             </div>
           </div>
@@ -752,8 +752,8 @@ const TAMSlide = () => {
 
       {/* Year-by-Year Progression */}
       <div className="max-w-6xl mx-auto">
-        <h4 className="text-xs font-semibold text-foreground mb-2 text-center">SOM Progression & Market Share Target</h4>
-        <div className="grid grid-cols-5 gap-2">
+        <h4 className="text-sm font-semibold text-foreground mb-4 text-center">SOM Progression & Market Share Target</h4>
+        <div className="grid grid-cols-3 md:grid-cols-5 gap-4">
           {[
             { year: "Y1", som: "$12M", share: "0.3%", customers: "25" },
             { year: "Y2", som: "$85M", share: "2%", customers: "120" },
@@ -761,15 +761,15 @@ const TAMSlide = () => {
             { year: "Y4", som: "$1.4B", share: "33%", customers: "850" },
             { year: "Y5", som: "$2.1B", share: "50%", customers: "1,200" },
           ].map((item) => (
-            <div key={item.year} className="text-center p-2 rounded-lg bg-card border border-border/50 shadow-sm">
-              <div className="text-[10px] font-medium text-muted-foreground">{item.year}</div>
-              <div className="text-sm font-bold text-primary">{item.som}</div>
-              <div className="text-[10px] text-muted-foreground">{item.share} share</div>
-              <div className="text-[10px] text-emerald-600">{item.customers} clients</div>
+            <div key={item.year} className="text-center p-4 rounded-xl bg-card border border-border/50 shadow-sm">
+              <div className="text-sm font-medium text-muted-foreground">{item.year}</div>
+              <div className="text-lg font-bold text-primary mt-1">{item.som}</div>
+              <div className="text-xs text-muted-foreground mt-1">{item.share} share</div>
+              <div className="text-xs text-emerald-600 mt-1">{item.customers} clients</div>
             </div>
           ))}
         </div>
-        <div className="text-center mt-1 text-[10px] text-muted-foreground/60">
+        <div className="text-center mt-4 text-xs text-muted-foreground/60">
           Assumptions: 15% annual market growth, 2x customer expansion, 85% retention
         </div>
       </div>
@@ -822,26 +822,26 @@ const RevenueModelSlide = () => {
   ];
 
   return (
-    <div className="p-6 md:p-10 h-full flex flex-col justify-start overflow-y-auto">
-      <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4 text-center">Revenue Model</h2>
+    <div className="p-8 md:p-12 lg:p-14 h-full flex flex-col justify-center overflow-y-auto">
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-8 text-center">Revenue Model</h2>
       
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-6xl mx-auto mb-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-6xl mx-auto mb-8">
         {models.map(model => (
-          <div key={model.title} className="p-3 rounded-xl bg-gradient-to-br from-card via-accent/5 to-card border border-border/50 shadow-sm text-center">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary/10 via-accent/20 to-primary/10 border border-accent/30 flex items-center justify-center mx-auto mb-1">
-              <model.Icon className="w-4 h-4 text-primary" />
+          <div key={model.title} className="p-5 rounded-xl bg-gradient-to-br from-card via-accent/5 to-card border border-border/50 shadow-sm text-center">
+            <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary/10 via-accent/20 to-primary/10 border border-accent/30 flex items-center justify-center mx-auto mb-3">
+              <model.Icon className="w-6 h-6 text-primary" />
             </div>
-            <div className="text-lg font-bold text-primary mb-0.5">{model.revenue}</div>
-            <h3 className="font-semibold text-xs text-foreground">{model.title}</h3>
-            <p className="text-[10px] text-muted-foreground">{model.desc}</p>
+            <div className="text-2xl font-bold text-primary mb-1">{model.revenue}</div>
+            <h3 className="font-semibold text-sm text-foreground">{model.title}</h3>
+            <p className="text-xs text-muted-foreground mt-1">{model.desc}</p>
           </div>
         ))}
       </div>
       
       {/* Revenue Chart */}
-      <div className="max-w-6xl mx-auto bg-card rounded-xl p-4 border border-border/50 shadow-sm mb-4">
-        <h4 className="text-sm font-semibold text-foreground mb-2 text-center">3-Year ARR Growth Projection (€K)</h4>
-        <div className="h-[160px]">
+      <div className="max-w-6xl mx-auto bg-card rounded-xl p-5 border border-border/50 shadow-sm mb-8">
+        <h4 className="text-base font-semibold text-foreground mb-4 text-center">3-Year ARR Growth Projection (€K)</h4>
+        <div className="h-[200px]">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={revenueProjectionData} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
               <defs>
@@ -853,12 +853,12 @@ const RevenueModelSlide = () => {
               <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" opacity={0.5} />
               <XAxis 
                 dataKey="quarter" 
-                tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 9 }} 
+                tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 10 }} 
                 axisLine={{ stroke: 'hsl(var(--border))' }}
                 interval={2}
               />
               <YAxis 
-                tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 10 }} 
+                tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 11 }} 
                 axisLine={{ stroke: 'hsl(var(--border))' }}
               />
               <Tooltip
@@ -896,43 +896,43 @@ const RevenueModelSlide = () => {
             </LineChart>
           </ResponsiveContainer>
         </div>
-        <div className="flex justify-center gap-6 mt-2 text-xs">
+        <div className="flex justify-center gap-8 mt-4 text-sm">
           <div className="flex items-center gap-2">
-            <div className="w-6 h-0.5 bg-primary rounded" />
+            <div className="w-8 h-0.5 bg-primary rounded" />
             <span className="text-muted-foreground">ARR (€K)</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-6 h-0.5 bg-primary/50 rounded" style={{ backgroundImage: 'repeating-linear-gradient(90deg, hsl(var(--primary) / 0.5) 0, hsl(var(--primary) / 0.5) 5px, transparent 5px, transparent 10px)' }} />
+            <div className="w-8 h-0.5 bg-primary/50 rounded" style={{ backgroundImage: 'repeating-linear-gradient(90deg, hsl(var(--primary) / 0.5) 0, hsl(var(--primary) / 0.5) 5px, transparent 5px, transparent 10px)' }} />
             <span className="text-muted-foreground">Customers</span>
           </div>
         </div>
       </div>
 
       {/* Year Summary + Unit Economics */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl mx-auto">
         {/* 3-Year Summary */}
-        <div className="bg-card rounded-xl p-3 border border-border/50 shadow-sm">
-          <h4 className="text-xs font-semibold text-foreground mb-2 text-center">Year-End Targets</h4>
-          <div className="grid grid-cols-3 gap-2 text-center">
+        <div className="bg-card rounded-xl p-5 border border-border/50 shadow-sm">
+          <h4 className="text-base font-semibold text-foreground mb-4 text-center">Year-End Targets</h4>
+          <div className="grid grid-cols-3 gap-4 text-center">
             {[
               { year: "Year 1", arr: "€480K", mrr: "€40K", growth: "-" },
               { year: "Year 2", arr: "€2.4M", mrr: "€200K", growth: "+400%" },
               { year: "Year 3", arr: "€8.5M", mrr: "€708K", growth: "+254%" },
             ].map(item => (
-              <div key={item.year} className="p-2 rounded-lg bg-muted/30">
-                <div className="text-[10px] font-medium text-muted-foreground">{item.year}</div>
-                <div className="text-lg font-bold text-primary">{item.arr}</div>
-                <div className="text-[10px] text-muted-foreground">MRR: {item.mrr}</div>
-                <div className="text-[10px] text-emerald-600 font-medium">{item.growth}</div>
+              <div key={item.year} className="p-4 rounded-lg bg-muted/30">
+                <div className="text-sm font-medium text-muted-foreground">{item.year}</div>
+                <div className="text-xl font-bold text-primary mt-1">{item.arr}</div>
+                <div className="text-xs text-muted-foreground mt-2">MRR: {item.mrr}</div>
+                <div className="text-xs text-emerald-600 font-medium mt-1">{item.growth}</div>
               </div>
             ))}
           </div>
         </div>
         
         {/* Unit Economics */}
-        <div className="bg-card rounded-xl p-3 border border-border/50 shadow-sm">
-          <h4 className="text-xs font-semibold text-foreground mb-2 text-center">Unit Economics</h4>
-          <div className="grid grid-cols-5 gap-2 text-center">
+        <div className="bg-card rounded-xl p-5 border border-border/50 shadow-sm">
+          <h4 className="text-base font-semibold text-foreground mb-4 text-center">Unit Economics</h4>
+          <div className="grid grid-cols-5 gap-4 text-center">
             {[
               { label: "CAC", value: "€2.4K", note: "Acquisition" },
               { label: "LTV", value: "€28.8K", note: "Lifetime" },
@@ -940,10 +940,10 @@ const RevenueModelSlide = () => {
               { label: "ARPU", value: "€800", note: "/Month" },
               { label: "Payback", value: "3mo", note: "Period" },
             ].map(item => (
-              <div key={item.label}>
-                <div className="text-sm font-bold text-primary">{item.value}</div>
-                <div className="text-[10px] text-foreground font-medium">{item.label}</div>
-                <div className="text-[10px] text-muted-foreground">{item.note}</div>
+              <div key={item.label} className="py-2">
+                <div className="text-lg font-bold text-primary">{item.value}</div>
+                <div className="text-xs text-foreground font-medium mt-1">{item.label}</div>
+                <div className="text-xs text-muted-foreground mt-1">{item.note}</div>
               </div>
             ))}
           </div>
@@ -954,9 +954,9 @@ const RevenueModelSlide = () => {
 };
 
 // Slide 10: Go-to-Market - Enhanced with KPIs and milestones
-const GTMSlide = () => <div className="p-8 md:p-12 h-full flex flex-col justify-center overflow-y-auto">
-    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 text-center">Go-to-Market Strategy</h2>
-    <div className="flex flex-col md:flex-row gap-4 max-w-6xl mx-auto mb-6">
+const GTMSlide = () => <div className="p-10 md:p-14 lg:p-16 h-full flex flex-col justify-center overflow-y-auto">
+    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-10 text-center">Go-to-Market Strategy</h2>
+    <div className="flex flex-col md:flex-row gap-6 max-w-6xl mx-auto mb-10">
       {[{
       phase: "Phase 1",
       time: "0-12 months",
@@ -979,19 +979,19 @@ const GTMSlide = () => <div className="p-8 md:p-12 h-full flex flex-col justify-
       kpi: "€8.5M ARR",
       team: "60 FTE"
     }].map(phase => <div key={phase.phase} className="flex-1">
-          <div className="p-4 rounded-xl border bg-gradient-to-br from-card via-accent/5 to-card border-border/50 shadow-md h-full">
-            <div className="flex items-center gap-2 mb-3">
-              <span className="px-2 py-1 rounded-md text-xs font-semibold bg-primary text-primary-foreground">{phase.phase}</span>
-              <span className="text-xs text-muted-foreground">{phase.time}</span>
+          <div className="p-6 rounded-xl border bg-gradient-to-br from-card via-accent/5 to-card border-border/50 shadow-md h-full">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="px-3 py-1.5 rounded-md text-sm font-semibold bg-primary text-primary-foreground">{phase.phase}</span>
+              <span className="text-sm text-muted-foreground">{phase.time}</span>
             </div>
-            <h3 className="font-semibold text-lg text-foreground mb-2">{phase.title}</h3>
-            <ul className="space-y-1 mb-3">
-              {phase.items.map(item => <li key={item} className="text-sm text-muted-foreground flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary/50" />
+            <h3 className="font-semibold text-xl text-foreground mb-4">{phase.title}</h3>
+            <ul className="space-y-2 mb-4">
+              {phase.items.map(item => <li key={item} className="text-base text-muted-foreground flex items-center gap-3">
+                  <span className="w-2 h-2 rounded-full bg-primary/50" />
                   {item}
                 </li>)}
             </ul>
-            <div className="pt-2 border-t border-border/50 flex justify-between text-xs">
+            <div className="pt-4 border-t border-border/50 flex justify-between text-sm">
               <div>
                 <span className="text-muted-foreground">Target: </span>
                 <span className="font-semibold text-primary">{phase.kpi}</span>
@@ -1006,9 +1006,9 @@ const GTMSlide = () => <div className="p-8 md:p-12 h-full flex flex-col justify-
     </div>
     
     {/* Channel Mix */}
-    <div className="max-w-6xl mx-auto bg-card rounded-xl p-4 border border-border/50 shadow-sm">
-      <h4 className="font-semibold text-foreground mb-3 text-center">Customer Acquisition Channels</h4>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-center text-sm">
+    <div className="max-w-6xl mx-auto bg-card rounded-xl p-6 border border-border/50 shadow-sm">
+      <h4 className="font-semibold text-foreground mb-5 text-center text-lg">Customer Acquisition Channels</h4>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
         {[{
         channel: "Direct Sales",
         share: "45%",
@@ -1025,54 +1025,54 @@ const GTMSlide = () => <div className="p-8 md:p-12 h-full flex flex-col justify-
         channel: "Events",
         share: "10%",
         note: "Trade shows"
-      }].map(item => <div key={item.channel}>
-            <div className="text-lg font-bold text-primary">{item.share}</div>
-            <div className="font-medium text-foreground">{item.channel}</div>
-            <div className="text-xs text-muted-foreground">{item.note}</div>
+      }].map(item => <div key={item.channel} className="py-2">
+            <div className="text-2xl font-bold text-primary">{item.share}</div>
+            <div className="font-medium text-foreground mt-1">{item.channel}</div>
+            <div className="text-sm text-muted-foreground mt-1">{item.note}</div>
           </div>)}
       </div>
     </div>
   </div>;
 
 // Slide 11: Competition - Enhanced with feature matrix
-const CompetitionSlide = () => <div className="p-8 md:p-12 h-full flex flex-col justify-center overflow-y-auto">
-    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 text-center">Competitive Landscape</h2>
+const CompetitionSlide = () => <div className="p-10 md:p-14 lg:p-16 h-full flex flex-col justify-center overflow-y-auto">
+    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-10 text-center">Competitive Landscape</h2>
     <div className="max-w-6xl mx-auto">
       {/* Competitor comparison */}
-      <div className="grid grid-cols-3 gap-4 mb-6">
-        <div className="p-4 rounded-xl bg-muted/50 text-center shadow-sm">
-          <h4 className="font-semibold text-lg text-foreground mb-1">Legacy Providers</h4>
-          <p className="text-sm text-muted-foreground">Amadeus, Sabre, Travelport</p>
-          <p className="text-xs text-red-500 mt-2 font-medium">Slow, expensive, complex</p>
-          <div className="text-xs text-muted-foreground mt-1">€50K+ annual contracts</div>
+      <div className="grid grid-cols-3 gap-6 mb-10">
+        <div className="p-6 rounded-xl bg-muted/50 text-center shadow-sm">
+          <h4 className="font-semibold text-xl text-foreground mb-2">Legacy Providers</h4>
+          <p className="text-base text-muted-foreground">Amadeus, Sabre, Travelport</p>
+          <p className="text-sm text-red-500 mt-3 font-medium">Slow, expensive, complex</p>
+          <div className="text-sm text-muted-foreground mt-2">€50K+ annual contracts</div>
         </div>
-        <div className="p-4 rounded-xl bg-primary/10 border-2 border-primary text-center shadow-md scale-105">
-          <h4 className="font-semibold text-lg text-primary mb-1">Velaree</h4>
-          <p className="text-sm text-muted-foreground">Unified, AI-first platform</p>
-          <p className="text-xs text-emerald-600 mt-2 font-medium">Modern, affordable, complete</p>
-          <div className="text-xs text-primary mt-1">Starting €500/month</div>
+        <div className="p-6 rounded-xl bg-primary/10 border-2 border-primary text-center shadow-md scale-105">
+          <h4 className="font-semibold text-xl text-primary mb-2">Velaree</h4>
+          <p className="text-base text-muted-foreground">Unified, AI-first platform</p>
+          <p className="text-sm text-emerald-600 mt-3 font-medium">Modern, affordable, complete</p>
+          <div className="text-sm text-primary mt-2">Starting €500/month</div>
         </div>
-        <div className="p-4 rounded-xl bg-muted/50 text-center shadow-sm">
-          <h4 className="font-semibold text-lg text-foreground mb-1">Point Solutions</h4>
-          <p className="text-sm text-muted-foreground">Niche tools, aggregators</p>
-          <p className="text-xs text-amber-600 mt-2 font-medium">Fragmented, limited</p>
-          <div className="text-xs text-muted-foreground mt-1">Multiple vendors needed</div>
+        <div className="p-6 rounded-xl bg-muted/50 text-center shadow-sm">
+          <h4 className="font-semibold text-xl text-foreground mb-2">Point Solutions</h4>
+          <p className="text-base text-muted-foreground">Niche tools, aggregators</p>
+          <p className="text-sm text-amber-600 mt-3 font-medium">Fragmented, limited</p>
+          <div className="text-sm text-muted-foreground mt-2">Multiple vendors needed</div>
         </div>
       </div>
       
       {/* Feature comparison matrix */}
-      <div className="bg-card rounded-xl p-4 border border-border/50 shadow-sm mb-4 overflow-x-auto">
-        <h4 className="font-semibold text-foreground mb-3 text-center">Feature Comparison</h4>
-        <table className="w-full text-sm">
+      <div className="bg-card rounded-xl p-6 border border-border/50 shadow-sm mb-8 overflow-x-auto">
+        <h4 className="font-semibold text-foreground mb-5 text-center text-lg">Feature Comparison</h4>
+        <table className="w-full text-base">
           <thead>
             <tr className="border-b border-border/50">
-              <th className="text-left py-2 text-muted-foreground font-medium">Feature</th>
-              <th className="text-center py-2 text-muted-foreground font-medium">Legacy</th>
-              <th className="text-center py-2 text-primary font-medium">Velaree</th>
-              <th className="text-center py-2 text-muted-foreground font-medium">Point Solutions</th>
+              <th className="text-left py-3 text-muted-foreground font-medium">Feature</th>
+              <th className="text-center py-3 text-muted-foreground font-medium">Legacy</th>
+              <th className="text-center py-3 text-primary font-medium">Velaree</th>
+              <th className="text-center py-3 text-muted-foreground font-medium">Point Solutions</th>
             </tr>
           </thead>
-          <tbody className="text-xs">
+          <tbody className="text-sm">
             {[{
             feature: "Multi-GDS Access",
             legacy: "Limited",
@@ -1099,35 +1099,35 @@ const CompetitionSlide = () => <div className="p-8 md:p-12 h-full flex flex-col 
             velaree: "Yes",
             point: "Partial"
           }].map(row => <tr key={row.feature} className="border-b border-border/30">
-                <td className="py-2 font-medium">{row.feature}</td>
-                <td className="py-2 text-center text-red-500">{row.legacy}</td>
-                <td className="py-2 text-center text-emerald-600 font-semibold">{row.velaree}</td>
-                <td className="py-2 text-center text-amber-600">{row.point}</td>
+                <td className="py-3 font-medium">{row.feature}</td>
+                <td className="py-3 text-center text-red-500">{row.legacy}</td>
+                <td className="py-3 text-center text-emerald-600 font-semibold">{row.velaree}</td>
+                <td className="py-3 text-center text-amber-600">{row.point}</td>
               </tr>)}
           </tbody>
         </table>
       </div>
       
       {/* Differentiators */}
-      <div className="flex flex-wrap justify-center gap-2">
-        {["Unified Platform", "AI-First", "Modern Stack", "Fair Pricing", "Fast Integration", "24/7 Support"].map(diff => <span key={diff} className="px-3 py-1.5 rounded-full bg-gradient-to-r from-primary via-accent/40 to-primary border border-accent/50 text-xs font-medium shadow-sm text-primary-foreground bg-secondary-foreground">{diff}</span>)}
+      <div className="flex flex-wrap justify-center gap-3">
+        {["Unified Platform", "AI-First", "Modern Stack", "Fair Pricing", "Fast Integration", "24/7 Support"].map(diff => <span key={diff} className="px-4 py-2 rounded-full bg-gradient-to-r from-primary via-accent/40 to-primary border border-accent/50 text-sm font-medium shadow-sm text-primary-foreground bg-secondary-foreground">{diff}</span>)}
       </div>
     </div>
   </div>;
 
 // Slide 12: The Ask - Enhanced with runway and milestones
-const AskSlide = () => <div className="p-8 md:p-12 h-full flex flex-col justify-center overflow-y-auto">
-    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-2 text-center">The Ask</h2>
-    <p className="text-center text-lg text-muted-foreground mb-6">Pre-seed investment to accelerate growth</p>
+const AskSlide = () => <div className="p-10 md:p-14 lg:p-16 h-full flex flex-col justify-center overflow-y-auto">
+    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 text-center">The Ask</h2>
+    <p className="text-center text-xl text-muted-foreground mb-10">Pre-seed investment to accelerate growth</p>
     <div className="max-w-6xl mx-auto">
-      <div className="text-center mb-6">
-        <div className="text-5xl md:text-6xl font-bold text-primary mb-2">€400,000</div>
-        <p className="text-lg text-muted-foreground">Pre-seed / Seed Investment</p>
-        <p className="text-sm text-muted-foreground mt-1">18-month runway • Target: €100K ARR</p>
+      <div className="text-center mb-10">
+        <div className="text-6xl md:text-7xl font-bold text-primary mb-3">€400,000</div>
+        <p className="text-xl text-muted-foreground">Pre-seed / Seed Investment</p>
+        <p className="text-base text-muted-foreground mt-2">18-month runway • Target: €100K ARR</p>
       </div>
       
       {/* Allocation */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10">
         {[{
         label: "Product Dev",
         amount: "€160K",
@@ -1148,19 +1148,19 @@ const AskSlide = () => <div className="p-8 md:p-12 h-full flex flex-col justify-
         amount: "€40K",
         percent: "10%",
         color: "bg-amber-500"
-      }].map(allocation => <div key={allocation.label} className="text-center p-4 rounded-xl bg-card border border-border/50 shadow-sm">
-            <div className={`w-12 h-12 rounded-full ${allocation.color} mx-auto mb-2 flex items-center justify-center text-white text-sm font-bold shadow-md`}>
+      }].map(allocation => <div key={allocation.label} className="text-center p-6 rounded-xl bg-card border border-border/50 shadow-sm">
+            <div className={`w-16 h-16 rounded-full ${allocation.color} mx-auto mb-3 flex items-center justify-center text-white text-lg font-bold shadow-md`}>
               {allocation.percent}
             </div>
-            <div className="font-semibold text-foreground text-lg">{allocation.amount}</div>
-            <div className="text-xs text-muted-foreground">{allocation.label}</div>
+            <div className="font-semibold text-foreground text-xl">{allocation.amount}</div>
+            <div className="text-sm text-muted-foreground mt-1">{allocation.label}</div>
           </div>)}
       </div>
       
       {/* Milestones */}
-      <div className="bg-card rounded-xl p-4 border border-border/50 shadow-sm mb-4">
-        <h4 className="font-semibold text-foreground mb-3 text-center">Key Milestones (18 months)</h4>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-center text-sm">
+      <div className="bg-card rounded-xl p-6 border border-border/50 shadow-sm mb-8">
+        <h4 className="font-semibold text-foreground mb-5 text-center text-lg">Key Milestones (18 months)</h4>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
           {[{
           month: "M6",
           milestone: "Product Launch",
@@ -1177,34 +1177,34 @@ const AskSlide = () => <div className="p-8 md:p-12 h-full flex flex-col justify-
           month: "M18",
           milestone: "€100K ARR",
           kpi: "Series A ready"
-        }].map(item => <div key={item.month} className="p-2 rounded-lg bg-muted/30">
-              <div className="text-xs font-medium text-muted-foreground">{item.month}</div>
-              <div className="font-semibold text-primary">{item.milestone}</div>
-              <div className="text-xs text-muted-foreground">{item.kpi}</div>
+        }].map(item => <div key={item.month} className="p-4 rounded-lg bg-muted/30">
+              <div className="text-sm font-medium text-muted-foreground">{item.month}</div>
+              <div className="font-semibold text-primary text-lg mt-1">{item.milestone}</div>
+              <div className="text-sm text-muted-foreground mt-1">{item.kpi}</div>
             </div>)}
         </div>
       </div>
       
       {/* Terms & Burn Rate */}
-      <div className="grid grid-cols-2 gap-4">
-        <div className="bg-muted/30 rounded-xl p-4 text-center">
-          <h4 className="text-sm font-semibold text-foreground mb-2">Monthly Burn Rate</h4>
-          <div className="text-xl font-bold text-primary">€22K</div>
-          <div className="text-xs text-muted-foreground">Avg. over 18 months</div>
+      <div className="grid grid-cols-2 gap-6">
+        <div className="bg-muted/30 rounded-xl p-6 text-center">
+          <h4 className="text-base font-semibold text-foreground mb-3">Monthly Burn Rate</h4>
+          <div className="text-2xl font-bold text-primary">€22K</div>
+          <div className="text-sm text-muted-foreground mt-1">Avg. over 18 months</div>
         </div>
-        <div className="bg-muted/30 rounded-xl p-4 text-center">
-          <h4 className="text-sm font-semibold text-foreground mb-2">Runway</h4>
-          <div className="text-xl font-bold text-primary">18 months</div>
-          <div className="text-xs text-muted-foreground">To Series A</div>
+        <div className="bg-muted/30 rounded-xl p-6 text-center">
+          <h4 className="text-base font-semibold text-foreground mb-3">Runway</h4>
+          <div className="text-2xl font-bold text-primary">18 months</div>
+          <div className="text-sm text-muted-foreground mt-1">To Series A</div>
         </div>
       </div>
     </div>
   </div>;
 
 // Slide 13: Team - Enhanced with backgrounds and growth
-const TeamSlide = () => <div className="p-8 md:p-12 h-full flex flex-col justify-center overflow-y-auto">
-    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 text-center">The Team</h2>
-    <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-6">
+const TeamSlide = () => <div className="p-10 md:p-14 lg:p-16 h-full flex flex-col justify-center overflow-y-auto">
+    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-10 text-center">The Team</h2>
+    <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-10">
       {[{
       name: "Mihail Mazil",
       role: "CEO",
@@ -1221,27 +1221,27 @@ const TeamSlide = () => <div className="p-8 md:p-12 h-full flex flex-col justify
       linkedin: "https://www.linkedin.com/in/mihailmarksn/",
       experience: "8+ years operations",
       skills: ["Operations", "Partnerships", "Scaling"]
-    }].map(member => <div key={member.name} className="text-center p-4 rounded-xl bg-card border border-border/50 shadow-sm">
-          <div className={`w-20 h-20 rounded-full ${member.bg} mx-auto mb-3 flex items-center justify-center text-white text-3xl font-bold shadow-lg`}>
+    }].map(member => <div key={member.name} className="text-center p-8 rounded-xl bg-card border border-border/50 shadow-sm">
+          <div className={`w-24 h-24 rounded-full ${member.bg} mx-auto mb-4 flex items-center justify-center text-white text-4xl font-bold shadow-lg`}>
             {member.name.split(' ')[0].charAt(0)}
           </div>
-          <h3 className="font-semibold text-xl text-foreground">{member.name}</h3>
-          <p className="text-sm text-muted-foreground">{member.role} • {member.subtitle}</p>
-          <p className="text-xs text-primary font-medium mt-1">{member.experience}</p>
-          <div className="flex flex-wrap justify-center gap-1 mt-2">
-            {member.skills.map(skill => <span key={skill} className="px-2 py-0.5 rounded-full bg-muted text-xs text-muted-foreground">{skill}</span>)}
+          <h3 className="font-semibold text-2xl text-foreground">{member.name}</h3>
+          <p className="text-base text-muted-foreground mt-1">{member.role} • {member.subtitle}</p>
+          <p className="text-sm text-primary font-medium mt-2">{member.experience}</p>
+          <div className="flex flex-wrap justify-center gap-2 mt-4">
+            {member.skills.map(skill => <span key={skill} className="px-3 py-1 rounded-full bg-muted text-sm text-muted-foreground">{skill}</span>)}
           </div>
-          <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 mt-3 px-3 py-1.5 rounded-full bg-[#0A66C2] hover:bg-[#004182] text-white text-xs font-medium transition-colors shadow-sm">
-            <Linkedin className="w-3.5 h-3.5" />
+          <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-4 px-4 py-2 rounded-full bg-[#0A66C2] hover:bg-[#004182] text-white text-sm font-medium transition-colors shadow-sm">
+            <Linkedin className="w-4 h-4" />
             LinkedIn
           </a>
         </div>)}
     </div>
     
     {/* Hiring Roadmap */}
-    <div className="max-w-4xl mx-auto bg-card rounded-xl p-4 border border-border/50 shadow-sm mb-4">
-      <h4 className="font-semibold text-foreground mb-2 text-center">Hiring Roadmap</h4>
-      <div className="grid grid-cols-4 gap-2 text-center text-xs">
+    <div className="max-w-4xl mx-auto bg-card rounded-xl p-6 border border-border/50 shadow-sm mb-8">
+      <h4 className="font-semibold text-foreground mb-4 text-center text-lg">Hiring Roadmap</h4>
+      <div className="grid grid-cols-4 gap-4 text-center">
         {[{
         role: "Lead Engineer",
         timing: "Q1 2025"
@@ -1254,16 +1254,16 @@ const TeamSlide = () => <div className="p-8 md:p-12 h-full flex flex-col justify
       }, {
         role: "Customer Success",
         timing: "Q3 2025"
-      }].map(hire => <div key={hire.role} className="p-2 rounded-lg bg-muted/30">
+      }].map(hire => <div key={hire.role} className="p-4 rounded-lg bg-muted/30">
             <div className="font-medium text-foreground">{hire.role}</div>
-            <div className="text-muted-foreground">{hire.timing}</div>
+            <div className="text-sm text-muted-foreground mt-1">{hire.timing}</div>
           </div>)}
       </div>
     </div>
     
     <div className="text-center">
-      <img src="/lovable-uploads/velaree-logo-text.png" alt="Velaree" className="h-16 w-auto mx-auto mb-2" />
-      <p className="text-sm text-muted-foreground">velaree.com • contact@velaree.com</p>
+      <img src="/lovable-uploads/velaree-logo-text.png" alt="Velaree" className="h-20 w-auto mx-auto mb-3" />
+      <p className="text-base text-muted-foreground">velaree.com • contact@velaree.com</p>
     </div>
   </div>;
 const slides: Slide[] = [{
