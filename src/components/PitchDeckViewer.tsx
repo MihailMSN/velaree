@@ -392,7 +392,7 @@ const TeamSlide = () => (
       <img 
         src="/lovable-uploads/velaree-logo-text.png" 
         alt="Velaree" 
-        className="h-16 md:h-20 w-auto mx-auto mb-4"
+        className="h-24 md:h-32 w-auto mx-auto mb-4"
       />
       <p className="text-lg md:text-xl text-muted-foreground">velaree.com • contact@velaree.com</p>
     </div>
