@@ -389,10 +389,11 @@ const TeamSlide = () => (
       ))}
     </div>
     <div className="text-center mt-12">
-      <div className="flex items-baseline justify-center mb-4">
-        <span className="text-5xl md:text-6xl font-bold text-primary">V</span>
-        <span className="text-3xl md:text-4xl font-bold text-foreground">elaree</span>
-      </div>
+      <img 
+        src="/lovable-uploads/velaree-logo-text.png" 
+        alt="Velaree" 
+        className="h-16 md:h-20 w-auto mx-auto mb-4"
+      />
       <p className="text-lg md:text-xl text-muted-foreground">velaree.com • contact@velaree.com</p>
     </div>
   </div>
