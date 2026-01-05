@@ -455,7 +455,7 @@ const PitchDeckViewer = ({ isOpen, onClose, onDownloadRequest }: PitchDeckViewer
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-border/50 bg-muted/30 backdrop-blur-sm shrink-0">
           <div className="flex items-center gap-3">
-            <img src="/lovable-uploads/8bb7b63f-7523-43f8-8770-d9fd51cdeab3.png" alt="Velaree Logo" className="h-8 w-auto" />
+            <img src="/lovable-uploads/velaree-icon.png" alt="Velaree Logo" className="h-8 w-auto" />
             <span className="text-lg font-medium text-foreground">Pitch Deck</span>
             <span className="text-sm text-muted-foreground ml-2">Investor Presentation</span>
           </div>
