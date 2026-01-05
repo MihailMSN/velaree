@@ -5,26 +5,18 @@ const products = [
   {
     name: "aSuite",
     tagline: "CRM & CMS Platform",
-    color: "bg-emerald-500",
-    borderColor: "border-emerald-200",
   },
   {
     name: "aRStool",
     tagline: "AI Re-Shopping Engine",
-    color: "bg-blue-500",
-    borderColor: "border-blue-200",
   },
   {
     name: "UnifyTool",
     tagline: "Unified API Platform",
-    color: "bg-violet-500",
-    borderColor: "border-violet-200",
   },
   {
     name: "hRStool",
     tagline: "Hotel Re-Shopping",
-    color: "bg-amber-500",
-    borderColor: "border-amber-200",
   },
 ];
 
@@ -34,75 +26,58 @@ const MiniCardShowcase = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % products.length);
-    }, 2000);
+    }, 3000);
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="relative w-full h-full flex items-center justify-center">
-      <div className="relative w-[340px] h-[240px] md:w-[380px] md:h-[280px]">
-        {products.map((product, index) => {
-          const offset = (index - activeIndex + products.length) % products.length;
-          const isActive = offset === 0;
-          const zIndex = products.length - offset;
-          const translateY = offset * 16;
-          const translateX = offset * 12;
-          const scale = 1 - offset * 0.05;
-          const opacity = 1 - offset * 0.2;
-
-          return (
-            <motion.div
-              key={product.name}
-              initial={false}
-              animate={{
-                x: translateX,
-                y: translateY,
-                scale,
-                opacity,
-                zIndex,
-              }}
-              transition={{
-                duration: 0.5,
-                ease: [0.4, 0, 0.2, 1],
-              }}
-              className={`absolute inset-0 rounded-2xl bg-white dark:bg-card border-2 ${product.borderColor} shadow-xl overflow-hidden`}
-            >
-              <div className="p-6 h-full flex flex-col">
-                {/* Browser dots */}
-                <div className="flex gap-1.5 mb-4">
-                  <div className="w-3 h-3 rounded-full bg-red-400"></div>
-                  <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
-                  <div className="w-3 h-3 rounded-full bg-green-400"></div>
+    <div className="relative w-full h-full flex flex-col items-center justify-center gap-6">
+      {/* Single card with fade transition */}
+      <div className="relative w-[320px] h-[200px] md:w-[360px] md:h-[220px]">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeIndex}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+            className="absolute inset-0 rounded-2xl bg-card border border-border/50 shadow-xl overflow-hidden"
+          >
+            <div className="p-6 h-full flex flex-col">
+              {/* Browser dots */}
+              <div className="flex gap-1.5 mb-4">
+                <div className="w-2.5 h-2.5 rounded-full bg-red-400/80" />
+                <div className="w-2.5 h-2.5 rounded-full bg-yellow-400/80" />
+                <div className="w-2.5 h-2.5 rounded-full bg-green-400/80" />
+              </div>
+              
+              {/* Product info */}
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 via-accent/30 to-primary/20 border border-accent/30 flex items-center justify-center text-primary text-lg font-bold">
+                  {products[activeIndex].name.charAt(0)}
                 </div>
-                
-                {/* Product info */}
-                <div className="flex items-center gap-4 mb-4">
-                  <div className={`w-12 h-12 rounded-xl ${product.color} flex items-center justify-center text-white text-lg font-bold shadow-lg`}>
-                    {product.name.charAt(0)}
-                  </div>
-                  <div>
-                    <div className="text-lg font-semibold text-foreground">{product.name}</div>
-                    <div className="text-sm text-muted-foreground">{product.tagline}</div>
-                  </div>
-                </div>
-
-                {/* Mini stats preview */}
-                <div className="flex-1 grid grid-cols-3 gap-3">
-                  {[1, 2, 3].map((i) => (
-                    <div key={i} className="bg-muted/50 rounded-lg p-3 flex flex-col items-center justify-center">
-                      <div className="w-10 h-3 bg-muted rounded mb-2"></div>
-                      <div className="w-6 h-2 bg-muted/60 rounded"></div>
-                    </div>
-                  ))}
+                <div>
+                  <div className="text-lg font-semibold text-foreground">{products[activeIndex].name}</div>
+                  <div className="text-sm text-muted-foreground">{products[activeIndex].tagline}</div>
                 </div>
               </div>
-            </motion.div>
-          );
-        })}
+
+              {/* Mini stats preview */}
+              <div className="flex-1 grid grid-cols-3 gap-3">
+                {[1, 2, 3].map((i) => (
+                  <div key={i} className="bg-muted/30 rounded-lg p-3 flex flex-col items-center justify-center">
+                    <div className="w-10 h-2.5 bg-muted/60 rounded mb-2" />
+                    <div className="w-6 h-2 bg-muted/40 rounded" />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        </AnimatePresence>
       </div>
       
-      {/* Indicators */}
-      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2">
+      {/* Indicators - positioned outside the card */}
+      <div className="flex gap-2">
         {products.map((_, i) => (
           <button
             key={i}
