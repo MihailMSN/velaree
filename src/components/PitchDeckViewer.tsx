@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
 import MiniCardShowcase from "./pitchdeck/MiniCardShowcase";
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, Legend } from "recharts";
 interface Slide {
   id: number;
   title: string;
@@ -554,90 +555,169 @@ const TargetMarketSlide = () => {
     </div>;
 };
 
-// Slide 8: TAM - Enhanced with year-by-year progression
-const TAMSlide = () => <div className="p-8 md:p-12 h-full flex flex-col justify-center overflow-y-auto">
-    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 text-center">Total Addressable Market</h2>
-    <div className="flex flex-col lg:flex-row items-center justify-center gap-8 max-w-6xl mx-auto">
-      {/* Concentric circles visualization */}
-      <div className="relative w-[240px] h-[240px] md:w-[280px] md:h-[280px]">
-        <div className="absolute inset-0 rounded-full bg-primary/5 border-2 border-primary/20 shadow-lg" />
-        <div className="absolute inset-10 md:inset-12 rounded-full bg-primary/10 border-2 border-primary/30 shadow-md" />
-        <div className="absolute inset-20 md:inset-24 rounded-full bg-primary/20 border-2 border-primary/40 shadow flex items-center justify-center">
-          <div className="text-center">
-            <div className="text-lg font-bold text-primary">$850M</div>
-            <div className="text-xs text-muted-foreground">SOM Y3</div>
+// Slide 8: TAM - Enhanced with year-by-year progression and charts
+const TAMSlide = () => {
+  const marketGrowthData = [
+    { year: '2024', tam: 24, sam: 4.2, som: 0.012 },
+    { year: '2025', tam: 27.6, sam: 4.83, som: 0.085 },
+    { year: '2026', tam: 31.7, sam: 5.55, som: 0.85 },
+    { year: '2027', tam: 36.5, sam: 6.38, som: 1.4 },
+    { year: '2028', tam: 42, sam: 7.34, som: 2.1 },
+  ];
+
+  const revenueCustomersData = [
+    { year: 'Y1', revenue: 12, customers: 25 },
+    { year: 'Y2', revenue: 85, customers: 120 },
+    { year: 'Y3', revenue: 850, customers: 500 },
+    { year: 'Y4', revenue: 1400, customers: 850 },
+    { year: 'Y5', revenue: 2100, customers: 1200 },
+  ];
+
+  return (
+    <div className="p-6 md:p-10 h-full flex flex-col justify-start overflow-y-auto">
+      <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4 text-center">Total Addressable Market</h2>
+      
+      <div className="flex flex-col lg:flex-row items-center justify-center gap-6 max-w-6xl mx-auto mb-4">
+        {/* Concentric circles visualization */}
+        <div className="relative w-[180px] h-[180px] md:w-[200px] md:h-[200px] shrink-0">
+          <div className="absolute inset-0 rounded-full bg-primary/5 border-2 border-primary/20 shadow-lg" />
+          <div className="absolute inset-8 md:inset-10 rounded-full bg-primary/10 border-2 border-primary/30 shadow-md" />
+          <div className="absolute inset-16 md:inset-20 rounded-full bg-primary/20 border-2 border-primary/40 shadow flex items-center justify-center">
+            <div className="text-center">
+              <div className="text-sm font-bold text-primary">$850M</div>
+              <div className="text-[10px] text-muted-foreground">SOM Y3</div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Market breakdown */}
+        <div className="flex flex-col gap-2">
+          {[
+            { label: "TAM", value: "$24B", desc: "Global B2B Travel Tech", color: "bg-primary/20 border-primary/40" },
+            { label: "SAM", value: "$4.2B", desc: "OTA & TMC Platforms", color: "bg-primary/30 border-primary/50" },
+            { label: "SOM", value: "$850M", desc: "Year 3 Target", color: "bg-primary/40 border-primary/60" },
+          ].map((item) => (
+            <div key={item.label} className="flex items-center gap-3 bg-card border border-border/50 rounded-lg p-3 shadow-sm">
+              <div className={`w-3 h-3 rounded-full ${item.color} shrink-0`} />
+              <div>
+                <div className="text-lg font-bold text-primary">{item.value}</div>
+                <div className="text-xs text-muted-foreground">{item.label} — {item.desc}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Charts Row */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 max-w-6xl mx-auto mb-4">
+        {/* Market Growth Area Chart */}
+        <div className="bg-card rounded-xl p-4 border border-border/50 shadow-sm">
+          <h4 className="text-sm font-semibold text-foreground mb-2 text-center">Market Growth Projection ($B)</h4>
+          <div className="h-[160px]">
+            <ResponsiveContainer width="100%" height="100%">
+              <AreaChart data={marketGrowthData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
+                <defs>
+                  <linearGradient id="tamGradient" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="5%" stopColor="hsl(var(--primary))" stopOpacity={0.3} />
+                    <stop offset="95%" stopColor="hsl(var(--primary))" stopOpacity={0} />
+                  </linearGradient>
+                  <linearGradient id="samGradient" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="5%" stopColor="hsl(var(--primary))" stopOpacity={0.5} />
+                    <stop offset="95%" stopColor="hsl(var(--primary))" stopOpacity={0.1} />
+                  </linearGradient>
+                </defs>
+                <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" opacity={0.5} />
+                <XAxis dataKey="year" tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 10 }} axisLine={{ stroke: 'hsl(var(--border))' }} />
+                <YAxis tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 10 }} axisLine={{ stroke: 'hsl(var(--border))' }} />
+                <Tooltip 
+                  contentStyle={{ 
+                    backgroundColor: 'hsl(var(--card))', 
+                    border: '1px solid hsl(var(--border))',
+                    borderRadius: '8px',
+                    fontSize: '12px'
+                  }}
+                  labelStyle={{ color: 'hsl(var(--foreground))' }}
+                />
+                <Area type="monotone" dataKey="tam" stroke="hsl(var(--primary))" fill="url(#tamGradient)" strokeWidth={2} name="TAM" />
+                <Area type="monotone" dataKey="sam" stroke="hsl(var(--primary))" fill="url(#samGradient)" strokeWidth={2} name="SAM" />
+              </AreaChart>
+            </ResponsiveContainer>
+          </div>
+          <div className="flex justify-center gap-4 mt-2 text-xs">
+            <div className="flex items-center gap-1">
+              <div className="w-3 h-3 rounded bg-primary/30" />
+              <span className="text-muted-foreground">TAM (15% CAGR)</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <div className="w-3 h-3 rounded bg-primary/50" />
+              <span className="text-muted-foreground">SAM</span>
+            </div>
+          </div>
+        </div>
+
+        {/* SOM & Customers Bar Chart */}
+        <div className="bg-card rounded-xl p-4 border border-border/50 shadow-sm">
+          <h4 className="text-sm font-semibold text-foreground mb-2 text-center">SOM Revenue & Customer Growth</h4>
+          <div className="h-[160px]">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={revenueCustomersData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" opacity={0.5} />
+                <XAxis dataKey="year" tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 10 }} axisLine={{ stroke: 'hsl(var(--border))' }} />
+                <YAxis yAxisId="left" tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 10 }} axisLine={{ stroke: 'hsl(var(--border))' }} />
+                <YAxis yAxisId="right" orientation="right" tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 10 }} axisLine={{ stroke: 'hsl(var(--border))' }} />
+                <Tooltip 
+                  contentStyle={{ 
+                    backgroundColor: 'hsl(var(--card))', 
+                    border: '1px solid hsl(var(--border))',
+                    borderRadius: '8px',
+                    fontSize: '12px'
+                  }}
+                  labelStyle={{ color: 'hsl(var(--foreground))' }}
+                />
+                <Bar yAxisId="left" dataKey="revenue" fill="hsl(var(--primary))" radius={[4, 4, 0, 0]} name="Revenue ($M)" />
+                <Bar yAxisId="right" dataKey="customers" fill="hsl(var(--primary) / 0.4)" radius={[4, 4, 0, 0]} name="Customers" />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+          <div className="flex justify-center gap-4 mt-2 text-xs">
+            <div className="flex items-center gap-1">
+              <div className="w-3 h-3 rounded bg-primary" />
+              <span className="text-muted-foreground">Revenue ($M)</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <div className="w-3 h-3 rounded bg-primary/40" />
+              <span className="text-muted-foreground">Customers</span>
+            </div>
           </div>
         </div>
       </div>
-      
-      {/* Market breakdown */}
-      <div className="flex flex-col gap-4">
-        {[{
-        label: "TAM",
-        value: "$24B",
-        desc: "Global B2B Travel Tech",
-        color: "bg-primary/20 border-primary/40"
-      }, {
-        label: "SAM",
-        value: "$4.2B",
-        desc: "OTA & TMC Platforms",
-        color: "bg-primary/30 border-primary/50"
-      }, {
-        label: "SOM",
-        value: "$850M",
-        desc: "Year 3 Target",
-        color: "bg-primary/40 border-primary/60"
-      }].map(item => <div key={item.label} className="flex items-center gap-3 bg-card border border-border/50 rounded-lg p-4 shadow-sm">
-            <div className={`w-4 h-4 rounded-full ${item.color} shrink-0`} />
-            <div>
-              <div className="text-xl font-bold text-primary">{item.value}</div>
-              <div className="text-xs text-muted-foreground">{item.label} — {item.desc}</div>
+
+      {/* Year-by-Year Progression */}
+      <div className="max-w-6xl mx-auto">
+        <h4 className="text-xs font-semibold text-foreground mb-2 text-center">SOM Progression & Market Share Target</h4>
+        <div className="grid grid-cols-5 gap-2">
+          {[
+            { year: "Y1", som: "$12M", share: "0.3%", customers: "25" },
+            { year: "Y2", som: "$85M", share: "2%", customers: "120" },
+            { year: "Y3", som: "$850M", share: "20%", customers: "500" },
+            { year: "Y4", som: "$1.4B", share: "33%", customers: "850" },
+            { year: "Y5", som: "$2.1B", share: "50%", customers: "1,200" },
+          ].map((item) => (
+            <div key={item.year} className="text-center p-2 rounded-lg bg-card border border-border/50 shadow-sm">
+              <div className="text-[10px] font-medium text-muted-foreground">{item.year}</div>
+              <div className="text-sm font-bold text-primary">{item.som}</div>
+              <div className="text-[10px] text-muted-foreground">{item.share} share</div>
+              <div className="text-[10px] text-emerald-600">{item.customers} clients</div>
             </div>
-          </div>)}
+          ))}
+        </div>
+        <div className="text-center mt-1 text-[10px] text-muted-foreground/60">
+          Assumptions: 15% annual market growth, 2x customer expansion, 85% retention
+        </div>
       </div>
     </div>
-    
-    {/* Year-by-Year Progression */}
-    <div className="max-w-6xl mx-auto mt-6">
-      <h4 className="text-sm font-semibold text-foreground mb-3 text-center">SOM Progression & Market Share Target</h4>
-      <div className="grid grid-cols-5 gap-3">
-        {[{
-        year: "Y1",
-        som: "$12M",
-        share: "0.3%",
-        customers: "25"
-      }, {
-        year: "Y2",
-        som: "$85M",
-        share: "2%",
-        customers: "120"
-      }, {
-        year: "Y3",
-        som: "$850M",
-        share: "20%",
-        customers: "500"
-      }, {
-        year: "Y4",
-        som: "$1.4B",
-        share: "33%",
-        customers: "850"
-      }, {
-        year: "Y5",
-        som: "$2.1B",
-        share: "50%",
-        customers: "1,200"
-      }].map(item => <div key={item.year} className="text-center p-3 rounded-lg bg-card border border-border/50 shadow-sm">
-            <div className="text-xs font-medium text-muted-foreground">{item.year}</div>
-            <div className="text-lg font-bold text-primary">{item.som}</div>
-            <div className="text-xs text-muted-foreground">{item.share} share</div>
-            <div className="text-xs text-emerald-600">{item.customers} clients</div>
-          </div>)}
-      </div>
-      <div className="text-center mt-2 text-xs text-muted-foreground/60">
-        Assumptions: 15% annual market growth, 2x customer expansion, 85% retention
-      </div>
-    </div>
-  </div>;
+  );
+};
 
 // Slide 9: Revenue Model - Enhanced with projections and unit economics
 const RevenueModelSlide = () => {
