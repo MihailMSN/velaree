@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, X, Download, Maximize2, Minimize2, Settings2, Unlink, Package, Timer, Plug, Bot, BarChart3, Globe, Building2, Plane, ClipboardList, Briefcase, Zap, CreditCard, CircleDollarSign, Landmark, Wrench, type LucideIcon } from "lucide-react";
+import { ChevronLeft, ChevronRight, X, Download, Maximize2, Minimize2, Settings2, Unlink, Package, Timer, Plug, Bot, BarChart3, Globe, Building2, Plane, ClipboardList, Briefcase, Zap, CreditCard, CircleDollarSign, Landmark, Wrench, Linkedin, type LucideIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
@@ -456,25 +456,34 @@ const AskSlide = () => <div className="p-12 md:p-16 h-full flex flex-col justify
 // Slide 13: Team
 const TeamSlide = () => <div className="p-12 md:p-16 h-full flex flex-col justify-center">
     <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-12 text-center">The Team</h2>
-    <div className="grid md:grid-cols-3 gap-8 md:gap-12 max-w-5xl mx-auto">
+    <div className="grid md:grid-cols-2 gap-8 md:gap-12 max-w-4xl mx-auto">
       {[{
-      name: "CEO",
-      role: "Strategy & Vision",
-      bg: "bg-primary"
+      name: "Mihail Mazil",
+      role: "CEO",
+      subtitle: "Strategy & Vision",
+      bg: "bg-primary",
+      linkedin: "https://www.linkedin.com/in/mihail-m-456922386/"
     }, {
-      name: "CTO",
-      role: "Technology & Product",
-      bg: "bg-blue-500"
-    }, {
-      name: "COO",
-      role: "Operations & Growth",
-      bg: "bg-violet-500"
+      name: "Mihail Sinitari",
+      role: "COO",
+      subtitle: "Operations & Growth",
+      bg: "bg-violet-500",
+      linkedin: "https://www.linkedin.com/in/mihailmarksn/"
     }].map(member => <div key={member.name} className="text-center">
           <div className={`w-28 h-28 md:w-36 md:h-36 rounded-full ${member.bg} mx-auto mb-6 flex items-center justify-center text-white text-4xl md:text-5xl font-bold shadow-xl`}>
-            {member.name.charAt(0)}
+            {member.name.split(' ')[0].charAt(0)}
           </div>
           <h3 className="font-semibold text-2xl md:text-3xl text-foreground">{member.name}</h3>
-          <p className="text-lg md:text-xl text-muted-foreground mt-2">{member.role}</p>
+          <p className="text-lg md:text-xl text-muted-foreground mt-2">{member.role} • {member.subtitle}</p>
+          <a 
+            href={member.linkedin} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 mt-4 px-4 py-2 rounded-full bg-[#0A66C2] hover:bg-[#004182] text-white text-sm font-medium transition-colors shadow-md"
+          >
+            <Linkedin className="w-4 h-4" />
+            LinkedIn
+          </a>
         </div>)}
     </div>
     <div className="text-center mt-12">
