@@ -479,7 +479,7 @@ const TeamSlide = () => <div className="p-12 md:p-16 h-full flex flex-col justif
             href={member.linkedin} 
             target="_blank" 
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 mt-4 px-4 py-2 rounded-full bg-[#0A66C2] hover:bg-[#004182] text-white text-sm font-medium transition-colors shadow-md"
+            className="inline-flex items-center gap-2 mt-4 px-4 py-2 rounded-full bg-gradient-to-r from-[#B0B0B0] via-[#E0E0E0] to-[#B0B0B0] text-foreground hover:from-[#A0A0A0] hover:via-[#D0D0D0] hover:to-[#A0A0A0] text-sm font-medium transition-all shadow-lg border border-white/30"
           >
             <Linkedin className="w-4 h-4" />
             LinkedIn
