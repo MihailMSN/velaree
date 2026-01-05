@@ -377,7 +377,7 @@ const GTMSlide = () => <div className="p-12 md:p-16 h-full flex flex-col justify
                 </li>)}
             </ul>
           </div>
-          {i < 2 && <div className="hidden md:flex absolute top-1/2 -translate-y-1/2 -right-10 w-8 h-8 rounded-full bg-gradient-to-r from-primary via-accent/40 to-primary border border-accent/50 text-foreground text-sm items-center justify-center z-10">→</div>}
+          {i < 2}
         </div>)}
     </div>
   </div>;
@@ -475,12 +475,7 @@ const TeamSlide = () => <div className="p-12 md:p-16 h-full flex flex-col justif
           </div>
           <h3 className="font-semibold text-2xl md:text-3xl text-foreground">{member.name}</h3>
           <p className="text-lg md:text-xl text-muted-foreground mt-2">{member.role} • {member.subtitle}</p>
-          <a 
-            href={member.linkedin} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 mt-4 px-4 py-2 rounded-full bg-[#0A66C2] hover:bg-[#004182] text-white text-sm font-medium transition-colors shadow-md"
-          >
+          <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-4 px-4 py-2 rounded-full bg-[#0A66C2] hover:bg-[#004182] text-white text-sm font-medium transition-colors shadow-md">
             <Linkedin className="w-4 h-4" />
             LinkedIn
           </a>
