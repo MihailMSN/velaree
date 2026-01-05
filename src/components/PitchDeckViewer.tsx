@@ -447,12 +447,13 @@ const PitchDeckViewer = ({ isOpen, onClose, onDownloadRequest }: PitchDeckViewer
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
       <DialogContent 
+        hideCloseButton
         className={cn(
           "p-0 gap-0 border-border/50 bg-background overflow-hidden flex flex-col",
           isFullscreen ? "max-w-[100vw] w-[100vw] h-[100vh] max-h-[100vh] rounded-none" : "max-w-[96vw] w-[96vw] h-[92vh] max-h-[92vh]"
         )}
         onKeyDown={handleKeyDown}
-      >
+>
         <DialogTitle className="sr-only">Velaree Pitch Deck</DialogTitle>
         
         {/* Header */}
