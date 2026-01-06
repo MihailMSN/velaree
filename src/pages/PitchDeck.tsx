@@ -1409,6 +1409,162 @@ const ProductRoadmapSlide = () => <div className="p-10 md:p-14 lg:p-16 h-full fl
     </div>
   </div>;
 
+// Slide 16: Financial Projections Appendix
+const FinancialProjectionsSlide = () => {
+  const financialData = [
+    { year: '2025', revenue: 180, costs: 320, profit: -140, customers: 15, arr: 180 },
+    { year: '2026', revenue: 680, costs: 520, profit: -140, customers: 45, arr: 680 },
+    { year: '2027', revenue: 1800, costs: 1200, profit: 600, customers: 120, arr: 1800 },
+    { year: '2028', revenue: 4200, costs: 2400, profit: 1800, customers: 280, arr: 4200 },
+  ];
+
+  return (
+    <div className="p-10 md:p-14 lg:p-16 h-full flex flex-col justify-center overflow-y-auto">
+      <div className="flex items-center justify-center gap-3 mb-3">
+        <span className="px-3 py-1 rounded-full bg-muted text-muted-foreground text-sm font-medium">Appendix</span>
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">Financial Projections</h2>
+      </div>
+      <p className="text-center text-lg text-muted-foreground mb-8">4-Year Path to Profitability</p>
+      <div className="max-w-6xl mx-auto">
+        {/* Revenue vs Costs Chart */}
+        <div className="bg-card rounded-xl p-6 border border-border/50 shadow-md mb-6">
+          <h4 className="font-semibold text-foreground mb-4">Revenue vs. Operating Costs (€K)</h4>
+          <div className="h-[200px]">
+            <ResponsiveContainer width="100%" height="100%">
+              <AreaChart data={financialData}>
+                <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                <XAxis dataKey="year" tick={{ fontSize: 12 }} stroke="hsl(var(--muted-foreground))" />
+                <YAxis tick={{ fontSize: 12 }} stroke="hsl(var(--muted-foreground))" />
+                <Tooltip
+                  contentStyle={{
+                    backgroundColor: 'hsl(var(--card))',
+                    border: '1px solid hsl(var(--border))',
+                    borderRadius: '8px',
+                    fontSize: '12px'
+                  }}
+                  formatter={(value: number) => [`€${value}K`, '']}
+                />
+                <Legend />
+                <Area type="monotone" dataKey="revenue" name="Revenue" stroke="hsl(142, 76%, 36%)" fill="hsl(142, 76%, 36%, 0.3)" />
+                <Area type="monotone" dataKey="costs" name="Costs" stroke="hsl(0, 84%, 60%)" fill="hsl(0, 84%, 60%, 0.2)" />
+              </AreaChart>
+            </ResponsiveContainer>
+          </div>
+        </div>
+
+        {/* Detailed Financial Table */}
+        <div className="grid md:grid-cols-2 gap-6 mb-6">
+          <div className="bg-card rounded-xl p-5 border border-border/50 shadow-md overflow-x-auto">
+            <h4 className="font-semibold text-foreground mb-4">Year-by-Year Breakdown</h4>
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-border">
+                  <th className="text-left py-2 font-medium text-muted-foreground">Metric</th>
+                  <th className="text-right py-2 font-medium text-muted-foreground">2025</th>
+                  <th className="text-right py-2 font-medium text-muted-foreground">2026</th>
+                  <th className="text-right py-2 font-medium text-muted-foreground">2027</th>
+                  <th className="text-right py-2 font-medium text-muted-foreground">2028</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-border/50">
+                  <td className="py-2 text-foreground">Revenue (€K)</td>
+                  <td className="text-right py-2 text-emerald-600 font-medium">180</td>
+                  <td className="text-right py-2 text-emerald-600 font-medium">680</td>
+                  <td className="text-right py-2 text-emerald-600 font-medium">1,800</td>
+                  <td className="text-right py-2 text-emerald-600 font-medium">4,200</td>
+                </tr>
+                <tr className="border-b border-border/50">
+                  <td className="py-2 text-foreground">Costs (€K)</td>
+                  <td className="text-right py-2 text-muted-foreground">320</td>
+                  <td className="text-right py-2 text-muted-foreground">520</td>
+                  <td className="text-right py-2 text-muted-foreground">1,200</td>
+                  <td className="text-right py-2 text-muted-foreground">2,400</td>
+                </tr>
+                <tr className="border-b border-border/50">
+                  <td className="py-2 text-foreground font-medium">Net Profit (€K)</td>
+                  <td className="text-right py-2 text-red-500 font-medium">-140</td>
+                  <td className="text-right py-2 text-red-500 font-medium">-140</td>
+                  <td className="text-right py-2 text-emerald-600 font-bold">+600</td>
+                  <td className="text-right py-2 text-emerald-600 font-bold">+1,800</td>
+                </tr>
+                <tr className="border-b border-border/50">
+                  <td className="py-2 text-foreground">Customers</td>
+                  <td className="text-right py-2 text-primary">15</td>
+                  <td className="text-right py-2 text-primary">45</td>
+                  <td className="text-right py-2 text-primary">120</td>
+                  <td className="text-right py-2 text-primary">280</td>
+                </tr>
+                <tr>
+                  <td className="py-2 text-foreground">Gross Margin</td>
+                  <td className="text-right py-2 text-muted-foreground">65%</td>
+                  <td className="text-right py-2 text-muted-foreground">72%</td>
+                  <td className="text-right py-2 text-muted-foreground">78%</td>
+                  <td className="text-right py-2 text-muted-foreground">82%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div className="space-y-4">
+            {/* Cost Breakdown */}
+            <div className="bg-muted/30 rounded-xl p-5 border border-border/50">
+              <h4 className="font-semibold text-foreground mb-3">Cost Allocation (Year 1)</h4>
+              <div className="space-y-2">
+                {[
+                  { category: "Engineering & Product", amount: "€144K", percent: "45%" },
+                  { category: "Sales & Marketing", amount: "€96K", percent: "30%" },
+                  { category: "Operations & Infra", amount: "€48K", percent: "15%" },
+                  { category: "G&A / Reserve", amount: "€32K", percent: "10%" }
+                ].map(item => (
+                  <div key={item.category} className="flex items-center justify-between text-sm">
+                    <span className="text-muted-foreground">{item.category}</span>
+                    <div className="flex items-center gap-3">
+                      <span className="text-foreground font-medium">{item.amount}</span>
+                      <span className="text-xs text-muted-foreground w-8">{item.percent}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Key Metrics */}
+            <div className="bg-emerald-500/5 rounded-xl p-5 border border-emerald-500/20">
+              <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
+                <TrendingUp className="w-4 h-4 text-emerald-600" />
+                Path to Profitability
+              </h4>
+              <div className="grid grid-cols-2 gap-3">
+                <div className="text-center p-3 rounded-lg bg-card">
+                  <div className="text-lg font-bold text-emerald-600">Q1 2027</div>
+                  <div className="text-xs text-muted-foreground">Break-even</div>
+                </div>
+                <div className="text-center p-3 rounded-lg bg-card">
+                  <div className="text-lg font-bold text-primary">278%</div>
+                  <div className="text-xs text-muted-foreground">Revenue CAGR</div>
+                </div>
+                <div className="text-center p-3 rounded-lg bg-card">
+                  <div className="text-lg font-bold text-primary">€15K</div>
+                  <div className="text-xs text-muted-foreground">Avg. ACV Year 1</div>
+                </div>
+                <div className="text-center p-3 rounded-lg bg-card">
+                  <div className="text-lg font-bold text-primary">43%</div>
+                  <div className="text-xs text-muted-foreground">EBITDA Margin Y4</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Assumptions footnote */}
+        <div className="text-center text-xs text-muted-foreground/70 italic">
+          * Projections based on €400K pre-seed, 18-month runway, RSTool-first strategy. Conservative estimates assuming 80% of target customer acquisition.
+        </div>
+      </div>
+    </div>
+  );
+};
+
 // Slides array
 const slides: Slide[] = [{
   id: 1,
@@ -1470,6 +1626,10 @@ const slides: Slide[] = [{
   id: 15,
   title: "Team",
   content: <TeamSlide />
+}, {
+  id: 16,
+  title: "Financial Projections",
+  content: <FinancialProjectionsSlide />
 }];
 
 const PitchDeck = () => {
