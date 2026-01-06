@@ -1021,17 +1021,17 @@ const TeamSlide = () => <div className="p-10 md:p-14 lg:p-16 h-full flex flex-co
       {/* Founders */}
       <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-10">
         {[{
-        name: "Mohammed Abuzar Sayeed",
+        name: "Mihail Mazil",
         role: "CEO & Co-Founder",
-        bio: "15+ years travel tech leadership. Former GM at major TMC. Built and scaled travel platforms serving 500K+ bookings annually.",
-        linkedin: "#",
-        highlights: ["Scaled 3 travel startups", "Industry network", "Product visionary"]
+        bio: "10+ years travel tech leadership. Built and scaled travel platforms. Expert in product strategy and business development.",
+        linkedin: "https://www.linkedin.com/in/mihail-m-456922386/",
+        highlights: ["Product Strategy", "Business Development", "Fundraising"]
       }, {
-        name: "Mohammed Jabbar Sayeed",
-        role: "CTO & Co-Founder",
-        bio: "20+ years enterprise software. Led engineering at Fortune 500. Expert in API architecture and AI/ML systems.",
-        linkedin: "#",
-        highlights: ["Ex-Fortune 500 tech lead", "API architecture expert", "AI/ML specialist"]
+        name: "Mihail Sinitari",
+        role: "COO & Co-Founder",
+        bio: "8+ years operations experience. Expert in scaling operations and building strategic partnerships.",
+        linkedin: "https://www.linkedin.com/in/mihailmarksn/",
+        highlights: ["Operations", "Partnerships", "Scaling"]
       }].map(member => <div key={member.name} className="p-8 rounded-xl bg-card border border-border/50 shadow-md">
             <div className="flex items-start gap-5 mb-5">
               <div className="w-24 h-24 rounded-xl bg-gradient-to-br from-primary/20 to-primary/40 flex items-center justify-center shrink-0">
@@ -1042,7 +1042,7 @@ const TeamSlide = () => <div className="p-10 md:p-14 lg:p-16 h-full flex flex-co
               <div>
                 <h3 className="text-xl font-semibold text-foreground">{member.name}</h3>
                 <p className="text-primary font-medium">{member.role}</p>
-                <a href={member.linkedin} className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-primary mt-2">
+                <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm text-white bg-[#0A66C2] hover:bg-[#004182] px-3 py-1.5 rounded-md mt-2 transition-colors">
                   <Linkedin className="w-4 h-4" /> LinkedIn
                 </a>
               </div>
