@@ -1290,58 +1290,49 @@ const RStoolDeepDiveSlide = () => <div className="p-10 md:p-14 lg:p-16 h-full fl
   </div>;
 
 // Slide 15: Product Roadmap Timeline
-const ProductRoadmapSlide = () => <div className="p-10 md:p-14 lg:p-16 h-full flex flex-col justify-center overflow-y-auto">
+const ProductRoadmapSlide = () => <div className="p-10 md:p-14 lg:p-16 h-full flex flex-col justify-center">
     <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 text-center">Product Roadmap</h2>
-    <p className="text-center text-lg text-muted-foreground mb-10">RSTool funds expansion into full product suite</p>
-    <div className="max-w-6xl mx-auto">
-      {/* Visual Timeline */}
-      <div className="relative mb-10">
-        {/* Timeline Bar */}
-        <div className="absolute top-8 left-0 right-0 h-2 bg-gradient-to-r from-emerald-500 via-violet-500 via-blue-500 to-amber-500 rounded-full opacity-30" />
-        <div className="absolute top-8 left-0 w-1/4 h-2 bg-emerald-500 rounded-full" />
+    <p className="text-center text-lg text-muted-foreground mb-12">RSTool funds expansion into full product suite</p>
+    
+    <div className="max-w-5xl mx-auto w-full">
+      {/* Timeline Bar */}
+      <div className="relative">
+        <div className="absolute top-8 left-[12.5%] right-[12.5%] h-1 bg-gradient-to-r from-emerald-500 via-violet-500 via-blue-500 to-amber-500 rounded-full opacity-40" />
         
         {/* Timeline Items */}
-        <div className="grid grid-cols-4 gap-4 relative">
+        <div className="grid grid-cols-4 gap-6">
           {[{
             product: "RSTool",
             tagline: "Smart PNR Repricing",
             timeline: "Q2 2025",
-            year: "Year 1",
             status: "Building Now",
             color: "emerald",
-            Icon: CreditCard,
-            milestones: ["MVP Launch", "10 pilots", "€500K ARR"]
+            Icon: CreditCard
           }, {
             product: "ASuite",
             tagline: "AI Automation",
             timeline: "Q4 2026",
-            year: "Year 2",
             status: "Planned",
             color: "violet",
-            Icon: Bot,
-            milestones: ["Dev starts M15", "Beta Q3 2026", "Cross-sell RSTool users"]
+            Icon: Bot
           }, {
             product: "UnifyTool",
             tagline: "GDS Integration",
             timeline: "2027",
-            year: "Year 2-3",
             status: "Planned",
             color: "blue",
-            Icon: Plug,
-            milestones: ["API expansion", "Multi-GDS", "Enterprise focus"]
+            Icon: Plug
           }, {
             product: "HRSTool",
             tagline: "Hospitality",
             timeline: "2028+",
-            year: "Year 3+",
             status: "Future",
             color: "amber",
-            Icon: Building2,
-            milestones: ["Hotel rates", "New vertical", "Full suite"]
+            Icon: Building2
           }].map((item, i) => (
             <div key={item.product} className="text-center">
               {/* Timeline Node */}
-              <div className={`w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg ${
+              <div className={`w-16 h-16 rounded-full mx-auto mb-5 flex items-center justify-center shadow-lg ${
                 item.color === "emerald" ? "bg-gradient-to-br from-emerald-500 to-teal-500" :
                 item.color === "violet" ? "bg-gradient-to-br from-violet-500/70 to-purple-500/70" :
                 item.color === "blue" ? "bg-gradient-to-br from-blue-500/70 to-cyan-500/70" :
@@ -1351,59 +1342,16 @@ const ProductRoadmapSlide = () => <div className="p-10 md:p-14 lg:p-16 h-full fl
               </div>
               
               {/* Product Info */}
-              <div className={`p-4 rounded-xl border ${
-                i === 0 ? "bg-emerald-500/10 border-emerald-500/30" : "bg-muted/30 border-border/50"
-              }`}>
-                <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${
-                  item.status === "Building Now" ? "bg-emerald-500/20 text-emerald-600" : 
-                  item.status === "Planned" ? "bg-blue-500/10 text-blue-600" : 
-                  "bg-muted text-muted-foreground"
-                }`}>{item.status}</span>
-                <h3 className={`text-lg font-bold mt-2 ${i === 0 ? "text-emerald-600" : "text-foreground"}`}>{item.product}</h3>
-                <p className="text-xs text-muted-foreground mb-2">{item.tagline}</p>
-                <div className="text-sm font-semibold text-primary">{item.timeline}</div>
-                <div className="text-xs text-muted-foreground mb-3">{item.year}</div>
-                <div className="space-y-1">
-                  {item.milestones.map(m => (
-                    <div key={m} className="text-xs text-muted-foreground/80">{m}</div>
-                  ))}
-                </div>
-              </div>
+              <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${
+                item.status === "Building Now" ? "bg-emerald-500/20 text-emerald-600" : 
+                item.status === "Planned" ? "bg-blue-500/10 text-blue-600" : 
+                "bg-muted text-muted-foreground"
+              }`}>{item.status}</span>
+              <h3 className={`text-xl font-bold mt-3 ${i === 0 ? "text-emerald-600" : "text-foreground"}`}>{item.product}</h3>
+              <p className="text-sm text-muted-foreground mb-2">{item.tagline}</p>
+              <div className="text-lg font-semibold text-primary">{item.timeline}</div>
             </div>
           ))}
-        </div>
-      </div>
-
-      {/* Revenue Contribution Projection */}
-      <div className="bg-card rounded-xl p-6 border border-border/50 shadow-md">
-        <h4 className="font-semibold text-foreground mb-5 text-center">Revenue Contribution by Product</h4>
-        <div className="grid grid-cols-4 gap-4">
-          {[
-            { year: "Year 1", rstool: 100, asuite: 0, unify: 0, hr: 0 },
-            { year: "Year 2", rstool: 70, asuite: 30, unify: 0, hr: 0 },
-            { year: "Year 3", rstool: 50, asuite: 30, unify: 20, hr: 0 },
-            { year: "Year 4", rstool: 35, asuite: 30, unify: 25, hr: 10 }
-          ].map(item => (
-            <div key={item.year} className="text-center">
-              <div className="text-sm font-medium text-foreground mb-3">{item.year}</div>
-              <div className="h-32 flex flex-col justify-end rounded-lg overflow-hidden bg-muted/30">
-                {item.hr > 0 && <div className="bg-amber-500" style={{ height: `${item.hr}%` }} />}
-                {item.unify > 0 && <div className="bg-blue-500" style={{ height: `${item.unify}%` }} />}
-                {item.asuite > 0 && <div className="bg-violet-500" style={{ height: `${item.asuite}%` }} />}
-                <div className="bg-emerald-500" style={{ height: `${item.rstool}%` }} />
-              </div>
-              <div className="text-xs text-muted-foreground mt-2">
-                {item.rstool > 0 && <span className="text-emerald-600">{item.rstool}% R</span>}
-                {item.asuite > 0 && <span className="text-violet-600 ml-1">{item.asuite}% A</span>}
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className="flex justify-center gap-6 mt-4 text-xs">
-          <div className="flex items-center gap-2"><div className="w-3 h-3 rounded bg-emerald-500" /><span className="text-muted-foreground">RSTool</span></div>
-          <div className="flex items-center gap-2"><div className="w-3 h-3 rounded bg-violet-500" /><span className="text-muted-foreground">ASuite</span></div>
-          <div className="flex items-center gap-2"><div className="w-3 h-3 rounded bg-blue-500" /><span className="text-muted-foreground">UnifyTool</span></div>
-          <div className="flex items-center gap-2"><div className="w-3 h-3 rounded bg-amber-500" /><span className="text-muted-foreground">HRSTool</span></div>
         </div>
       </div>
     </div>
