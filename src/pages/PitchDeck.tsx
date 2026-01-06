@@ -1671,15 +1671,6 @@ const PitchDeck = () => {
           <div className="flex items-center gap-1 sm:gap-2">
             <Button 
               variant="ghost" 
-              size="sm" 
-              onClick={() => navigate('/')} 
-              className="text-muted-foreground hover:text-foreground h-8 w-8 sm:h-auto sm:w-auto p-2 sm:px-3"
-            >
-              <Download className="w-4 h-4 sm:mr-1.5" />
-              <span className="hidden sm:inline">Download</span>
-            </Button>
-            <Button 
-              variant="ghost" 
               size="icon" 
               onClick={toggleFullscreen} 
               className="text-muted-foreground hover:text-foreground h-8 w-8"

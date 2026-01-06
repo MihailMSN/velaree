@@ -13,7 +13,6 @@ import ApiFlowDiagram from "@/components/ApiFlowDiagram";
 import TechnicalSpecs from "@/components/TechnicalSpecs";
 import ApiPreview from "@/components/ApiPreview";
 import ValuePillars from "@/components/ValuePillars";
-import TrustBar from "@/components/TrustBar";
 const solutions = [{
   icon: Plane,
   title: "Click-to-Book Platform",
@@ -328,9 +327,6 @@ const Technology = () => {
 
       {/* API Preview Section */}
       <ApiPreview />
-
-      {/* Integration Partners Trust Bar */}
-      <TrustBar />
 
       {/* CTA Section */}
       <section className="py-24 bg-primary">
