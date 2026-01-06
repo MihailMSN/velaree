@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, MessageCircle } from "lucide-react";
+import { ArrowRight, MessageCircle, Presentation } from "lucide-react";
 import { Link } from "react-router-dom";
 import ScrollIndicator from "./ScrollIndicator";
 import HeroCardShowcase from "./HeroCardShowcase";
@@ -35,6 +35,13 @@ const Hero = () => {
                 <Button size="lg" variant="outline" className="w-full sm:w-auto bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground text-base sm:text-lg px-6 sm:px-8 py-6 min-h-[52px] rounded-full transition-all duration-300 group">
                   <MessageCircle className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
                   Schedule Demo
+                </Button>
+              </Link>
+              
+              <Link to="/pitchdeck" className="w-full sm:w-auto">
+                <Button size="lg" variant="outline" className="w-full sm:w-auto bg-transparent border-2 border-primary/50 text-primary hover:bg-primary/5 text-base sm:text-lg px-6 sm:px-8 py-6 min-h-[52px] rounded-full transition-all duration-300 group">
+                  <Presentation className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
+                  View Pitch Deck
                 </Button>
               </Link>
             </div>
