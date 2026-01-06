@@ -15,32 +15,15 @@ import ReadingProgressBar from "@/components/blog/ReadingProgressBar";
 import NewsletterForm from "@/components/blog/NewsletterForm";
 import SocialShareButtons from "@/components/blog/SocialShareButtons";
 import FloatingShareBar from "@/components/blog/FloatingShareBar";
-import { useOGImage } from "@/hooks/useOGImage";
 
 const BlogPost = () => {
-  const {
-    id
-  } = useParams<{
-    id: string;
-  }>();
+  const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const {
-    toast
-  } = useToast();
+  const { toast } = useToast();
   const [activeHeading, setActiveHeading] = useState<string>("");
   const post = blogPosts.find(p => p.id === id);
   const relatedPosts = post ? getRelatedPosts(post, 3) : [];
   const headings = post ? extractHeadings(post.content) : [];
-  
-  // Get or generate OG image
-  const { ogImageUrl } = useOGImage({
-    title: post?.title || "",
-    category: post?.category || "",
-    author: post?.author || "",
-    postId: id || "",
-    readTime: post?.readTime,
-    autoGenerate: true,
-  });
 
   // Track active heading on scroll
   useEffect(() => {
