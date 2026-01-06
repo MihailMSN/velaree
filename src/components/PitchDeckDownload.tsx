@@ -1,13 +1,12 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Download, Loader2, Presentation } from "lucide-react";
 import { jsPDF } from "jspdf";
-import PitchDeckViewer from "./PitchDeckViewer";
 import PitchDeckEmailCapture from "./PitchDeckEmailCapture";
 
 const PitchDeckDownload = () => {
   const [isGenerating, setIsGenerating] = useState(false);
-  const [showViewer, setShowViewer] = useState(false);
   const [showEmailCapture, setShowEmailCapture] = useState(false);
 
   const generatePitchDeck = async () => {
@@ -1262,11 +1261,6 @@ const PitchDeckDownload = () => {
     }
   };
 
-  const handleDownloadRequest = () => {
-    setShowViewer(false);
-    setShowEmailCapture(true);
-  };
-
   const handleEmailSuccess = () => {
     setShowEmailCapture(false);
     generatePitchDeck();
@@ -1276,13 +1270,15 @@ const PitchDeckDownload = () => {
     <>
       <div className="flex flex-col sm:flex-row gap-3 justify-center">
         <Button
-          onClick={() => setShowViewer(true)}
+          asChild
           variant="outline"
           size="lg"
           className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:border-primary-foreground/50"
         >
-          <Presentation className="w-5 h-5 mr-2" />
-          View Pitch Deck
+          <Link to="/pitch-deck">
+            <Presentation className="w-5 h-5 mr-2" />
+            View Pitch Deck
+          </Link>
         </Button>
         <Button
           onClick={() => setShowEmailCapture(true)}
@@ -1303,12 +1299,6 @@ const PitchDeckDownload = () => {
           )}
         </Button>
       </div>
-
-      <PitchDeckViewer
-        isOpen={showViewer}
-        onClose={() => setShowViewer(false)}
-        onDownloadRequest={handleDownloadRequest}
-      />
 
       <PitchDeckEmailCapture
         isOpen={showEmailCapture}
