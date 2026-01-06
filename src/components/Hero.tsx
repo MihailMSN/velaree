@@ -51,6 +51,19 @@ const Hero = () => {
               <span>✓ 10-minute setup</span>
               <span>✓ Full API access</span>
             </div>
+
+            {/* Partner Logos */}
+            <div className="mt-8 sm:mt-10">
+              <p className="text-xs text-primary/50 mb-4 text-center lg:text-left uppercase tracking-wider">
+                Integrated with leading GDS providers
+              </p>
+              <div className="flex flex-wrap justify-center lg:justify-start items-center gap-6 sm:gap-8 opacity-60 grayscale hover:grayscale-0 hover:opacity-80 transition-all duration-500">
+                <img src="/logos/amadeus.png" alt="Amadeus" className="h-6 sm:h-7 object-contain" />
+                <img src="/logos/sabre.png" alt="Sabre" className="h-6 sm:h-7 object-contain" />
+                <img src="/logos/travelport.png" alt="Travelport" className="h-6 sm:h-7 object-contain" />
+                <img src="/logos/mystifly.png" alt="Mystifly" className="h-5 sm:h-6 object-contain" />
+              </div>
+            </div>
           </div>
 
           {/* Right Column - Card Showcase */}

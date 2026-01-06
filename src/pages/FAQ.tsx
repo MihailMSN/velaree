@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -386,18 +387,18 @@ const FAQ = () => {
                   Our team is here to help. Contact us for personalized assistance with your travel technology needs.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <a 
-                    href="/contact" 
+                  <Link 
+                    to="/contact" 
                     className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-xl font-semibold hover:opacity-90 transition-all hover:scale-105"
                   >
                     Contact Sales
-                  </a>
-                  <a 
-                    href="/rstool" 
+                  </Link>
+                  <Link 
+                    to="/rstool" 
                     className="inline-flex items-center justify-center gap-2 bg-card border border-border px-8 py-4 rounded-xl font-semibold hover:border-primary/50 transition-all"
                   >
                     Explore aRStool
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

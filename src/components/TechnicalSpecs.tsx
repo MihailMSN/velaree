@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Server, Zap, Shield, Code, Globe, Database } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const specs = [
   {
@@ -119,12 +120,12 @@ const TechnicalSpecs = () => {
           <p className="text-muted-foreground mb-4">
             Need custom requirements? We offer dedicated infrastructure and SLAs.
           </p>
-          <a 
-            href="#contact"
+          <Link 
+            to="/contact"
             className="inline-flex items-center text-foreground font-semibold hover:text-primary transition-colors border-b-2 border-accent hover:border-primary pb-1"
           >
             Talk to Our Solutions Team →
-          </a>
+          </Link>
         </div>
       </div>
     </section>

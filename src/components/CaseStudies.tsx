@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { TrendingUp, Clock, Users } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const caseStudies = [
   {
@@ -119,12 +120,12 @@ const CaseStudies = () => {
           <p className="text-muted-foreground mb-4">
             Want to achieve similar results for your business?
           </p>
-          <a 
-            href="#contact"
+          <Link 
+            to="/contact"
             className="inline-flex items-center px-6 py-3 bg-primary text-primary-foreground rounded-full font-semibold hover:bg-primary/90 transition-all duration-300 hover:shadow-lg"
           >
             Get Your Custom Strategy →
-          </a>
+          </Link>
         </div>
       </div>
     </section>
