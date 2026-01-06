@@ -1,5 +1,6 @@
 import { ShoppingCart, Eye, Sparkles, Bell, TrendingDown, CheckCircle2 } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { Link } from "react-router-dom";
 
 const steps = [
   {
@@ -138,12 +139,12 @@ const HowItWorks = () => {
           <p className="text-muted-foreground text-lg mb-4">
             Ready to start saving?
           </p>
-          <a
-            href="#contact"
+          <Link
+            to="/contact"
             className="inline-flex items-center text-foreground font-semibold hover:text-primary transition-colors border-b-2 border-accent hover:border-primary pb-1"
           >
             Schedule a Demo →
-          </a>
+          </Link>
         </div>
       </div>
     </section>
