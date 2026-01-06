@@ -61,6 +61,8 @@ const Hero = () => {
                 <img src="/logos/amadeus.png" alt="Amadeus" className="h-6 sm:h-7 object-contain" />
                 <img src="/logos/sabre.png" alt="Sabre" className="h-6 sm:h-7 object-contain" />
                 <img src="/logos/travelport.png" alt="Travelport" className="h-6 sm:h-7 object-contain" />
+                <img src="/logos/iata.png" alt="IATA" className="h-6 sm:h-7 object-contain" />
+                <img src="/logos/bcd-travel.png" alt="BCD Travel" className="h-5 sm:h-6 object-contain" />
                 <img src="/logos/mystifly.png" alt="Mystifly" className="h-5 sm:h-6 object-contain" />
               </div>
             </div>
