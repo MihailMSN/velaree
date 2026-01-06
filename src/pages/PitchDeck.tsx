@@ -446,55 +446,87 @@ const IndustryDemandSlide = () => <div className="p-10 md:p-14 lg:p-16 h-full fl
     </div>
   </div>;
 
-// Slide 6: How It Works (Products) - Enhanced with showcase
+// Slide 6: How It Works (Products) - RSTool as primary focus
 const ProductsSlide = () => <div className="p-10 md:p-14 lg:p-16 h-full flex flex-col justify-center overflow-y-auto">
     <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 text-center">How It Works</h2>
-    <p className="text-center text-lg text-muted-foreground mb-10">Our integrated product suite delivers end-to-end travel technology</p>
+    <p className="text-center text-lg text-muted-foreground mb-8">RSTool first, then expanding to a full product suite</p>
     
-    <div className="flex flex-col lg:flex-row gap-10 md:gap-12 max-w-6xl mx-auto items-center">
-      {/* Product Showcase */}
-      <div className="w-[400px] h-[320px] shrink-0">
-        <MiniCardShowcase />
-      </div>
-      
-      {/* Product List */}
-      <div className="flex-1 space-y-4">
-        {[{
-        name: "Unify",
-        tagline: "Universal GDS Integration",
-        desc: "Connect to all major GDS and 200+ airlines through a single API",
-        Icon: Plug,
-        color: "from-blue-500 to-cyan-500"
-      }, {
-        name: "A-Suite",
-        tagline: "AI-Powered Automation",
-        desc: "Automate ticketing, changes, refunds, and customer communications",
-        Icon: Bot,
-        color: "from-violet-500 to-purple-500"
-      }, {
-        name: "R-Stool",
-        tagline: "Smart PNR Repricing",
-        desc: "Automatically find and apply lower fares to existing bookings",
-        Icon: CreditCard,
-        color: "from-emerald-500 to-teal-500"
-      }, {
-        name: "HR-Stool",
-        tagline: "Hospitality Intelligence",
-        desc: "Hotel rate optimization and inventory management",
-        Icon: Building2,
-        color: "from-amber-500 to-orange-500"
-      }].map(product => <div key={product.name} className="flex items-center gap-5 p-5 rounded-xl bg-card border border-border/50 hover:border-primary/30 transition-all shadow-sm">
-            <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${product.color} flex items-center justify-center shrink-0`}>
-              <product.Icon className="w-6 h-6 text-white" />
+    <div className="flex flex-col lg:flex-row gap-8 max-w-6xl mx-auto items-start">
+      {/* Primary Focus: RSTool */}
+      <div className="flex-1">
+        <div className="mb-4 flex items-center gap-2">
+          <span className="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 text-sm font-medium">Building Now</span>
+          <span className="text-sm text-muted-foreground">Phase 1</span>
+        </div>
+        <div className="p-6 rounded-xl bg-gradient-to-br from-emerald-500/10 via-card to-card border-2 border-emerald-500/30 shadow-lg">
+          <div className="flex items-center gap-4 mb-4">
+            <div className="w-14 h-14 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center shrink-0">
+              <CreditCard className="w-7 h-7 text-white" />
             </div>
-            <div className="flex-1 min-w-0">
-              <div className="flex items-center gap-2 mb-1">
-                <h3 className="font-semibold text-foreground">{product.name}</h3>
-                <span className="text-xs text-primary font-medium">{product.tagline}</span>
+            <div>
+              <h3 className="text-xl font-bold text-foreground">RSTool</h3>
+              <span className="text-sm text-emerald-600 font-medium">Smart PNR Repricing</span>
+            </div>
+          </div>
+          <p className="text-muted-foreground mb-4">
+            Automatically monitor and apply lower fares to existing bookings, saving travel agencies 15-30% per ticket on average.
+          </p>
+          <div className="grid grid-cols-2 gap-3">
+            {["AI-powered fare monitoring", "Automated rebooking", "Real-time savings alerts", "GDS integration"].map(feature => (
+              <div key={feature} className="flex items-center gap-2 text-sm">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                <span className="text-muted-foreground">{feature}</span>
               </div>
-              <p className="text-sm text-muted-foreground">{product.desc}</p>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Future Roadmap */}
+      <div className="lg:w-[340px]">
+        <div className="mb-4 flex items-center gap-2">
+          <span className="px-3 py-1 rounded-full bg-muted text-muted-foreground text-sm font-medium">Future Roadmap</span>
+        </div>
+        <div className="space-y-3">
+          {[{
+            name: "A-Suite",
+            tagline: "AI-Powered Automation",
+            desc: "Automate ticketing, changes, refunds",
+            Icon: Bot,
+            color: "from-violet-500/70 to-purple-500/70",
+            phase: "Year 2"
+          }, {
+            name: "UnifyTool",
+            tagline: "Universal GDS Integration",
+            desc: "Single API for all GDS and 200+ airlines",
+            Icon: Plug,
+            color: "from-blue-500/70 to-cyan-500/70",
+            phase: "Year 2-3"
+          }, {
+            name: "HRSTool",
+            tagline: "Hospitality Intelligence",
+            desc: "Hotel rate optimization",
+            Icon: Building2,
+            color: "from-amber-500/70 to-orange-500/70",
+            phase: "Year 3+"
+          }].map(product => (
+            <div key={product.name} className="flex items-center gap-4 p-4 rounded-xl bg-muted/30 border border-border/50 opacity-80 hover:opacity-100 transition-opacity">
+              <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${product.color} flex items-center justify-center shrink-0`}>
+                <product.Icon className="w-5 h-5 text-white" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center justify-between gap-2">
+                  <h4 className="font-semibold text-foreground text-sm">{product.name}</h4>
+                  <span className="text-xs text-muted-foreground bg-muted px-2 py-0.5 rounded">{product.phase}</span>
+                </div>
+                <p className="text-xs text-muted-foreground mt-0.5">{product.desc}</p>
+              </div>
             </div>
-          </div>)}
+          ))}
+        </div>
+        <p className="text-xs text-muted-foreground/70 mt-4 text-center italic">
+          Funded by RSTool success
+        </p>
       </div>
     </div>
   </div>;
@@ -767,32 +799,33 @@ const RevenueModelSlide = () => {
   );
 };
 
-// Slide 10: Go-to-Market - Enhanced with channels and milestones
+// Slide 10: Go-to-Market - RSTool-first strategy
 const GTMSlide = () => <div className="p-10 md:p-14 lg:p-16 h-full flex flex-col justify-center overflow-y-auto">
-    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-10 text-center">Go-to-Market Strategy</h2>
+    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 text-center">Go-to-Market Strategy</h2>
+    <p className="text-center text-lg text-muted-foreground mb-10">RSTool-first approach: Prove value, then expand</p>
     <div className="max-w-6xl mx-auto">
       {/* Phase-based approach */}
       <div className="grid md:grid-cols-3 gap-5 md:gap-6 mb-10">
         {[{
         phase: "Phase 1",
-        title: "Foundation",
+        title: "RSTool Launch",
         timeline: "Q1-Q2 2025",
-        focus: "Product-market fit",
-        milestones: ["10 pilot customers", "Core product launch", "Initial partnerships"],
+        focus: "Build & validate RSTool",
+        milestones: ["RSTool MVP launch", "10 pilot agencies", "Prove 15%+ savings"],
         status: "current"
       }, {
         phase: "Phase 2",
-        title: "Growth",
+        title: "RSTool Growth",
         timeline: "Q3-Q4 2025",
-        focus: "Market expansion",
-        milestones: ["50 customers", "Channel partnerships", "Regional expansion"],
+        focus: "Scale RSTool revenue",
+        milestones: ["50+ paying customers", "€500K ARR", "Channel partnerships"],
         status: "upcoming"
       }, {
         phase: "Phase 3",
-        title: "Scale",
+        title: "Product Expansion",
         timeline: "2026+",
-        focus: "European dominance",
-        milestones: ["200+ customers", "Enterprise sales", "New product lines"],
+        focus: "Launch ASuite & more",
+        milestones: ["ASuite development", "Cross-sell to RSTool users", "200+ total customers"],
         status: "future"
       }].map(phase => <div key={phase.phase} className={cn("p-6 rounded-xl border shadow-md", phase.status === "current" ? "bg-primary/5 border-primary/30" : "bg-card border-border/50")}>
             <div className="flex items-center gap-2 mb-3">
@@ -811,31 +844,56 @@ const GTMSlide = () => <div className="p-10 md:p-14 lg:p-16 h-full flex flex-col
           </div>)}
       </div>
 
-      {/* Channel Mix */}
-      <div className="bg-card rounded-xl p-6 border border-border/50 shadow-md">
-        <h4 className="text-base font-semibold text-foreground mb-5 text-center">Channel Mix</h4>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
-          {[{
-          channel: "Direct Sales",
-          share: "40%",
-          desc: "Enterprise focus"
-        }, {
-          channel: "Partnerships",
-          share: "30%",
-          desc: "GDS & resellers"
-        }, {
-          channel: "Inbound",
-          share: "20%",
-          desc: "Content & SEO"
-        }, {
-          channel: "Events",
-          share: "10%",
-          desc: "Trade shows"
-        }].map(ch => <div key={ch.channel} className="text-center p-4 rounded-lg bg-muted/50">
-              <div className="text-2xl font-bold text-primary">{ch.share}</div>
-              <div className="font-medium text-foreground text-sm mt-1">{ch.channel}</div>
-              <div className="text-xs text-muted-foreground mt-0.5">{ch.desc}</div>
-            </div>)}
+      {/* RSTool GTM Focus */}
+      <div className="grid md:grid-cols-2 gap-6">
+        <div className="bg-card rounded-xl p-6 border border-border/50 shadow-md">
+          <h4 className="text-base font-semibold text-foreground mb-5">RSTool Target Segments</h4>
+          <div className="space-y-3">
+            {[{
+              segment: "Mid-size Travel Agencies",
+              size: "10K+ bookings/year",
+              pain: "Manual fare monitoring"
+            }, {
+              segment: "Corporate TMCs",
+              size: "High-volume tickets",
+              pain: "Missing savings opportunities"
+            }, {
+              segment: "OTAs & Consolidators",
+              size: "Bulk ticket management",
+              pain: "Thin margins, need automation"
+            }].map(seg => (
+              <div key={seg.segment} className="p-3 rounded-lg bg-muted/30 border border-border/30">
+                <div className="font-medium text-foreground text-sm">{seg.segment}</div>
+                <div className="text-xs text-muted-foreground mt-1">{seg.size} • {seg.pain}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="bg-card rounded-xl p-6 border border-border/50 shadow-md">
+          <h4 className="text-base font-semibold text-foreground mb-5">Channel Mix for RSTool</h4>
+          <div className="grid grid-cols-2 gap-4">
+            {[{
+              channel: "Direct Sales",
+              share: "50%",
+              desc: "Agency outreach"
+            }, {
+              channel: "GDS Partners",
+              share: "25%",
+              desc: "Sabre, Amadeus"
+            }, {
+              channel: "Inbound/Content",
+              share: "15%",
+              desc: "SEO & demos"
+            }, {
+              channel: "Events",
+              share: "10%",
+              desc: "Trade shows"
+            }].map(ch => <div key={ch.channel} className="text-center p-3 rounded-lg bg-muted/50">
+                <div className="text-xl font-bold text-primary">{ch.share}</div>
+                <div className="font-medium text-foreground text-sm mt-1">{ch.channel}</div>
+                <div className="text-xs text-muted-foreground mt-0.5">{ch.desc}</div>
+              </div>)}
+          </div>
         </div>
       </div>
     </div>
@@ -934,14 +992,15 @@ const CompetitionSlide = () => <div className="p-10 md:p-14 lg:p-16 h-full flex 
     </div>
   </div>;
 
-// Slide 12: The Ask - Enhanced with allocation and milestones
+// Slide 12: The Ask - RSTool-focused investment
 const AskSlide = () => <div className="p-10 md:p-14 lg:p-16 h-full flex flex-col justify-center overflow-y-auto">
-    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-10 text-center">The Ask</h2>
+    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 text-center">The Ask</h2>
+    <p className="text-center text-lg text-muted-foreground mb-8">Building RSTool: Our Flagship Repricing Solution</p>
     <div className="max-w-5xl mx-auto">
       {/* Main Ask */}
       <div className="text-center mb-10">
         <div className="text-6xl md:text-7xl font-bold text-primary mb-3">€400,000</div>
-        <div className="text-xl text-muted-foreground">Pre-Seed Investment Round</div>
+        <div className="text-xl text-muted-foreground">Pre-Seed Investment for RSTool Launch</div>
         <div className="flex justify-center gap-4 mt-5">
           <span className="px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium">
             18-month runway
@@ -952,63 +1011,93 @@ const AskSlide = () => <div className="p-10 md:p-14 lg:p-16 h-full flex flex-col
         </div>
       </div>
 
-      {/* Use of Funds */}
+      {/* Use of Funds - RSTool Focused */}
       <div className="grid md:grid-cols-4 gap-5 md:gap-6 mb-10">
         {[{
-        label: "Product Development",
+        label: "RSTool Development",
         percent: "45%",
         amount: "€180K",
+        desc: "AI pricing engine & core platform",
         Icon: Rocket
       }, {
-        label: "Sales & Marketing",
+        label: "RSTool Marketing",
         percent: "30%",
         amount: "€120K",
+        desc: "Launch campaigns & sales team",
         Icon: Target
       }, {
         label: "Operations",
         percent: "15%",
         amount: "€60K",
+        desc: "Infrastructure & GDS partnerships",
         Icon: Settings2
       }, {
         label: "Reserve",
         percent: "10%",
         amount: "€40K",
+        desc: "Iteration & opportunities",
         Icon: Shield
       }].map(item => <div key={item.label} className="p-6 rounded-xl bg-card border border-border/50 text-center shadow-md">
-            <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-              <item.Icon className="w-7 h-7 text-primary" />
+            <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+              <item.Icon className="w-6 h-6 text-primary" />
             </div>
             <div className="text-3xl font-bold text-primary">{item.percent}</div>
             <div className="text-sm text-foreground font-medium mt-2">{item.label}</div>
-            <div className="text-sm text-muted-foreground mt-1">{item.amount}</div>
+            <div className="text-xs text-muted-foreground mt-1">{item.desc}</div>
+            <div className="text-sm text-primary/80 font-medium mt-2">{item.amount}</div>
           </div>)}
       </div>
 
-      {/* Key Milestones */}
+      {/* RSTool Milestones & Expansion Strategy */}
       <div className="grid md:grid-cols-2 gap-6">
-        <div className="bg-muted/30 rounded-xl p-6 border border-border/50">
+        <div className="bg-primary/5 rounded-xl p-6 border border-primary/20">
           <h4 className="font-semibold text-foreground mb-4 flex items-center gap-2">
             <Calendar className="w-5 h-5 text-primary" />
-            18-Month Milestones
+            RSTool Milestones
           </h4>
           <div className="space-y-3">
-            {["50+ paying customers", "€1M+ ARR run rate", "Series A readiness", "Team of 12"].map(milestone => <div key={milestone} className="flex items-center gap-3 text-sm">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                <span className="text-muted-foreground">{milestone}</span>
+            {[
+              { milestone: "RSTool Beta Launch", timing: "Month 3" },
+              { milestone: "20+ paying travel agencies", timing: "Month 6" },
+              { milestone: "€500K ARR from RSTool", timing: "Month 12" },
+              { milestone: "Begin ASuite development", timing: "Month 15" }
+            ].map(item => <div key={item.milestone} className="flex items-center justify-between gap-3 text-sm">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span className="text-muted-foreground">{item.milestone}</span>
+                </div>
+                <span className="text-xs text-primary font-medium">{item.timing}</span>
               </div>)}
           </div>
         </div>
         <div className="bg-muted/30 rounded-xl p-6 border border-border/50">
           <h4 className="font-semibold text-foreground mb-4 flex items-center gap-2">
-            <Award className="w-5 h-5 text-primary" />
-            Investor Benefits
+            <TrendingUp className="w-5 h-5 text-primary" />
+            Expansion Strategy
           </h4>
-          <div className="space-y-3">
-            {["Board observer seat", "Quarterly updates", "Strategic input welcome", "Pro-rata rights"].map(benefit => <div key={benefit} className="flex items-center gap-3 text-sm">
-                <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
-                <span className="text-muted-foreground">{benefit}</span>
+          <p className="text-sm text-muted-foreground mb-4">
+            RSTool success funds expansion into full product suite:
+          </p>
+          <div className="space-y-2">
+            {[
+              { product: "ASuite", timeline: "Year 2", desc: "AI automation" },
+              { product: "UnifyTool", timeline: "Year 2-3", desc: "GDS integration" },
+              { product: "HRSTool", timeline: "Year 3+", desc: "Hospitality" }
+            ].map(item => <div key={item.product} className="flex items-center justify-between text-sm p-2 rounded-lg bg-muted/50">
+                <span className="font-medium text-foreground">{item.product}</span>
+                <span className="text-xs text-muted-foreground">{item.timeline}</span>
               </div>)}
           </div>
+        </div>
+      </div>
+
+      {/* Investor Benefits */}
+      <div className="mt-6 bg-muted/30 rounded-xl p-5 border border-border/50">
+        <div className="flex flex-wrap justify-center gap-6 text-sm">
+          {["Board observer seat", "Quarterly updates", "Strategic input welcome", "Pro-rata rights"].map(benefit => <div key={benefit} className="flex items-center gap-2">
+              <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
+              <span className="text-muted-foreground">{benefit}</span>
+            </div>)}
         </div>
       </div>
     </div>
