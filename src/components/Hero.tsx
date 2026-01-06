@@ -3,10 +3,8 @@ import { ArrowRight, MessageCircle, Presentation } from "lucide-react";
 import { Link } from "react-router-dom";
 import ScrollIndicator from "./ScrollIndicator";
 import HeroCardShowcase from "./HeroCardShowcase";
-
 const Hero = () => {
-  return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-white">
+  return <section className="relative min-h-screen flex items-center overflow-hidden bg-white">
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-12">
           {/* Left Column - Text Content */}
@@ -62,7 +60,7 @@ const Hero = () => {
                 <img src="/logos/sabre.png" alt="Sabre" className="h-6 sm:h-7 object-contain" />
                 <img src="/logos/travelport.png" alt="Travelport" className="h-6 sm:h-7 object-contain" />
                 <img src="/logos/iata.png" alt="IATA" className="h-6 sm:h-7 object-contain" />
-                <img src="/logos/bcd-travel.png" alt="BCD Travel" className="h-5 sm:h-6 object-contain" />
+                <img alt="BCD Travel" className="h-5 sm:h-6 object-contain" src="/lovable-uploads/0a00545d-d519-4e5d-a008-1539582f5321.png" />
                 <img src="/logos/mystifly.png" alt="Mystifly" className="h-5 sm:h-6 object-contain" />
               </div>
             </div>
@@ -77,8 +75,6 @@ const Hero = () => {
 
       <ScrollIndicator />
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent"></div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
