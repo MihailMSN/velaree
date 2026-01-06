@@ -1181,6 +1181,234 @@ const TeamSlide = () => <div className="p-10 md:p-14 lg:p-16 h-full flex flex-co
     </div>
   </div>;
 
+// Slide 14: RSTool Deep Dive
+const RStoolDeepDiveSlide = () => <div className="p-10 md:p-14 lg:p-16 h-full flex flex-col justify-center overflow-y-auto">
+    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 text-center">RSTool Deep Dive</h2>
+    <p className="text-center text-lg text-muted-foreground mb-8">AI-Powered PNR Repricing Engine</p>
+    <div className="max-w-6xl mx-auto">
+      {/* Core Features */}
+      <div className="grid md:grid-cols-3 gap-5 mb-8">
+        {[{
+          title: "Smart Fare Monitoring",
+          desc: "AI continuously scans for lower fares across 200+ airlines, 24/7 automated monitoring",
+          Icon: BarChart3,
+          metric: "15-30%",
+          metricLabel: "Avg. savings per ticket"
+        }, {
+          title: "One-Click Rebooking",
+          desc: "Automated rebooking with minimal agent intervention, handles exchanges & refunds",
+          Icon: Zap,
+          metric: "< 2min",
+          metricLabel: "Rebooking time"
+        }, {
+          title: "GDS Integration",
+          desc: "Direct integration with Sabre, Amadeus, Travelport for seamless PNR management",
+          Icon: Plug,
+          metric: "3",
+          metricLabel: "Major GDS supported"
+        }].map(feature => (
+          <div key={feature.title} className="p-5 rounded-xl bg-card border border-border/50 shadow-md">
+            <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center mb-4">
+              <feature.Icon className="w-6 h-6 text-white" />
+            </div>
+            <h3 className="font-semibold text-foreground mb-2">{feature.title}</h3>
+            <p className="text-sm text-muted-foreground mb-4">{feature.desc}</p>
+            <div className="pt-3 border-t border-border/50">
+              <div className="text-2xl font-bold text-emerald-600">{feature.metric}</div>
+              <div className="text-xs text-muted-foreground">{feature.metricLabel}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* How It Works Flow */}
+      <div className="bg-muted/30 rounded-xl p-6 border border-border/50 mb-8">
+        <h4 className="font-semibold text-foreground mb-5 text-center">How RSTool Works</h4>
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+          {[
+            { step: "1", title: "PNR Import", desc: "Auto-sync from GDS" },
+            { step: "2", title: "Fare Monitoring", desc: "AI scans 24/7" },
+            { step: "3", title: "Match Found", desc: "Lower fare detected" },
+            { step: "4", title: "Agent Alert", desc: "Real-time notification" },
+            { step: "5", title: "One-Click Rebook", desc: "Apply savings" }
+          ].map((item, i) => (
+            <div key={item.step} className="flex items-center gap-3">
+              <div className="text-center flex-1">
+                <div className="w-10 h-10 rounded-full bg-emerald-500 text-white flex items-center justify-center mx-auto font-bold text-sm">{item.step}</div>
+                <div className="text-sm font-medium text-foreground mt-2">{item.title}</div>
+                <div className="text-xs text-muted-foreground">{item.desc}</div>
+              </div>
+              {i < 4 && <ArrowRight className="w-5 h-5 text-muted-foreground hidden md:block shrink-0" />}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Competitive Advantages & Early Interest */}
+      <div className="grid md:grid-cols-2 gap-6">
+        <div className="bg-emerald-500/5 rounded-xl p-5 border border-emerald-500/20">
+          <h4 className="font-semibold text-foreground mb-4 flex items-center gap-2">
+            <Award className="w-5 h-5 text-emerald-600" />
+            Competitive Advantages
+          </h4>
+          <div className="space-y-3">
+            {[
+              "AI-powered vs. rule-based competitors",
+              "Multi-GDS support (most are single-GDS)",
+              "Real-time monitoring vs. batch processing",
+              "Self-service + automated (hybrid model)",
+              "Transparent pricing, no hidden fees"
+            ].map(adv => (
+              <div key={adv} className="flex items-center gap-2 text-sm">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                <span className="text-muted-foreground">{adv}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="bg-primary/5 rounded-xl p-5 border border-primary/20">
+          <h4 className="font-semibold text-foreground mb-4 flex items-center gap-2">
+            <TrendingUp className="w-5 h-5 text-primary" />
+            Early Traction & Interest
+          </h4>
+          <div className="grid grid-cols-2 gap-4 mb-4">
+            <div className="text-center p-3 rounded-lg bg-card">
+              <div className="text-2xl font-bold text-primary">5</div>
+              <div className="text-xs text-muted-foreground">LOIs from agencies</div>
+            </div>
+            <div className="text-center p-3 rounded-lg bg-card">
+              <div className="text-2xl font-bold text-primary">€120K</div>
+              <div className="text-xs text-muted-foreground">Pipeline value</div>
+            </div>
+          </div>
+          <div className="text-sm text-muted-foreground">
+            <span className="font-medium text-foreground">Target customers:</span> Mid-size agencies processing 10K+ bookings/year with existing GDS contracts
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>;
+
+// Slide 15: Product Roadmap Timeline
+const ProductRoadmapSlide = () => <div className="p-10 md:p-14 lg:p-16 h-full flex flex-col justify-center overflow-y-auto">
+    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 text-center">Product Roadmap</h2>
+    <p className="text-center text-lg text-muted-foreground mb-10">RSTool funds expansion into full product suite</p>
+    <div className="max-w-6xl mx-auto">
+      {/* Visual Timeline */}
+      <div className="relative mb-10">
+        {/* Timeline Bar */}
+        <div className="absolute top-8 left-0 right-0 h-2 bg-gradient-to-r from-emerald-500 via-violet-500 via-blue-500 to-amber-500 rounded-full opacity-30" />
+        <div className="absolute top-8 left-0 w-1/4 h-2 bg-emerald-500 rounded-full" />
+        
+        {/* Timeline Items */}
+        <div className="grid grid-cols-4 gap-4 relative">
+          {[{
+            product: "RSTool",
+            tagline: "Smart PNR Repricing",
+            timeline: "Q2 2025",
+            year: "Year 1",
+            status: "Building Now",
+            color: "emerald",
+            Icon: CreditCard,
+            milestones: ["MVP Launch", "10 pilots", "€500K ARR"]
+          }, {
+            product: "ASuite",
+            tagline: "AI Automation",
+            timeline: "Q4 2026",
+            year: "Year 2",
+            status: "Planned",
+            color: "violet",
+            Icon: Bot,
+            milestones: ["Dev starts M15", "Beta Q3 2026", "Cross-sell RSTool users"]
+          }, {
+            product: "UnifyTool",
+            tagline: "GDS Integration",
+            timeline: "2027",
+            year: "Year 2-3",
+            status: "Planned",
+            color: "blue",
+            Icon: Plug,
+            milestones: ["API expansion", "Multi-GDS", "Enterprise focus"]
+          }, {
+            product: "HRSTool",
+            tagline: "Hospitality",
+            timeline: "2028+",
+            year: "Year 3+",
+            status: "Future",
+            color: "amber",
+            Icon: Building2,
+            milestones: ["Hotel rates", "New vertical", "Full suite"]
+          }].map((item, i) => (
+            <div key={item.product} className="text-center">
+              {/* Timeline Node */}
+              <div className={`w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg ${
+                item.color === "emerald" ? "bg-gradient-to-br from-emerald-500 to-teal-500" :
+                item.color === "violet" ? "bg-gradient-to-br from-violet-500/70 to-purple-500/70" :
+                item.color === "blue" ? "bg-gradient-to-br from-blue-500/70 to-cyan-500/70" :
+                "bg-gradient-to-br from-amber-500/70 to-orange-500/70"
+              }`}>
+                <item.Icon className="w-7 h-7 text-white" />
+              </div>
+              
+              {/* Product Info */}
+              <div className={`p-4 rounded-xl border ${
+                i === 0 ? "bg-emerald-500/10 border-emerald-500/30" : "bg-muted/30 border-border/50"
+              }`}>
+                <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${
+                  item.status === "Building Now" ? "bg-emerald-500/20 text-emerald-600" : 
+                  item.status === "Planned" ? "bg-blue-500/10 text-blue-600" : 
+                  "bg-muted text-muted-foreground"
+                }`}>{item.status}</span>
+                <h3 className={`text-lg font-bold mt-2 ${i === 0 ? "text-emerald-600" : "text-foreground"}`}>{item.product}</h3>
+                <p className="text-xs text-muted-foreground mb-2">{item.tagline}</p>
+                <div className="text-sm font-semibold text-primary">{item.timeline}</div>
+                <div className="text-xs text-muted-foreground mb-3">{item.year}</div>
+                <div className="space-y-1">
+                  {item.milestones.map(m => (
+                    <div key={m} className="text-xs text-muted-foreground/80">{m}</div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Revenue Contribution Projection */}
+      <div className="bg-card rounded-xl p-6 border border-border/50 shadow-md">
+        <h4 className="font-semibold text-foreground mb-5 text-center">Revenue Contribution by Product</h4>
+        <div className="grid grid-cols-4 gap-4">
+          {[
+            { year: "Year 1", rstool: 100, asuite: 0, unify: 0, hr: 0 },
+            { year: "Year 2", rstool: 70, asuite: 30, unify: 0, hr: 0 },
+            { year: "Year 3", rstool: 50, asuite: 30, unify: 20, hr: 0 },
+            { year: "Year 4", rstool: 35, asuite: 30, unify: 25, hr: 10 }
+          ].map(item => (
+            <div key={item.year} className="text-center">
+              <div className="text-sm font-medium text-foreground mb-3">{item.year}</div>
+              <div className="h-32 flex flex-col justify-end rounded-lg overflow-hidden bg-muted/30">
+                {item.hr > 0 && <div className="bg-amber-500" style={{ height: `${item.hr}%` }} />}
+                {item.unify > 0 && <div className="bg-blue-500" style={{ height: `${item.unify}%` }} />}
+                {item.asuite > 0 && <div className="bg-violet-500" style={{ height: `${item.asuite}%` }} />}
+                <div className="bg-emerald-500" style={{ height: `${item.rstool}%` }} />
+              </div>
+              <div className="text-xs text-muted-foreground mt-2">
+                {item.rstool > 0 && <span className="text-emerald-600">{item.rstool}% R</span>}
+                {item.asuite > 0 && <span className="text-violet-600 ml-1">{item.asuite}% A</span>}
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="flex justify-center gap-6 mt-4 text-xs">
+          <div className="flex items-center gap-2"><div className="w-3 h-3 rounded bg-emerald-500" /><span className="text-muted-foreground">RSTool</span></div>
+          <div className="flex items-center gap-2"><div className="w-3 h-3 rounded bg-violet-500" /><span className="text-muted-foreground">ASuite</span></div>
+          <div className="flex items-center gap-2"><div className="w-3 h-3 rounded bg-blue-500" /><span className="text-muted-foreground">UnifyTool</span></div>
+          <div className="flex items-center gap-2"><div className="w-3 h-3 rounded bg-amber-500" /><span className="text-muted-foreground">HRSTool</span></div>
+        </div>
+      </div>
+    </div>
+  </div>;
+
 // Slides array
 const slides: Slide[] = [{
   id: 1,
@@ -1208,30 +1436,38 @@ const slides: Slide[] = [{
   content: <ProductsSlide />
 }, {
   id: 7,
+  title: "RSTool Deep Dive",
+  content: <RStoolDeepDiveSlide />
+}, {
+  id: 8,
+  title: "Product Roadmap",
+  content: <ProductRoadmapSlide />
+}, {
+  id: 9,
   title: "Target Market",
   content: <TargetMarketSlide />
 }, {
-  id: 8,
+  id: 10,
   title: "Market Opportunity",
   content: <TAMSlide />
 }, {
-  id: 9,
+  id: 11,
   title: "Revenue Model",
   content: <RevenueModelSlide />
 }, {
-  id: 10,
+  id: 12,
   title: "Go-to-Market",
   content: <GTMSlide />
 }, {
-  id: 11,
+  id: 13,
   title: "Competition",
   content: <CompetitionSlide />
 }, {
-  id: 12,
+  id: 14,
   title: "The Ask",
   content: <AskSlide />
 }, {
-  id: 13,
+  id: 15,
   title: "Team",
   content: <TeamSlide />
 }];
