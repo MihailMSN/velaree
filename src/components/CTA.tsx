@@ -4,26 +4,22 @@ import { Input } from "@/components/ui/input";
 import { ArrowRight, Sparkles, Check, Users } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
-
 const CTA = () => {
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-
   const handleWaitlistSignup = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
-
     setIsLoading(true);
     try {
-      const { error } = await supabase
-        .from("newsletter_subscribers")
-        .insert({ 
-          email, 
-          source: "rstool_waitlist",
-          is_active: true 
-        });
-
+      const {
+        error
+      } = await supabase.from("newsletter_subscribers").insert({
+        email,
+        source: "rstool_waitlist",
+        is_active: true
+      });
       if (error) {
         if (error.code === "23505") {
           toast.info("You're already on the waitlist!");
@@ -42,9 +38,7 @@ const CTA = () => {
       setIsLoading(false);
     }
   };
-
-  return (
-    <section className="py-12 sm:py-16 md:py-24 bg-primary relative overflow-hidden">
+  return <section className="py-12 sm:py-16 md:py-24 bg-primary relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-accent/10 to-transparent"></div>
       
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
@@ -64,8 +58,7 @@ const CTA = () => {
           </p>
 
           {/* Waitlist Form */}
-          {isSuccess ? (
-            <div className="max-w-md mx-auto p-6 rounded-2xl bg-white/10 border border-white/20">
+          {isSuccess ? <div className="max-w-md mx-auto p-6 rounded-2xl bg-white/10 border border-white/20">
               <div className="flex items-center justify-center gap-3 text-primary-foreground">
                 <div className="w-10 h-10 rounded-full bg-emerald-500 flex items-center justify-center">
                   <Check className="w-5 h-5 text-white" />
@@ -75,36 +68,17 @@ const CTA = () => {
                   <p className="text-sm text-primary-foreground/70">We'll notify you when rsTool launches.</p>
                 </div>
               </div>
-            </div>
-          ) : (
-            <form onSubmit={handleWaitlistSignup} className="max-w-md mx-auto">
+            </div> : <form onSubmit={handleWaitlistSignup} className="max-w-md mx-auto">
               <div className="flex flex-col sm:flex-row gap-3">
-                <Input
-                  type="email"
-                  placeholder="Enter your work email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  className="flex-1 h-14 px-5 rounded-full bg-white/10 border-white/20 text-primary-foreground placeholder:text-primary-foreground/50 focus:bg-white/20"
-                />
-                <Button 
-                  type="submit"
-                  size="lg"
-                  disabled={isLoading}
-                  className="h-14 px-8 rounded-full bg-white text-primary hover:bg-white/90 font-semibold group"
-                >
-                  {isLoading ? (
-                    "Joining..."
-                  ) : (
-                    <>
+                <Input type="email" placeholder="Enter your work email" value={email} onChange={e => setEmail(e.target.value)} required className="flex-1 h-14 px-5 rounded-full bg-white/10 border-white/20 text-primary-foreground placeholder:text-primary-foreground/50 focus:bg-white/20" />
+                <Button type="submit" size="lg" disabled={isLoading} className="h-14 px-8 rounded-full font-semibold group bg-[#158432] text-primary-foreground">
+                  {isLoading ? "Joining..." : <>
                       Join Waitlist
                       <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </>
-                  )}
+                    </>}
                 </Button>
               </div>
-            </form>
-          )}
+            </form>}
 
           {/* Social Proof */}
           <div className="mt-8 flex flex-wrap justify-center gap-6 text-sm text-primary-foreground/70">
@@ -120,21 +94,13 @@ const CTA = () => {
 
           {/* Feature highlights */}
           <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto">
-            {[
-              "AI monitors fares 24/7",
-              "Automated rebooking",
-              "Multi-GDS support"
-            ].map((feature, idx) => (
-              <div key={idx} className="flex items-center justify-center gap-2 text-sm text-primary-foreground/80">
+            {["AI monitors fares 24/7", "Automated rebooking", "Multi-GDS support"].map((feature, idx) => <div key={idx} className="flex items-center justify-center gap-2 text-sm text-primary-foreground/80">
                 <Check className="w-4 h-4 text-emerald-400" />
                 <span>{feature}</span>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default CTA;
