@@ -22,12 +22,12 @@ const RSTool = () => {
         <meta property="og:description" content="Monitor PNRs 24/7 and automatically find better fares across all GDSs. Save 15-20% on air tickets post-sale." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://velaree.com/rstool" />
-        <meta property="og:image" content="/og-rstool.png" />
+        
         
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="rsTool - AI-Powered Air Ticket Re-Shopping | Velaree" />
         <meta name="twitter:description" content="Monitor PNRs 24/7 and automatically find better fares across all GDSs. Save 15-20% on air tickets post-sale." />
-        <meta name="twitter:image" content="/og-rstool.png" />
+        
         
         <script type="application/ld+json">
           {JSON.stringify({

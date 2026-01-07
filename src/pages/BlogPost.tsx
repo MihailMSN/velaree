@@ -80,9 +80,6 @@ const BlogPost = () => {
         <meta property="og:type" content="article" />
         <meta property="og:url" content={currentUrl} />
         <meta property="og:site_name" content="Velaree" />
-        <meta property="og:image" content="/og-image.png" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
         <meta property="article:author" content={post.author} />
         <meta property="article:published_time" content={post.date} />
         <meta property="article:section" content={post.category} />
@@ -95,7 +92,7 @@ const BlogPost = () => {
         <meta name="twitter:title" content={post.title} />
         <meta name="twitter:description" content={post.excerpt} />
         <meta name="twitter:site" content="@velaree" />
-        <meta name="twitter:image" content="/og-image.png" />
+        
       </Helmet>
 
       <Navigation />
