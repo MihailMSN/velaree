@@ -1,14 +1,22 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, MessageCircle, Presentation } from "lucide-react";
+import { ArrowRight, MessageCircle, Presentation, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import ScrollIndicator from "./ScrollIndicator";
 import HeroCardShowcase from "./HeroCardShowcase";
+
 const Hero = () => {
-  return <section className="relative min-h-screen flex items-center overflow-hidden bg-white">
+  return (
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-white">
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-12">
           {/* Left Column - Text Content */}
           <div className="max-w-2xl text-center lg:text-left animate-fade-in lg:w-1/2 pt-20 lg:pt-0">
+            {/* rsTool Launch Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-700 text-sm font-medium mb-6 animate-pulse">
+              <Sparkles className="w-4 h-4" />
+              <span>rsTool launching Q3-Q4 2026 • Our flagship AI repricing platform</span>
+            </div>
+
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-primary mb-4 sm:mb-6 leading-tight">
               The Travel API That Delivers
             </h1>
@@ -22,9 +30,9 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start items-center">
-              <Link to="/auth" className="w-full sm:w-auto">
-                <Button size="lg" className="w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-6 min-h-[52px] rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg group text-white bg-stone-950 hover:bg-stone-800">
-                  Start Free Trial
+              <Link to="/rstool" className="w-full sm:w-auto">
+                <Button size="lg" className="w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-6 min-h-[52px] rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg group text-white bg-emerald-600 hover:bg-emerald-700">
+                  Explore rsTool
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
@@ -75,6 +83,8 @@ const Hero = () => {
 
       <ScrollIndicator />
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent"></div>
-    </section>;
+    </section>
+  );
 };
+
 export default Hero;
