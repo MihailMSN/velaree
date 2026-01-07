@@ -153,11 +153,11 @@ const ASuite = () => {
         <meta property="og:description" content="Complete CRM/CMS platform for managing your travel technology stack. Customer management, content control, analytics, and white-label customization." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://velaree.com/asuite" />
-        <meta property="og:image" content="/og-asuite.png" />
+        
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="aSuite - CRM & CMS for Travel Businesses | Velaree" />
         <meta name="twitter:description" content="Complete CRM/CMS platform for managing your travel technology stack." />
-        <meta name="twitter:image" content="/og-asuite.png" />
+        
       </Helmet>
 
       <div className="min-h-screen bg-background">
