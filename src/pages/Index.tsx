@@ -49,7 +49,7 @@ const Index = () => {
             "@type": "Offer",
             "itemOffered": {
               "@type": "SoftwareApplication",
-              "name": "aRStool",
+              "name": "rsTool",
               "applicationCategory": "BusinessApplication",
               "description": "AI-powered air ticket re-shopping platform"
             }
@@ -57,7 +57,7 @@ const Index = () => {
             "@type": "Offer",
             "itemOffered": {
               "@type": "SoftwareApplication",
-              "name": "hRStool",
+              "name": "hsTool",
               "applicationCategory": "BusinessApplication",
               "description": "AI-powered hotel re-shopping platform"
             }
