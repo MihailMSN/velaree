@@ -87,7 +87,7 @@ const CTA = () => {
               <span>50+ agencies on waitlist</span>
             </div>
             <span>•</span>
-            <span className="bg-secondary-foreground">No commitment required</span>
+            <span className="bg-transparent">No commitment required</span>
             <span>•</span>
             <span>Early adopter pricing</span>
           </div>
