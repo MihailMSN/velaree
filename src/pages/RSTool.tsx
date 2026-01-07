@@ -13,19 +13,19 @@ import { Link } from "react-router-dom";
 const RSTool = () => {
   return <div className="min-h-screen bg-background">
       <Helmet>
-        <title>aRStool - AI-Powered Air Ticket Re-Shopping | Velaree</title>
+        <title>rsTool - AI-Powered Air Ticket Re-Shopping | Velaree</title>
         <meta name="description" content="AI-powered B2B air ticket re-shopping platform. Monitor PNRs 24/7, check pricing across all GDSs, and automatically find better fares. Save 15-20% post-sale." />
         <meta name="keywords" content="air ticket re-shopping, PNR monitoring, GDS integration, airline fare comparison, automated re-booking, travel savings, B2B travel tools" />
         <link rel="canonical" href="https://velaree.com/rstool" />
         
-        <meta property="og:title" content="aRStool - AI-Powered Air Ticket Re-Shopping | Velaree" />
+        <meta property="og:title" content="rsTool - AI-Powered Air Ticket Re-Shopping | Velaree" />
         <meta property="og:description" content="Monitor PNRs 24/7 and automatically find better fares across all GDSs. Save 15-20% on air tickets post-sale." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://velaree.com/rstool" />
         <meta property="og:image" content="/og-rstool.png" />
         
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="aRStool - AI-Powered Air Ticket Re-Shopping | Velaree" />
+        <meta name="twitter:title" content="rsTool - AI-Powered Air Ticket Re-Shopping | Velaree" />
         <meta name="twitter:description" content="Monitor PNRs 24/7 and automatically find better fares across all GDSs. Save 15-20% on air tickets post-sale." />
         <meta name="twitter:image" content="/og-rstool.png" />
         
@@ -33,7 +33,7 @@ const RSTool = () => {
           {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
-          "name": "aRStool",
+          "name": "rsTool",
           "applicationCategory": "BusinessApplication",
           "operatingSystem": "Web",
           "offers": {
@@ -69,7 +69,7 @@ const RSTool = () => {
             "name": "Which GDS systems do you integrate with?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "aRStool integrates with all major GDS platforms including Amadeus, Sabre, Travelport (Galileo, Apollo, Worldspan), and NDC connections. We also support direct airline APIs for enhanced fare checking and rebooking capabilities."
+              "text": "rsTool integrates with all major GDS platforms including Amadeus, Sabre, Travelport (Galileo, Apollo, Worldspan), and NDC connections. We also support direct airline APIs for enhanced fare checking and rebooking capabilities."
             }
           }, {
             "@type": "Question",
@@ -90,7 +90,7 @@ const RSTool = () => {
             "name": "Is our booking data secure?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. aRStool is SOC 2 Type II certified and fully GDPR compliant. All data is encrypted in transit (TLS 1.3) and at rest (AES-256). We maintain separate data environments per agency, and you retain full ownership of your booking data. We never share client data with third parties."
+              "text": "Yes. rsTool is SOC 2 Type II certified and fully GDPR compliant. All data is encrypted in transit (TLS 1.3) and at rest (AES-256). We maintain separate data environments per agency, and you retain full ownership of your booking data. We never share client data with third parties."
             }
           }, {
             "@type": "Question",
@@ -127,7 +127,7 @@ const RSTool = () => {
               <Sparkles className="w-4 h-4" />
               AI-Powered B2B Re-Shopping Portal
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-primary">aRStool</h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-primary">rsTool</h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
               Experience the future of air ticket re-shopping. Our AI-powered platform monitors PNRs 24/7, 
               checks pricing across all major GDSs, and automatically finds better fares through multiple re-booking scenarios.
@@ -155,7 +155,7 @@ const RSTool = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Interactive Dashboard</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              See how aRStool analyzes PNRs and finds savings opportunities across multiple GDS platforms
+              See how rsTool analyzes PNRs and finds savings opportunities across multiple GDS platforms
             </p>
           </div>
           <RStoolDemoDashboard />
@@ -207,7 +207,7 @@ const RSTool = () => {
               Frequently Asked Questions
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Everything you need to know about aRStool implementation and pricing
+              Everything you need to know about rsTool implementation and pricing
             </p>
           </div>
           <RStoolFAQ />
@@ -221,7 +221,7 @@ const RSTool = () => {
             Ready to Transform Your B2B Travel Business?
           </h2>
           <p className="text-xl text-muted-foreground mb-8">
-            Join leading travel agencies already saving millions with aRStool's AI-powered re-shopping platform
+            Join leading travel agencies already saving millions with rsTool's AI-powered re-shopping platform
           </p>
           <Link to="/contact">
             <Button size="lg" className="rounded-full bg-stone-950 hover:bg-stone-800 text-white">

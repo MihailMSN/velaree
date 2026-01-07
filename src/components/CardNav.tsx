@@ -67,8 +67,8 @@ const CardNav = ({ className = '', ease = 'power3.out' }: CardNavProps) => {
       links: [
         { label: 'aSuite', href: '/asuite', ariaLabel: 'aSuite Product', icon: Layers, iconColor: 'hsl(var(--feature-blue))' },
         { label: 'UnifyTool', href: '/unifytool', ariaLabel: 'UnifyTool Product', icon: LinkIcon, iconColor: 'hsl(var(--feature-amber))' },
-        { label: 'aRStool', href: '/rstool', ariaLabel: 'aRStool Product', icon: Plane, iconColor: 'hsl(var(--feature-purple))' },
-        { label: 'hRStool', href: '/hrstool', ariaLabel: 'hRStool Product', icon: Building2, iconColor: 'hsl(var(--feature-emerald))' },
+        { label: 'rsTool', href: '/rstool', ariaLabel: 'rsTool Product', icon: Plane, iconColor: 'hsl(var(--feature-purple))' },
+        { label: 'hsTool', href: '/hrstool', ariaLabel: 'hsTool Product', icon: Building2, iconColor: 'hsl(var(--feature-emerald))' },
       ],
     },
     {

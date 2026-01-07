@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Check, ArrowRight, Sparkles, Gift, Plane, Building2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-const aRStoolPlans = [{
+const rsToolPlans = [{
   name: "Starter",
   price: "$499",
   period: "/mo",
@@ -37,7 +37,7 @@ const aRStoolPlans = [{
   ctaLink: "/contact",
   popular: false
 }];
-const hRStoolPlans = [{
+const hsToolPlans = [{
   name: "Starter",
   price: "$399",
   period: "/mo",
@@ -74,25 +74,25 @@ const hRStoolPlans = [{
 const Pricing = () => {
   return <div className="min-h-screen flex flex-col">
       <Helmet>
-        <title>Pricing Plans - aRStool & hRStool | Velaree</title>
-        <meta name="description" content="Transparent pricing for Velaree's travel technology solutions. Start with a free pilot for aRStool and hRStool. Plans for agencies of all sizes - from startups to enterprises." />
-        <meta name="keywords" content="travel technology pricing, aRStool pricing, hRStool pricing, B2B travel software cost, re-shopping tool pricing, travel agency software plans" />
+        <title>Pricing Plans - rsTool & hsTool | Velaree</title>
+        <meta name="description" content="Transparent pricing for Velaree's travel technology solutions. Start with a free pilot for rsTool and hsTool. Plans for agencies of all sizes - from startups to enterprises." />
+        <meta name="keywords" content="travel technology pricing, rsTool pricing, hsTool pricing, B2B travel software cost, re-shopping tool pricing, travel agency software plans" />
         <link rel="canonical" href="https://velaree.com/pricing" />
         
-        <meta property="og:title" content="Pricing Plans - aRStool & hRStool | Velaree" />
+        <meta property="og:title" content="Pricing Plans - rsTool & hsTool | Velaree" />
         <meta property="og:description" content="Transparent pricing for travel re-shopping tools. Start with a free pilot. Plans for agencies of all sizes." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://velaree.com/pricing" />
         
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Pricing Plans - aRStool & hRStool | Velaree" />
+        <meta name="twitter:title" content="Pricing Plans - rsTool & hsTool | Velaree" />
         <meta name="twitter:description" content="Transparent pricing for travel re-shopping tools. Start with a free pilot. Plans for agencies of all sizes." />
         
         <script type="application/ld+json">
           {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "aRStool",
+          "name": "rsTool",
           "description": "AI-powered air ticket re-shopping platform for travel agencies",
           "brand": {
             "@type": "Organization",
@@ -170,33 +170,33 @@ const Pricing = () => {
       {/* Pricing Tables */}
       <section className="py-16 px-6">
         <div className="container mx-auto max-w-7xl">
-          <Tabs defaultValue="arstool" className="w-full">
+          <Tabs defaultValue="rstool" className="w-full">
             <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-12">
-              <TabsTrigger value="arstool" className="flex items-center gap-2">
+              <TabsTrigger value="rstool" className="flex items-center gap-2">
                 <Plane className="w-4 h-4" />
-                aRStool
+                rsTool
               </TabsTrigger>
-              <TabsTrigger value="hrstool" className="flex items-center gap-2">
+              <TabsTrigger value="hstool" className="flex items-center gap-2">
                 <Building2 className="w-4 h-4" />
-                hRStool
+                hsTool
               </TabsTrigger>
             </TabsList>
 
-            {/* aRStool Pricing */}
-            <TabsContent value="arstool" className="space-y-8">
+            {/* rsTool Pricing */}
+            <TabsContent value="rstool" className="space-y-8">
               <div className="text-center mb-8">
                 <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-2 mb-4">
                   <Plane className="w-4 h-4 text-primary" />
                   <span className="text-sm font-semibold">Air Ticket Re-Shopping</span>
                 </div>
-                <h2 className="text-3xl font-bold mb-2">aRStool Pricing</h2>
+                <h2 className="text-3xl font-bold mb-2">rsTool Pricing</h2>
                 <p className="text-muted-foreground">
                   Save 15-40% on airfares with automated re-shopping
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {aRStoolPlans.map((tier, index) => <Card key={index} className={`relative flex flex-col ${tier.popular ? "border-primary shadow-lg scale-105" : "border-border"}`}>
+                {rsToolPlans.map((tier, index) => <Card key={index} className={`relative flex flex-col ${tier.popular ? "border-primary shadow-lg scale-105" : "border-border"}`}>
                     {tier.popular && <div className="absolute -top-4 left-1/2 -translate-x-1/2">
                         <span className="inline-flex items-center gap-1 bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-semibold">
                           <Sparkles className="w-3 h-3" />
@@ -239,21 +239,21 @@ const Pricing = () => {
               </div>
             </TabsContent>
 
-            {/* hRStool Pricing */}
-            <TabsContent value="hrstool" className="space-y-8">
+            {/* hsTool Pricing */}
+            <TabsContent value="hstool" className="space-y-8">
               <div className="text-center mb-8">
                 <div className="inline-flex items-center gap-2 bg-accent/20 border border-accent/40 rounded-full px-4 py-2 mb-4">
                   <Building2 className="w-4 h-4 text-accent-foreground" />
-                  <span className="text-sm font-semibold">Coming Q2 2025</span>
+                  <span className="text-sm font-semibold">Coming Q1-Q2 2027</span>
                 </div>
-                <h2 className="text-3xl font-bold mb-2">hRStool Pricing</h2>
+                <h2 className="text-3xl font-bold mb-2">hsTool Pricing</h2>
                 <p className="text-muted-foreground">
                   Save 20-35% on hotel bookings with automated rate monitoring
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {hRStoolPlans.map((tier, index) => <Card key={index} className={`relative flex flex-col ${tier.popular ? "border-primary shadow-lg scale-105" : "border-border"} ${tier.comingSoon ? "opacity-90" : ""}`}>
+                {hsToolPlans.map((tier, index) => <Card key={index} className={`relative flex flex-col ${tier.popular ? "border-primary shadow-lg scale-105" : "border-border"} ${tier.comingSoon ? "opacity-90" : ""}`}>
                     {tier.popular && <div className="absolute -top-4 left-1/2 -translate-x-1/2">
                         <span className="inline-flex items-center gap-1 bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-semibold">
                           <Sparkles className="w-3 h-3" />
@@ -334,9 +334,9 @@ const Pricing = () => {
             </div>
 
             <div className="bg-card p-6 rounded-lg border">
-              <h3 className="font-semibold text-lg mb-2">When will hRStool be available?</h3>
+              <h3 className="font-semibold text-lg mb-2">When will hsTool be available?</h3>
               <p className="text-muted-foreground">
-                hRStool is launching in Q2 2025. Join the waitlist now to get early access and lock in special launch pricing.
+                hsTool is launching in Q1-Q2 2027. Join the waitlist now to get early access and lock in special launch pricing.
               </p>
             </div>
           </div>

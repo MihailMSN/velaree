@@ -7,7 +7,7 @@ const products = [
     tagline: "CRM & CMS Platform",
   },
   {
-    name: "aRStool",
+    name: "rsTool",
     tagline: "AI Re-Shopping Engine",
   },
   {
@@ -15,7 +15,7 @@ const products = [
     tagline: "Unified API Platform",
   },
   {
-    name: "hRStool",
+    name: "hsTool",
     tagline: "Hotel Re-Shopping",
   },
 ];

@@ -63,18 +63,18 @@ const HRSTool = () => {
   }];
   return <div className="min-h-screen bg-background">
       <Helmet>
-        <title>hRStool - Hotel Re-Shopping Platform | Velaree</title>
-        <meta name="description" content="AI-powered hotel re-shopping platform for B2B travel agencies. Monitor rates 24/7 across all major OTAs and find better deals automatically. Coming Q1 2026." />
+        <title>hsTool - Hotel Re-Shopping Platform | Velaree</title>
+        <meta name="description" content="AI-powered hotel re-shopping platform for B2B travel agencies. Monitor rates 24/7 across all major OTAs and find better deals automatically. Coming Q1-Q2 2027." />
         <meta name="keywords" content="hotel re-shopping, hotel rate monitoring, OTA comparison, hotel booking savings, B2B travel tools, hotel price alerts" />
         <link rel="canonical" href="https://velaree.com/hrstool" />
         
-        <meta property="og:title" content="hRStool - Hotel Re-Shopping Platform | Velaree" />
+        <meta property="og:title" content="hsTool - Hotel Re-Shopping Platform | Velaree" />
         <meta property="og:description" content="Monitor hotel rates 24/7 across all major OTAs and find better deals automatically for your clients." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://velaree.com/hrstool" />
         
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="hRStool - Hotel Re-Shopping Platform | Velaree" />
+        <meta name="twitter:title" content="hsTool - Hotel Re-Shopping Platform | Velaree" />
         <meta name="twitter:description" content="Monitor hotel rates 24/7 across all major OTAs and find better deals automatically for your clients." />
       </Helmet>
       <Navigation />
@@ -83,8 +83,8 @@ const HRSTool = () => {
       <div className="fixed top-[88px] md:top-[120px] left-0 right-0 z-40 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border-b border-primary/20 backdrop-blur-sm">
         <div className="container mx-auto px-6 py-4">
           <div className="flex flex-col md:flex-row items-center justify-center gap-3">
-            <Badge variant="outline" className="bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border-primary/20">
-              Launching Q1 2026
+          <Badge variant="outline" className="bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border-primary/20">
+              Launching Q1-Q2 2027
             </Badge>
             <p className="text-base md:text-lg font-semibold flex items-center gap-2">
               <Hotel className="w-5 h-5" />
@@ -108,7 +108,7 @@ const HRSTool = () => {
               AI-Powered Hotel Re-Shopping Portal
             </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6 text-primary">
-              hRStool Preview
+              hsTool Preview
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
               The future of hotel re-shopping for B2B travel agencies. Monitor hotel rates 24/7 across all major OTAs 
@@ -158,7 +158,7 @@ const HRSTool = () => {
         <div className="container mx-auto max-w-7xl">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              How hRStool Works
+              How hsTool Works
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               From booking submission to automated hotel re-shopping in 4 simple steps
@@ -198,7 +198,7 @@ const HRSTool = () => {
               </div>
             </div>
             <p className="text-muted-foreground mt-8 max-w-2xl mx-auto">
-              Based on pilot data from our aRStool airline platform, adapted for hotel re-shopping scenarios.
+              Based on pilot data from our rsTool airline platform, adapted for hotel re-shopping scenarios.
               Actual savings may vary based on booking patterns and market conditions.
             </p>
           </Card>
@@ -209,10 +209,10 @@ const HRSTool = () => {
       <section className="py-24 px-6">
         <div className="container mx-auto max-w-4xl text-center">
           <Badge className="mb-6 text-base px-6 py-2">
-            Q1 2026 Launch
+            Q1-Q2 2027 Launch
           </Badge>
           <h2 className="text-4xl font-bold mb-6">
-            Be Among the First to Access hRStool
+            Be Among the First to Access hsTool
           </h2>
           <p className="text-xl text-muted-foreground mb-8">
             Join our exclusive waitlist and get early access to hotel re-shopping before the official launch.
@@ -226,7 +226,7 @@ const HRSTool = () => {
             </Link>
             <Link to="/rstool">
               <Button size="lg" variant="outline" className="rounded-full">
-                Try aRStool Now
+                Try rsTool Now
               </Button>
             </Link>
           </div>

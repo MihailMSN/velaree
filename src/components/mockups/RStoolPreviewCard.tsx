@@ -11,7 +11,7 @@ const RStoolPreviewCard = () => {
           <div className="w-2.5 h-2.5 rounded-full bg-green-400"></div>
         </div>
         <div className="flex-1 bg-background rounded px-3 py-1 text-xs text-muted-foreground">
-          arstool.velaree.com
+          rstool.velaree.com
         </div>
       </div>
 
@@ -20,7 +20,7 @@ const RStoolPreviewCard = () => {
         {/* Header */}
         <div className="flex items-center justify-between mb-4">
           <div>
-            <h3 className="text-sm font-semibold text-foreground">aRStool Dashboard</h3>
+            <h3 className="text-sm font-semibold text-foreground">rsTool Dashboard</h3>
             <p className="text-xs text-muted-foreground">Intelligent Re-shopping</p>
           </div>
           <button className="px-2.5 py-1 bg-blue-600 text-white rounded text-xs hover:bg-blue-700 transition-colors">
