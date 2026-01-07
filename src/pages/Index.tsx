@@ -12,7 +12,6 @@ import LiveStats from "@/components/LiveStats";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
-
 const Index = () => {
   return <div className="min-h-screen bg-background">
       <Helmet>
@@ -74,7 +73,7 @@ const Index = () => {
       <Technology />
       <TechnicalSpecs />
       <CaseStudies />
-      <LiveStats />
+      
       <CTA />
       <Footer />
       <BackToTop />
