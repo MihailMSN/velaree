@@ -71,7 +71,7 @@ const CTA = () => {
             </div> : <form onSubmit={handleWaitlistSignup} className="max-w-md mx-auto">
               <div className="flex flex-col sm:flex-row gap-3">
                 <Input type="email" placeholder="Enter your work email" value={email} onChange={e => setEmail(e.target.value)} required className="flex-1 h-14 px-5 rounded-full bg-white/10 border-white/20 text-primary-foreground placeholder:text-primary-foreground/50 focus:bg-white/20" />
-                <Button type="submit" size="lg" disabled={isLoading} className="h-14 px-8 rounded-full font-semibold group bg-[#158432] text-primary-foreground">
+                <Button type="submit" size="lg" disabled={isLoading} className="h-14 px-8 rounded-full font-semibold group text-primary-foreground bg-secondary-foreground">
                   {isLoading ? "Joining..." : <>
                       Join Waitlist
                       <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -87,7 +87,7 @@ const CTA = () => {
               <span>50+ agencies on waitlist</span>
             </div>
             <span>•</span>
-            <span>No commitment required</span>
+            <span className="bg-secondary-foreground">No commitment required</span>
             <span>•</span>
             <span>Early adopter pricing</span>
           </div>
