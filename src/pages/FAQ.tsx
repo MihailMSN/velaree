@@ -36,7 +36,7 @@ const FAQ = () => {
     {
       category: "Company & Services",
       question: "What services does Velaree offer?",
-      answer: "Velaree offers a comprehensive suite of travel technology solutions including aRStool (automated reservation system), hRStool (hotel reservation system), custom API integrations, real-time availability search, automated booking workflows, and enterprise-grade travel management platforms. Our solutions are designed to scale with your business needs."
+      answer: "Velaree offers a comprehensive suite of travel technology solutions including rsTool (automated reservation system), hsTool (hotel reservation system), custom API integrations, real-time availability search, automated booking workflows, and enterprise-grade travel management platforms. Our solutions are designed to scale with your business needs."
     },
     {
       category: "Company & Services",
@@ -75,17 +75,17 @@ const FAQ = () => {
     {
       category: "Products & Features",
       question: "What is aRStool?",
-      answer: "aRStool (automated Reservation System tool) is our flagship product for airlines and travel agencies. It provides real-time flight availability search, automated booking workflows, fare management, seat selection, ancillary service booking, multi-currency support, and comprehensive reporting. It's designed to handle high-volume operations with enterprise-grade reliability."
+      answer: "rsTool (Re-Shopping Tool) is our flagship product for airlines and travel agencies. It provides real-time flight availability search, automated booking workflows, fare management, seat selection, ancillary service booking, multi-currency support, and comprehensive reporting. It's designed to handle high-volume operations with enterprise-grade reliability."
     },
     {
       category: "Products & Features",
       question: "What is hRStool?",
-      answer: "hRStool (hotel Reservation System tool) is our comprehensive hotel booking platform offering real-time inventory management, rate management, channel distribution, booking engine integration, guest management, and analytics. It connects hotels with global distribution channels and provides tools to maximize occupancy and revenue."
+      answer: "hsTool (Hotel Re-Shopping Tool) is our comprehensive hotel booking platform offering real-time inventory management, rate management, channel distribution, booking engine integration, guest management, and analytics. It connects hotels with global distribution channels and provides tools to maximize occupancy and revenue."
     },
     {
       category: "Products & Features",
       question: "Can I use multiple Velaree products together?",
-      answer: "Yes, our products are designed to work seamlessly together. You can combine aRStool, hRStool, and our API solutions to create a unified travel booking platform. Our integrated approach allows you to manage flights, hotels, and other travel services from a single dashboard with consolidated reporting and analytics."
+      answer: "Yes, our products are designed to work seamlessly together. You can combine rsTool, hsTool, and our API solutions to create a unified travel booking platform. Our integrated approach allows you to manage flights, hotels, and other travel services from a single dashboard with consolidated reporting and analytics."
     },
     {
       category: "Products & Features",
@@ -211,7 +211,7 @@ const FAQ = () => {
         />
         <meta 
           name="keywords" 
-          content="Velaree FAQ, travel technology questions, implementation guide, pricing information, API integration, aRStool support, hRStool help, travel software questions" 
+          content="Velaree FAQ, travel technology questions, implementation guide, pricing information, API integration, rsTool support, hsTool help, travel software questions" 
         />
         <link rel="canonical" href="https://velaree.com/faq" />
         

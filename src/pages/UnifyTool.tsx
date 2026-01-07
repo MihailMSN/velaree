@@ -74,7 +74,7 @@ const UnifyTool = () => {
   }, {
     number: "03",
     title: "Monitor & Track",
-    description: "aRStool and hRStool continuously monitor all bookings for better rates and re-shopping opportunities.",
+    description: "rsTool and hsTool continuously monitor all bookings for better rates and re-shopping opportunities.",
     color: "from-purple-600 to-purple-500"
   }, {
     number: "04",
@@ -130,10 +130,10 @@ const UnifyTool = () => {
     answer: "Typical implementation takes 4-8 weeks depending on your existing systems and integration requirements. We provide a dedicated onboarding team, comprehensive training, and white-glove support throughout the process."
   }, {
     question: "Can we start with some tools and add others later?",
-    answer: "Absolutely! Our platform is modular - you can start with Click-to-Book and Private Fare API, then add aRStool, hRStool, and Automation Suite as your needs grow. All components integrate seamlessly when added."
+    answer: "Absolutely! Our platform is modular - you can start with Click-to-Book and Private Fare API, then add rsTool, hsTool, and Automation Suite as your needs grow. All components integrate seamlessly when added."
   }, {
     question: "How does data flow between different components?",
-    answer: "All components share a unified data model and communicate through our API layer. Bookings made through Click-to-Book automatically appear in aRStool for monitoring, automation workflows trigger across all systems, and analytics aggregate from all sources in real-time."
+    answer: "All components share a unified data model and communicate through our API layer. Bookings made through Click-to-Book automatically appear in rsTool for monitoring, automation workflows trigger across all systems, and analytics aggregate from all sources in real-time."
   }, {
     question: "What's required for integration with our existing systems?",
     answer: "We provide RESTful APIs, webhooks, and can integrate with most existing booking systems, CRMs, and accounting software. Our technical team will assess your environment and provide a detailed integration plan during onboarding."
@@ -205,7 +205,7 @@ const UnifyTool = () => {
             "@type": "Organization",
             "name": "Velaree"
           },
-          "featureList": ["Click-to-Book Platform", "Private Fare API", "Air Re-Shopping (aRStool)", "Hotel Re-Shopping (hRStool)", "Automation Suite", "Unified Dashboard", "Cross-Platform Analytics", "API-First Architecture"]
+          "featureList": ["Click-to-Book Platform", "Private Fare API", "Air Re-Shopping (rsTool)", "Hotel Re-Shopping (hsTool)", "Automation Suite", "Unified Dashboard", "Cross-Platform Analytics", "API-First Architecture"]
         })}
         </script>
       </Helmet>
@@ -281,7 +281,7 @@ const UnifyTool = () => {
               <div className="w-12 h-12 rounded-full bg-purple-600/10 flex items-center justify-center mb-4">
                 <RefreshCw className="w-6 h-6 text-purple-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">aRStool (Air Re-Shopping)</h3>
+              <h3 className="text-xl font-semibold mb-2">rsTool (Air Re-Shopping)</h3>
               <p className="text-muted-foreground">
                 AI-powered continuous monitoring and automatic re-booking when better air fares become available.
               </p>
@@ -291,8 +291,8 @@ const UnifyTool = () => {
               <div className="w-12 h-12 rounded-full bg-green-600/10 flex items-center justify-center mb-4">
                 <RefreshCw className="w-6 h-6 text-green-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">hRStool (Hotel Re-Shopping)</h3>
-              <Badge variant="secondary" className="mb-2">Coming Q1 2026</Badge>
+              <h3 className="text-xl font-semibold mb-2">hsTool (Hotel Re-Shopping)</h3>
+              <Badge variant="secondary" className="mb-2">Coming Q1-Q2 2027</Badge>
               <p className="text-muted-foreground">
                 Continuous hotel rate monitoring and re-booking for maximum savings on accommodation.
               </p>

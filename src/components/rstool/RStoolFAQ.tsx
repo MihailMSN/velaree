@@ -13,7 +13,7 @@ const RStoolFAQ = () => {
     },
     {
       question: "Which GDS systems do you integrate with?",
-      answer: "aRStool integrates with all major GDS platforms including Amadeus, Sabre, Travelport (Galileo, Apollo, Worldspan), and NDC connections. We also support direct airline APIs for enhanced fare checking and rebooking capabilities."
+      answer: "rsTool integrates with all major GDS platforms including Amadeus, Sabre, Travelport (Galileo, Apollo, Worldspan), and NDC connections. We also support direct airline APIs for enhanced fare checking and rebooking capabilities."
     },
     {
       question: "What's included in the pricing?",
@@ -25,7 +25,7 @@ const RStoolFAQ = () => {
     },
     {
       question: "Is our booking data secure?",
-      answer: "Yes. aRStool is SOC 2 Type II certified and fully GDPR compliant. All data is encrypted in transit (TLS 1.3) and at rest (AES-256). We maintain separate data environments per agency, and you retain full ownership of your booking data. We never share client data with third parties."
+      answer: "Yes. rsTool is SOC 2 Type II certified and fully GDPR compliant. All data is encrypted in transit (TLS 1.3) and at rest (AES-256). We maintain separate data environments per agency, and you retain full ownership of your booking data. We never share client data with third parties."
     },
     {
       question: "What happens during the free pilot?",

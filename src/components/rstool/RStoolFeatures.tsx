@@ -71,10 +71,10 @@ const features = [
   {
     icon: Hotel,
     title: "Hotel Re-Shopping",
-    description: "Apply the same AI-powered re-shopping intelligence to hotel bookings. Monitor rates 24/7 and automatically rebook when prices drop. Coming Q1 2026.",
+    description: "Apply the same AI-powered re-shopping intelligence to hotel bookings. Monitor rates 24/7 and automatically rebook when prices drop. Coming Q1-Q2 2027.",
     color: "text-teal-600 dark:text-teal-400",
     bgColor: "bg-teal-500/10",
-    badge: "Coming Q1 2026"
+    badge: "Coming Q1-Q2 2027"
   }
 ];
 

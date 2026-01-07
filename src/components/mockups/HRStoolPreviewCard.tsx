@@ -11,7 +11,7 @@ const HRStoolPreviewCard = () => {
           <div className="w-2.5 h-2.5 rounded-full bg-green-400"></div>
         </div>
         <div className="flex-1 bg-background rounded px-3 py-1 text-xs text-muted-foreground">
-          hrstool.velaree.com
+          hstool.velaree.com
         </div>
       </div>
 
@@ -20,12 +20,12 @@ const HRStoolPreviewCard = () => {
         {/* Header */}
         <div className="flex items-center justify-between mb-4">
           <div>
-            <h3 className="text-sm font-semibold text-foreground">hRStool Dashboard</h3>
+            <h3 className="text-sm font-semibold text-foreground">hsTool Dashboard</h3>
             <p className="text-xs text-muted-foreground">Hotel Re-shopping Platform</p>
           </div>
           <div className="flex items-center gap-1 px-2 py-1 bg-amber-100 rounded text-xs text-amber-700">
             <Calendar className="w-3 h-3" />
-            Q1 2026
+            Q1-Q2 2027
           </div>
         </div>
 
@@ -69,7 +69,7 @@ const HRStoolPreviewCard = () => {
             <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-amber-100 flex items-center justify-center">
               <Building2 className="w-8 h-8 text-amber-600" />
             </div>
-            <h4 className="text-lg font-semibold text-foreground mb-1">Coming Q1 2026</h4>
+            <h4 className="text-lg font-semibold text-foreground mb-1">Coming Q1-Q2 2027</h4>
             <p className="text-xs text-muted-foreground max-w-[200px]">
               Hotel re-shopping with the same intelligent automation
             </p>
