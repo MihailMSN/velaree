@@ -195,8 +195,8 @@ const Pricing = () => {
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {rsToolPlans.map((tier, index) => <Card key={index} className={`relative flex flex-col ${tier.popular ? "border-primary shadow-lg scale-105" : "border-border"}`}>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                {rsToolPlans.map((tier, index) => <Card key={index} className={`relative flex flex-col ${tier.popular ? "border-primary shadow-lg md:scale-105" : "border-border"}`}>
                     {tier.popular && <div className="absolute -top-4 left-1/2 -translate-x-1/2">
                         <span className="inline-flex items-center gap-1 bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-semibold">
                           <Sparkles className="w-3 h-3" />
@@ -252,8 +252,8 @@ const Pricing = () => {
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {hsToolPlans.map((tier, index) => <Card key={index} className={`relative flex flex-col ${tier.popular ? "border-primary shadow-lg scale-105" : "border-border"} ${tier.comingSoon ? "opacity-90" : ""}`}>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                {hsToolPlans.map((tier, index) => <Card key={index} className={`relative flex flex-col ${tier.popular ? "border-primary shadow-lg md:scale-105" : "border-border"} ${tier.comingSoon ? "opacity-90" : ""}`}>
                     {tier.popular && <div className="absolute -top-4 left-1/2 -translate-x-1/2">
                         <span className="inline-flex items-center gap-1 bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-semibold">
                           <Sparkles className="w-3 h-3" />

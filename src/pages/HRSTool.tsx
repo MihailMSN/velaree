@@ -80,19 +80,20 @@ const HRSTool = () => {
       <Navigation />
       
       {/* Coming Soon Banner */}
-      <div className="fixed top-[88px] md:top-[120px] left-0 right-0 z-40 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border-b border-primary/20 backdrop-blur-sm">
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-3">
-          <Badge variant="outline" className="bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border-primary/20">
+      <div className="fixed top-[72px] sm:top-[88px] md:top-[120px] left-0 right-0 z-40 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border-b border-primary/20 backdrop-blur-sm">
+        <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3">
+          <Badge variant="outline" className="bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border-primary/20 text-xs sm:text-sm">
               Launching Q1-Q2 2027
             </Badge>
-            <p className="text-base md:text-lg font-semibold flex items-center gap-2">
-              <Hotel className="w-5 h-5" />
-              Hotel Re-Shopping Tool - Coming Soon
+            <p className="text-sm sm:text-base md:text-lg font-semibold flex items-center gap-2">
+              <Hotel className="w-4 h-4 sm:w-5 sm:h-5" />
+              <span className="hidden sm:inline">Hotel Re-Shopping Tool - Coming Soon</span>
+              <span className="sm:hidden">hsTool - Coming Soon</span>
             </p>
             <Link to="/contact">
-              <Button size="sm" variant="outline" className="border-orange-500/30 hover:bg-orange-500/10">
-                Join Waitlist <ArrowRight className="ml-2 w-3 h-3" />
+              <Button size="sm" variant="outline" className="border-orange-500/30 hover:bg-orange-500/10 text-xs sm:text-sm">
+                Join Waitlist <ArrowRight className="ml-1 sm:ml-2 w-3 h-3" />
               </Button>
             </Link>
           </div>
@@ -100,27 +101,27 @@ const HRSTool = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="pt-48 md:pt-56 pb-16 px-6">
+      <section className="pt-40 sm:pt-48 md:pt-56 pb-12 sm:pb-16 px-4 sm:px-6">
         <div className="container mx-auto max-w-7xl">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border border-primary/20 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
-              <Sparkles className="w-4 h-4" />
+          <div className="text-center mb-8 sm:mb-12">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border border-primary/20 text-primary px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium mb-4 sm:mb-6">
+              <Sparkles className="w-3 h-3 sm:w-4 sm:h-4" />
               AI-Powered Hotel Re-Shopping Portal
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-primary">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6 text-primary">
               hsTool Preview
             </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+            <p className="text-base sm:text-xl text-muted-foreground max-w-3xl mx-auto mb-6 sm:mb-8 px-2">
               The future of hotel re-shopping for B2B travel agencies. Monitor hotel rates 24/7 across all major OTAs 
               and automatically find better deals, saving your clients money on every reservation.
             </p>
-            <div className="flex gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <Link to="/contact">
-                <Button size="lg" className="rounded-full bg-stone-950 hover:bg-stone-800">
+                <Button size="lg" className="w-full sm:w-auto rounded-full bg-stone-950 hover:bg-stone-800">
                   Get Early Access <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </Link>
-              <Button size="lg" variant="outline" className="rounded-full">
+              <Button size="lg" variant="outline" className="w-full sm:w-auto rounded-full">
                 Notify Me at Launch
               </Button>
             </div>

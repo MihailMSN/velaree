@@ -242,37 +242,37 @@ const FAQ = () => {
         <Navigation />
         
         {/* Hero Section */}
-        <section className="pt-32 pb-20 px-4 relative overflow-hidden">
+        <section className="pt-24 sm:pt-32 pb-12 sm:pb-20 px-4 relative overflow-hidden">
           {/* Background gradient */}
           <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent pointer-events-none" />
           
           <div className="container mx-auto max-w-5xl relative">
             <div className="text-center">
               {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-8">
-                <Sparkles className="w-4 h-4 text-primary" />
-                <span className="text-sm font-medium text-primary">Help Center</span>
+              <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-primary/10 border border-primary/20 mb-6 sm:mb-8">
+                <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-primary" />
+                <span className="text-xs sm:text-sm font-medium text-primary">Help Center</span>
               </div>
               
-              <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-foreground via-foreground to-foreground/70 bg-clip-text text-transparent">
+              <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-foreground via-foreground to-foreground/70 bg-clip-text text-transparent">
                 Frequently Asked Questions
               </h1>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-12">
+              <p className="text-base sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 sm:mb-12 px-2">
                 Find answers to common questions about our travel technology solutions, implementation, pricing, and support
               </p>
               
               {/* Search Bar */}
               <div className="max-w-xl mx-auto relative">
-                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                <Search className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 w-4 sm:w-5 h-4 sm:h-5 text-muted-foreground" />
                 <Input
                   type="text"
                   placeholder="Search questions..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-12 pr-4 py-6 text-lg rounded-xl border-border/50 bg-card/50 backdrop-blur-sm focus:border-primary/50 transition-colors"
+                  className="pl-10 sm:pl-12 pr-4 py-5 sm:py-6 text-base sm:text-lg rounded-xl border-border/50 bg-card/50 backdrop-blur-sm focus:border-primary/50 transition-colors"
                 />
                 {searchQuery && (
-                  <span className="absolute right-4 top-1/2 -translate-y-1/2 text-sm text-muted-foreground">
+                  <span className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 text-xs sm:text-sm text-muted-foreground">
                     {filteredFaqs.length} result{filteredFaqs.length !== 1 ? 's' : ''}
                   </span>
                 )}
@@ -282,26 +282,28 @@ const FAQ = () => {
         </section>
 
         {/* FAQ Content */}
-        <section className="pb-24 px-4">
+        <section className="pb-16 sm:pb-24 px-4">
           <div className="container mx-auto max-w-6xl">
-            <div className="flex gap-8">
-              {/* Sidebar */}
+            <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
+              {/* Sidebar - Hidden on mobile */}
               {!searchQuery && (
-                <FAQSidebar categories={categories} categoryConfig={categoryConfig} />
+                <div className="hidden lg:block">
+                  <FAQSidebar categories={categories} categoryConfig={categoryConfig} />
+                </div>
               )}
               
               {/* Main Content */}
               <div className={searchQuery ? "w-full max-w-5xl mx-auto" : "flex-1 min-w-0"}>
                 {categories.length === 0 ? (
-              <div className="text-center py-16">
-                <HelpCircle className="w-16 h-16 text-muted-foreground/50 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-2">No results found</h3>
-                <p className="text-muted-foreground">
+              <div className="text-center py-12 sm:py-16">
+                <HelpCircle className="w-12 h-12 sm:w-16 sm:h-16 text-muted-foreground/50 mx-auto mb-4" />
+                <h3 className="text-lg sm:text-xl font-semibold mb-2">No results found</h3>
+                <p className="text-sm sm:text-base text-muted-foreground">
                   Try adjusting your search terms or browse all categories below
                 </p>
                 <button 
                   onClick={() => setSearchQuery("")}
-                  className="mt-4 text-primary hover:underline font-medium"
+                  className="mt-4 text-primary hover:underline font-medium text-sm sm:text-base"
                 >
                   Clear search
                 </button>
@@ -317,18 +319,18 @@ const FAQ = () => {
                   <div 
                     key={category}
                     id={categoryId}
-                    className={`mb-16 last:mb-0 scroll-mt-32 ${isAlternate ? 'py-12 -mx-4 px-4 md:-mx-8 md:px-8 bg-muted/30 rounded-3xl' : ''}`}
+                    className={`mb-10 sm:mb-16 last:mb-0 scroll-mt-24 sm:scroll-mt-32 ${isAlternate ? 'py-8 sm:py-12 -mx-4 px-4 md:-mx-8 md:px-8 bg-muted/30 rounded-2xl sm:rounded-3xl' : ''}`}
                   >
                     {/* Category Header */}
-                    <div className="flex items-center gap-4 mb-8">
-                      <div className={`p-3 rounded-xl bg-gradient-to-br ${config?.gradient || 'from-primary/20 to-primary/10'}`}>
-                        <CategoryIcon className="w-6 h-6 text-foreground" />
+                    <div className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
+                      <div className={`p-2.5 sm:p-3 rounded-lg sm:rounded-xl bg-gradient-to-br ${config?.gradient || 'from-primary/20 to-primary/10'}`}>
+                        <CategoryIcon className="w-5 h-5 sm:w-6 sm:h-6 text-foreground" />
                       </div>
                       <div>
-                        <h2 className="text-2xl font-bold text-foreground">
+                        <h2 className="text-xl sm:text-2xl font-bold text-foreground">
                           {category}
                         </h2>
-                        <p className="text-sm text-muted-foreground">
+                        <p className="text-xs sm:text-sm text-muted-foreground">
                           {filteredFaqs.filter(f => f.category === category).length} questions
                         </p>
                       </div>
@@ -345,12 +347,12 @@ const FAQ = () => {
                               value={`${category}-${index}`}
                               className="border-b border-border/50"
                             >
-                              <AccordionTrigger className="text-left text-lg font-semibold hover:no-underline py-5 group">
-                                <span className="group-hover:text-primary transition-colors">
+                              <AccordionTrigger className="text-left text-base sm:text-lg font-semibold hover:no-underline py-4 sm:py-5 group">
+                                <span className="group-hover:text-primary transition-colors pr-4">
                                   {faq.question}
                                 </span>
                               </AccordionTrigger>
-                              <AccordionContent className="text-muted-foreground leading-relaxed pb-6">
+                              <AccordionContent className="text-sm sm:text-base text-muted-foreground leading-relaxed pb-4 sm:pb-6">
                                 {faq.answer}
                               </AccordionContent>
                             </AccordionItem>
@@ -367,35 +369,35 @@ const FAQ = () => {
         </section>
 
         {/* Contact CTA */}
-        <section className="pb-24 px-4">
+        <section className="pb-16 sm:pb-24 px-4">
           <div className="container mx-auto max-w-5xl">
-            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary/10 via-accent/5 to-primary/10 p-12 md:p-16">
+            <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-gradient-to-br from-primary/10 via-accent/5 to-primary/10 p-8 sm:p-12 md:p-16">
               {/* Decorative elements */}
-              <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-              <div className="absolute bottom-0 left-0 w-48 h-48 bg-accent/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
+              <div className="absolute top-0 right-0 w-48 sm:w-64 h-48 sm:h-64 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+              <div className="absolute bottom-0 left-0 w-32 sm:w-48 h-32 sm:h-48 bg-accent/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
               
               <div className="relative text-center">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
-                  <HelpCircle className="w-4 h-4 text-primary" />
-                  <span className="text-sm font-medium text-primary">Need More Help?</span>
+                <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-primary/10 border border-primary/20 mb-4 sm:mb-6">
+                  <HelpCircle className="w-3 h-3 sm:w-4 sm:h-4 text-primary" />
+                  <span className="text-xs sm:text-sm font-medium text-primary">Need More Help?</span>
                 </div>
                 
-                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-foreground">
                   Still Have Questions?
                 </h2>
-                <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+                <p className="text-base sm:text-lg text-muted-foreground mb-6 sm:mb-8 max-w-2xl mx-auto">
                   Our team is here to help. Contact us for personalized assistance with your travel technology needs.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                   <Link 
                     to="/contact" 
-                    className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-xl font-semibold hover:opacity-90 transition-all hover:scale-105"
+                    className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold hover:opacity-90 transition-all hover:scale-105 text-sm sm:text-base"
                   >
                     Contact Sales
                   </Link>
                   <Link 
                     to="/rstool" 
-                    className="inline-flex items-center justify-center gap-2 bg-card border border-border px-8 py-4 rounded-xl font-semibold hover:border-primary/50 transition-all"
+                    className="inline-flex items-center justify-center gap-2 bg-card border border-border px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold hover:border-primary/50 transition-all text-sm sm:text-base"
                   >
                     Explore aRStool
                   </Link>
