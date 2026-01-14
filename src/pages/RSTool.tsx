@@ -120,25 +120,25 @@ const RSTool = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-16 px-6">
+      <section className="pt-24 md:pt-32 pb-12 md:pb-16 px-4 md:px-6">
         <div className="container mx-auto max-w-7xl">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border border-primary/20 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
-              <Sparkles className="w-4 h-4" />
+          <div className="text-center mb-8 md:mb-12">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border border-primary/20 text-primary px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs md:text-sm font-medium mb-4 md:mb-6">
+              <Sparkles className="w-3 h-3 md:w-4 md:h-4" />
               AI-Powered B2B Re-Shopping Portal
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-primary">rsTool</h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 md:mb-6 text-primary">rsTool</h1>
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-6 md:mb-8 px-2">
               Experience the future of air ticket re-shopping. Our AI-powered platform monitors PNRs 24/7, 
               checks pricing across all major GDSs, and automatically finds better fares through multiple re-booking scenarios.
             </p>
-            <div className="flex gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
               <Link to="/contact">
-                <Button size="lg" className="rounded-full bg-stone-950 hover:bg-stone-800">
+                <Button size="lg" className="rounded-full bg-stone-950 hover:bg-stone-800 w-full sm:w-auto">
                   Start Free Pilot <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </Link>
-              <Button size="lg" variant="outline" className="rounded-full">
+              <Button size="lg" variant="outline" className="rounded-full w-full sm:w-auto">
                 Watch Demo Video
               </Button>
             </div>
@@ -150,11 +150,11 @@ const RSTool = () => {
       
 
       {/* Demo Dashboard */}
-      <section className="py-16 px-6 bg-muted/30">
+      <section className="py-12 md:py-16 px-4 md:px-6 bg-muted/30">
         <div className="container mx-auto max-w-7xl">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Interactive Dashboard</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 md:mb-4">Interactive Dashboard</h2>
+            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-2">
               See how rsTool analyzes PNRs and finds savings opportunities across multiple GDS platforms
             </p>
           </div>
@@ -163,20 +163,20 @@ const RSTool = () => {
       </section>
 
       {/* How It Works */}
-      <section className="py-16 px-6">
+      <section className="py-12 md:py-16 px-4 md:px-6">
         <div className="container mx-auto max-w-7xl">
           <RStoolHowItWorks />
         </div>
       </section>
 
       {/* Features */}
-      <section className="py-16 px-6 bg-muted/30">
+      <section className="py-12 md:py-16 px-4 md:px-6 bg-muted/30">
         <div className="container mx-auto max-w-7xl">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 md:mb-4">
               Powerful Features for B2B Travel Agencies
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-2">
               Everything you need to maximize savings and optimize your airline bookings
             </p>
           </div>
@@ -185,13 +185,13 @@ const RSTool = () => {
       </section>
 
       {/* Pricing */}
-      <section className="py-24 px-6 bg-gradient-to-b from-background to-muted/20">
+      <section className="py-16 md:py-24 px-4 md:px-6 bg-gradient-to-b from-background to-muted/20">
         <div className="container mx-auto max-w-7xl">
-          <div className="text-center mb-12 py-[2px]">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <div className="text-center mb-8 md:mb-12 py-[2px]">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 md:mb-4">
               Simple, Transparent Pricing
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-2">
               Choose the plan that fits your agency's volume
             </p>
           </div>
@@ -200,13 +200,13 @@ const RSTool = () => {
       </section>
 
       {/* FAQ */}
-      <section className="py-24 px-6">
+      <section className="py-16 md:py-24 px-4 md:px-6">
         <div className="container mx-auto max-w-7xl">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 md:mb-4">
               Frequently Asked Questions
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-2">
               Everything you need to know about rsTool implementation and pricing
             </p>
           </div>
@@ -215,16 +215,16 @@ const RSTool = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-32 px-6">
+      <section className="py-20 md:py-32 px-4 md:px-6">
         <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="text-4xl font-bold mb-6">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4 md:mb-6">
             Ready to Transform Your B2B Travel Business?
           </h2>
-          <p className="text-xl text-muted-foreground mb-8">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-6 md:mb-8 px-2">
             Join leading travel agencies already saving millions with rsTool's AI-powered re-shopping platform
           </p>
           <Link to="/contact">
-            <Button size="lg" className="rounded-full bg-stone-950 hover:bg-stone-800 text-white">
+            <Button size="lg" className="rounded-full bg-stone-950 hover:bg-stone-800 text-white w-full sm:w-auto">
               Schedule a Demo <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
           </Link>

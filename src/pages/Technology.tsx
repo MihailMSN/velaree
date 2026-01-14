@@ -219,49 +219,49 @@ const Technology = () => {
       <Navigation />
       
       {/* Enhanced Hero Section */}
-      <section className="min-h-[80vh] flex items-center justify-center bg-gradient-to-b from-background via-background to-muted/20 relative overflow-hidden pt-32 pb-20 px-6">
+      <section className="min-h-[70vh] md:min-h-[80vh] flex items-center justify-center bg-gradient-to-b from-background via-background to-muted/20 relative overflow-hidden pt-24 md:pt-32 pb-16 md:pb-20 px-4 md:px-6">
         <div className="absolute inset-0 bg-grid-white/5 bg-[size:50px_50px]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent" />
         
         <div className="container mx-auto text-center relative z-10">
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border border-primary/20 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6 animate-fade-in">
-            <Zap className="w-4 h-4" />
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border border-primary/20 text-primary px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs md:text-sm font-medium mb-4 md:mb-6 animate-fade-in">
+            <Zap className="w-3 h-3 md:w-4 md:h-4" />
             Powerful Travel Technology Stack
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-primary animate-fade-in" style={{
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 md:mb-6 text-primary animate-fade-in" style={{
           animationDelay: "0.1s"
         }}>
             Technology
           </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto animate-fade-in" style={{
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-6 md:mb-8 max-w-3xl mx-auto animate-fade-in px-2" style={{
           animationDelay: "0.2s"
         }}>
             Powerful tools built for modern travel businesses
           </p>
           
           {/* Hero Stats Bar */}
-          <div className="flex flex-wrap justify-center gap-4 md:gap-8 mb-10 animate-fade-in" style={{
+          <div className="grid grid-cols-2 sm:flex sm:flex-wrap justify-center gap-3 md:gap-4 lg:gap-8 mb-8 md:mb-10 animate-fade-in" style={{
           animationDelay: "0.3s"
         }}>
-            {heroStats.map((stat, index) => <div key={index} className="flex flex-col items-center px-6 py-3 rounded-xl bg-card/50 backdrop-blur-sm border border-border/50">
-                <span className="text-2xl md:text-3xl font-bold text-primary">{stat.value}</span>
+            {heroStats.map((stat, index) => <div key={index} className="flex flex-col items-center px-4 md:px-6 py-2 md:py-3 rounded-xl bg-card/50 backdrop-blur-sm border border-border/50">
+                <span className="text-xl sm:text-2xl md:text-3xl font-bold text-primary">{stat.value}</span>
                 <span className="text-xs md:text-sm text-muted-foreground">{stat.label}</span>
               </div>)}
           </div>
           
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in" style={{
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 animate-fade-in" style={{
           animationDelay: "0.4s"
         }}>
-            <Link to="/contact">
-              <Button size="lg" className="rounded-full px-8 py-6 text-lg bg-primary">
-                <FileCode className="w-5 h-5 mr-2" />
+            <Link to="/contact" className="w-full sm:w-auto">
+              <Button size="lg" className="rounded-full px-6 md:px-8 py-5 md:py-6 text-base md:text-lg bg-primary w-full sm:w-auto">
+                <FileCode className="w-4 h-4 md:w-5 md:h-5 mr-2" />
                 Get API Keys
               </Button>
             </Link>
-            <Link to="/contact">
-              <Button variant="outline" size="lg" className="rounded-full px-8 py-6 text-lg">
-                <BookOpen className="w-5 h-5 mr-2" />
+            <Link to="/contact" className="w-full sm:w-auto">
+              <Button variant="outline" size="lg" className="rounded-full px-6 md:px-8 py-5 md:py-6 text-base md:text-lg w-full sm:w-auto">
+                <BookOpen className="w-4 h-4 md:w-5 md:h-5 mr-2" />
                 Book a Demo
               </Button>
             </Link>
@@ -270,13 +270,13 @@ const Technology = () => {
       </section>
 
       {/* API Flow Diagram Section */}
-      <section className="py-16 md:py-24 bg-muted/30">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 animate-fade-in">
+      <section className="py-12 md:py-16 lg:py-24 bg-muted/30">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-3 md:mb-4 animate-fade-in">
               How It Works
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-in" style={{
+            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-in px-2" style={{
             animationDelay: "0.1s"
           }}>
               One unified API connecting you to the entire travel ecosystem
@@ -287,13 +287,13 @@ const Technology = () => {
       </section>
 
       {/* Value Pillars Section */}
-      <section className="py-16 md:py-24">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 animate-fade-in">
+      <section className="py-12 md:py-16 lg:py-24">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-3 md:mb-4 animate-fade-in">
               Built for Scale
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-in" style={{
+            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-in px-2" style={{
             animationDelay: "0.1s"
           }}>
               Enterprise-grade infrastructure that grows with your business
@@ -304,13 +304,13 @@ const Technology = () => {
       </section>
 
       {/* Solutions Section */}
-      <section className="py-16 md:py-24 bg-muted/20">
+      <section className="py-12 md:py-16 lg:py-24 bg-muted/20">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 animate-fade-in">
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-3 md:mb-4 animate-fade-in">
               Our Solutions
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-in" style={{
+            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-in px-2" style={{
             animationDelay: "0.1s"
           }}>
               Four powerful products to transform your travel operations
@@ -329,26 +329,26 @@ const Technology = () => {
       <ApiPreview />
 
       {/* CTA Section */}
-      <section className="py-24 bg-primary">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-primary-foreground mb-6 animate-fade-in">
+      <section className="py-16 md:py-24 bg-primary">
+        <div className="container mx-auto px-4 md:px-6 text-center">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary-foreground mb-4 md:mb-6 animate-fade-in">
             Ready to Get Started?
           </h2>
-          <p className="text-xl text-primary-foreground/80 mb-8 max-w-2xl mx-auto animate-fade-in" style={{
+          <p className="text-base sm:text-lg md:text-xl text-primary-foreground/80 mb-6 md:mb-8 max-w-2xl mx-auto animate-fade-in px-2" style={{
           animationDelay: "0.1s"
         }}>
             Schedule a personalized demo to see how Velaree can transform your operations
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in" style={{
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 animate-fade-in" style={{
           animationDelay: "0.2s"
         }}>
-            <Link to="/contact">
-              <Button size="lg" variant="secondary" className="text-lg px-8 py-6 rounded-full transition-all duration-300 hover:scale-105 bg-[sidebar-accent-foreground] bg-secondary">
+            <Link to="/contact" className="w-full sm:w-auto">
+              <Button size="lg" variant="secondary" className="text-base md:text-lg px-6 md:px-8 py-5 md:py-6 rounded-full transition-all duration-300 hover:scale-105 bg-[sidebar-accent-foreground] bg-secondary w-full sm:w-auto">
                 Book a Demo
               </Button>
             </Link>
-            <Link to="/contact">
-              <Button size="lg" variant="outline" className="text-lg px-8 py-6 rounded-full bg-transparent border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 transition-all duration-300">
+            <Link to="/contact" className="w-full sm:w-auto">
+              <Button size="lg" variant="outline" className="text-base md:text-lg px-6 md:px-8 py-5 md:py-6 rounded-full bg-transparent border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 transition-all duration-300 w-full sm:w-auto">
                 Get API Keys
               </Button>
             </Link>

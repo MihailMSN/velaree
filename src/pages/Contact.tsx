@@ -63,28 +63,28 @@ const Contact = () => {
       <Navigation />
       
       {/* Simple Header Section */}
-      <section className="pt-32 pb-12 px-6">
+      <section className="pt-24 md:pt-32 pb-8 md:pb-12 px-4 md:px-6">
         <div className="container mx-auto max-w-4xl text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4 text-foreground">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4 text-foreground">
             Contact Us
           </h1>
-          <p className="text-xl text-muted-foreground">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground px-2">
             Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
           </p>
         </div>
       </section>
 
       {/* Centered Contact Form */}
-      <section className="py-12 px-6">
+      <section className="py-8 md:py-12 px-4 md:px-6">
         <div className="container mx-auto max-w-2xl">
           <ContactForm />
         </div>
       </section>
 
       {/* Mini FAQ Section */}
-      <section className="py-16 px-6 bg-muted/30">
+      <section className="py-12 md:py-16 px-4 md:px-6 bg-muted/30">
         <div className="container mx-auto max-w-3xl">
-          <h2 className="text-3xl font-bold text-center mb-8 text-foreground">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-6 md:mb-8 text-foreground">
             Frequently Asked Questions
           </h2>
           
@@ -114,16 +114,16 @@ const Contact = () => {
       </section>
 
       {/* Quick Links / Explore More Section */}
-      <section className="py-16 px-6">
+      <section className="py-12 md:py-16 px-4 md:px-6">
         <div className="container mx-auto max-w-5xl">
-          <h2 className="text-3xl font-bold text-center mb-4 text-foreground">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-3 md:mb-4 text-foreground">
             Explore Our Solutions
           </h2>
-          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+          <p className="text-center text-muted-foreground mb-8 md:mb-12 max-w-2xl mx-auto text-sm md:text-base px-2">
             Learn more about our products and how they can transform your travel operations
           </p>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {quickLinks.map((link, index) => {
               const Icon = link.icon;
               return (
