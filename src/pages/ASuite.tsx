@@ -164,31 +164,31 @@ const ASuite = () => {
         <Navigation />
 
         {/* Hero Section */}
-        <section className="min-h-[70vh] flex items-center justify-center bg-gradient-to-b from-background via-background to-muted/20 relative overflow-hidden pt-32 pb-20 px-6">
+        <section className="min-h-[60vh] md:min-h-[70vh] flex items-center justify-center bg-gradient-to-b from-background via-background to-muted/20 relative overflow-hidden pt-24 md:pt-32 pb-16 md:pb-20 px-4 md:px-6">
           <div className="absolute inset-0 bg-grid-white/5 bg-[size:50px_50px]" />
           <div className="container mx-auto text-center relative z-10">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border border-primary/20 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6 animate-fade-in">
-              <Settings className="w-4 h-4" />
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border border-primary/20 text-primary px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs md:text-sm font-medium mb-4 md:mb-6 animate-fade-in">
+              <Settings className="w-3 h-3 md:w-4 md:h-4" />
               Complete Management Platform
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-primary animate-fade-in">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 md:mb-6 text-primary animate-fade-in">
               aSuite
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-4 max-w-3xl mx-auto animate-fade-in">
+            <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-3 md:mb-4 max-w-3xl mx-auto animate-fade-in px-2">
               Your Command Center for Travel Operations
             </p>
-            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto animate-fade-in">
+            <p className="text-base md:text-lg text-muted-foreground mb-6 md:mb-8 max-w-2xl mx-auto animate-fade-in px-2">
               Manage your entire travel technology stack, customers, content, and operations from one unified CRM/CMS platform.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
-              <Link to="/contact">
-                <Button size="lg" className="rounded-full px-8 bg-stone-950 hover:bg-stone-800">
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center animate-fade-in">
+              <Link to="/contact" className="w-full sm:w-auto">
+                <Button size="lg" className="rounded-full px-6 md:px-8 bg-stone-950 hover:bg-stone-800 w-full sm:w-auto">
                   Book Demo
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </Link>
-              <Link to="/pricing">
-                <Button size="lg" variant="outline" className="rounded-full px-8">
+              <Link to="/pricing" className="w-full sm:w-auto">
+                <Button size="lg" variant="outline" className="rounded-full px-6 md:px-8 w-full sm:w-auto">
                   View Pricing
                 </Button>
               </Link>
@@ -197,49 +197,49 @@ const ASuite = () => {
         </section>
 
         {/* Platform Overview */}
-        <section className="py-24 px-6 bg-muted/30">
+        <section className="py-16 md:py-24 px-4 md:px-6 bg-muted/30">
           <div className="container mx-auto max-w-7xl text-center">
-            <Badge variant="outline" className="mb-4">
+            <Badge variant="outline" className="mb-3 md:mb-4">
               Platform Overview
             </Badge>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-primary px-2">
               The Control Center for Your Travel Business
             </h2>
-            <p className="text-lg text-muted-foreground mb-8 max-w-3xl mx-auto">
+            <p className="text-base md:text-lg text-muted-foreground mb-6 md:mb-8 max-w-3xl mx-auto px-2">
               aSuite is the management layer that sits on top of UnifyTool and your entire travel technology stack. 
               It provides comprehensive CRM capabilities, content management, user administration, and business intelligence 
               to help you run your travel business more efficiently.
             </p>
-            <div className="grid md:grid-cols-3 gap-6 mt-12">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mt-8 md:mt-12">
               <Card>
-                <CardHeader>
-                  <Users className="w-12 h-12 text-primary mb-4" />
-                  <CardTitle>CRM</CardTitle>
+                <CardHeader className="pb-2 md:pb-4">
+                  <Users className="w-10 h-10 md:w-12 md:h-12 text-primary mb-3 md:mb-4" />
+                  <CardTitle className="text-lg md:text-xl">CRM</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">
+                  <p className="text-sm md:text-base text-muted-foreground">
                     Complete customer relationship management with 360° customer views, booking history, and automated engagement.
                   </p>
                 </CardContent>
               </Card>
               <Card>
-                <CardHeader>
-                  <FileText className="w-12 h-12 text-primary mb-4" />
-                  <CardTitle>CMS</CardTitle>
+                <CardHeader className="pb-2 md:pb-4">
+                  <FileText className="w-10 h-10 md:w-12 md:h-12 text-primary mb-3 md:mb-4" />
+                  <CardTitle className="text-lg md:text-xl">CMS</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">
+                  <p className="text-sm md:text-base text-muted-foreground">
                     Full content management system with white-label customization, multi-site support, and SEO optimization.
                   </p>
                 </CardContent>
               </Card>
-              <Card>
-                <CardHeader>
-                  <BarChart3 className="w-12 h-12 text-primary mb-4" />
-                  <CardTitle>Analytics</CardTitle>
+              <Card className="sm:col-span-2 md:col-span-1">
+                <CardHeader className="pb-2 md:pb-4">
+                  <BarChart3 className="w-10 h-10 md:w-12 md:h-12 text-primary mb-3 md:mb-4" />
+                  <CardTitle className="text-lg md:text-xl">Analytics</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">
+                  <p className="text-sm md:text-base text-muted-foreground">
                     Unified analytics dashboard with custom reporting, KPI tracking, and revenue insights across all platforms.
                   </p>
                 </CardContent>
@@ -247,15 +247,15 @@ const ASuite = () => {
             </div>
 
             {/* Interactive Dashboard Preview */}
-            <div className="mt-16">
-              <div className="text-center mb-8">
-                <Badge variant="secondary" className="mb-4">
+            <div className="mt-12 md:mt-16">
+              <div className="text-center mb-6 md:mb-8">
+                <Badge variant="secondary" className="mb-3 md:mb-4">
                   Live Demo
                 </Badge>
-                <h3 className="text-2xl md:text-3xl font-bold text-primary mb-4">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-primary mb-3 md:mb-4">
                   Experience aSuite in Action
                 </h3>
-                <p className="text-muted-foreground max-w-2xl mx-auto">
+                <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto px-2">
                   Explore the interactive dashboard below. Switch between CRM, CMS, Analytics, and Settings views to see how aSuite streamlines your operations.
                 </p>
               </div>
@@ -265,28 +265,28 @@ const ASuite = () => {
         </section>
 
         {/* Core Features */}
-        <section className="py-24 px-6">
+        <section className="py-16 md:py-24 px-4 md:px-6">
           <div className="container mx-auto">
-            <div className="text-center mb-16">
-              <Badge variant="outline" className="mb-4">
+            <div className="text-center mb-10 md:mb-16">
+              <Badge variant="outline" className="mb-3 md:mb-4">
                 Core Features
               </Badge>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-primary px-2">
                 Everything You Need to Manage Your Travel Business
               </h2>
-              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto px-2">
                 A comprehensive suite of tools designed specifically for travel industry professionals
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
               {coreFeatures.map((feature, index) => <Card key={index} className="hover:shadow-lg transition-shadow">
-                  <CardHeader>
-                    <feature.icon className="w-12 h-12 text-primary mb-4" />
-                    <CardTitle className="text-xl">{feature.title}</CardTitle>
+                  <CardHeader className="pb-2 md:pb-4">
+                    <feature.icon className="w-10 h-10 md:w-12 md:h-12 text-primary mb-3 md:mb-4" />
+                    <CardTitle className="text-lg md:text-xl">{feature.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <CardDescription className="text-base">
+                    <CardDescription className="text-sm md:text-base">
                       {feature.description}
                     </CardDescription>
                   </CardContent>
@@ -296,64 +296,64 @@ const ASuite = () => {
         </section>
 
         {/* Key Capabilities */}
-        <section className="py-24 px-6 bg-muted/30">
+        <section className="py-16 md:py-24 px-4 md:px-6 bg-muted/30">
           <div className="container mx-auto">
-            <div className="text-center mb-16">
-              <Badge variant="outline" className="mb-4">
+            <div className="text-center mb-10 md:mb-16">
+              <Badge variant="outline" className="mb-3 md:mb-4">
                 Key Capabilities
               </Badge>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-primary px-2">
                 Powerful Features Across Every Function
               </h2>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 max-w-6xl mx-auto">
               <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Users className="w-6 h-6 text-primary" />
+                <CardHeader className="pb-2 md:pb-4">
+                  <CardTitle className="flex items-center gap-2 text-base md:text-lg">
+                    <Users className="w-5 h-5 md:w-6 md:h-6 text-primary" />
                     CRM Features
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <ul className="space-y-3">
+                  <ul className="space-y-2 md:space-y-3">
                     {crmFeatures.map((feature, index) => <li key={index} className="flex items-start gap-2">
-                        <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                        <span className="text-muted-foreground">{feature}</span>
+                        <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-primary mt-0.5 flex-shrink-0" />
+                        <span className="text-sm md:text-base text-muted-foreground">{feature}</span>
                       </li>)}
                   </ul>
                 </CardContent>
               </Card>
 
               <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <FileText className="w-6 h-6 text-primary" />
+                <CardHeader className="pb-2 md:pb-4">
+                  <CardTitle className="flex items-center gap-2 text-base md:text-lg">
+                    <FileText className="w-5 h-5 md:w-6 md:h-6 text-primary" />
                     CMS Features
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <ul className="space-y-3">
+                  <ul className="space-y-2 md:space-y-3">
                     {cmsFeatures.map((feature, index) => <li key={index} className="flex items-start gap-2">
-                        <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                        <span className="text-muted-foreground">{feature}</span>
+                        <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-primary mt-0.5 flex-shrink-0" />
+                        <span className="text-sm md:text-base text-muted-foreground">{feature}</span>
                       </li>)}
                   </ul>
                 </CardContent>
               </Card>
 
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Settings className="w-6 h-6 text-primary" />
+              <Card className="sm:col-span-2 md:col-span-1">
+                <CardHeader className="pb-2 md:pb-4">
+                  <CardTitle className="flex items-center gap-2 text-base md:text-lg">
+                    <Settings className="w-5 h-5 md:w-6 md:h-6 text-primary" />
                     Operations Features
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <ul className="space-y-3">
+                  <ul className="space-y-2 md:space-y-3">
                     {operationsFeatures.map((feature, index) => <li key={index} className="flex items-start gap-2">
-                        <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                        <span className="text-muted-foreground">{feature}</span>
+                        <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-primary mt-0.5 flex-shrink-0" />
+                        <span className="text-sm md:text-base text-muted-foreground">{feature}</span>
                       </li>)}
                   </ul>
                 </CardContent>
@@ -363,27 +363,27 @@ const ASuite = () => {
         </section>
 
         {/* Use Cases */}
-        <section className="py-24 px-6">
+        <section className="py-16 md:py-24 px-4 md:px-6">
           <div className="container mx-auto max-w-5xl">
-            <div className="text-center mb-16">
-              <Badge variant="outline" className="mb-4">
+            <div className="text-center mb-10 md:mb-16">
+              <Badge variant="outline" className="mb-3 md:mb-4">
                 Use Cases
               </Badge>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-primary px-2">
                 Built for Every Type of Travel Business
               </h2>
             </div>
 
-            <div className="space-y-8">
+            <div className="space-y-4 md:space-y-8">
               {useCases.map((useCase, index) => <Card key={index}>
-                  <CardHeader>
-                    <CardTitle className="text-2xl">{useCase.title}</CardTitle>
-                    <CardDescription className="text-base">
+                  <CardHeader className="pb-2 md:pb-4">
+                    <CardTitle className="text-lg sm:text-xl md:text-2xl">{useCase.title}</CardTitle>
+                    <CardDescription className="text-sm md:text-base">
                       <strong>Scenario:</strong> {useCase.scenario}
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-muted-foreground">
+                    <p className="text-sm md:text-base text-muted-foreground">
                       <strong>Solution:</strong> {useCase.solution}
                     </p>
                   </CardContent>
@@ -393,61 +393,61 @@ const ASuite = () => {
         </section>
 
         {/* Technical Specifications */}
-        <section className="py-24 px-6 bg-muted/30">
+        <section className="py-16 md:py-24 px-4 md:px-6 bg-muted/30">
           <div className="container mx-auto max-w-5xl">
-            <div className="text-center mb-16">
-              <Badge variant="outline" className="mb-4">
+            <div className="text-center mb-10 md:mb-16">
+              <Badge variant="outline" className="mb-3 md:mb-4">
                 Technical Specifications
               </Badge>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-primary px-2">
                 Enterprise-Grade Infrastructure
               </h2>
-              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto px-2">
                 Built on modern, scalable architecture with security and reliability at the core
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid sm:grid-cols-2 gap-4 md:gap-6">
               {technicalSpecs.map((spec, index) => <Card key={index}>
-                  <CardContent className="pt-6">
+                  <CardContent className="pt-4 md:pt-6">
                     <div className="flex justify-between items-center">
-                      <span className="font-semibold text-primary">{spec.label}</span>
-                      <span className="text-muted-foreground">{spec.value}</span>
+                      <span className="font-semibold text-primary text-sm md:text-base">{spec.label}</span>
+                      <span className="text-sm md:text-base text-muted-foreground">{spec.value}</span>
                     </div>
                   </CardContent>
                 </Card>)}
             </div>
 
-            <div className="mt-12 grid md:grid-cols-3 gap-6">
+            <div className="mt-8 md:mt-12 grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
               <Card>
-                <CardHeader>
-                  <Shield className="w-10 h-10 text-primary mb-2" />
-                  <CardTitle>Security First</CardTitle>
+                <CardHeader className="pb-2 md:pb-4">
+                  <Shield className="w-8 h-8 md:w-10 md:h-10 text-primary mb-2" />
+                  <CardTitle className="text-base md:text-lg">Security First</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">
+                  <p className="text-sm md:text-base text-muted-foreground">
                     Bank-level encryption, SOC 2 Type II certified, and GDPR compliant with regular security audits.
                   </p>
                 </CardContent>
               </Card>
               <Card>
-                <CardHeader>
-                  <Database className="w-10 h-10 text-primary mb-2" />
-                  <CardTitle>Reliable Data</CardTitle>
+                <CardHeader className="pb-2 md:pb-4">
+                  <Database className="w-8 h-8 md:w-10 md:h-10 text-primary mb-2" />
+                  <CardTitle className="text-base md:text-lg">Reliable Data</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">
+                  <p className="text-sm md:text-base text-muted-foreground">
                     99.99% uptime SLA with automated daily backups and point-in-time recovery capabilities.
                   </p>
                 </CardContent>
               </Card>
-              <Card>
-                <CardHeader>
-                  <Zap className="w-10 h-10 text-primary mb-2" />
-                  <CardTitle>High Performance</CardTitle>
+              <Card className="sm:col-span-2 md:col-span-1">
+                <CardHeader className="pb-2 md:pb-4">
+                  <Zap className="w-8 h-8 md:w-10 md:h-10 text-primary mb-2" />
+                  <CardTitle className="text-base md:text-lg">High Performance</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">
+                  <p className="text-sm md:text-base text-muted-foreground">
                     Optimized for speed with Redis caching, CDN delivery, and distributed architecture.
                   </p>
                 </CardContent>
@@ -457,38 +457,38 @@ const ASuite = () => {
         </section>
 
         {/* Pricing */}
-        <section className="py-24 px-6">
+        <section className="py-16 md:py-24 px-4 md:px-6">
           <div className="container mx-auto">
-            <div className="text-center mb-16">
-              <Badge variant="outline" className="mb-4">
+            <div className="text-center mb-10 md:mb-16">
+              <Badge variant="outline" className="mb-3 md:mb-4">
                 Pricing
               </Badge>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-primary px-2">
                 Plans That Scale With Your Business
               </h2>
-              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto px-2">
                 Choose the plan that fits your needs. All plans include core features with the ability to upgrade as you grow.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 max-w-6xl mx-auto">
               {pricingTiers.map((tier, index) => <Card key={index} className={`relative ${tier.popular ? 'border-primary shadow-xl' : ''}`}>
                   {tier.popular && <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                       <Badge className="bg-primary text-primary-foreground">Most Popular</Badge>
                     </div>}
-                  <CardHeader className="text-center pb-8">
-                    <CardTitle className="text-2xl mb-2">{tier.name}</CardTitle>
-                    <div className="mb-4">
-                      <span className="text-4xl font-bold text-primary">{tier.price}</span>
-                      <span className="text-muted-foreground">{tier.period}</span>
+                  <CardHeader className="text-center pb-4 md:pb-8">
+                    <CardTitle className="text-xl md:text-2xl mb-2">{tier.name}</CardTitle>
+                    <div className="mb-3 md:mb-4">
+                      <span className="text-3xl md:text-4xl font-bold text-primary">{tier.price}</span>
+                      <span className="text-sm md:text-base text-muted-foreground">{tier.period}</span>
                     </div>
-                    <CardDescription>{tier.description}</CardDescription>
+                    <CardDescription className="text-sm md:text-base">{tier.description}</CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <ul className="space-y-3 mb-8">
+                    <ul className="space-y-2 md:space-y-3 mb-6 md:mb-8">
                       {tier.features.map((feature, idx) => <li key={idx} className="flex items-start gap-2">
-                          <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                          <span className="text-sm text-muted-foreground">{feature}</span>
+                          <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-primary mt-0.5 flex-shrink-0" />
+                          <span className="text-xs sm:text-sm text-muted-foreground">{feature}</span>
                         </li>)}
                     </ul>
                     <Link to="/contact">
@@ -500,11 +500,11 @@ const ASuite = () => {
                 </Card>)}
             </div>
 
-            <div className="text-center mt-12">
-              <p className="text-muted-foreground mb-4">
+            <div className="text-center mt-8 md:mt-12">
+              <p className="text-sm md:text-base text-muted-foreground mb-3 md:mb-4 px-2">
                 All plans include: Unified dashboard • User management • Booking management • Basic analytics • API monitoring
               </p>
-              <Link to="/pricing" className="text-primary hover:underline">
+              <Link to="/pricing" className="text-primary hover:underline text-sm md:text-base">
                 View detailed pricing comparison →
               </Link>
             </div>
@@ -512,26 +512,26 @@ const ASuite = () => {
         </section>
 
         {/* FAQ */}
-        <section className="py-24 px-6 bg-muted/30">
+        <section className="py-16 md:py-24 px-4 md:px-6 bg-muted/30">
           <div className="container mx-auto max-w-4xl">
-            <div className="text-center mb-16">
-              <Badge variant="outline" className="mb-4">
+            <div className="text-center mb-10 md:mb-16">
+              <Badge variant="outline" className="mb-3 md:mb-4">
                 FAQ
               </Badge>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-primary">
                 Frequently Asked Questions
               </h2>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-base md:text-lg text-muted-foreground">
                 Everything you need to know about aSuite
               </p>
             </div>
 
             <Accordion type="single" collapsible className="w-full">
               {faqs.map((faq, index) => <AccordionItem key={index} value={`item-${index}`}>
-                  <AccordionTrigger className="text-left">
+                  <AccordionTrigger className="text-left text-sm md:text-base">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent>
+                  <AccordionContent className="text-sm md:text-base">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>)}
@@ -540,23 +540,23 @@ const ASuite = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-24 px-6">
+        <section className="py-16 md:py-24 px-4 md:px-6">
           <div className="container mx-auto max-w-4xl text-center">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-primary px-2">
               Ready to Take Control of Your Travel Operations?
             </h2>
-            <p className="text-xl text-muted-foreground mb-8">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-6 md:mb-8 px-2">
               See how aSuite can streamline your entire travel business management
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/contact">
-                <Button size="lg" className="rounded-full px-8 bg-stone-950 hover:bg-stone-800">
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
+              <Link to="/contact" className="w-full sm:w-auto">
+                <Button size="lg" className="rounded-full px-6 md:px-8 bg-stone-950 hover:bg-stone-800 w-full sm:w-auto">
                   Schedule Demo
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </Link>
-              <Link to="/pricing">
-                <Button size="lg" variant="outline" className="rounded-full px-8">
+              <Link to="/pricing" className="w-full sm:w-auto">
+                <Button size="lg" variant="outline" className="rounded-full px-6 md:px-8 w-full sm:w-auto">
                   View All Pricing
                 </Button>
               </Link>
