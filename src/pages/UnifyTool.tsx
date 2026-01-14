@@ -213,30 +213,30 @@ const UnifyTool = () => {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="min-h-[90vh] flex items-center justify-center bg-gradient-to-b from-background via-background to-muted/20 relative overflow-hidden pt-32 pb-20 px-6">
+      <section className="min-h-[80vh] md:min-h-[90vh] flex items-center justify-center bg-gradient-to-b from-background via-background to-muted/20 relative overflow-hidden pt-24 md:pt-32 pb-16 md:pb-20 px-4 md:px-6">
         <div className="absolute inset-0 bg-grid-white/5 bg-[size:50px_50px]" />
         <div className="container mx-auto text-center relative z-10">
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border border-primary/20 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
-            <Zap className="w-4 h-4" />
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border border-primary/20 text-primary px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs md:text-sm font-medium mb-4 md:mb-6">
+            <Zap className="w-3 h-3 md:w-4 md:h-4" />
             Complete Integrated Platform
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-primary">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 md:mb-6 text-primary">
             UnifyTool
           </h1>
-          <p className="text-2xl md:text-3xl text-muted-foreground mb-4 max-w-4xl mx-auto">
+          <p className="text-xl sm:text-2xl md:text-3xl text-muted-foreground mb-3 md:mb-4 max-w-4xl mx-auto px-2">
             One Platform. Every Tool. Complete Control.
           </p>
-          <p className="text-xl text-muted-foreground/80 mb-10 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground/80 mb-8 md:mb-10 max-w-3xl mx-auto px-2">
             The only travel technology platform that combines booking, private fares, re-shopping, and automation into one seamless, unified solution.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/contact">
-              <Button size="lg" className="rounded-full px-8 text-lg bg-stone-950 hover:bg-stone-800">
-                Book Demo <ArrowRight className="ml-2 h-5 w-5" />
+          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
+            <Link to="/contact" className="w-full sm:w-auto">
+              <Button size="lg" className="rounded-full px-6 md:px-8 text-base md:text-lg bg-stone-950 hover:bg-stone-800 w-full sm:w-auto">
+                Book Demo <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
               </Button>
             </Link>
-            <Link to="/pricing">
-              <Button size="lg" variant="outline" className="rounded-full px-8 text-lg">
+            <Link to="/pricing" className="w-full sm:w-auto">
+              <Button size="lg" variant="outline" className="rounded-full px-6 md:px-8 text-base md:text-lg w-full sm:w-auto">
                 View Pricing
               </Button>
             </Link>
@@ -245,75 +245,75 @@ const UnifyTool = () => {
       </section>
 
       {/* Platform Overview */}
-      <section className="py-20 px-6 bg-muted/30">
+      <section className="py-16 md:py-20 px-4 md:px-6 bg-muted/30">
         <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <div className="text-center mb-10 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 px-2">
               Five Powerful Technologies, One Unified Platform
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-2">
               UnifyTool brings together our entire suite of travel technologies into a single, cohesive platform designed to transform your travel business operations.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            <Card className="p-6 hover:shadow-lg transition-shadow">
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                <Zap className="w-6 h-6 text-primary" />
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-8 md:mb-12">
+            <Card className="p-4 md:p-6 hover:shadow-lg transition-shadow">
+              <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary/10 flex items-center justify-center mb-3 md:mb-4">
+                <Zap className="w-5 h-5 md:w-6 md:h-6 text-primary" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Click-to-Book Platform</h3>
-              <p className="text-muted-foreground">
+              <h3 className="text-lg md:text-xl font-semibold mb-2">Click-to-Book Platform</h3>
+              <p className="text-sm md:text-base text-muted-foreground">
                 Instant booking engine with real-time availability across GDS and direct airline connections.
               </p>
             </Card>
 
-            <Card className="p-6 hover:shadow-lg transition-shadow">
-              <div className="w-12 h-12 rounded-full bg-blue-600/10 flex items-center justify-center mb-4">
-                <Database className="w-6 h-6 text-blue-600" />
+            <Card className="p-4 md:p-6 hover:shadow-lg transition-shadow">
+              <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-blue-600/10 flex items-center justify-center mb-3 md:mb-4">
+                <Database className="w-5 h-5 md:w-6 md:h-6 text-blue-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Private Fare API</h3>
-              <p className="text-muted-foreground">
+              <h3 className="text-lg md:text-xl font-semibold mb-2">Private Fare API</h3>
+              <p className="text-sm md:text-base text-muted-foreground">
                 Access exclusive negotiated rates and wholesale fares not available to the public.
               </p>
             </Card>
 
-            <Card className="p-6 hover:shadow-lg transition-shadow">
-              <div className="w-12 h-12 rounded-full bg-purple-600/10 flex items-center justify-center mb-4">
-                <RefreshCw className="w-6 h-6 text-purple-600" />
+            <Card className="p-4 md:p-6 hover:shadow-lg transition-shadow">
+              <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-purple-600/10 flex items-center justify-center mb-3 md:mb-4">
+                <RefreshCw className="w-5 h-5 md:w-6 md:h-6 text-purple-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">rsTool (Air Re-Shopping)</h3>
-              <p className="text-muted-foreground">
+              <h3 className="text-lg md:text-xl font-semibold mb-2">rsTool (Air Re-Shopping)</h3>
+              <p className="text-sm md:text-base text-muted-foreground">
                 AI-powered continuous monitoring and automatic re-booking when better air fares become available.
               </p>
             </Card>
 
-            <Card className="p-6 hover:shadow-lg transition-shadow">
-              <div className="w-12 h-12 rounded-full bg-green-600/10 flex items-center justify-center mb-4">
-                <RefreshCw className="w-6 h-6 text-green-600" />
+            <Card className="p-4 md:p-6 hover:shadow-lg transition-shadow">
+              <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-green-600/10 flex items-center justify-center mb-3 md:mb-4">
+                <RefreshCw className="w-5 h-5 md:w-6 md:h-6 text-green-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">hsTool (Hotel Re-Shopping)</h3>
-              <Badge variant="secondary" className="mb-2">Coming Q1-Q2 2027</Badge>
-              <p className="text-muted-foreground">
+              <h3 className="text-lg md:text-xl font-semibold mb-2">hsTool (Hotel Re-Shopping)</h3>
+              <Badge variant="secondary" className="mb-2 text-xs">Coming Q1-Q2 2027</Badge>
+              <p className="text-sm md:text-base text-muted-foreground">
                 Continuous hotel rate monitoring and re-booking for maximum savings on accommodation.
               </p>
             </Card>
 
-            <Card className="p-6 hover:shadow-lg transition-shadow">
-              <div className="w-12 h-12 rounded-full bg-orange-600/10 flex items-center justify-center mb-4">
-                <Layers className="w-6 h-6 text-orange-600" />
+            <Card className="p-4 md:p-6 hover:shadow-lg transition-shadow">
+              <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-orange-600/10 flex items-center justify-center mb-3 md:mb-4">
+                <Layers className="w-5 h-5 md:w-6 md:h-6 text-orange-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">aSuite (Automation Suite)</h3>
-              <p className="text-muted-foreground">
+              <h3 className="text-lg md:text-xl font-semibold mb-2">aSuite (Automation Suite)</h3>
+              <p className="text-sm md:text-base text-muted-foreground">
                 Complete post-booking automation including ticketing, confirmations, and notifications.
               </p>
             </Card>
 
-            <Card className="p-6 hover:shadow-lg transition-shadow bg-gradient-to-br from-primary/5 to-primary/10 border-primary/20">
-              <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mb-4">
-                <CheckCircle2 className="w-6 h-6 text-primary" />
+            <Card className="p-4 md:p-6 hover:shadow-lg transition-shadow bg-gradient-to-br from-primary/5 to-primary/10 border-primary/20 sm:col-span-2 lg:col-span-1">
+              <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary/20 flex items-center justify-center mb-3 md:mb-4">
+                <CheckCircle2 className="w-5 h-5 md:w-6 md:h-6 text-primary" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Unified Integration</h3>
-              <p className="text-muted-foreground">
+              <h3 className="text-lg md:text-xl font-semibold mb-2">Unified Integration</h3>
+              <p className="text-sm md:text-base text-muted-foreground">
                 All components work seamlessly together with shared data, unified reporting, and single dashboard.
               </p>
             </Card>
@@ -322,71 +322,71 @@ const UnifyTool = () => {
       </section>
 
       {/* Why Unified Platform */}
-      <section className="py-20 px-6">
+      <section className="py-16 md:py-20 px-4 md:px-6">
         <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <div className="text-center mb-10 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 px-2">
               Why Choose a Unified Platform?
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-2">
               Managing separate systems is costly, complex, and inefficient. UnifyTool eliminates these challenges with one integrated solution.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {benefits.map((benefit, index) => <Card key={index} className="p-8 hover:shadow-xl transition-all">
-                <benefit.icon className="w-12 h-12 text-primary mb-4" />
-                <h3 className="text-2xl font-semibold mb-3">{benefit.title}</h3>
-                <p className="text-muted-foreground text-lg">{benefit.description}</p>
+          <div className="grid sm:grid-cols-2 gap-4 md:gap-8 max-w-5xl mx-auto">
+            {benefits.map((benefit, index) => <Card key={index} className="p-4 md:p-8 hover:shadow-xl transition-all">
+                <benefit.icon className="w-10 h-10 md:w-12 md:h-12 text-primary mb-3 md:mb-4" />
+                <h3 className="text-xl md:text-2xl font-semibold mb-2 md:mb-3">{benefit.title}</h3>
+                <p className="text-sm md:text-lg text-muted-foreground">{benefit.description}</p>
               </Card>)}
           </div>
         </div>
       </section>
 
       {/* Integration Features */}
-      <section className="py-20 px-6 bg-muted/30">
+      <section className="py-16 md:py-20 px-4 md:px-6 bg-muted/30">
         <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <div className="text-center mb-10 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 px-2">
               Powerful Integration Features
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-2">
               Experience the benefits of true platform integration with features designed for efficiency and scale.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {integrationFeatures.map((feature, index) => <Card key={index} className="p-6 hover:shadow-lg transition-shadow">
-                <feature.icon className="w-10 h-10 text-primary mb-4" />
-                <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
-                <p className="text-muted-foreground text-sm">{feature.description}</p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+            {integrationFeatures.map((feature, index) => <Card key={index} className="p-4 md:p-6 hover:shadow-lg transition-shadow">
+                <feature.icon className="w-8 h-8 md:w-10 md:h-10 text-primary mb-3 md:mb-4" />
+                <h3 className="text-base md:text-lg font-semibold mb-2">{feature.title}</h3>
+                <p className="text-xs md:text-sm text-muted-foreground">{feature.description}</p>
               </Card>)}
           </div>
         </div>
       </section>
 
       {/* How It All Works Together */}
-      <section className="py-20 px-6">
+      <section className="py-16 md:py-20 px-4 md:px-6">
         <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <div className="text-center mb-10 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 px-2">
               How It All Works Together
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-2">
               From search to booking to optimization, every step is automated and integrated for maximum efficiency.
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto space-y-6">
-            {workflowSteps.map((step, index) => <Card key={index} className="p-8 hover:shadow-xl transition-all relative overflow-hidden">
-                <div className={`absolute top-0 left-0 w-2 h-full bg-gradient-to-b ${step.color}`} />
-                <div className="flex items-start gap-6">
-                  <div className={`text-4xl font-bold bg-gradient-to-br ${step.color} bg-clip-text text-transparent flex-shrink-0`}>
+          <div className="max-w-4xl mx-auto space-y-4 md:space-y-6">
+            {workflowSteps.map((step, index) => <Card key={index} className="p-4 md:p-8 hover:shadow-xl transition-all relative overflow-hidden">
+                <div className={`absolute top-0 left-0 w-1 md:w-2 h-full bg-gradient-to-b ${step.color}`} />
+                <div className="flex items-start gap-3 md:gap-6">
+                  <div className={`text-2xl md:text-4xl font-bold bg-gradient-to-br ${step.color} bg-clip-text text-transparent flex-shrink-0`}>
                     {step.number}
                   </div>
                   <div>
-                    <h3 className="text-2xl font-semibold mb-3">{step.title}</h3>
-                    <p className="text-muted-foreground text-lg">{step.description}</p>
+                    <h3 className="text-lg md:text-2xl font-semibold mb-2 md:mb-3">{step.title}</h3>
+                    <p className="text-sm md:text-lg text-muted-foreground">{step.description}</p>
                   </div>
                 </div>
               </Card>)}
@@ -395,30 +395,30 @@ const UnifyTool = () => {
       </section>
 
       {/* Interactive Mockups */}
-      <section className="py-20 px-6 bg-muted/30">
+      <section className="py-16 md:py-20 px-4 md:px-6 bg-muted/30">
         <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <div className="text-center mb-10 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 px-2">
               See the Platform in Action
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-2">
               Explore interactive demonstrations of each component working together seamlessly.
             </p>
           </div>
 
-          <div className="space-y-16">
+          <div className="space-y-10 md:space-y-16">
             <div>
-              <h3 className="text-2xl font-semibold mb-4 text-center">Click-to-Book Platform</h3>
+              <h3 className="text-lg md:text-2xl font-semibold mb-3 md:mb-4 text-center">Click-to-Book Platform</h3>
               <ClickToBookMockup />
             </div>
 
             <div>
-              <h3 className="text-2xl font-semibold mb-4 text-center">Private Fare Comparison</h3>
+              <h3 className="text-lg md:text-2xl font-semibold mb-3 md:mb-4 text-center">Private Fare Comparison</h3>
               <PrivateFareMockup />
             </div>
 
             <div>
-              <h3 className="text-2xl font-semibold mb-4 text-center">aRStool Re-Shopping Dashboard</h3>
+              <h3 className="text-lg md:text-2xl font-semibold mb-3 md:mb-4 text-center">aRStool Re-Shopping Dashboard</h3>
               <RStoolDemoDashboard />
             </div>
           </div>
@@ -426,39 +426,39 @@ const UnifyTool = () => {
       </section>
 
       {/* Technology Stack */}
-      <section className="py-20 px-6">
+      <section className="py-16 md:py-20 px-4 md:px-6">
         <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <div className="text-center mb-10 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 px-2">
               Enterprise-Grade Technology Stack
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-2">
               Built on modern cloud infrastructure with industry-leading performance, security, and reliability.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            {techSpecs.map((spec, index) => <Card key={index} className="p-6 text-center hover:shadow-lg transition-shadow">
-                <p className="text-sm text-muted-foreground mb-2">{spec.label}</p>
-                <p className="text-xl font-semibold">{spec.value}</p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 max-w-6xl mx-auto">
+            {techSpecs.map((spec, index) => <Card key={index} className="p-3 md:p-6 text-center hover:shadow-lg transition-shadow">
+                <p className="text-xs md:text-sm text-muted-foreground mb-1 md:mb-2">{spec.label}</p>
+                <p className="text-sm md:text-xl font-semibold">{spec.value}</p>
               </Card>)}
           </div>
 
-          <div className="mt-12 flex flex-wrap justify-center gap-6 max-w-4xl mx-auto">
-            <Badge variant="secondary" className="text-base px-4 py-2">
-              <Cloud className="w-4 h-4 mr-2" />
+          <div className="mt-8 md:mt-12 flex flex-wrap justify-center gap-2 md:gap-6 max-w-4xl mx-auto">
+            <Badge variant="secondary" className="text-xs md:text-base px-2 md:px-4 py-1 md:py-2">
+              <Cloud className="w-3 h-3 md:w-4 md:h-4 mr-1 md:mr-2" />
               Cloud-Native
             </Badge>
-            <Badge variant="secondary" className="text-base px-4 py-2">
-              <Shield className="w-4 h-4 mr-2" />
+            <Badge variant="secondary" className="text-xs md:text-base px-2 md:px-4 py-1 md:py-2">
+              <Shield className="w-3 h-3 md:w-4 md:h-4 mr-1 md:mr-2" />
               SOC 2 Certified
             </Badge>
-            <Badge variant="secondary" className="text-base px-4 py-2">
-              <Lock className="w-4 h-4 mr-2" />
+            <Badge variant="secondary" className="text-xs md:text-base px-2 md:px-4 py-1 md:py-2">
+              <Lock className="w-3 h-3 md:w-4 md:h-4 mr-1 md:mr-2" />
               GDPR Compliant
             </Badge>
-            <Badge variant="secondary" className="text-base px-4 py-2">
-              <Globe className="w-4 h-4 mr-2" />
+            <Badge variant="secondary" className="text-xs md:text-base px-2 md:px-4 py-1 md:py-2">
+              <Globe className="w-3 h-3 md:w-4 md:h-4 mr-1 md:mr-2" />
               Multi-GDS Support
             </Badge>
           </div>
@@ -466,107 +466,107 @@ const UnifyTool = () => {
       </section>
 
       {/* Success Stories */}
-      <section className="py-20 px-6 bg-muted/30">
+      <section className="py-16 md:py-20 px-4 md:px-6 bg-muted/30">
         <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <div className="text-center mb-10 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 px-2">
               Real Results from Real Customers
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-2">
               See how travel businesses are transforming their operations with UnifyTool.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {successStories.map((story, index) => <Card key={index} className="p-8 hover:shadow-xl transition-all">
-                <MessageSquare className="w-10 h-10 text-primary mb-4" />
-                <h3 className="text-xl font-semibold mb-3">{story.company}</h3>
-                <div className="text-3xl font-bold text-primary mb-4">{story.result}</div>
-                <p className="text-muted-foreground">{story.description}</p>
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 max-w-6xl mx-auto">
+            {successStories.map((story, index) => <Card key={index} className="p-4 md:p-8 hover:shadow-xl transition-all">
+                <MessageSquare className="w-8 h-8 md:w-10 md:h-10 text-primary mb-3 md:mb-4" />
+                <h3 className="text-lg md:text-xl font-semibold mb-2 md:mb-3">{story.company}</h3>
+                <div className="text-2xl md:text-3xl font-bold text-primary mb-3 md:mb-4">{story.result}</div>
+                <p className="text-sm md:text-base text-muted-foreground">{story.description}</p>
               </Card>)}
           </div>
         </div>
       </section>
 
       {/* Pricing Overview */}
-      <section className="py-20 px-6">
+      <section className="py-16 md:py-20 px-4 md:px-6">
         <div className="container mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 px-2">
               Flexible Pricing for Every Business
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-6 md:mb-8 px-2">
               Save 25-35% with our complete platform packages vs. purchasing individual tools separately.
             </p>
             <Link to="/pricing">
-              <Button size="lg" className="rounded-full px-8 bg-stone-950 hover:bg-stone-800">
-                View Detailed Pricing <ArrowRight className="ml-2 h-5 w-5" />
+              <Button size="lg" className="rounded-full px-6 md:px-8 bg-stone-950 hover:bg-stone-800 w-full sm:w-auto">
+                View Detailed Pricing <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
               </Button>
             </Link>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mt-16">
-            <Card className="p-8">
-              <h3 className="text-2xl font-semibold mb-2">Startup</h3>
-              <p className="text-muted-foreground mb-4">Perfect for growing travel businesses</p>
-              <ul className="space-y-2 text-sm text-muted-foreground">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 max-w-6xl mx-auto mt-10 md:mt-16">
+            <Card className="p-4 md:p-8">
+              <h3 className="text-xl md:text-2xl font-semibold mb-2">Startup</h3>
+              <p className="text-sm md:text-base text-muted-foreground mb-3 md:mb-4">Perfect for growing travel businesses</p>
+              <ul className="space-y-2 text-xs md:text-sm text-muted-foreground">
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-primary" />
+                  <CheckCircle2 className="w-3 h-3 md:w-4 md:h-4 text-primary flex-shrink-0" />
                   1,000 - 10,000 bookings/month
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-primary" />
+                  <CheckCircle2 className="w-3 h-3 md:w-4 md:h-4 text-primary flex-shrink-0" />
                   All core features included
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-primary" />
+                  <CheckCircle2 className="w-3 h-3 md:w-4 md:h-4 text-primary flex-shrink-0" />
                   Email & chat support
                 </li>
               </ul>
             </Card>
 
-            <Card className="p-8 border-primary shadow-lg">
-              <Badge className="mb-2">Most Popular</Badge>
-              <h3 className="text-2xl font-semibold mb-2">Business</h3>
-              <p className="text-muted-foreground mb-4">For established OTAs and TMCs</p>
-              <ul className="space-y-2 text-sm text-muted-foreground">
+            <Card className="p-4 md:p-8 border-primary shadow-lg">
+              <Badge className="mb-2 text-xs">Most Popular</Badge>
+              <h3 className="text-xl md:text-2xl font-semibold mb-2">Business</h3>
+              <p className="text-sm md:text-base text-muted-foreground mb-3 md:mb-4">For established OTAs and TMCs</p>
+              <ul className="space-y-2 text-xs md:text-sm text-muted-foreground">
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-primary" />
+                  <CheckCircle2 className="w-3 h-3 md:w-4 md:h-4 text-primary flex-shrink-0" />
                   10,000 - 100,000 bookings/month
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-primary" />
+                  <CheckCircle2 className="w-3 h-3 md:w-4 md:h-4 text-primary flex-shrink-0" />
                   Advanced analytics & reporting
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-primary" />
+                  <CheckCircle2 className="w-3 h-3 md:w-4 md:h-4 text-primary flex-shrink-0" />
                   Priority 24/7 support
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-primary" />
+                  <CheckCircle2 className="w-3 h-3 md:w-4 md:h-4 text-primary flex-shrink-0" />
                   Dedicated account manager
                 </li>
               </ul>
             </Card>
 
-            <Card className="p-8">
-              <h3 className="text-2xl font-semibold mb-2">Enterprise</h3>
-              <p className="text-muted-foreground mb-4">Custom solutions for high-volume operations</p>
-              <ul className="space-y-2 text-sm text-muted-foreground">
+            <Card className="p-4 md:p-8 sm:col-span-2 md:col-span-1">
+              <h3 className="text-xl md:text-2xl font-semibold mb-2">Enterprise</h3>
+              <p className="text-sm md:text-base text-muted-foreground mb-3 md:mb-4">Custom solutions for high-volume operations</p>
+              <ul className="space-y-2 text-xs md:text-sm text-muted-foreground">
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-primary" />
+                  <CheckCircle2 className="w-3 h-3 md:w-4 md:h-4 text-primary flex-shrink-0" />
                   100,000+ bookings/month
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-primary" />
+                  <CheckCircle2 className="w-3 h-3 md:w-4 md:h-4 text-primary flex-shrink-0" />
                   Custom feature development
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-primary" />
+                  <CheckCircle2 className="w-3 h-3 md:w-4 md:h-4 text-primary flex-shrink-0" />
                   SLA guarantees
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-primary" />
+                  <CheckCircle2 className="w-3 h-3 md:w-4 md:h-4 text-primary flex-shrink-0" />
                   On-premise deployment option
                 </li>
               </ul>
@@ -576,23 +576,23 @@ const UnifyTool = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 px-6 bg-muted/30">
+      <section className="py-16 md:py-20 px-4 md:px-6 bg-muted/30">
         <div className="container mx-auto max-w-4xl">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <div className="text-center mb-10 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
               Frequently Asked Questions
             </h2>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground px-2">
               Everything you need to know about implementing UnifyTool
             </p>
           </div>
 
-          <Accordion type="single" collapsible className="space-y-4">
-            {faqs.map((faq, index) => <AccordionItem key={index} value={`item-${index}`} className="bg-card px-6 rounded-lg border">
-                <AccordionTrigger className="text-left hover:no-underline py-6">
+          <Accordion type="single" collapsible className="space-y-3 md:space-y-4">
+            {faqs.map((faq, index) => <AccordionItem key={index} value={`item-${index}`} className="bg-card px-4 md:px-6 rounded-lg border">
+                <AccordionTrigger className="text-left hover:no-underline py-4 md:py-6 text-sm md:text-base">
                   <span className="font-semibold">{faq.question}</span>
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground pb-6">
+                <AccordionContent className="text-sm md:text-base text-muted-foreground pb-4 md:pb-6">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>)}
@@ -601,28 +601,28 @@ const UnifyTool = () => {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 px-6">
+      <section className="py-16 md:py-20 px-4 md:px-6">
         <div className="container mx-auto text-center">
-          <div className="max-w-4xl mx-auto bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 rounded-2xl p-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <div className="max-w-4xl mx-auto bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 rounded-2xl p-6 md:p-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 px-2">
               Transform Your Travel Business Today
             </h2>
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-6 md:mb-8 max-w-2xl mx-auto px-2">
               Join leading OTAs, TMCs, and travel agencies who have unified their operations with UnifyTool.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/contact">
-                <Button size="lg" className="rounded-full px-8 text-lg bg-stone-950 hover:bg-stone-800">
-                  Schedule a Demo <ArrowRight className="ml-2 h-5 w-5" />
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
+              <Link to="/contact" className="w-full sm:w-auto">
+                <Button size="lg" className="rounded-full px-6 md:px-8 text-base md:text-lg bg-stone-950 hover:bg-stone-800 w-full sm:w-auto">
+                  Schedule a Demo <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
                 </Button>
               </Link>
-              <Link to="/pricing">
-                <Button size="lg" variant="outline" className="rounded-full px-8 text-lg">
+              <Link to="/pricing" className="w-full sm:w-auto">
+                <Button size="lg" variant="outline" className="rounded-full px-6 md:px-8 text-base md:text-lg w-full sm:w-auto">
                   View Pricing Plans
                 </Button>
               </Link>
             </div>
-            <p className="text-sm text-muted-foreground mt-6">
+            <p className="text-xs md:text-sm text-muted-foreground mt-4 md:mt-6">
               No credit card required • 4-8 week implementation • 24/7 support included
             </p>
           </div>
