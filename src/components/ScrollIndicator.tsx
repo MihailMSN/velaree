@@ -11,7 +11,7 @@ const ScrollIndicator = () => {
   return (
     <button
       onClick={scrollToContent}
-      className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 animate-bounce-arrow cursor-pointer group"
+      className="hidden lg:flex absolute bottom-6 left-1/2 -translate-x-1/2 z-20 animate-bounce-arrow cursor-pointer group"
       aria-label="Scroll to content"
     >
       <div className="flex flex-col items-center gap-2">
