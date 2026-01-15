@@ -1660,7 +1660,7 @@ const PitchDeck = () => {
         <meta property="og:description" content="Velaree investor pitch deck - Next-generation travel technology platform." />
       </Helmet>
 
-      <div className="h-screen w-screen flex flex-col bg-background overflow-hidden">
+      <div className="h-screen w-screen flex flex-col bg-background overflow-hidden pt-10">
         {/* Header */}
         <div className="flex items-center justify-between px-2 py-2 sm:px-4 sm:py-3 border-b border-border/50 bg-muted/30 backdrop-blur-sm shrink-0">
           <div className="flex items-center gap-2">
