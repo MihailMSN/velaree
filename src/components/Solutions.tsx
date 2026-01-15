@@ -6,7 +6,7 @@ const primaryProduct = {
   icon: DollarSign,
   name: "rsTool",
   title: "AI-Powered PNR Repricing",
-  subtitle: "Save 15-30% per ticket",
+  subtitle: "Save 5-15% per ticket",
   timeline: "Q3-Q4 2026",
   status: "In Development",
   description: "Automatically monitor and apply lower fares to existing bookings. Our flagship product uses AI to continuously scan for price drops and handle rebooking automatically.",
@@ -36,9 +36,9 @@ const futureProducts = [
   {
     icon: Bot,
     name: "aSuite",
-    title: "AI Automation",
+    title: "AI Automation & CRM",
     timeline: "Q3-Q4 2027",
-    description: "Intelligent workflows for ticketing, changes, and refunds",
+    description: "Intelligent CRM with automated workflows for ticketing, changes, and refunds",
     color: "text-violet-600",
     bgColor: "bg-violet-500/10",
     link: "/asuite"

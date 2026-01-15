@@ -50,7 +50,7 @@ const CTA = () => {
           </div>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-4 sm:mb-6">
-            Be First to Save 15-30% on Every Ticket
+            Be First to Save 5-15% on Every Ticket
           </h2>
           
           <p className="text-base sm:text-lg md:text-xl text-primary-foreground/80 mb-8 sm:mb-10 max-w-2xl mx-auto">

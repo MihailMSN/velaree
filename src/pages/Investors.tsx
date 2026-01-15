@@ -83,7 +83,7 @@ const productRoadmap = [{
   status: "Planned"
 }, {
   name: "aSuite",
-  desc: "AI automation workflows",
+  desc: "AI automation & CRM suite",
   timeline: "Q3-Q4 2027",
   status: "Planned"
 }, {
@@ -111,7 +111,7 @@ const Investors = () => {
             <div className="text-center">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-700 mb-6">
                 <Rocket className="w-4 h-4" />
-                <span className="text-sm font-medium">Pre-Seed Round Open • Est. 2024</span>
+                <span className="text-sm font-medium">Pre-Seed Round Open • Est. Q4 2025</span>
               </div>
               
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-foreground">
