@@ -6,20 +6,19 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Rocket, TrendingUp, Users, Target, DollarSign, Globe, Shield, Zap, ArrowRight, Presentation, Mail, Linkedin, CheckCircle2, Calendar, Bot, Plug } from "lucide-react";
 const teamMembers = [{
-  name: "Founder & CEO",
-  role: "Product & Vision",
-  bio: "Travel technology veteran with deep industry expertise in GDS systems and airline distribution.",
-  linkedin: "#"
+  name: "Mihail Mazil",
+  initials: "MM",
+  role: "CEO & Co-Founder",
+  bio: "10+ years travel tech leadership. Built and scaled travel platforms. Expert in product strategy and business development.",
+  linkedin: "#",
+  skills: ["Product Strategy", "Business Development", "Fundraising"]
 }, {
-  name: "Co-Founder & CTO",
-  role: "Technology & Architecture",
-  bio: "Full-stack engineer with experience building scalable enterprise platforms and API infrastructure.",
-  linkedin: "#"
-}, {
-  name: "Co-Founder & COO",
-  role: "Operations & Partnerships",
-  bio: "Former airline executive with extensive network across OTAs, TMCs, and consolidators.",
-  linkedin: "#"
+  name: "Mihail Sinitari",
+  initials: "MS",
+  role: "COO & Co-Founder",
+  bio: "8+ years operations experience. Expert in scaling operations and building strategic partnerships.",
+  linkedin: "#",
+  skills: ["Operations", "Partnerships", "Scaling"]
 }];
 const marketOpportunity = [{
   metric: "$800B+",
@@ -270,14 +269,21 @@ const Investors = () => {
               Experienced founders with deep domain expertise in travel technology and enterprise software
             </p>
             
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
               {teamMembers.map((member, index) => <Card key={index} className="p-6 text-center bg-card">
                   <div className="w-20 h-20 rounded-full bg-muted mx-auto mb-4 flex items-center justify-center">
-                    <Users className="w-8 h-8 text-muted-foreground" />
+                    <span className="text-2xl font-bold text-muted-foreground">{member.initials}</span>
                   </div>
                   <h3 className="text-lg font-bold mb-1">{member.name}</h3>
-                  <div className="text-sm text-muted-foreground font-medium mb-3">{member.role}</div>
+                  <div className="text-sm text-primary font-medium mb-3">{member.role}</div>
                   <p className="text-sm text-muted-foreground mb-4">{member.bio}</p>
+                  <div className="flex flex-wrap justify-center gap-2 mb-4">
+                    {member.skills.map((skill, skillIndex) => (
+                      <span key={skillIndex} className="text-xs px-2 py-1 bg-muted rounded-full text-muted-foreground">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
                   <a href={member.linkedin} className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors">
                     <Linkedin className="w-4 h-4" />
                     LinkedIn
