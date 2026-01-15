@@ -271,12 +271,12 @@ const Investors = () => {
             </p>
             
             <div className="grid md:grid-cols-3 gap-8">
-              {teamMembers.map((member, index) => <Card key={index} className="p-6 text-center">
-                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 mx-auto mb-4 flex items-center justify-center">
-                    <Users className="w-8 h-8 text-primary" />
+              {teamMembers.map((member, index) => <Card key={index} className="p-6 text-center bg-card">
+                  <div className="w-20 h-20 rounded-full bg-muted mx-auto mb-4 flex items-center justify-center">
+                    <Users className="w-8 h-8 text-muted-foreground" />
                   </div>
                   <h3 className="text-lg font-bold mb-1">{member.name}</h3>
-                  <div className="text-sm text-primary font-medium mb-3">{member.role}</div>
+                  <div className="text-sm text-muted-foreground font-medium mb-3">{member.role}</div>
                   <p className="text-sm text-muted-foreground mb-4">{member.bio}</p>
                   <a href={member.linkedin} className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors">
                     <Linkedin className="w-4 h-4" />
