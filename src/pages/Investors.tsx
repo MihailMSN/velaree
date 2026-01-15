@@ -278,11 +278,9 @@ const Investors = () => {
                   <div className="text-sm text-primary font-medium mb-3">{member.role}</div>
                   <p className="text-sm text-muted-foreground mb-4">{member.bio}</p>
                   <div className="flex flex-wrap justify-center gap-2 mb-4">
-                    {member.skills.map((skill, skillIndex) => (
-                      <span key={skillIndex} className="text-xs px-2 py-1 bg-muted rounded-full text-muted-foreground">
+                    {member.skills.map((skill, skillIndex) => <span key={skillIndex} className="text-xs px-2 py-1 bg-muted rounded-full text-muted-foreground">
                         {skill}
-                      </span>
-                    ))}
+                      </span>)}
                   </div>
                   <a href={member.linkedin} className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors">
                     <Linkedin className="w-4 h-4" />
@@ -305,10 +303,7 @@ const Investors = () => {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/pitch-deck">
-                <Button size="lg" variant="secondary" className="w-full sm:w-auto rounded-full px-8">
-                  <Presentation className="mr-2 h-5 w-5" />
-                  View Full Pitch Deck
-                </Button>
+                
               </Link>
               <Link to="/contact">
                 <Button size="lg" variant="outline" className="w-full sm:w-auto rounded-full px-8 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
