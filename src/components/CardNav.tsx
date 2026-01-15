@@ -4,7 +4,7 @@ import {
   ArrowUpRight, User, LogOut, LayoutDashboard, 
   Layers, Link as LinkIcon, Plane, Building2,
   Code, CreditCard, FileText, HelpCircle,
-  Mail, LogIn, Shield, LucideIcon
+  Mail, LogIn, Shield, LucideIcon, Rocket, Presentation
 } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
@@ -87,10 +87,12 @@ const CardNav = ({ className = '', ease = 'power3.out' }: CardNavProps) => {
       bgColor: 'linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(0 0% 97%) 50%, hsl(0 0% 95%) 100%)',
       textColor: 'hsl(var(--foreground))',
       links: [
+        { label: 'Investors', href: '/investors', ariaLabel: 'Investor Information', icon: Rocket, iconColor: 'hsl(30, 80%, 55%)' },
+        { label: 'Pitch Deck', href: '/pitch-deck', ariaLabel: 'Pitch Deck', icon: Presentation, iconColor: 'hsl(var(--feature-purple))' },
         { label: 'Contact', href: '/contact', ariaLabel: 'Contact Page', icon: Mail, iconColor: 'hsl(var(--feature-blue))' },
         ...(user
-          ? [{ label: 'Dashboard', href: '/dashboard', ariaLabel: 'User Dashboard', icon: LayoutDashboard, iconColor: 'hsl(var(--feature-purple))' }]
-          : [{ label: 'Sign In', href: '/auth', ariaLabel: 'Sign In', icon: LogIn, iconColor: 'hsl(var(--feature-emerald))' }]),
+          ? [{ label: 'Dashboard', href: '/dashboard', ariaLabel: 'User Dashboard', icon: LayoutDashboard, iconColor: 'hsl(var(--feature-emerald))' }]
+          : []),
         ...(isPlatformAdmin
           ? [{ label: 'Admin Panel', href: '/admin', ariaLabel: 'Admin Panel', icon: Shield, iconColor: 'hsl(var(--feature-amber))' }]
           : []),

@@ -8,7 +8,7 @@ const PreSeedBanner = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="bg-gradient-to-r from-amber-500 via-amber-600 to-orange-500 text-white relative z-50">
+    <div className="bg-gradient-to-r from-amber-500 via-amber-600 to-orange-500 text-white relative" style={{ zIndex: 60 }}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-center gap-3 py-2.5 text-sm">
           <div className="hidden sm:flex items-center gap-2">
@@ -20,7 +20,7 @@ const PreSeedBanner = () => {
             Pre-Seed Round Open
           </span>
           <span className="hidden md:inline text-white/90">—</span>
-          <span className="hidden md:inline text-white/90">We're seeking investment partners to bring Velaree to market</span>
+          <span className="hidden md:inline text-white/90">Raising €400K to bring Velaree to market</span>
           <Link 
             to="/investors" 
             className="ml-2 inline-flex items-center gap-1 px-3 py-1 bg-white/20 hover:bg-white/30 rounded-full font-medium transition-colors text-xs sm:text-sm"
