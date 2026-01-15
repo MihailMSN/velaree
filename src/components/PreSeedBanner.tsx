@@ -3,7 +3,7 @@ import { Rocket, ArrowRight } from "lucide-react";
 
 const PreSeedBanner = () => {
   return (
-    <div className="bg-gradient-to-r from-amber-500 via-amber-600 to-orange-500 text-white relative" style={{ zIndex: 60 }}>
+    <div className="fixed top-0 left-0 right-0 bg-gradient-to-r from-amber-500 via-amber-600 to-orange-500 text-white" style={{ zIndex: 60 }}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-center gap-3 py-2.5 text-sm">
           <div className="hidden sm:flex items-center gap-2">
