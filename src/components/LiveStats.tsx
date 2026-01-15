@@ -40,10 +40,10 @@ const LiveStats = () => {
           {/* Title */}
           <div className="text-center md:text-left">
             <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-primary-foreground mb-1 sm:mb-2">
-              Live Platform Activity
+              Platform Capabilities Demo
             </h3>
             <p className="text-primary-foreground/70 text-xs sm:text-sm">
-              Real-time metrics from our global network
+              Projected metrics based on our architecture
             </p>
           </div>
 
@@ -91,9 +91,9 @@ const LiveStats = () => {
 
         {/* Status Indicator */}
         <div className="flex items-center justify-center gap-2 mt-4 sm:mt-6">
-          <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
+          <div className="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></div>
           <span className="text-[10px] sm:text-xs text-primary-foreground/80">
-            All systems operational • 99.9% uptime
+            Demo environment • Pre-seed stage
           </span>
         </div>
       </div>

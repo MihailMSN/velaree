@@ -15,7 +15,7 @@ const Mission = () => {
             Why Velaree?
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Enterprise-grade technology powering next-generation travel infrastructure
+            Building enterprise-grade technology for next-generation travel infrastructure
           </p>
         </div>
 
@@ -26,11 +26,11 @@ const Mission = () => {
             </h3>
             
             <p className="text-xl text-muted-foreground mb-6 leading-relaxed">
-              We're transforming the travel industry through advanced automation and intelligent data connectivity. Our mission is to empower travel businesses with the technology they need to compete and scale in the modern era.
+              We're building technology to transform the travel industry through advanced automation and intelligent data connectivity. Our mission is to empower travel businesses with the tools they need to compete and scale in the modern era.
             </p>
             
             <p className="text-lg text-muted-foreground leading-relaxed">
-              From OTAs and TMCs to airlines and consolidators, we provide the infrastructure that makes complex travel operations simple, efficient, and profitable.
+              From OTAs and TMCs to airlines and consolidators, we're creating the infrastructure that will make complex travel operations simple, efficient, and profitable.
             </p>
           </div>
           

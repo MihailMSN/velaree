@@ -84,10 +84,10 @@ const CTA = () => {
           <div className="mt-8 flex flex-wrap justify-center gap-6 text-sm text-primary-foreground/70">
             <div className="flex items-center gap-2">
               <Users className="w-4 h-4" />
-              <span>50+ agencies on waitlist</span>
+              <span>Growing waitlist</span>
             </div>
             <span>•</span>
-            <span className="bg-transparent">No commitment required</span>
+            <span className="bg-transparent">Pre-seed funding open</span>
             <span>•</span>
             <span>Early adopter pricing</span>
           </div>

@@ -11,22 +11,22 @@ const Hero = () => {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-12">
           {/* Left Column - Text Content */}
           <div className="max-w-2xl text-center lg:text-left animate-fade-in lg:w-1/2 pt-20 lg:pt-0">
-            {/* rsTool Launch Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-700 text-sm font-medium mb-6 animate-pulse">
+            {/* Pre-Seed Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-700 text-sm font-medium mb-6 animate-pulse">
               <Sparkles className="w-4 h-4" />
-              <span>rsTool launching Q3-Q4 2026 • Our flagship AI repricing platform</span>
+              <span>Pre-Seed Stage • Seeking Investment Partners</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-primary mb-4 sm:mb-6 leading-tight">
-              The Travel API That Delivers
+              The Future of Travel Technology
             </h1>
             
             <p className="text-lg sm:text-xl md:text-2xl text-primary/80 mb-6 sm:mb-8 font-light">
-              200+ airlines. Sub-500ms response. 99.9% uptime. Process millions of bookings with private fares, intelligent automation, and enterprise-grade infrastructure.
+              Building next-gen infrastructure for 200+ airlines. Targeting sub-500ms response, 99.9% uptime, and enterprise-scale automation.
             </p>
 
             <p className="text-base sm:text-lg md:text-xl text-primary/70 mb-8 sm:mb-12">
-              Trusted by leading OTAs, TMCs, and travel platforms worldwide
+              Built for leading OTAs, TMCs, and travel platforms ready to lead
             </p>
             
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start items-center">
@@ -53,15 +53,15 @@ const Hero = () => {
             </div>
 
             <div className="mt-6 sm:mt-8 flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4 text-xs sm:text-sm text-primary/60">
-              <span>✓ No credit card required</span>
-              <span>✓ 10-minute setup</span>
-              <span>✓ Full API access</span>
+              <span>✓ Working prototype demo</span>
+              <span>✓ Pre-seed funding round</span>
+              <span>✓ Early adopter access</span>
             </div>
 
             {/* Partner Logos */}
             <div className="mt-8 sm:mt-10">
               <p className="text-xs text-primary/50 mb-4 text-center lg:text-left uppercase tracking-wider">
-                Integrated with leading GDS providers
+                Designed to integrate with leading GDS providers
               </p>
               <div className="flex flex-wrap justify-center lg:justify-start items-center gap-6 sm:gap-8 opacity-60 grayscale hover:grayscale-0 hover:opacity-80 transition-all duration-500">
                 <img src="/logos/amadeus.png" alt="Amadeus" className="h-6 sm:h-7 object-contain" />
