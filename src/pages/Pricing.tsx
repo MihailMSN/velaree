@@ -191,7 +191,7 @@ const Pricing = () => {
                 </div>
                 <h2 className="text-3xl font-bold mb-2">rsTool Pricing</h2>
                 <p className="text-muted-foreground">
-                  Save 15-40% on airfares with automated re-shopping
+                  Save 5-15% on airfares with automated re-shopping
                 </p>
               </div>
 
@@ -248,7 +248,7 @@ const Pricing = () => {
                 </div>
                 <h2 className="text-3xl font-bold mb-2">hsTool Pricing</h2>
                 <p className="text-muted-foreground">
-                  Save 20-35% on hotel bookings with automated rate monitoring
+                  Save 5-15% on hotel bookings with automated rate monitoring
                 </p>
               </div>
 

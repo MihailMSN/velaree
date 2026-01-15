@@ -23,7 +23,7 @@ const CoverSlide = () => (
     
     <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 mb-4 sm:mb-6">
       <span className="px-3 py-1 sm:px-4 sm:py-1.5 rounded-full bg-primary/10 text-primary text-xs sm:text-sm font-medium border border-primary/20">
-        Est. 2024
+        Est. Q4 2025
       </span>
       <span className="px-3 py-1 sm:px-4 sm:py-1.5 rounded-full bg-accent text-accent-foreground text-xs sm:text-sm font-medium">
         Pre-Seed Stage
@@ -495,7 +495,7 @@ const ProductsSlide = () => (
             </div>
           </div>
           <p className="text-sm text-muted-foreground mb-3 sm:mb-4">
-            Automatically monitor and apply lower fares to existing bookings, saving travel agencies 15-30% per ticket on average.
+            Automatically monitor and apply lower fares to existing bookings, saving travel agencies 5-15% per ticket on average.
           </p>
           <div className="grid grid-cols-2 gap-2 sm:gap-3">
             {["AI-powered fare monitoring", "Automated rebooking", "Real-time savings alerts", "GDS integration"].map(feature => (
@@ -1256,7 +1256,7 @@ const RStoolDeepDiveSlide = () => (
           title: "Smart Fare Monitoring",
           desc: "AI continuously scans for lower fares across 200+ airlines, 24/7 automated monitoring",
           Icon: BarChart3,
-          metric: "15-30%",
+          metric: "5-15%",
           metricLabel: "Avg. savings per ticket"
         }, {
           title: "One-Click Rebooking",

@@ -186,7 +186,7 @@ const HRSTool = () => {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
               <div>
-                <div className="text-4xl font-bold text-primary mb-2">15-25%</div>
+                <div className="text-4xl font-bold text-primary mb-2">5-15%</div>
                 <div className="text-sm text-muted-foreground">Average Savings per Booking</div>
               </div>
               <div>
