@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./contexts/AuthContext";
 import ScrollToTop from "./components/ScrollToTop";
+import PreSeedBanner from "./components/PreSeedBanner";
 import Index from "./pages/Index";
 import Technology from "./pages/Technology";
 import ASuite from "./pages/ASuite";
@@ -22,6 +23,7 @@ import BlogPost from "./pages/BlogPost";
 import Author from "./pages/Author";
 import NotFound from "./pages/NotFound";
 import PitchDeck from "./pages/PitchDeck";
+import Investors from "./pages/Investors";
 
 const queryClient = new QueryClient();
 
@@ -31,6 +33,7 @@ const App = () => (
     <Sonner />
     <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <AuthProvider>
+        <PreSeedBanner />
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
@@ -49,6 +52,7 @@ const App = () => (
           <Route path="/blog/:id" element={<BlogPost />} />
           <Route path="/blog/author/:authorName" element={<Author />} />
           <Route path="/pitch-deck" element={<PitchDeck />} />
+          <Route path="/investors" element={<Investors />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
