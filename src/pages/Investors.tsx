@@ -17,7 +17,10 @@ import {
   Presentation,
   Mail,
   Linkedin,
-  CheckCircle2
+  CheckCircle2,
+  Calendar,
+  Bot,
+  Plug
 } from "lucide-react";
 
 const teamMembers = [
@@ -43,20 +46,20 @@ const teamMembers = [
 
 const marketOpportunity = [
   { metric: "$800B+", label: "Global Air Travel Market" },
-  { metric: "15%", label: "Average Ticket Repricing Opportunity" },
-  { metric: "$120B", label: "Addressable Market for Savings" },
-  { metric: "50K+", label: "Travel Agencies Worldwide" }
+  { metric: "200+", label: "Airlines to Connect" },
+  { metric: "4", label: "Products in Development" },
+  { metric: "18mo", label: "Runway with Funding" }
 ];
 
 const fundingDetails = {
   round: "Pre-Seed",
-  target: "$500K - $750K",
+  target: "€400K",
   use: [
     "Product development and MVP completion",
     "GDS integrations (Amadeus, Sabre, Travelport)",
     "Initial team expansion (3-4 key hires)",
-    "Pilot program with 5-10 travel agencies",
-    "Regulatory compliance and certifications"
+    "Beta program with 5-10 travel agencies",
+    "Infrastructure and security certifications"
   ],
   timeline: [
     { phase: "Q1 2025", milestone: "Close pre-seed round" },
@@ -71,23 +74,30 @@ const investmentThesis = [
   {
     icon: Target,
     title: "Large Market Opportunity",
-    description: "The travel industry leaves billions on the table through inefficient fare management. Velaree captures this through AI-powered repricing."
+    description: "The travel industry loses billions annually through inefficient fare management. Velaree captures this through AI-powered repricing."
   },
   {
-    icon: Zap,
-    title: "Technology Moat",
-    description: "Our unified API approach and AI algorithms create defensible IP, reducing integration complexity from months to days."
+    icon: Plug,
+    title: "Unified API Approach",
+    description: "Single integration to access 200+ airlines and all major GDS systems, reducing complexity from months to weeks."
   },
   {
-    icon: TrendingUp,
-    title: "Proven Business Model",
-    description: "Revenue-share model aligns incentives—we only make money when we save our customers money. High retention, low churn."
+    icon: Bot,
+    title: "AI-Powered Automation",
+    description: "70% less manual work through intelligent workflows handling ticketing, changes, and notifications automatically."
   },
   {
     icon: Globe,
     title: "Scalable Architecture",
     description: "Cloud-native platform designed to handle millions of PNRs. Each new customer improves our AI through network effects."
   }
+];
+
+const productRoadmap = [
+  { name: "rsTool", desc: "AI-powered PNR repricing", timeline: "Q3-Q4 2026", status: "In Development" },
+  { name: "hsTool", desc: "Hotel re-shopping platform", timeline: "Q1-Q2 2027", status: "Planned" },
+  { name: "aSuite", desc: "AI automation workflows", timeline: "Q3-Q4 2027", status: "Planned" },
+  { name: "UnifyTool", desc: "Universal GDS API", timeline: "Q3-Q4 2027", status: "Planned" }
 ];
 
 const Investors = () => {
@@ -97,7 +107,7 @@ const Investors = () => {
         <title>Investors - Velaree | Pre-Seed Investment Opportunity</title>
         <meta 
           name="description" 
-          content="Invest in Velaree's pre-seed round. We're building next-generation travel technology to capture the $120B+ airline repricing opportunity." 
+          content="Invest in Velaree's €400K pre-seed round. We're building next-generation travel technology with AI-powered automation and unified GDS integration." 
         />
         <link rel="canonical" href="https://velaree.com/investors" />
       </Helmet>
@@ -113,14 +123,14 @@ const Investors = () => {
             <div className="text-center">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-700 mb-6">
                 <Rocket className="w-4 h-4" />
-                <span className="text-sm font-medium">Pre-Seed Round Open</span>
+                <span className="text-sm font-medium">Pre-Seed Round Open • Est. 2024</span>
               </div>
               
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-foreground">
                 Invest in the Future of Travel Technology
               </h1>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-                We're raising our pre-seed round to bring AI-powered travel automation to market. Join us in capturing the $120B+ airline repricing opportunity.
+                We're raising <span className="font-bold text-primary">€400K</span> to build AI-powered travel automation and unified GDS integration. Join us in transforming how travel businesses operate.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -133,7 +143,7 @@ const Investors = () => {
                 <Link to="/contact">
                   <Button size="lg" variant="outline" className="w-full sm:w-auto rounded-full px-8">
                     <Mail className="mr-2 h-5 w-5" />
-                    Contact Us
+                    Schedule a Call
                   </Button>
                 </Link>
               </div>
@@ -141,12 +151,12 @@ const Investors = () => {
           </div>
         </section>
 
-        {/* Market Opportunity */}
+        {/* Key Metrics */}
         <section className="py-16 px-4 bg-muted/30">
           <div className="container mx-auto max-w-6xl">
-            <h2 className="text-3xl font-bold text-center mb-4">Market Opportunity</h2>
+            <h2 className="text-3xl font-bold text-center mb-4">The Opportunity</h2>
             <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
-              The travel industry is ripe for disruption. Airlines and agencies lose billions annually to inefficient fare management.
+              Building next-generation travel technology for a massive underserved market
             </p>
             
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -189,8 +199,37 @@ const Investors = () => {
           </div>
         </section>
 
+        {/* Product Roadmap */}
+        <section className="py-16 px-4 bg-muted/30">
+          <div className="container mx-auto max-w-6xl">
+            <h2 className="text-3xl font-bold text-center mb-4">Product Roadmap</h2>
+            <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
+              Four products building a comprehensive travel technology platform
+            </p>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {productRoadmap.map((product, index) => (
+                <Card key={index} className={`p-6 ${index === 0 ? 'border-2 border-primary/50 bg-primary/5' : ''}`}>
+                  <div className="flex items-center justify-between mb-3">
+                    <span className={`text-xs font-medium px-2 py-1 rounded-full ${
+                      product.status === 'In Development' 
+                        ? 'bg-emerald-500/10 text-emerald-600' 
+                        : 'bg-muted text-muted-foreground'
+                    }`}>
+                      {product.status}
+                    </span>
+                    <span className="text-xs text-muted-foreground">{product.timeline}</span>
+                  </div>
+                  <h3 className="text-xl font-bold mb-2">{product.name}</h3>
+                  <p className="text-sm text-muted-foreground">{product.desc}</p>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Funding Details */}
-        <section className="py-16 px-4 bg-gradient-to-b from-muted/30 to-background">
+        <section className="py-16 px-4">
           <div className="container mx-auto max-w-6xl">
             <div className="grid lg:grid-cols-2 gap-12">
               {/* Funding Info */}
@@ -201,11 +240,18 @@ const Investors = () => {
                   <div className="px-4 py-2 bg-amber-500/10 border border-amber-500/30 rounded-full">
                     <span className="font-semibold text-amber-700">{fundingDetails.round}</span>
                   </div>
-                  <div className="text-2xl font-bold">{fundingDetails.target}</div>
+                  <div className="text-3xl font-bold text-primary">{fundingDetails.target}</div>
+                </div>
+                
+                <div className="mb-4 p-4 bg-primary/5 rounded-xl border border-primary/20">
+                  <div className="flex items-center gap-2 text-primary font-medium">
+                    <Calendar className="w-5 h-5" />
+                    <span>18-month runway post-funding</span>
+                  </div>
                 </div>
                 
                 <h3 className="text-lg font-semibold mb-4">Use of Funds</h3>
-                <ul className="space-y-3 mb-8">
+                <ul className="space-y-3">
                   {fundingDetails.use.map((item, index) => (
                     <li key={index} className="flex items-start gap-3">
                       <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
@@ -217,7 +263,7 @@ const Investors = () => {
               
               {/* Timeline */}
               <div>
-                <h2 className="text-3xl font-bold mb-6">Roadmap</h2>
+                <h2 className="text-3xl font-bold mb-6">Milestones</h2>
                 
                 <div className="relative">
                   <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-border" />
@@ -242,7 +288,7 @@ const Investors = () => {
         </section>
 
         {/* Team Section */}
-        <section className="py-16 px-4">
+        <section className="py-16 px-4 bg-muted/30">
           <div className="container mx-auto max-w-5xl">
             <h2 className="text-3xl font-bold text-center mb-4">Leadership Team</h2>
             <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
