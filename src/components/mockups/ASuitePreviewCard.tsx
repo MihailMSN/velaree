@@ -23,9 +23,9 @@ const ASuitePreviewCard = () => {
             <h3 className="text-sm font-semibold text-foreground">aSuite Dashboard</h3>
             <p className="text-xs text-muted-foreground">Automation & CRM Platform</p>
           </div>
-          <div className="flex items-center gap-1 px-2 py-1 bg-emerald-100 rounded text-xs text-emerald-700">
-            <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
-            Live
+          <div className="flex items-center gap-1 px-2 py-1 bg-amber-100 rounded text-xs text-amber-700">
+            <span className="w-1.5 h-1.5 bg-amber-500 rounded-full animate-pulse"></span>
+            Demo
           </div>
         </div>
 

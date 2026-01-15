@@ -7,26 +7,26 @@ const techFeatures = [
   {
     icon: Code2,
     title: "RESTful JSON API",
-    description: "Clean, intuitive API that developers love. Get started in 10 minutes with SDKs for Node, Python, and PHP.",
-    metric: "10-min integration"
+    description: "Building a clean, intuitive API that developers will love. SDKs planned for Node, Python, and PHP.",
+    metric: "Developer-first"
   },
   {
     icon: Cpu,
-    title: "Sub-500ms Response Time",
-    description: "Lightning-fast search across 200+ airlines with intelligent caching and optimized routing algorithms.",
-    metric: "<500ms avg"
+    title: "Sub-500ms Response Target",
+    description: "Designing for lightning-fast search across 200+ airlines with intelligent caching and optimized routing.",
+    metric: "Target: <500ms"
   },
   {
     icon: Shield,
-    title: "SOC 2 & PCI DSS Certified",
-    description: "Enterprise-grade security with end-to-end encryption, OAuth 2.0 authentication, and TLS 1.3.",
-    metric: "Bank-level security"
+    title: "Targeting SOC 2 & PCI DSS",
+    description: "Building enterprise-grade security with end-to-end encryption, OAuth 2.0 authentication, and TLS 1.3.",
+    metric: "Security-first design"
   },
   {
     icon: Rocket,
-    title: "99.9% Uptime SLA",
-    description: "Multi-region redundancy with automatic failover. Built to handle 10,000 requests per second.",
-    metric: "24/7 monitoring"
+    title: "Designed for 99.9% Uptime",
+    description: "Multi-region architecture with automatic failover. Built to handle 10,000 requests per second.",
+    metric: "Enterprise-ready"
   }
 ];
 

@@ -176,16 +176,16 @@ const SearchAvailabilityMockup = () => {
           </Button>
         </Card>
 
-        {/* Real-time Status Bar */}
+        {/* Demo Status Bar */}
         <div className="flex items-center gap-4 mb-6 px-4 py-3 bg-muted/30 rounded-lg border border-border">
           <div className="flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-            <span className="text-xs font-medium text-foreground">Live Availability</span>
+            <div className="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></div>
+            <span className="text-xs font-medium text-foreground">Demo Preview</span>
           </div>
           <div className="h-4 w-px bg-border"></div>
-          <span className="text-xs text-muted-foreground">Searching GDS, LCC, and Direct Connections</span>
+          <span className="text-xs text-muted-foreground">Simulated GDS, LCC, and Direct Connections</span>
           <div className="h-4 w-px bg-border"></div>
-          <span className="text-xs font-semibold text-accent-foreground">247 flights found in 438ms</span>
+          <span className="text-xs font-semibold text-accent-foreground">Sample: 247 flights in 438ms</span>
         </div>
 
         {/* Results */}

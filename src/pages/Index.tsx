@@ -15,19 +15,19 @@ import BackToTop from "@/components/BackToTop";
 const Index = () => {
   return <div className="min-h-screen bg-background">
       <Helmet>
-        <title>Velaree - Next-Generation Travel Technology Solutions</title>
-        <meta name="description" content="Enterprise travel software for OTAs, TMCs, and airlines. Instant booking, private fares, automation, and re-shopping tools. Transform your travel operations today." />
-        <meta name="keywords" content="travel technology, OTA software, TMC platform, airline booking system, travel automation, GDS integration, private fares, NDC content" />
+        <title>Velaree - Building the Future of Travel Technology | Pre-Seed</title>
+        <meta name="description" content="Pre-seed travel technology startup building enterprise software for OTAs, TMCs, and airlines. AI-powered booking, automation, and re-shopping tools launching 2026." />
+        <meta name="keywords" content="travel technology startup, OTA software, TMC platform, airline booking system, travel automation, GDS integration, private fares, pre-seed startup" />
         <link rel="canonical" href="https://velaree.com/" />
         
-        <meta property="og:title" content="Velaree - Next-Generation Travel Technology Solutions" />
-        <meta property="og:description" content="Enterprise travel software for OTAs, TMCs, and airlines. Transform your operations with instant booking, automation, and AI-powered tools." />
+        <meta property="og:title" content="Velaree - Building the Future of Travel Technology" />
+        <meta property="og:description" content="Pre-seed travel tech startup building enterprise software for OTAs, TMCs, and airlines. Seeking investment partners." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://velaree.com/" />
         
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Velaree - Next-Generation Travel Technology Solutions" />
-        <meta name="twitter:description" content="Enterprise travel software for OTAs, TMCs, and airlines. Transform your operations with instant booking, automation, and AI-powered tools." />
+        <meta name="twitter:title" content="Velaree - Building the Future of Travel Technology" />
+        <meta name="twitter:description" content="Pre-seed travel tech startup building enterprise software for OTAs, TMCs, and airlines. Seeking investment partners." />
         
         <script type="application/ld+json">
           {JSON.stringify({
@@ -37,7 +37,7 @@ const Index = () => {
           "url": "https://velaree.com",
           "logo": "https://velaree.com/logo.png",
           "description": "Enterprise travel technology solutions for OTAs, TMCs, and airlines",
-          "foundingDate": "2020",
+          "foundingDate": "2024",
           "contactPoint": {
             "@type": "ContactPoint",
             "contactType": "Sales",

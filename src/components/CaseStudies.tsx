@@ -5,37 +5,37 @@ import { Link } from "react-router-dom";
 const caseStudies = [
   {
     icon: Users,
-    customerType: "Leading European OTA",
+    customerType: "Projected: European OTA Scenario",
     challenge: "Processing 15,000+ monthly bookings with high error rates and customer complaints",
-    solution: "Integrated Velaree's unified API to consolidate 8 different GDS connections into one",
+    solution: "Velaree's unified API will consolidate multiple GDS connections into one streamlined integration",
     results: [
-      { metric: "84%", label: "Reduction in booking errors" },
+      { metric: "84%", label: "Projected error reduction" },
       { metric: "5,000+", label: "Monthly automated bookings" },
-      { metric: "20hrs", label: "Saved per week" }
+      { metric: "20hrs", label: "Estimated weekly savings" }
     ],
     industry: "Online Travel Agency"
   },
   {
     icon: TrendingUp,
-    customerType: "Corporate TMC (500+ Clients)",
+    customerType: "Projected: Corporate TMC Scenario",
     challenge: "Unable to offer competitive business class fares, losing corporate accounts",
-    solution: "Deployed private fare access and automated corporate booking portal via Velaree",
+    solution: "Private fare access and automated corporate booking portal will unlock new revenue streams",
     results: [
-      { metric: "28%", label: "Average fare savings" },
-      { metric: "3x", label: "Growth in premium bookings" },
-      { metric: "$2.4M", label: "Additional annual revenue" }
+      { metric: "28%", label: "Projected fare savings" },
+      { metric: "3x", label: "Potential booking growth" },
+      { metric: "$2.4M", label: "Estimated annual impact" }
     ],
     industry: "Travel Management"
   },
   {
     icon: Clock,
-    customerType: "Asia-Pacific Consolidator",
+    customerType: "Projected: Consolidator Scenario",
     challenge: "Manual ticketing processes causing 48-hour fulfillment delays and high costs",
-    solution: "Implemented Velaree automation suite for instant ticketing and schedule management",
+    solution: "Velaree automation suite designed for instant ticketing and schedule management",
     results: [
-      { metric: "<2min", label: "Average ticket issuance" },
-      { metric: "92%", label: "Reduction in support tickets" },
-      { metric: "60%", label: "Lower operational costs" }
+      { metric: "<2min", label: "Target ticket issuance" },
+      { metric: "92%", label: "Projected ticket reduction" },
+      { metric: "60%", label: "Estimated cost savings" }
     ],
     industry: "Flight Consolidation"
   }
@@ -47,10 +47,13 @@ const CaseStudies = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Real Results from Real Customers
+            Projected Impact Scenarios
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            See how travel companies are transforming their operations with Velaree
+            See the transformation potential for travel companies using Velaree
+          </p>
+          <p className="text-sm text-muted-foreground/70 mt-2 italic">
+            *Based on industry benchmarks and our technology capabilities
           </p>
         </div>
 
@@ -118,13 +121,13 @@ const CaseStudies = () => {
         {/* CTA */}
         <div className="text-center mt-12 animate-fade-in" style={{ animationDelay: "0.5s" }}>
           <p className="text-muted-foreground mb-4">
-            Want to achieve similar results for your business?
+            Want to be an early adopter and shape our product?
           </p>
           <Link 
             to="/contact"
             className="inline-flex items-center px-6 py-3 bg-primary text-primary-foreground rounded-full font-semibold hover:bg-primary/90 transition-all duration-300 hover:shadow-lg"
           >
-            Get Your Custom Strategy →
+            Join Early Access Program →
           </Link>
         </div>
       </div>

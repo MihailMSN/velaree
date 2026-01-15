@@ -1,19 +1,19 @@
 import { Bot, TrendingUp, Network } from "lucide-react";
 const pillars = [{
   icon: Bot,
-  title: "Automate 70% of Tasks",
-  description: "Intelligent automation handles ticketing, schedule changes, cancellations, and customer notifications automatically",
-  metric: "20hrs saved/week"
+  title: "Designed to Automate 70% of Tasks",
+  description: "Building intelligent automation to handle ticketing, schedule changes, cancellations, and customer notifications automatically",
+  metric: "Target: 20hrs/week"
 }, {
   icon: TrendingUp,
-  title: "Process 1M+ Bookings/Month",
-  description: "Enterprise-grade infrastructure that scales from day one with zero downtime and multi-region redundancy",
-  metric: "99.9% uptime SLA"
+  title: "Built to Process 1M+ Bookings/Month",
+  description: "Enterprise-grade architecture designed to scale from day one with zero downtime and multi-region redundancy",
+  metric: "Target: 99.9% uptime"
 }, {
   icon: Network,
-  title: "Search 10x More Inventory",
-  description: "Unified API connecting 200+ airlines, all major GDS systems, and exclusive private fare sources in one call",
-  metric: "<500ms response"
+  title: "Access 10x More Inventory",
+  description: "Unified API designed to connect 200+ airlines, all major GDS systems, and exclusive private fare sources in one call",
+  metric: "Target: <500ms"
 }];
 const ValuePillars = () => {
   return <div className="grid md:grid-cols-3 gap-8">

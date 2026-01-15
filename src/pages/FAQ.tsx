@@ -31,22 +31,22 @@ const FAQ = () => {
     {
       category: "Company & Services",
       question: "What is Velaree?",
-      answer: "Velaree is a leading travel technology company specializing in innovative reservation and booking solutions for the aviation and travel industry. We provide cutting-edge tools and APIs that streamline operations, enhance customer experiences, and drive revenue growth for airlines, travel agencies, and hospitality providers."
+      answer: "Velaree is an early-stage travel technology startup developing innovative reservation and booking solutions for the aviation and travel industry. We're building cutting-edge tools and APIs designed to streamline operations, enhance customer experiences, and drive revenue growth for airlines, travel agencies, and hospitality providers. We are currently in our pre-seed funding stage."
     },
     {
       category: "Company & Services",
       question: "What services does Velaree offer?",
-      answer: "Velaree offers a comprehensive suite of travel technology solutions including rsTool (automated reservation system), hsTool (hotel reservation system), custom API integrations, real-time availability search, automated booking workflows, and enterprise-grade travel management platforms. Our solutions are designed to scale with your business needs."
+      answer: "Velaree is building a comprehensive suite of travel technology solutions including rsTool (AI-powered PNR repricing launching Q3-Q4 2026), hsTool (hotel re-shopping), aSuite (automation platform), and UnifyTool (universal GDS API). Our solutions are being designed to scale with your business needs."
     },
     {
       category: "Company & Services",
-      question: "Who are Velaree's typical customers?",
-      answer: "Our customers include airlines, travel agencies, online travel agencies (OTAs), tour operators, corporate travel management companies, hospitality providers, and travel technology platforms. We serve businesses of all sizes, from startups to enterprise organizations managing millions of bookings annually."
+      question: "Who are Velaree's target customers?",
+      answer: "Our target customers include airlines, travel agencies, online travel agencies (OTAs), tour operators, corporate travel management companies, hospitality providers, and travel technology platforms. We're building solutions for businesses of all sizes, from startups to enterprise organizations."
     },
     {
       category: "Company & Services",
       question: "What makes Velaree different from competitors?",
-      answer: "Velaree stands out through our innovative approach combining AI-powered automation, real-time processing, seamless integrations, and industry-leading uptime (99.9% SLA). Our solutions are built on modern cloud infrastructure, offer comprehensive API documentation, and are backed by 24/7 expert support. We focus on reducing operational costs while maximizing efficiency and revenue opportunities."
+      answer: "Velaree is building a differentiated approach combining AI-powered automation, real-time processing, seamless integrations, and enterprise-grade architecture designed for 99.9% uptime. Our solutions are being built on modern cloud infrastructure with comprehensive API documentation planned. We're focused on reducing operational costs while maximizing efficiency and revenue opportunities."
     },
     
     // Implementation & Integration
