@@ -10,14 +10,14 @@ const teamMembers = [{
   initials: "MM",
   role: "CEO & Co-Founder",
   bio: "10+ years travel tech leadership. Built and scaled travel platforms. Expert in product strategy and business development.",
-  linkedin: "#",
+  linkedin: "https://www.linkedin.com/in/mihail-m-456922386/",
   skills: ["Product Strategy", "Business Development", "Fundraising"]
 }, {
   name: "Mihail Sinitari",
   initials: "MS",
   role: "COO & Co-Founder",
   bio: "8+ years operations experience. Expert in scaling operations and building strategic partnerships.",
-  linkedin: "#",
+  linkedin: "https://www.linkedin.com/in/mihailmarksn/",
   skills: ["Operations", "Partnerships", "Scaling"]
 }];
 const marketOpportunity = [{

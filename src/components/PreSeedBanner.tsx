@@ -1,12 +1,7 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Rocket, X, ArrowRight } from "lucide-react";
+import { Rocket, ArrowRight } from "lucide-react";
 
 const PreSeedBanner = () => {
-  const [isVisible, setIsVisible] = useState(true);
-
-  if (!isVisible) return null;
-
   return (
     <div className="bg-gradient-to-r from-amber-500 via-amber-600 to-orange-500 text-white relative" style={{ zIndex: 60 }}>
       <div className="container mx-auto px-4">
@@ -30,13 +25,6 @@ const PreSeedBanner = () => {
           </Link>
         </div>
       </div>
-      <button
-        onClick={() => setIsVisible(false)}
-        className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 p-1 hover:bg-white/20 rounded transition-colors"
-        aria-label="Close banner"
-      >
-        <X className="w-4 h-4" />
-      </button>
     </div>
   );
 };
